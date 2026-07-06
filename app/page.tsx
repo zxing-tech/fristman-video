@@ -1,19 +1,253 @@
-import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
 
-export default function Page() {
+import { MaterialIcon } from "@/components/site/material-icon"
+import { SectionLabel } from "@/components/site/section-label"
+import { CtaButton } from "@/components/site/cta-button"
+import { ServiceCard } from "@/components/site/service-card"
+
+export const metadata: Metadata = {
+  description:
+    "Cinematic UAV and ground-based visual documentation. Precision data capture, safety-first deployment, and high-fidelity deliverables for the energy and industrial sectors.",
+}
+
+const trustLogos = ["PETROFAC", "MAHB", "SYNDEL ASIA", "BEN LINE", "LIVESCAPE", "ECOBALANCE", "SERVISHERO"]
+
+const serviceCards = [
+  {
+    icon: "videocam",
+    title: "Industrial Cinematography",
+    summary:
+      "High-end cinematic production for corporate communications, marketing, and investor relations within heavy industry.",
+    href: "/services/industrial-cinematography",
+  },
+  {
+    icon: "domain",
+    title: "Large-Scale Facility Overviews",
+    summary:
+      "Comprehensive aerial and ground mapping of extensive industrial complexes, refineries, and fabrication yards.",
+    href: "/services/facility-overview-films",
+  },
+  {
+    icon: "timelapse",
+    title: "Aerial Progression & Timelapses",
+    summary:
+      "Long-term visual documentation of construction and engineering projects to track progress and milestones.",
+    href: "/services/progression-timelapse",
+  },
+  {
+    icon: "inventory_2",
+    title: "Visual Asset Documentation",
+    summary:
+      "Systematic photographic and video recording of critical infrastructure assets for maintenance and archival purposes.",
+    href: "/services/visual-documentation",
+  },
+  {
+    icon: "flight",
+    title: "Cinematic FPV Fly-Throughs",
+    summary:
+      "Dynamic, immersive first-person view drone tours of complex industrial environments and offshore platforms.",
+    href: "/services/fpv-fly-throughs",
+  },
+  {
+    icon: "analytics",
+    title: "Inspection Reports & Data Delivery",
+    summary:
+      "Structured delivery of high-resolution visual data integrated into comprehensive inspection reports.",
+    href: "/services/industrial-photography",
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <>
+      {/* Hero Section */}
+      <header className="relative w-full min-h-[921px] flex items-center justify-center pt-24 overflow-hidden">
+        {/* Cinematic Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="bg-cover bg-center w-full h-full opacity-40"
+            style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="scanning-line z-10" />
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+        <div className="relative z-20 max-w-[1280px] mx-auto px-8 w-full flex flex-col md:flex-row gap-12 items-center">
+          <div className="w-full md:w-3/5 space-y-8">
+            <SectionLabel withLine>Industrial Visual Data</SectionLabel>
+            <h1 className="font-headline font-black text-5xl md:text-7xl leading-[1.1] tracking-tight">
+              Industrial Cinematography for <span className="text-primary">Oil & Gas</span> and Heavy
+              Industry
+            </h1>
+            <p className="font-body text-industrial-grey text-lg max-w-2xl leading-relaxed">
+              Cinematic UAV and ground-based visual documentation. Precision data capture, safety-first
+              deployment, and high-fidelity deliverables for the energy and industrial sectors.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <CtaButton href="/contact" arrow className="w-full sm:w-fit">
+                Request a Consultation
+              </CtaButton>
+              <CtaButton href="/case-studies" variant="secondary" className="w-full sm:w-fit">
+                View Case Studies
+              </CtaButton>
+            </div>
+          </div>
+          <div className="w-full md:w-2/5">
+            <div className="glass-panel rounded-2xl p-8 space-y-6 border-l-2 border-l-primary relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-20">
+                <MaterialIcon name="hub" className="text-6xl" />
+              </div>
+              <h3 className="font-headline font-bold text-xl mb-4 border-b border-white/10 pb-4">
+                Operational Footprint
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/20 flex items-center justify-center border border-primary/50">
+                    <MaterialIcon name="location_on" className="text-primary text-sm" />
+                  </div>
+                  <span className="font-label text-sm uppercase tracking-wider">
+                    Malaysia • Singapore • Indonesia • Brunei
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                    <MaterialIcon name="schedule" className="text-white text-sm" />
+                  </div>
+                  <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
+                    24 business-hour response
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                    <MaterialIcon name="verified_user" className="text-white text-sm" />
+                  </div>
+                  <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
+                    Certified Crews & Safety Compliant
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                    <MaterialIcon name="high_quality" className="text-white text-sm" />
+                  </div>
+                  <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
+                    YouTube-Ready High-Fidelity Deliverables
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </header>
+
+      {/* Trust Bar */}
+      <section className="w-full bg-dark-ui border-y border-white/5 py-10 overflow-hidden relative">
+        <div className="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-8 justify-between">
+          <span className="font-label uppercase tracking-widest text-xs font-bold text-industrial-grey whitespace-nowrap">
+            Trusted By Industry Leaders
+          </span>
+          <div className="flex gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto pb-4 md:pb-0 w-full justify-between items-center no-scrollbar">
+            {trustLogos.map((logo) =>
+              logo === "BEN LINE" ? (
+                <span
+                  key={logo}
+                  className="font-display font-bold text-xl tracking-tighter text-center leading-none whitespace-nowrap"
+                >
+                  BEN LINE
+                  <br />
+                  <span className="text-xs">AGENCIES</span>
+                </span>
+              ) : (
+                <span key={logo} className="font-display font-bold text-xl tracking-tighter whitespace-nowrap">
+                  {logo}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="w-full py-24 relative bg-background">
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="flex flex-col items-center mb-16 text-center">
+            <SectionLabel className="mb-4 block">Core Capabilities</SectionLabel>
+            <h2 className="font-headline font-black text-4xl md:text-5xl">Visual Intelligence Solutions</h2>
+            <div className="w-24 h-1 bg-primary mt-8" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {serviceCards.map((card) => (
+              <ServiceCard
+                key={card.title}
+                icon={card.icon}
+                title={card.title}
+                summary={card.summary}
+                href={card.href}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why First Man Videos (Bento Grid Style) */}
+      <section className="w-full py-24 bg-dark-ui border-y border-white/5 relative">
+        {/* Abstract background accent */}
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="mb-16">
+            <SectionLabel className="mb-4 block">The Advantage</SectionLabel>
+            <h2 className="font-headline font-black text-4xl md:text-5xl">Why First Man Videos</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
+            {/* Large Feature */}
+            <div className="md:col-span-2 glass-panel p-10 rounded-xl flex flex-col justify-end relative overflow-hidden group">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                style={{ backgroundImage: "url('/images/stitch/ba0390236d.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+              <div className="relative z-10">
+                <MaterialIcon name="shield" className="text-primary text-4xl mb-4 block" />
+                <h3 className="font-headline font-bold text-2xl mb-2">
+                  Safety-First Workflow & Compliance
+                </h3>
+                <p className="font-body text-industrial-grey max-w-lg">
+                  Rigorous adherence to strict HSE protocols. Our crews are certified for high-risk
+                  industrial and offshore deployments, ensuring seamless integration with your site
+                  operations.
+                </p>
+              </div>
+            </div>
+            {/* Small Feature 1 */}
+            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center">
+              <MaterialIcon name="factory" className="text-primary text-3xl mb-4 block" />
+              <h3 className="font-headline font-bold text-lg mb-2">Deep Industrial Site Awareness</h3>
+              <p className="font-body text-industrial-grey text-sm">
+                We understand the complex logistics and operational realities of heavy industry
+                environments.
+              </p>
+            </div>
+            {/* Small Feature 2 */}
+            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center">
+              <MaterialIcon name="photo_camera" className="text-primary text-3xl mb-4 block" />
+              <h3 className="font-headline font-bold text-lg mb-2">Integrated UAV + Ground Production</h3>
+              <p className="font-body text-industrial-grey text-sm">
+                Comprehensive multi-angle coverage combining aerial perspectives with detailed
+                ground-level cinematography.
+              </p>
+            </div>
+            {/* Small Feature 3 */}
+            <div className="md:col-span-2 glass-panel p-8 rounded-xl flex flex-col sm:flex-row gap-6 sm:items-center justify-between border-l-4 border-l-primary">
+              <div>
+                <h3 className="font-headline font-bold text-xl mb-2">Rapid Regional Deployment</h3>
+                <p className="font-body text-industrial-grey text-sm max-w-md">
+                  Strategically positioned to mobilize across Southeast Asia&apos;s key energy hubs
+                  efficiently.
+                </p>
+              </div>
+              <MaterialIcon name="public" className="text-primary text-6xl opacity-50 shrink-0" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

@@ -33,6 +33,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("dark antialiased font-sans", openSans.variable)}>
       <head>
+        {/* Material Symbols dimuat sebagai stylesheet ikon (bukan next/font) agar font-variation-settings FILL tetap bisa dianimasikan */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

@@ -16,14 +16,14 @@ const inputClass = "form-input-dark w-full rounded-[6px] px-4 py-3 text-sm trans
 const labelClass = "block text-xs font-bold uppercase tracking-wider text-white/70 mb-2"
 
 export function RequestAccessModal({ open, onClose, defaultVideo }: RequestAccessModalProps) {
+  if (!open) return null
+  return <RequestAccessDialog onClose={onClose} defaultVideo={defaultVideo} />
+}
+
+function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalProps, "open">) {
   const [state, setState] = useState<"form" | "submitting" | "success">("form")
 
   useEffect(() => {
-    if (open) setState("form")
-  }, [open])
-
-  useEffect(() => {
-    if (!open) return
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose()
     }
@@ -33,9 +33,7 @@ export function RequestAccessModal({ open, onClose, defaultVideo }: RequestAcces
       document.removeEventListener("keydown", onKeyDown)
       document.body.style.overflow = ""
     }
-  }, [open, onClose])
-
-  if (!open) return null
+  }, [onClose])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
