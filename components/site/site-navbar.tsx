@@ -26,7 +26,7 @@ export function SiteNavbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-4 z-50 mx-auto mt-4 w-[calc(100%-2rem)] max-w-[1280px]">
+    <nav className="fixed top-4 inset-x-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-[1280px]">
       <div className="flex justify-between items-center w-full px-6 md:px-8 py-3 bg-black/60 backdrop-blur-md rounded-full border border-white/10 shadow-xl shadow-[0_0_15px_rgba(209,32,39,0.1)]">
         <Link
           href="/"

@@ -55,7 +55,7 @@ export default function IndustrialCinematographyPage() {
   return (
     <main>
       {/* Breadcrumbs */}
-      <div className="max-w-[1280px] mx-auto px-8 mt-8 flex items-center gap-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
+      <div className="max-w-[1280px] mx-auto px-8 pt-28 flex items-center gap-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
         <Link className="hover:text-white transition-colors" href="/">
           Home
         </Link>

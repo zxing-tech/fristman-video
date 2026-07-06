@@ -119,7 +119,7 @@ export default function CaseStudiesPage() {
     <main className="flex-grow flex flex-col relative">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none z-0" />
-      <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-8 relative z-10">
         {/* Breadcrumb */}
         <div className="flex items-center text-industrial-grey text-xs tracking-widest uppercase mb-12">
           <Link className="hover:text-white transition-colors" href="/">
