@@ -7,7 +7,7 @@ import { ServiceCard } from "@/components/site/service-card"
 
 export const metadata: Metadata = {
   description:
-    "Cinematic UAV and ground-based visual documentation. Precision data capture, safety-first deployment, and high-fidelity deliverables for the energy and industrial sectors.",
+    "Cinematic UAV and long term time-lapse visual documentation & reporting. Precision data capture, safety-first deployment and high fidelity deliverables for the energy and industrial sectors.",
 }
 
 const trustLogos = ["PETROFAC", "MAHB", "SYNDEL ASIA", "BEN LINE", "LIVESCAPE", "ECOBALANCE", "SERVISHERO"]
@@ -75,19 +75,20 @@ export default function HomePage() {
           <div className="w-full md:w-3/5 space-y-8">
             <SectionLabel withLine>Industrial Visual Data</SectionLabel>
             <h1 className="font-headline font-black text-5xl md:text-7xl leading-[1.1] tracking-tight">
-              Industrial Cinematography for <span className="text-primary">Oil & Gas</span> and Heavy
-              Industry
+              Industrial Drone Cinematography for <span className="text-primary">Oil & Gas</span> and
+              Heavy Industry
             </h1>
             <p className="font-body text-industrial-grey text-lg max-w-2xl leading-relaxed">
-              Cinematic UAV and ground-based visual documentation. Precision data capture, safety-first
-              deployment, and high-fidelity deliverables for the energy and industrial sectors.
+              Cinematic UAV and long term time-lapse visual documentation & reporting. Precision data
+              capture, safety-first deployment and high fidelity deliverables for the energy and
+              industrial sectors.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <CtaButton href="/contact" arrow className="w-full sm:w-fit">
-                Request a Consultation
+                Get a Full Quote
               </CtaButton>
               <CtaButton href="/case-studies" variant="secondary" className="w-full sm:w-fit">
-                View Case Studies
+                View Our Work
               </CtaButton>
             </div>
           </div>
@@ -97,7 +98,7 @@ export default function HomePage() {
                 <MaterialIcon name="hub" className="text-6xl" />
               </div>
               <h3 className="font-headline font-bold text-xl mb-4 border-b border-white/10 pb-4">
-                Operational Footprint
+                What You Can Count On
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-center gap-4">
@@ -105,7 +106,7 @@ export default function HomePage() {
                     <MaterialIcon name="location_on" className="text-primary text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider">
-                    Malaysia • Singapore • Indonesia • Brunei
+                    Malaysia • Sarawak • Singapore • Indonesia • Brunei
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
@@ -113,7 +114,7 @@ export default function HomePage() {
                     <MaterialIcon name="schedule" className="text-white text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
-                    24 business-hour response
+                    Quick video project turnaround
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
@@ -121,7 +122,7 @@ export default function HomePage() {
                     <MaterialIcon name="verified_user" className="text-white text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
-                    Certified Crews & Safety Compliant
+                    Offshore readiness with certified crew
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
@@ -129,7 +130,7 @@ export default function HomePage() {
                     <MaterialIcon name="high_quality" className="text-white text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
-                    YouTube-Ready High-Fidelity Deliverables
+                    Confidentiality at every step
                   </span>
                 </li>
               </ul>
@@ -196,6 +197,29 @@ export default function HomePage() {
             <SectionLabel className="mb-4 block">The Advantage</SectionLabel>
             <h2 className="font-headline font-black text-4xl md:text-5xl">Why First Man Videos</h2>
           </div>
+          {/* Metrics Bar */}
+          <div className="w-full glass-panel rounded-xl mb-12 py-10 px-8 flex flex-col md:flex-row justify-around items-center gap-10 border-b border-white/10">
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-primary font-headline font-black text-4xl">25+ Years</span>
+              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+                Corporate Video
+              </span>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-white/10" />
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-primary font-headline font-black text-4xl">15+ Years</span>
+              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+                Oil & Gas Sector
+              </span>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-white/10" />
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-primary font-headline font-black text-4xl">500+ Projects</span>
+              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+                Industrial Deployments
+              </span>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
             {/* Large Feature */}
             <div className="md:col-span-2 glass-panel p-10 rounded-xl flex flex-col justify-end relative overflow-hidden group">
@@ -203,47 +227,69 @@ export default function HomePage() {
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/ba0390236d.jpg')" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10">
                 <MaterialIcon name="shield" className="text-primary text-4xl mb-4 block" />
                 <h3 className="font-headline font-bold text-2xl mb-2">
                   Safety-First Workflow & Compliance
                 </h3>
-                <p className="font-body text-industrial-grey max-w-lg">
-                  Rigorous adherence to strict HSE protocols. Our crews are certified for high-risk
-                  industrial and offshore deployments, ensuring seamless integration with your site
-                  operations.
+                <p className="font-body text-white/90 max-w-lg">
+                  Every drone operation begins with a documented risk assessment, coordinated with your
+                  HSE team and cleared through full Permit to Work (PTW) approval. We arrive prepared
+                  for the site — so capture stays safe and your operations keep running.
                 </p>
               </div>
             </div>
             {/* Small Feature 1 */}
-            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center">
-              <MaterialIcon name="factory" className="text-primary text-3xl mb-4 block" />
-              <h3 className="font-headline font-bold text-lg mb-2">Deep Industrial Site Awareness</h3>
-              <p className="font-body text-industrial-grey text-sm">
-                We understand the complex logistics and operational realities of heavy industry
-                environments.
-              </p>
-            </div>
-            {/* Small Feature 2 */}
-            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center">
-              <MaterialIcon name="photo_camera" className="text-primary text-3xl mb-4 block" />
-              <h3 className="font-headline font-bold text-lg mb-2">Integrated UAV + Ground Production</h3>
-              <p className="font-body text-industrial-grey text-sm">
-                Comprehensive multi-angle coverage combining aerial perspectives with detailed
-                ground-level cinematography.
-              </p>
-            </div>
-            {/* Small Feature 3 */}
-            <div className="md:col-span-2 glass-panel p-8 rounded-xl flex flex-col sm:flex-row gap-6 sm:items-center justify-between border-l-4 border-l-primary">
-              <div>
-                <h3 className="font-headline font-bold text-xl mb-2">Rapid Regional Deployment</h3>
-                <p className="font-body text-industrial-grey text-sm max-w-md">
-                  Strategically positioned to mobilize across Southeast Asia&apos;s key energy hubs
-                  efficiently.
+            <div className="glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                style={{ backgroundImage: "url('/images/stitch/13ca39f31a.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+              <div className="relative z-10">
+                <MaterialIcon name="factory" className="text-primary text-3xl mb-4 block" />
+                <h3 className="font-headline font-bold text-lg mb-2">Deep Industrial Site Awareness</h3>
+                <p className="font-body text-white/90 text-sm">
+                  Deep understanding of the logistics, safety gates, and operational realities of heavy
+                  industry environments from the moment we mobilise.
                 </p>
               </div>
-              <MaterialIcon name="public" className="text-primary text-6xl opacity-50 shrink-0" />
+            </div>
+            {/* Small Feature 2 */}
+            <div className="glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                style={{ backgroundImage: "url('/images/stitch/a37924086a.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+              <div className="relative z-10">
+                <MaterialIcon name="photo_camera" className="text-primary text-3xl mb-4 block" />
+                <h3 className="font-headline font-bold text-lg mb-2">Integrated UAV + Ground Production</h3>
+                <p className="font-body text-white/90 text-sm">
+                  Comprehensive multi-angle coverage combining aerial perspectives with detailed
+                  ground-level cinematography.
+                </p>
+              </div>
+            </div>
+            {/* Small Feature 3 */}
+            <div className="md:col-span-2 glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group border-l-4 border-l-primary min-h-[200px]">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                style={{ backgroundImage: "url('/images/stitch/6d4182646b.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+              <div className="relative z-10 flex flex-col sm:flex-row gap-6 sm:items-center justify-between w-full">
+                <div>
+                  <h3 className="font-headline font-bold text-xl mb-2">Rapid Regional Deployment</h3>
+                  <p className="font-body text-white/90 text-sm max-w-md">
+                    Wherever your project is — a major fabrication yard or a short-notice site visit —
+                    we mobilise across the region to cover it. Large-scale or ad-hoc, if it calls for
+                    our expertise, we&apos;re ready to deploy.
+                  </p>
+                </div>
+                <MaterialIcon name="public" className="text-primary text-6xl opacity-50 shrink-0" />
+              </div>
             </div>
           </div>
         </div>

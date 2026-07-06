@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
-  { href: "/case-studies", label: "Case Studies" },
+  { href: "/case-studies", label: "Our Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ]
@@ -56,7 +56,7 @@ export function SiteNavbar() {
             href="/contact"
             className="hidden sm:flex bg-primary text-white px-6 py-2 rounded-full font-label uppercase tracking-wider text-xs font-bold hover:bg-black hover:text-primary border border-primary transition-all duration-300 items-center gap-2 group"
           >
-            Request Consultation
+            Get an Estimate
             <MaterialIcon
               name="arrow_forward"
               className="text-sm group-hover:translate-x-1 transition-transform"
@@ -93,7 +93,7 @@ export function SiteNavbar() {
             className="bg-primary text-white px-6 py-3 rounded-full font-label uppercase tracking-wider text-xs font-bold text-center border border-primary hover:bg-black hover:text-primary transition-all duration-300"
             onClick={() => setMenuOpen(false)}
           >
-            Request Consultation
+            Get an Estimate
           </Link>
         </div>
       )}
