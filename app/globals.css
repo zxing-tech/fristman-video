@@ -71,7 +71,7 @@
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
+    --radius: 1rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -83,24 +83,24 @@
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #1a1a1a;
+    --card-foreground: #ffffff;
+    --popover: #1a1a1a;
+    --popover-foreground: #ffffff;
+    --primary: #d12027;
+    --primary-foreground: #ffffff;
+    --secondary: #2a2a2a;
+    --secondary-foreground: #ffffff;
+    --muted: #1a1a1a;
+    --muted-foreground: #6f7378;
+    --accent: #2a2a2a;
+    --accent-foreground: #ffffff;
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --ring: #d12027;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -116,6 +116,19 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* First Man Videos — design tokens (dark cinematic, aksen merah, per DESIGN.md) */
+@theme {
+    --color-surface: #ffffff;
+    --color-dark-ui: #080808;
+    --color-graphite: #1a1a1a;
+    --color-graphite-light: #2a2a2a;
+    --color-industrial-grey: #6f7378;
+    --font-headline: var(--font-sans);
+    --font-display: var(--font-sans);
+    --font-body: var(--font-sans);
+    --font-label: var(--font-sans);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,4 +139,77 @@
   html {
     @apply font-sans;
     }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-modal {
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .scanning-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #d12027;
+    box-shadow:
+      0 0 10px #d12027,
+      0 0 20px #d12027;
+    animation: scan-vertical 4s linear infinite;
+    opacity: 0.7;
+  }
+
+  .scanner-line {
+    background: linear-gradient(90deg, transparent 0%, #d12027 50%, transparent 100%);
+    animation: scan-pulse 2.5s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #ffffff, #6f7378);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .form-input-dark {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
+  .form-input-dark:focus {
+    border-color: #d12027;
+    outline: none;
+    box-shadow: 0 0 0 1px #d12027;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes scan-vertical {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+@keyframes scan-pulse {
+  0% { transform: scaleX(0.5); opacity: 0.5; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0.5); opacity: 0.5; }
 }
