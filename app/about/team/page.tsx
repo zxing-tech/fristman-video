@@ -46,7 +46,7 @@ export default function AboutTeamPage() {
   return (
     <main className="pt-32 relative">
       {/* Hero Section */}
-      <section className="relative min-h-[614px] flex items-center pt-16 pb-24 overflow-hidden border-b border-white/5">
+      <section className="relative min-h-[614px] flex items-center pt-16 pb-24 overflow-hidden bg-black border-b border-white/5">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div
@@ -77,7 +77,7 @@ export default function AboutTeamPage() {
                 Verified Industrial Professionals
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
               Meet the Team <br />
               <span className="text-gradient">Behind the Lens</span>
             </h1>
@@ -105,7 +105,7 @@ export default function AboutTeamPage() {
             {teamMembers.map((member) => (
               <div
                 key={member.title}
-                className="glass-panel rounded-lg overflow-hidden group flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(209,32,39,0.15)]"
+                className="glass-panel bg-black rounded-lg overflow-hidden group flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(209,32,39,0.15)]"
               >
                 <div className="aspect-[4/5] relative">
                   <div

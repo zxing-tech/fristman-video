@@ -34,7 +34,7 @@ export default function VisualDocumentationPage() {
   return (
     <div>
       {/* Hero Section */}
-      <header className="relative min-h-[921px] flex items-center pt-24 pb-16 overflow-hidden">
+      <header className="relative min-h-[921px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <div
@@ -66,7 +66,7 @@ export default function VisualDocumentationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                className="bg-primary text-white hover:bg-black hover:shadow-[0_0_15px_rgba(209,32,39,0.5)] transition-all duration-300 rounded-full px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 group"
+                className="bg-primary text-white hover:bg-background hover:shadow-[0_0_15px_rgba(209,32,39,0.5)] transition-all duration-300 rounded-full px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 group"
                 href="/contact"
               >
                 Discuss Project Scope
@@ -104,7 +104,7 @@ export default function VisualDocumentationPage() {
       <section className="py-24 bg-background relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4 text-surface">
               Stakeholder Support Applications
             </h2>
             <p className="text-industrial-grey max-w-2xl">
@@ -126,9 +126,9 @@ export default function VisualDocumentationPage() {
               <div className="relative z-10">
                 <MaterialIcon
                   name="update"
-                  className="text-4xl mb-6 text-white transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  className="text-4xl mb-6 text-surface transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                 />
-                <h3 className="text-2xl font-bold uppercase tracking-wider mb-3 text-white">
+                <h3 className="text-2xl font-bold uppercase tracking-wider mb-3 text-surface">
                   Project Updates & Progress
                 </h3>
                 <p className="text-industrial-grey">
@@ -149,9 +149,9 @@ export default function VisualDocumentationPage() {
               >
                 <MaterialIcon
                   name={card.icon}
-                  className="text-3xl mb-4 text-white transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  className="text-3xl mb-4 text-surface transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                 />
-                <h3 className="text-lg font-bold uppercase tracking-wider mb-2 text-white">
+                <h3 className="text-lg font-bold uppercase tracking-wider mb-2 text-surface">
                   {card.title}
                 </h3>
                 <p className="text-sm text-industrial-grey flex-grow">{card.description}</p>
@@ -161,10 +161,10 @@ export default function VisualDocumentationPage() {
             <div className="glass-panel rounded-[24px] col-span-1 md:col-span-2 p-6 flex flex-row items-center gap-6 group">
               <MaterialIcon
                 name="bar_chart"
-                className="text-4xl text-white transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                className="text-4xl text-surface transition-colors duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
               />
               <div>
-                <h3 className="text-lg font-bold uppercase tracking-wider mb-1 text-white">
+                <h3 className="text-lg font-bold uppercase tracking-wider mb-1 text-surface">
                   Internal Reporting Integration
                 </h3>
                 <p className="text-sm text-industrial-grey">

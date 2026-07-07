@@ -59,13 +59,13 @@ export default function PrivacyPolicyPage() {
             aria-label="Breadcrumb"
             className="text-sm text-industrial-grey font-label uppercase tracking-wider flex items-center gap-2"
           >
-            <Link className="hover:text-white transition-colors" href="/">
+            <Link className="hover:text-surface transition-colors" href="/">
               Home
             </Link>
             <MaterialIcon name="chevron_right" className="text-xs" />
-            <span className="text-white">Privacy Policy</span>
+            <span className="text-surface">Privacy Policy</span>
           </nav>
-          <h1 className="text-5xl md:text-6xl font-headline font-bold uppercase tracking-tight text-white leading-tight">
+          <h1 className="text-5xl md:text-6xl font-headline font-bold uppercase tracking-tight text-surface leading-tight">
             Privacy Policy &amp; <span className="text-primary">Consent</span>
           </h1>
           <p className="text-lg text-industrial-grey font-body max-w-3xl leading-relaxed mt-4">
@@ -83,8 +83,8 @@ export default function PrivacyPolicyPage() {
               key={card.title}
               className="glass-panel rounded-xl p-6 group hover:border-primary/50 transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                <MaterialIcon name={card.icon} className="text-white" />
+              <div className="w-12 h-12 rounded-full bg-background border border-surface/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+                <MaterialIcon name={card.icon} className="text-surface" />
               </div>
               <h3 className="font-headline font-bold text-lg mb-2 uppercase tracking-wide">
                 {card.title}
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12">
           {/* Legal Text Canvas */}
           <article className="glass-panel rounded-2xl p-8 md:p-12 max-w-none">
-            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-white border-b border-white/10 pb-4 mb-6">
+            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-surface border-b border-surface/10 pb-4 mb-6">
               1. Data Collection &amp; Processing
             </h2>
             <p className="text-industrial-grey font-body leading-relaxed mb-5">
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
               access.
             </p>
 
-            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-white border-b border-white/10 pb-4 mt-12 mb-6">
+            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-surface border-b border-surface/10 pb-4 mt-12 mb-6">
               2. Gated Access Protocols
             </h2>
             <p className="text-industrial-grey font-body leading-relaxed">
@@ -124,8 +124,8 @@ export default function PrivacyPolicyPage() {
               exclusively by our internal Business Development unit to verify commercial relevance
               and authorize temporary access tokens.
             </p>
-            <div className="bg-black/50 border-l-2 border-primary p-6 my-8 rounded-r-lg">
-              <h4 className="text-white font-bold mb-2 uppercase text-sm">
+            <div className="bg-background/50 border-l-2 border-primary p-6 my-8 rounded-r-lg">
+              <h4 className="text-surface font-bold mb-2 uppercase text-sm">
                 Regulatory Compliance Note
               </h4>
               <p className="text-sm text-industrial-grey font-body leading-relaxed m-0">
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-white border-b border-white/10 pb-4 mt-12 mb-6">
+            <h2 className="text-2xl font-headline font-bold uppercase tracking-wide text-surface border-b border-surface/10 pb-4 mt-12 mb-6">
               3. Asset Permissions &amp; Retention
             </h2>
             <p className="text-industrial-grey font-body leading-relaxed">
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
           <aside className="space-y-8 h-fit lg:sticky lg:top-28">
             {/* Consent UI Pattern Mockup */}
             <div className="glass-panel rounded-xl p-6">
-              <h4 className="font-headline font-bold text-white uppercase text-sm tracking-widest mb-6 border-b border-white/10 pb-2">
+              <h4 className="font-headline font-bold text-surface uppercase text-sm tracking-widest mb-6 border-b border-surface/10 pb-2">
                 Consent Interface Reference
               </h4>
               <div className="space-y-4">
@@ -171,7 +171,7 @@ export default function PrivacyPolicyPage() {
                         className="absolute text-white text-[16px] opacity-0 peer-checked:opacity-100 pointer-events-none"
                       />
                     </div>
-                    <span className="text-xs text-industrial-grey group-hover:text-white transition-colors leading-tight">
+                    <span className="text-xs text-industrial-grey group-hover:text-surface transition-colors leading-tight">
                       {option.label}
                     </span>
                   </label>
@@ -181,17 +181,17 @@ export default function PrivacyPolicyPage() {
 
             {/* Contact Support */}
             <div className="glass-panel rounded-xl p-6 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-background border border-surface/10 flex items-center justify-center mb-4">
                 <MaterialIcon name="shield_person" className="text-primary" />
               </div>
-              <h4 className="font-headline font-bold text-white uppercase text-sm tracking-widest mb-2">
+              <h4 className="font-headline font-bold text-surface uppercase text-sm tracking-widest mb-2">
                 Data Protection Officer
               </h4>
               <p className="text-xs text-industrial-grey mb-6">
                 For inquiries regarding data retention or deletion requests.
               </p>
               <a
-                className="w-full text-center py-2 px-4 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
+                className="w-full text-center py-2 px-4 rounded-full border border-surface/20 text-surface text-xs font-bold uppercase tracking-widest hover:bg-surface hover:text-background transition-colors"
                 href="mailto:privacy@firstmanvideos.com"
               >
                 Contact DPO

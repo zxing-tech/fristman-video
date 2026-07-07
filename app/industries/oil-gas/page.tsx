@@ -72,7 +72,7 @@ export default function OilGasIndustryPage() {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
-      <section className="relative min-h-[870px] flex items-center justify-center pt-24 pb-16 px-6 lg:px-12 overflow-hidden">
+      <section className="relative min-h-[870px] flex items-center justify-center pt-24 pb-16 px-6 lg:px-12 overflow-hidden bg-black">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div
@@ -142,7 +142,7 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Industry Context & Complexities */}
-      <section className="py-24 px-6 lg:px-12 bg-black relative border-t border-white/5">
+      <section className="py-24 px-6 lg:px-12 bg-background relative border-t border-surface/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 relative group">
@@ -170,13 +170,13 @@ export default function OilGasIndustryPage() {
                 <h2 className="text-xs font-label uppercase tracking-[0.2em] text-primary mb-2">
                   Operational Context
                 </h2>
-                <h3 className="text-3xl md:text-4xl font-bold font-headline tracking-tight text-white mb-6">
+                <h3 className="text-3xl md:text-4xl font-bold font-headline tracking-tight text-surface mb-6">
                   NAVIGATING COMPLEX
                   <br />
                   ENERGY ENVIRONMENTS
                 </h3>
               </div>
-              <p className="text-[#a0a4a8] font-body text-lg leading-relaxed mb-8">
+              <p className="text-industrial-grey font-body text-lg leading-relaxed mb-8">
                 Visual capture within the Oil &amp; Gas sector demands more than technical
                 proficiency—it requires an innate understanding of site dynamics, stringent safety
                 protocols, and operational continuity. Our drone-enabled cinematography is designed
@@ -185,15 +185,15 @@ export default function OilGasIndustryPage() {
                 complex environments into compelling visual narratives tailored for diverse
                 stakeholder requirements.
               </p>
-              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-white/10">
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-surface/10">
                 <div>
-                  <div className="text-3xl font-black text-white mb-1">01</div>
+                  <div className="text-3xl font-black text-surface mb-1">01</div>
                   <div className="text-sm font-label uppercase tracking-widest text-industrial-grey">
                     Site-Aware Capture
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-white mb-1">02</div>
+                  <div className="text-3xl font-black text-surface mb-1">02</div>
                   <div className="text-sm font-label uppercase tracking-widest text-industrial-grey">
                     Non-Disruptive Ops
                   </div>
@@ -205,15 +205,15 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Communication Needs Grid */}
-      <section className="py-24 px-6 lg:px-12 bg-[#111111] relative border-t border-white/5 overflow-hidden">
+      <section className="py-24 px-6 lg:px-12 bg-graphite relative border-t border-surface/5 overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-[#111111] to-[#111111] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-graphite to-graphite pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-16 max-w-3xl">
             <h2 className="text-xs font-label uppercase tracking-[0.2em] text-primary mb-2">
               Visual Applications
             </h2>
-            <h3 className="text-4xl font-bold font-headline tracking-tight text-white mb-4">
+            <h3 className="text-4xl font-bold font-headline tracking-tight text-surface mb-4">
               STRATEGIC VISUAL ASSETS
             </h3>
             <p className="text-industrial-grey font-body text-lg">
@@ -225,18 +225,18 @@ export default function OilGasIndustryPage() {
             {visualApplications.map((item) => (
               <div
                 key={item.title}
-                className="group glass-panel rounded-2xl p-8 hover:bg-white/[0.03] transition-all duration-300 border border-white/5 hover:border-primary/30 relative overflow-hidden"
+                className="group glass-panel rounded-2xl p-8 hover:bg-surface/[0.03] transition-all duration-300 border border-surface/5 hover:border-primary/30 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <MaterialIcon name={item.bgIcon} className="text-8xl text-white" />
+                  <MaterialIcon name={item.bgIcon} className="text-8xl text-surface" />
                 </div>
                 <div className="w-12 h-12 rounded-full border border-industrial-grey/30 flex items-center justify-center mb-6 group-hover:border-primary group-hover:bg-primary/10 transition-colors">
                   <MaterialIcon
                     name={item.icon}
-                    className="text-white group-hover:text-primary transition-colors"
+                    className="text-surface group-hover:text-primary transition-colors"
                   />
                 </div>
-                <h4 className="text-xl font-bold font-headline text-white mb-3 tracking-wide">
+                <h4 className="text-xl font-bold font-headline text-surface mb-3 tracking-wide">
                   {item.title}
                 </h4>
                 <p className="text-industrial-grey font-body leading-relaxed text-sm">{item.body}</p>
@@ -247,20 +247,20 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Suited Services Bento Grid */}
-      <section className="py-24 px-6 lg:px-12 bg-dark-ui border-t border-white/5">
+      <section className="py-24 px-6 lg:px-12 bg-dark-ui border-t border-surface/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-xs font-label uppercase tracking-[0.2em] text-primary mb-2">
                 Core Capabilities
               </h2>
-              <h3 className="text-4xl font-bold font-headline tracking-tight text-white">
+              <h3 className="text-4xl font-bold font-headline tracking-tight text-surface">
                 DEPLOYABLE SERVICES
               </h3>
             </div>
             <Link
               href="/services"
-              className="text-xs font-label uppercase tracking-widest text-white border-b border-primary pb-1 hover:text-primary transition-colors flex items-center"
+              className="text-xs font-label uppercase tracking-widest text-surface border-b border-primary pb-1 hover:text-primary transition-colors flex items-center"
             >
               View Full Capability Statement{" "}
               <MaterialIcon name="arrow_forward" className="text-[16px] ml-1" />
@@ -268,13 +268,13 @@ export default function OilGasIndustryPage() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-fr">
             {/* Service 1: Large Featured */}
-            <div className="lg:col-span-2 group glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 flex flex-col relative">
+            <div className="lg:col-span-2 group glass-panel rounded-2xl overflow-hidden border border-surface/10 hover:border-primary/50 transition-all duration-500 flex flex-col relative">
               <div className="h-64 overflow-hidden relative">
                 <div
                   className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
                   style={{ backgroundImage: "url('/images/stitch/10033b0cce.jpg')" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-ui to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center">
                   <span className="w-2 h-2 rounded-full bg-primary mr-2" />
                   <span className="text-[10px] font-label uppercase tracking-widest text-white">
@@ -287,7 +287,7 @@ export default function OilGasIndustryPage() {
                   <h4 className="text-2xl font-bold font-headline text-white mb-3">
                     Corporate Videos
                   </h4>
-                  <p className="text-[#a0a4a8] font-body text-sm leading-relaxed mb-6">
+                  <p className="text-industrial-grey font-body text-sm leading-relaxed mb-6">
                     Premium, large-sensor aerial and ground capture designed for visual impact. We
                     deliver heavily stylized, cinematic documentation that elevates corporate
                     narratives while accurately representing scale and engineering prowess.
@@ -295,7 +295,7 @@ export default function OilGasIndustryPage() {
                 </div>
                 <Link
                   href="/services/corporate-videos"
-                  className="flex items-center text-primary text-sm font-label uppercase tracking-wider group-hover:text-white transition-colors"
+                  className="flex items-center text-primary text-sm font-label uppercase tracking-wider group-hover:text-surface transition-colors"
                 >
                   Explore Methodology{" "}
                   <MaterialIcon
@@ -307,7 +307,7 @@ export default function OilGasIndustryPage() {
             </div>
             <div className="flex flex-col gap-6 lg:col-span-1">
               {/* Service 2 */}
-              <div className="group glass-panel rounded-2xl p-6 border border-white/10 hover:border-primary/50 transition-all duration-500 flex-1 flex flex-col relative overflow-hidden">
+              <div className="group glass-panel rounded-2xl p-6 border border-surface/10 hover:border-primary/50 transition-all duration-500 flex-1 flex flex-col relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
                 <div className="mb-4">
                   <MaterialIcon
@@ -315,7 +315,7 @@ export default function OilGasIndustryPage() {
                     className="text-3xl text-industrial-grey group-hover:text-primary transition-colors"
                   />
                 </div>
-                <h4 className="text-xl font-bold font-headline text-white mb-3">AI-Generated Video</h4>
+                <h4 className="text-xl font-bold font-headline text-surface mb-3">AI-Generated Video</h4>
                 <p className="text-industrial-grey font-body text-sm leading-relaxed flex-grow">
                   AI-generated recreations of scenes too hazardous or impossible to film live — from
                   offshore incident simulations to emergency evacuation sequences — rendered with
@@ -323,7 +323,7 @@ export default function OilGasIndustryPage() {
                 </p>
               </div>
               {/* Service 3 */}
-              <div className="group glass-panel rounded-2xl p-6 border border-white/10 hover:border-primary/50 transition-all duration-500 flex-1 flex flex-col relative overflow-hidden">
+              <div className="group glass-panel rounded-2xl p-6 border border-surface/10 hover:border-primary/50 transition-all duration-500 flex-1 flex flex-col relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
                 <div className="mb-4">
                   <MaterialIcon
@@ -331,7 +331,7 @@ export default function OilGasIndustryPage() {
                     className="text-3xl text-industrial-grey group-hover:text-primary transition-colors"
                   />
                 </div>
-                <h4 className="text-xl font-bold font-headline text-white mb-3">
+                <h4 className="text-xl font-bold font-headline text-surface mb-3">
                   Visual Progress Documentation
                 </h4>
                 <p className="text-industrial-grey font-body text-sm leading-relaxed flex-grow">
@@ -345,17 +345,17 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Gated Case Study Teaser */}
-      <section className="py-24 px-6 lg:px-12 bg-black relative border-t border-white/5">
+      <section className="py-24 px-6 lg:px-12 bg-background relative border-t border-surface/5">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center">
             <h2 className="text-xs font-label uppercase tracking-[0.2em] text-primary mb-2">
               Restricted Access Archive
             </h2>
-            <h3 className="text-3xl font-bold font-headline tracking-tight text-white">
+            <h3 className="text-3xl font-bold font-headline tracking-tight text-surface">
               PROTOTYPE REFERENCE STUDY
             </h3>
           </div>
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-panel group">
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-panel bg-black group">
             {/* Background blurred representation */}
             <div
               className="absolute inset-0 bg-cover bg-center opacity-30 blur-md grayscale"
@@ -438,19 +438,19 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Workflow / Process */}
-      <section className="py-24 px-6 lg:px-12 bg-[#111111] border-t border-white/5">
+      <section className="py-24 px-6 lg:px-12 bg-graphite border-t border-surface/5">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-xs font-label uppercase tracking-[0.2em] text-primary mb-2">
               Execution Protocol
             </h2>
-            <h3 className="text-3xl font-bold font-headline tracking-tight text-white">
+            <h3 className="text-3xl font-bold font-headline tracking-tight text-surface">
               OPERATIONAL WORKFLOW
             </h3>
           </div>
           <div className="relative">
             {/* Horizontal connection line (desktop) */}
-            <div className="hidden md:block absolute top-[45px] left-[10%] right-[10%] h-[1px] bg-white/10 z-0">
+            <div className="hidden md:block absolute top-[45px] left-[10%] right-[10%] h-[1px] bg-surface/10 z-0">
               <div className="h-full bg-primary w-1/3 relative">
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#d12027]" />
               </div>
@@ -464,29 +464,29 @@ export default function OilGasIndustryPage() {
                   <div
                     className={
                       step.active
-                        ? "w-24 h-24 rounded-full bg-black border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(209,32,39,0.15)] relative"
-                        : "w-24 h-24 rounded-full bg-black border-2 border-white/10 group-hover:border-primary/50 transition-colors flex items-center justify-center mb-6 relative"
+                        ? "w-24 h-24 rounded-full bg-background border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(209,32,39,0.15)] relative"
+                        : "w-24 h-24 rounded-full bg-background border-2 border-surface/10 group-hover:border-primary/50 transition-colors flex items-center justify-center mb-6 relative"
                     }
                   >
                     <MaterialIcon
                       name={step.icon}
                       className={
                         step.active
-                          ? "text-3xl text-white group-hover:text-primary transition-colors"
-                          : "text-3xl text-[#a0a4a8] group-hover:text-white transition-colors"
+                          ? "text-3xl text-surface group-hover:text-primary transition-colors"
+                          : "text-3xl text-industrial-grey group-hover:text-surface transition-colors"
                       }
                     />
                     <div
                       className={
                         step.active
                           ? "absolute -bottom-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded font-mono"
-                          : "absolute -bottom-3 bg-white/10 text-white text-[10px] font-bold px-2 py-1 rounded font-mono group-hover:bg-primary/50 transition-colors"
+                          : "absolute -bottom-3 bg-surface/10 text-surface text-[10px] font-bold px-2 py-1 rounded font-mono group-hover:bg-primary/50 transition-colors"
                       }
                     >
                       {step.number}
                     </div>
                   </div>
-                  <h4 className="text-lg font-bold font-headline text-white mb-2 tracking-wide uppercase">
+                  <h4 className="text-lg font-bold font-headline text-surface mb-2 tracking-wide uppercase">
                     {step.title}
                   </h4>
                   <p className="text-industrial-grey text-sm font-body leading-relaxed">
@@ -500,17 +500,17 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Confidentiality Panel */}
-      <section className="py-20 px-6 lg:px-12 bg-black border-t border-b border-white/5 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-black to-black opacity-50 pointer-events-none" />
+      <section className="py-20 px-6 lg:px-12 bg-background border-t border-b border-surface/5 relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-50 pointer-events-none" />
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
           <div className="md:w-1/4 flex justify-center">
-            <div className="relative w-32 h-32 rounded-full border border-white/10 flex items-center justify-center bg-graphite">
-              <MaterialIcon name="policy" className="text-5xl text-[#a0a4a8]" />
+            <div className="relative w-32 h-32 rounded-full border border-surface/10 flex items-center justify-center bg-graphite">
+              <MaterialIcon name="policy" className="text-5xl text-industrial-grey" />
               <div className="absolute top-0 right-0 w-3 h-3 bg-primary rounded-full shadow-[0_0_8px_#d12027]" />
             </div>
           </div>
           <div className="md:w-3/4">
-            <h3 className="text-xl font-bold font-headline text-white mb-3 tracking-wide uppercase flex items-center">
+            <h3 className="text-xl font-bold font-headline text-surface mb-3 tracking-wide uppercase flex items-center">
               <MaterialIcon name="gpp_maybe" className="text-primary mr-2 text-xl" /> Data Security
               &amp; Handling
             </h3>
@@ -520,7 +520,7 @@ export default function OilGasIndustryPage() {
               transfer, and storage mechanisms are designed to protect proprietary site layouts,
               operational procedures, and intellectual property.
             </p>
-            <div className="text-[10px] font-mono text-[#a0a4a8] uppercase tracking-widest border-l-2 border-primary/50 pl-3">
+            <div className="text-[10px] font-mono text-industrial-grey uppercase tracking-widest border-l-2 border-primary/50 pl-3">
               NDAs executed standard prior to deployment. Dedicated offline storage available upon
               request.
             </div>
@@ -529,7 +529,7 @@ export default function OilGasIndustryPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-6 lg:px-12 bg-black relative flex items-center justify-center overflow-hidden">
+      <section className="py-32 px-6 lg:px-12 bg-background relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <div
             className="w-full h-full bg-cover bg-center"
@@ -537,14 +537,14 @@ export default function OilGasIndustryPage() {
           />
           <div className="absolute inset-0 bg-black/80" />
         </div>
-        <div className="relative z-10 text-center max-w-3xl mx-auto glass-panel p-12 rounded-3xl border border-white/10 shadow-2xl">
+        <div className="relative z-10 text-center max-w-3xl mx-auto glass-panel p-12 rounded-3xl border border-surface/10 shadow-2xl">
           <MaterialIcon name="cell_tower" className="text-4xl text-primary mb-6 block" />
-          <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter text-white mb-6 uppercase">
+          <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter text-surface mb-6 uppercase">
             Plan an Oil &amp; Gas
             <br />
             Visual Project.
           </h2>
-          <p className="text-[#a0a4a8] font-body text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-industrial-grey font-body text-lg mb-10 max-w-xl mx-auto">
             Engage our team to discuss site parameters, documentation objectives, and deployment
             logistics for your next critical milestone.
           </p>

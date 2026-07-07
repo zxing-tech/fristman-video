@@ -88,7 +88,7 @@ export default function FacilityOverviewFilmsPage() {
     <div className="pt-32 pb-24">
       {/* Hero Section */}
       <section className="relative max-w-7xl mx-auto px-6 lg:px-8 mb-24">
-        <div className="relative w-full h-[614px] min-h-[500px] rounded-[24px] overflow-hidden group">
+        <div className="relative w-full h-[614px] min-h-[500px] rounded-[24px] overflow-hidden group bg-black">
           {/* Background Image */}
           <div
             aria-label="Aerial view of an industrial oil refinery illuminated at dusk"
@@ -96,7 +96,7 @@ export default function FacilityOverviewFilmsPage() {
             role="img"
             style={{ backgroundImage: "url('/images/stitch/adeec90ad4.jpg')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-ui via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
           <div className="absolute inset-0 bg-black/30" />
           {/* HUD Elements */}
           <div className="absolute top-8 left-8 w-16 h-px bg-white/30 hidden md:block" />
@@ -138,18 +138,18 @@ export default function FacilityOverviewFilmsPage() {
             <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
               Application
             </h2>
-            <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-6">
+            <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-6">
               Designed For
             </h3>
             <ul className="space-y-4">
               {designedFor.map((item) => (
                 <li
                   key={item.label}
-                  className="glass-panel rounded-xl p-4 flex items-center gap-4 border border-white/5 group cursor-default transition-colors hover:border-white/20"
+                  className="glass-panel rounded-xl p-4 flex items-center gap-4 border border-surface/5 group cursor-default transition-colors hover:border-surface/20"
                 >
                   <MaterialIcon
                     name={item.icon}
-                    className="text-white/50 transition-colors group-hover:text-primary"
+                    className="text-surface/50 transition-colors group-hover:text-primary"
                   />
                   <span className="font-bold tracking-tight">{item.label}</span>
                 </li>
@@ -161,13 +161,13 @@ export default function FacilityOverviewFilmsPage() {
               <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
                 Focus Areas
               </h2>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-8">
+              <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-8">
                 What Gets Captured
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {focusAreas.map((area) => (
                   <div className="group" key={area.title}>
-                    <div className="flex items-center gap-3 mb-3 text-white group-hover:text-primary transition-colors">
+                    <div className="flex items-center gap-3 mb-3 text-surface group-hover:text-primary transition-colors">
                       <MaterialIcon name={area.icon} />
                       <h4 className="font-bold uppercase tracking-wider text-sm">{area.title}</h4>
                     </div>
@@ -184,7 +184,7 @@ export default function FacilityOverviewFilmsPage() {
 
       {/* Deliverables & Workflow Bento Grid */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-white mb-12 text-center">
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-surface mb-12 text-center">
           Output & Execution
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -197,8 +197,8 @@ export default function FacilityOverviewFilmsPage() {
             <ul className="space-y-4 flex-grow text-sm">
               {deliverables.map((item) => (
                 <li className="flex items-start gap-3" key={item.label}>
-                  <MaterialIcon name={item.icon} className="text-white/40 text-base mt-0.5" />
-                  <span className="text-white/90 font-medium">{item.label}</span>
+                  <MaterialIcon name={item.icon} className="text-surface/40 text-base mt-0.5" />
+                  <span className="text-surface/90 font-medium">{item.label}</span>
                 </li>
               ))}
             </ul>
@@ -212,7 +212,7 @@ export default function FacilityOverviewFilmsPage() {
             </h3>
             <div className="relative">
               {/* Connecting Line */}
-              <div className="absolute left-4 top-4 bottom-4 w-0.5 bg-white/10 hidden sm:block" />
+              <div className="absolute left-4 top-4 bottom-4 w-0.5 bg-surface/10 hidden sm:block" />
               <div className="space-y-6">
                 {workflowSteps.map((step) => (
                   <div
@@ -223,13 +223,13 @@ export default function FacilityOverviewFilmsPage() {
                       className={
                         step.active
                           ? "w-8 h-8 rounded-full bg-graphite border border-primary flex items-center justify-center flex-shrink-0 text-primary font-bold text-xs z-10"
-                          : "w-8 h-8 rounded-full bg-graphite border border-white/20 flex items-center justify-center flex-shrink-0 text-white/50 font-bold text-xs z-10 group-hover:border-primary group-hover:text-primary transition-colors"
+                          : "w-8 h-8 rounded-full bg-graphite border border-surface/20 flex items-center justify-center flex-shrink-0 text-surface/50 font-bold text-xs z-10 group-hover:border-primary group-hover:text-primary transition-colors"
                       }
                     >
                       {step.number}
                     </div>
                     <div>
-                      <h4 className="font-bold text-white uppercase text-sm mb-1">{step.title}</h4>
+                      <h4 className="font-bold text-surface uppercase text-sm mb-1">{step.title}</h4>
                       <p className="text-industrial-grey text-xs leading-relaxed">
                         {step.description}
                       </p>
@@ -253,7 +253,7 @@ export default function FacilityOverviewFilmsPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-4xl mx-auto px-6 lg:px-8 text-center py-16">
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-white mb-6">
+        <h2 className="text-3xl font-black uppercase tracking-tighter text-surface mb-6">
           Need a clearer view of your facility?
         </h2>
         <p className="text-industrial-grey mb-8 max-w-xl mx-auto">
@@ -261,7 +261,7 @@ export default function FacilityOverviewFilmsPage() {
           team.
         </p>
         <Link
-          className="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-white hover:bg-primary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all group"
+          className="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-surface hover:bg-primary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all group"
           href="/contact"
         >
           Discuss Your Production

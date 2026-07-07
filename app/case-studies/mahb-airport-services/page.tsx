@@ -15,7 +15,7 @@ export default function MahbAirportServicesPage() {
     <>
       {/* Hero Section */}
       <header className="relative min-h-[716px] flex flex-col justify-end pb-24 px-8 pt-40">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden bg-black">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
           <div
             className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30"
@@ -34,7 +34,7 @@ export default function MahbAirportServicesPage() {
             <MaterialIcon name="chevron_right" className="text-[10px]" />
             <span className="text-white">MAHB 2018</span>
           </nav>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-none max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-none max-w-4xl text-white">
             MAHB Airport Services — <span className="text-primary">Visual Storytelling Reference.</span>
           </h1>
         </div>
@@ -65,29 +65,29 @@ export default function MahbAirportServicesPage() {
           <div className="lg:col-span-5">
             <div className="glass-panel p-8 rounded-2xl h-full flex flex-col justify-between">
               <div>
-                <h3 className="text-xs uppercase tracking-widest font-bold text-white/50 mb-6">
+                <h3 className="text-xs uppercase tracking-widest font-bold text-surface/50 mb-6">
                   Project Metadata
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex justify-between border-b border-white/5 pb-4">
+                  <div className="flex justify-between border-b border-surface/5 pb-4">
                     <span className="text-industrial-grey">Client</span>
-                    <span className="text-white font-bold">MAHB Services</span>
+                    <span className="text-surface font-bold">MAHB Services</span>
                   </div>
-                  <div className="flex justify-between border-b border-white/5 pb-4">
+                  <div className="flex justify-between border-b border-surface/5 pb-4">
                     <span className="text-industrial-grey">Year</span>
-                    <span className="text-white font-bold">2018</span>
+                    <span className="text-surface font-bold">2018</span>
                   </div>
-                  <div className="flex justify-between border-b border-white/5 pb-4">
+                  <div className="flex justify-between border-b border-surface/5 pb-4">
                     <span className="text-industrial-grey">Environment</span>
-                    <span className="text-white font-bold">High-Security Terminal</span>
+                    <span className="text-surface font-bold">High-Security Terminal</span>
                   </div>
                   <div className="flex justify-between pb-4">
                     <span className="text-industrial-grey">Capture Tech</span>
-                    <span className="text-white font-bold">UAV / Site-Aware Systems</span>
+                    <span className="text-surface font-bold">UAV / Site-Aware Systems</span>
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pt-8 border-t border-white/5">
+              <div className="mt-8 pt-8 border-t border-surface/5">
                 <p className="text-[10px] text-industrial-grey uppercase tracking-widest leading-relaxed">
                   Note: All capture activities were conducted under strict adherence to civil aviation
                   safety regulations and local security protocols.
@@ -99,7 +99,7 @@ export default function MahbAirportServicesPage() {
 
         {/* Visual Approach Section */}
         <section className="space-y-12">
-          <div className="relative rounded-3xl overflow-hidden aspect-[21/9] group">
+          <div className="relative rounded-3xl overflow-hidden bg-black aspect-[21/9] group">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: "url('/images/stitch/cb0f98cfaa.jpg')" }}
@@ -107,7 +107,7 @@ export default function MahbAirportServicesPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
               <div className="max-w-xl">
-                <h3 className="text-2xl font-bold mb-2">Site-Aware Capture</h3>
+                <h3 className="text-2xl font-bold mb-2 text-white">Site-Aware Capture</h3>
                 <p className="text-industrial-grey text-sm">
                   Strategic drone positioning to document complex ground service maneuvers without
                   interference.
@@ -156,8 +156,8 @@ export default function MahbAirportServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-white/[0.05]">
-              <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-surface/[0.05]">
+              <div className="w-16 h-16 rounded-2xl border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
                 <MaterialIcon
                   name="movie"
                   className="text-3xl group-hover:scale-110 group-hover:text-primary transition-transform"
@@ -172,8 +172,8 @@ export default function MahbAirportServicesPage() {
               </div>
             </div>
             {/* Card 2 (Large) */}
-            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between md:row-span-2 md:col-span-1 transition-all duration-500 hover:bg-white/[0.05] border-primary/10">
-              <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors bg-primary/5">
+            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between md:row-span-2 md:col-span-1 transition-all duration-500 hover:bg-surface/[0.05] border-primary/10">
+              <div className="w-16 h-16 rounded-2xl border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors bg-primary/5">
                 <MaterialIcon
                   name="video_camera_back"
                   fill
@@ -203,8 +203,8 @@ export default function MahbAirportServicesPage() {
               </div>
             </div>
             {/* Card 3 */}
-            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-white/[0.05]">
-              <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-surface/[0.05]">
+              <div className="w-16 h-16 rounded-2xl border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
                 <MaterialIcon
                   name="photo_camera"
                   className="text-3xl group-hover:scale-110 group-hover:text-primary transition-transform"
@@ -219,8 +219,8 @@ export default function MahbAirportServicesPage() {
               </div>
             </div>
             {/* Card 4 */}
-            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-white/[0.05]">
-              <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-surface/[0.05]">
+              <div className="w-16 h-16 rounded-2xl border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
                 <MaterialIcon
                   name="inventory"
                   className="text-3xl group-hover:scale-110 group-hover:text-primary transition-transform"
@@ -235,8 +235,8 @@ export default function MahbAirportServicesPage() {
               </div>
             </div>
             {/* Card 5 */}
-            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-white/[0.05]">
-              <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+            <div className="group glass-panel p-8 rounded-3xl flex flex-col justify-between aspect-square transition-all duration-500 hover:bg-surface/[0.05]">
+              <div className="w-16 h-16 rounded-2xl border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
                 <MaterialIcon
                   name="timeline"
                   className="text-3xl group-hover:scale-110 group-hover:text-primary transition-transform"
@@ -255,7 +255,7 @@ export default function MahbAirportServicesPage() {
 
         {/* Confidentiality Note */}
         <section className="max-w-4xl mx-auto">
-          <div className="bg-dark-ui border border-white/10 p-12 rounded-3xl text-center relative overflow-hidden group">
+          <div className="bg-dark-ui border border-surface/10 p-12 rounded-3xl text-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-5">
               <MaterialIcon name="lock" className="text-9xl" />
             </div>
@@ -272,10 +272,10 @@ export default function MahbAirportServicesPage() {
                 is granted only to verified personnel with appropriate credentials.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-xs text-surface/40 uppercase tracking-widest">
                   <MaterialIcon name="verified_user" className="text-sm" /> 256-bit encryption
                 </div>
-                <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-xs text-surface/40 uppercase tracking-widest">
                   <MaterialIcon name="vpn_key" className="text-sm" /> Gated Access Required
                 </div>
               </div>
@@ -293,7 +293,7 @@ export default function MahbAirportServicesPage() {
               <h3 className="text-4xl font-bold">Related Capabilities</h3>
             </div>
             <Link
-              className="text-sm font-bold uppercase tracking-widest border-b border-primary text-white hover:text-primary transition-colors pb-1"
+              className="text-sm font-bold uppercase tracking-widest border-b border-primary text-surface hover:text-primary transition-colors pb-1"
               href="/services"
             >
               View All Services
@@ -301,7 +301,7 @@ export default function MahbAirportServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
-              className="group relative block aspect-[16/7] rounded-3xl overflow-hidden glass-panel"
+              className="group relative block aspect-[16/7] rounded-3xl overflow-hidden bg-black glass-panel"
               href="/services/corporate-videos"
             >
               <div
@@ -310,7 +310,7 @@ export default function MahbAirportServicesPage() {
               />
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
               <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <h4 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                <h4 className="text-2xl font-bold group-hover:text-primary transition-colors text-white">
                   Corporate Videos
                 </h4>
                 <p className="text-industrial-grey text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -319,7 +319,7 @@ export default function MahbAirportServicesPage() {
               </div>
             </Link>
             <Link
-              className="group relative block aspect-[16/7] rounded-3xl overflow-hidden glass-panel"
+              className="group relative block aspect-[16/7] rounded-3xl overflow-hidden bg-black glass-panel"
               href="/services/facility-overview-films"
             >
               <div
@@ -328,7 +328,7 @@ export default function MahbAirportServicesPage() {
               />
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
               <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <h4 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                <h4 className="text-2xl font-bold group-hover:text-primary transition-colors text-white">
                   Facility Overviews
                 </h4>
                 <p className="text-industrial-grey text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -363,7 +363,7 @@ export default function MahbAirportServicesPage() {
                 </RequestAccessTrigger>
                 <Link
                   href="/contact"
-                  className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] transition-all"
+                  className="bg-surface/5 hover:bg-surface/10 text-surface border border-surface/10 px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] transition-all"
                 >
                   Talk to an Expert
                 </Link>

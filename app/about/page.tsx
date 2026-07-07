@@ -63,7 +63,7 @@ export default function AboutPage() {
             Home
           </Link>
           <MaterialIcon name="chevron_right" className="text-xs" />
-          <span className="text-white">About</span>
+          <span className="text-surface">About</span>
         </div>
       </div>
 
@@ -88,7 +88,7 @@ export default function AboutPage() {
               <MaterialIcon name="arrow_forward" className="text-lg" />
             </Link>
           </div>
-          <div className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel border-white/10 group">
+          <div className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel bg-black border-surface/10 group">
             <div
               className="absolute inset-0 opacity-30 mix-blend-screen z-20 pointer-events-none group-hover:opacity-50 transition-opacity duration-700"
               style={redGridBg}
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
       {/* Our Story & Mission Split */}
       <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="grid md:grid-cols-2 gap-px bg-white/5 rounded-3xl overflow-hidden border border-white/5">
+        <div className="grid md:grid-cols-2 gap-px bg-surface/5 rounded-3xl overflow-hidden border border-surface/5">
           <div className="glass-panel p-12 lg:p-16 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-1 h-full bg-primary origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
             <div className="flex items-center gap-4 mb-8">
@@ -160,9 +160,9 @@ export default function AboutPage() {
           {coreValues.map((value) => (
             <div
               key={value.title}
-              className="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-white/10 relative group"
+              className="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-surface/10 relative group"
             >
-              <div className="w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+              <div className="w-12 h-12 rounded-full bg-background/50 border border-surface/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
                 <MaterialIcon name={value.icon} className="text-primary" />
               </div>
               <h3 className="text-xl font-bold uppercase tracking-wide mb-3">
@@ -191,12 +191,12 @@ export default function AboutPage() {
             {capabilities.map((capability) => (
               <div
                 key={capability.title}
-                className="glass-panel p-6 rounded-xl flex items-center gap-6 group hover:bg-white/5 transition-colors"
+                className="glass-panel p-6 rounded-xl flex items-center gap-6 group hover:bg-surface/5 transition-colors"
               >
-                <div className="w-2 h-12 bg-white/10 group-hover:bg-primary transition-colors rounded-full" />
+                <div className="w-2 h-12 bg-surface/10 group-hover:bg-primary transition-colors rounded-full" />
                 <MaterialIcon
                   name={capability.icon}
-                  className="text-3xl text-industrial-grey group-hover:text-white transition-colors"
+                  className="text-3xl text-industrial-grey group-hover:text-surface transition-colors"
                 />
                 <div className="flex-1">
                   <h4 className="text-lg font-bold uppercase tracking-wide">
@@ -228,7 +228,7 @@ export default function AboutPage() {
               <MaterialIcon name="arrow_forward" className="text-lg" />
             </Link>
             <Link
-              className="inline-flex items-center justify-center gap-3 bg-transparent text-white font-body uppercase tracking-widest text-sm font-bold px-8 py-4 rounded-full border border-white/20 hover:border-primary hover:bg-primary/10 transition-colors"
+              className="inline-flex items-center justify-center gap-3 bg-transparent text-surface font-body uppercase tracking-widest text-sm font-bold px-8 py-4 rounded-full border border-surface/20 hover:border-primary hover:bg-primary/10 transition-colors"
               href="/services"
             >
               View Services

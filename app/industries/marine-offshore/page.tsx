@@ -59,7 +59,7 @@ const capabilities = [
 ]
 
 const glassCardClass =
-  "bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:bg-white/[0.08] hover:border-primary/40"
+  "bg-surface/5 backdrop-blur-xl border border-surface/10 transition-all duration-300 hover:bg-surface/[0.08] hover:border-primary/40"
 
 export default function MarineOffshorePage() {
   return (
@@ -68,6 +68,7 @@ export default function MarineOffshorePage() {
       <section className="relative min-h-[870px] flex items-center justify-center overflow-hidden w-full pt-20">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-dark-ui">
+          <div className="absolute inset-0 bg-black z-[-10]" />
           <div
             aria-label="Imposing offshore oil rig rising from dark waters against a stormy sky"
             className="w-full h-full bg-cover bg-center opacity-40"
@@ -129,13 +130,13 @@ export default function MarineOffshorePage() {
         </div>
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-50">
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll to view</span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-white">Scroll to view</span>
           <span className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>
 
       {/* Context Section */}
-      <section className="py-24 relative bg-black w-full border-t border-white/5">
+      <section className="py-24 relative bg-background w-full border-t border-surface/5">
         <div className="max-w-[1200px] mx-auto px-6 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
@@ -165,7 +166,7 @@ export default function MarineOffshorePage() {
                 ))}
               </ul>
             </div>
-            <div className="relative h-[500px] rounded-xl overflow-hidden border border-white/10 group">
+            <div className="relative h-[500px] rounded-xl overflow-hidden border border-surface/10 group">
               <div
                 aria-label="Offshore fabrication yard at dusk with massive steel platform components under dramatic industrial lighting"
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -174,7 +175,7 @@ export default function MarineOffshorePage() {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
               {/* Decorative UI overlay */}
-              <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded text-[10px] uppercase tracking-widest text-industrial-grey font-mono flex items-center gap-2">
+              <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-md border border-surface/10 px-3 py-1 rounded text-[10px] uppercase tracking-widest text-industrial-grey font-mono flex items-center gap-2">
                 <MaterialIcon name="videocam" className="text-[14px]" />
                 REC
                 <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse ml-1" />
@@ -186,7 +187,7 @@ export default function MarineOffshorePage() {
 
       {/* Service Grid Section */}
       <section
-        className="py-24 relative bg-graphite w-full border-t border-white/5"
+        className="py-24 relative bg-graphite w-full border-t border-surface/5"
         id="services"
       >
         <div
@@ -215,10 +216,10 @@ export default function MarineOffshorePage() {
                 key={card.title}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-12 h-12 mb-6 border border-white/20 rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
+                <div className="w-12 h-12 mb-6 border border-surface/20 rounded-full flex items-center justify-center group-hover:border-primary transition-colors">
                   <MaterialIcon
                     name={card.icon}
-                    className="text-white/70 text-2xl transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                    className="text-surface/70 text-2xl transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                   />
                 </div>
                 <h3 className="text-lg font-bold uppercase tracking-wide mb-3">
@@ -234,7 +235,7 @@ export default function MarineOffshorePage() {
       </section>
 
       {/* Security & Planning Section (Bento Grid) */}
-      <section className="py-24 relative bg-black w-full border-t border-white/5">
+      <section className="py-24 relative bg-background w-full border-t border-surface/5">
         <div className="max-w-[1200px] mx-auto px-6 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
             {/* Planning Card (Spans 2 columns on lg) */}
@@ -255,8 +256,8 @@ export default function MarineOffshorePage() {
                   documentation efforts with operational schedules.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="border-l border-white/10 pl-4">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">
+                  <div className="border-l border-surface/10 pl-4">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-surface mb-2">
                       Access & Clearances
                     </h4>
                     <p className="text-xs text-industrial-grey">
@@ -264,8 +265,8 @@ export default function MarineOffshorePage() {
                       site-specific access protocols.
                     </p>
                   </div>
-                  <div className="border-l border-white/10 pl-4">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">
+                  <div className="border-l border-surface/10 pl-4">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-surface mb-2">
                       Weather Windows
                     </h4>
                     <p className="text-xs text-industrial-grey">
@@ -292,9 +293,9 @@ export default function MarineOffshorePage() {
                 Strict protocols for handling sensitive visual data from secure offshore
                 installations.
               </p>
-              <div className="w-full bg-black/50 border border-white/10 rounded px-4 py-2 text-xs text-left">
+              <div className="w-full bg-background/50 border border-surface/10 rounded px-4 py-2 text-xs text-left">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-white/70 uppercase tracking-wider font-mono">
+                  <span className="text-surface/70 uppercase tracking-wider font-mono">
                     Status:
                   </span>
                   <span className="text-primary font-mono uppercase tracking-widest">
@@ -302,10 +303,10 @@ export default function MarineOffshorePage() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/70 uppercase tracking-wider font-mono">
+                  <span className="text-surface/70 uppercase tracking-wider font-mono">
                     Protocol:
                   </span>
-                  <span className="text-white font-mono">Encrypted Transfer</span>
+                  <span className="text-surface font-mono">Encrypted Transfer</span>
                 </div>
               </div>
             </div>
@@ -315,7 +316,7 @@ export default function MarineOffshorePage() {
 
       {/* CTA Section */}
       <section
-        className="py-32 relative bg-dark-ui w-full border-t border-white/5 overflow-hidden"
+        className="py-32 relative bg-dark-ui w-full border-t border-surface/5 overflow-hidden"
         id="discuss"
       >
         {/* Background element */}

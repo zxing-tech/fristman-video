@@ -28,7 +28,7 @@ export default function AiGeneratedVideoPage() {
   return (
     <main className="flex-grow flex flex-col w-full">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[716px] flex items-center pt-32 pb-16 overflow-hidden">
+      <section className="relative w-full min-h-[716px] flex items-center pt-32 pb-16 overflow-hidden bg-black">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div
@@ -108,9 +108,9 @@ export default function AiGeneratedVideoPage() {
       {/* Strategic Applications (Bento Grid) */}
       <section className="w-full py-24 bg-dark-ui relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-surface/10 pb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-tight mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-surface uppercase tracking-tight mb-2">
                 Strategic Applications
               </h2>
               <p className="text-industrial-grey uppercase tracking-widest text-sm font-bold">
@@ -137,7 +137,7 @@ export default function AiGeneratedVideoPage() {
                 name="emergency"
                 className="text-4xl text-industrial-grey mb-6 transition-colors cursor-default z-10 relative hover:text-primary hover:[font-variation-settings:'FILL'_1]"
               />
-              <h3 className="text-xl font-bold text-white uppercase mb-3 z-10 relative">
+              <h3 className="text-xl font-bold text-surface uppercase mb-3 z-10 relative">
                 Incident & Emergency Recreation
               </h3>
               <p className="text-industrial-grey leading-relaxed z-10 relative">
@@ -156,7 +156,7 @@ export default function AiGeneratedVideoPage() {
                   name={card.icon}
                   className="text-4xl text-industrial-grey mb-6 transition-colors cursor-default z-10 relative hover:text-primary hover:[font-variation-settings:'FILL'_1]"
                 />
-                <h3 className="text-xl font-bold text-white uppercase mb-3 z-10 relative">
+                <h3 className="text-xl font-bold text-surface uppercase mb-3 z-10 relative">
                   {card.title}
                 </h3>
                 <p className="text-industrial-grey leading-relaxed text-sm z-10 relative">
@@ -165,14 +165,14 @@ export default function AiGeneratedVideoPage() {
               </div>
             ))}
             {/* Card 4 */}
-            <div className="glass-panel p-8 rounded-2xl group hover:border-primary/50 transition-colors md:col-span-2 relative overflow-hidden">
+            <div className="glass-panel bg-black p-8 rounded-2xl group hover:border-primary/50 transition-colors md:col-span-2 relative overflow-hidden">
               <div
                 aria-label="Industrial workers in safety gear operating heavy machinery in a steel fabrication facility"
                 className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500"
                 role="img"
                 style={{ backgroundImage: "url('/images/stitch/f6f0469b18.jpg')" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10 h-full flex flex-col justify-end">
                 <MaterialIcon
                   name="history"
@@ -181,7 +181,7 @@ export default function AiGeneratedVideoPage() {
                 <h3 className="text-xl font-bold text-white uppercase mb-2">
                   Historical & Inaccessible Events
                 </h3>
-                <p className="text-gray-300 leading-relaxed max-w-xl">
+                <p className="text-industrial-grey leading-relaxed max-w-xl">
                   Reconstruct past milestones or restricted-access operations that were never filmed —
                   rebuilt from archival references into cinematic footage for anniversaries, corporate
                   storytelling, and heritage records.

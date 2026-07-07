@@ -32,7 +32,7 @@ export default function ThankYouCaseStudyAccessPage() {
     <main className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Asset */}
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       </div>
       <div className="container mx-auto px-6 relative z-10 max-w-[1280px]">
         {/* Hero Section */}
@@ -64,7 +64,7 @@ export default function ThankYouCaseStudyAccessPage() {
                   </h3>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <span className="text-white font-bold uppercase tracking-tight">
+                    <span className="text-surface font-bold uppercase tracking-tight">
                       Under Review
                     </span>
                   </div>
@@ -72,46 +72,46 @@ export default function ThankYouCaseStudyAccessPage() {
                 <MaterialIcon name="verified_user" className="text-industrial-grey" />
               </div>
               <div className="space-y-6">
-                <div className="border-b border-white/5 pb-4">
+                <div className="border-b border-surface/5 pb-4">
                   <p className="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">
                     Resource Requested
                   </p>
-                  <p className="text-white font-semibold">
+                  <p className="text-surface font-semibold">
                     Offshore Fabrication Yard - Drone Workflow 2024
                   </p>
                 </div>
-                <div className="border-b border-white/5 pb-4">
+                <div className="border-b border-surface/5 pb-4">
                   <p className="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">
                     Organization Identity
                   </p>
-                  <p className="text-white font-semibold">Corporate Partner / Prospect</p>
+                  <p className="text-surface font-semibold">Corporate Partner / Prospect</p>
                 </div>
                 <div>
                   <p className="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">
                     Internal Reference
                   </p>
-                  <p className="text-white font-mono text-sm">FMV-AUTH-00982-X</p>
+                  <p className="text-surface font-mono text-sm">FMV-AUTH-00982-X</p>
                 </div>
               </div>
             </div>
           </div>
           {/* Process Timeline */}
           <div className="lg:col-span-7 flex flex-col justify-center h-full">
-            <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-white mb-8 border-l-2 border-primary pl-4">
+            <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-surface mb-8 border-l-2 border-primary pl-4">
               Authorization Sequence
             </h3>
             <div className="space-y-12 relative">
-              <div className="absolute left-6 top-2 bottom-2 w-px bg-white/10" />
+              <div className="absolute left-6 top-2 bottom-2 w-px bg-surface/10" />
               {steps.map((step) => (
                 <div key={step.title} className="relative flex items-start gap-8 group">
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-graphite border border-white/10 flex items-center justify-center transition-all group-hover:border-primary">
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-graphite border border-surface/10 flex items-center justify-center transition-all group-hover:border-primary">
                     <MaterialIcon
                       name={step.icon}
                       className="text-xl transition-colors group-hover:text-primary"
                     />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-1">
+                    <h4 className="text-surface font-bold uppercase tracking-wider text-sm mb-1">
                       {step.title}
                     </h4>
                     <p className="text-industrial-grey text-sm leading-relaxed">{step.body}</p>
@@ -136,13 +136,13 @@ export default function ThankYouCaseStudyAccessPage() {
             />
           </Link>
           <Link
-            className="group px-10 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3"
+            className="group px-10 py-4 border border-surface/20 rounded-full hover:bg-surface hover:text-background transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3"
             href="/contact"
           >
             <span className="font-bold uppercase tracking-widest text-sm">
               Request Consultation
             </span>
-            <MaterialIcon name="videocam" className="text-primary group-hover:text-black" />
+            <MaterialIcon name="videocam" className="text-primary group-hover:text-background" />
           </Link>
         </section>
         {/* Privacy Note */}

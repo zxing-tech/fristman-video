@@ -34,7 +34,7 @@ export default function ThankYouConsultationPage() {
   return (
     <main className="relative min-h-screen pt-32 pb-20 flex flex-col items-center justify-center">
       {/* Cinematic Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-black">
         <div
           aria-hidden="true"
           className="w-full h-full bg-cover bg-center opacity-40 grayscale"
@@ -48,7 +48,7 @@ export default function ThankYouConsultationPage() {
           <span className="inline-block px-4 py-1 border border-primary/30 rounded-full text-primary text-[10px] tracking-[0.3em] font-bold mb-6 bg-primary/5 uppercase">
             Request Logged
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-widest uppercase mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-black tracking-widest uppercase mb-6 leading-tight text-white">
             THANK YOU — <span className="text-primary">CONSULTATION</span> REQUEST RECEIVED
           </h1>
           <p className="text-industrial-grey text-lg max-w-2xl mx-auto font-light leading-relaxed">
@@ -66,19 +66,19 @@ export default function ThankYouConsultationPage() {
               <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
                 Project Scope
               </p>
-              <p className="font-semibold text-white">Site-Aware Documentation</p>
+              <p className="font-semibold text-surface">Site-Aware Documentation</p>
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
                 Region
               </p>
-              <p className="font-semibold text-white">Industrial Corridor</p>
+              <p className="font-semibold text-surface">Industrial Corridor</p>
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
                 Contact Reference
               </p>
-              <p className="font-semibold text-white">Pending Assignment</p>
+              <p className="font-semibold text-surface">Pending Assignment</p>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function ThankYouConsultationPage() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="relative p-6 glass-panel rounded-xl hover:bg-white/5 transition-colors group"
+                className="relative p-6 glass-panel rounded-xl hover:bg-surface/5 transition-colors group"
               >
                 <div
                   className="text-5xl font-black absolute -top-4 left-4 opacity-50 select-none"

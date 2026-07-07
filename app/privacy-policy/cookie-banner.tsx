@@ -13,7 +13,7 @@ export function CookieBanner() {
     <div className="fixed bottom-0 left-0 w-full z-40 p-4 pointer-events-none">
       <div className="max-w-4xl mx-auto glass-panel rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-2xl pointer-events-auto border-t border-primary/30">
         <div className="flex-grow">
-          <h4 className="text-white font-bold uppercase text-sm mb-1 flex items-center gap-2">
+          <h4 className="text-surface font-bold uppercase text-sm mb-1 flex items-center gap-2">
             <MaterialIcon name="cookie" className="text-primary text-[18px]" />
             Telemetry &amp; Tracking
           </h4>
@@ -26,21 +26,21 @@ export function CookieBanner() {
         <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
           <button
             type="button"
-            className="px-5 py-2 rounded-full border border-white/20 text-industrial-grey text-xs font-bold uppercase tracking-widest hover:text-white transition-colors"
+            className="px-5 py-2 rounded-full border border-surface/20 text-industrial-grey text-xs font-bold uppercase tracking-widest hover:text-surface transition-colors"
           >
             Manage
           </button>
           <button
             type="button"
             onClick={() => setVisible(false)}
-            className="px-5 py-2 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
+            className="px-5 py-2 rounded-full border border-surface/20 text-surface text-xs font-bold uppercase tracking-widest hover:bg-surface/10 transition-colors"
           >
             Necessary
           </button>
           <button
             type="button"
             onClick={() => setVisible(false)}
-            className="px-5 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-black border border-transparent hover:border-primary transition-all"
+            className="px-5 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-background border border-transparent hover:border-primary transition-all"
           >
             Accept All
           </button>

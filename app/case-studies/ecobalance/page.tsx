@@ -14,7 +14,7 @@ export default function EcoBalanceCaseStudyPage() {
     <main className="pt-32 pb-20">
       {/* Hero Section */}
       <section className="max-w-[1280px] mx-auto px-8 mb-16 relative">
-        <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden glass-panel border-white/10 group">
+        <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden glass-panel bg-black border-white/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
           <div className="scanning-line opacity-30" />
           <div
@@ -23,7 +23,7 @@ export default function EcoBalanceCaseStudyPage() {
           />
           <div className="absolute bottom-12 left-12 z-20 max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 bg-primary text-[10px] font-bold tracking-[0.2em] rounded-full uppercase">
+              <span className="px-3 py-1 bg-primary text-white text-[10px] font-bold tracking-[0.2em] rounded-full uppercase">
                 Case Study
               </span>
               <span className="w-12 h-[1px] bg-white/30" />
@@ -31,19 +31,19 @@ export default function EcoBalanceCaseStudyPage() {
                 Ref: 2024-EB-CS
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-[0.9] mb-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-[0.9] mb-6 text-white">
               EcoBalance — <span className="text-primary">Corporate Storytelling</span> Reference
             </h1>
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
                 <MaterialIcon name="visibility" className="text-primary text-sm" />
-                <span className="text-xs font-bold tracking-widest uppercase">
+                <span className="text-xs font-bold tracking-widest uppercase text-white">
                   Public Access Approved
                 </span>
               </div>
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
                 <MaterialIcon name="precision_manufacturing" className="text-primary text-sm" />
-                <span className="text-xs font-bold tracking-widest uppercase">
+                <span className="text-xs font-bold tracking-widest uppercase text-white">
                   Corporate Videos
                 </span>
               </div>
@@ -73,7 +73,7 @@ export default function EcoBalanceCaseStudyPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="glass-panel p-8 rounded-3xl border-l-2 border-l-primary">
-              <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">
+              <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-surface/50 mb-4">
                 Project Context
               </h3>
               <p className="text-sm text-industrial-grey leading-relaxed">
@@ -86,7 +86,7 @@ export default function EcoBalanceCaseStudyPage() {
               </p>
             </div>
             <div className="glass-panel p-8 rounded-3xl border-l-2 border-l-primary">
-              <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-4">
+              <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-surface/50 mb-4">
                 Communication Objective
               </h3>
               <p className="text-sm text-industrial-grey leading-relaxed">
@@ -108,26 +108,26 @@ export default function EcoBalanceCaseStudyPage() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-[10px] font-bold tracking-widest text-white uppercase">
+                <span className="text-[10px] font-bold tracking-widest text-surface uppercase">
                   [CONFIRM CLIENT APPROVAL]
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-white/20" />
-                <span className="text-[10px] font-bold tracking-widest text-white/60 uppercase">
+                <div className="w-2 h-2 rounded-full bg-surface/20" />
+                <span className="text-[10px] font-bold tracking-widest text-surface/60 uppercase">
                   [REPLACE PLACEHOLDER TEXT]
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-white/20" />
-                <span className="text-[10px] font-bold tracking-widest text-white/60 uppercase">
+                <div className="w-2 h-2 rounded-full bg-surface/20" />
+                <span className="text-[10px] font-bold tracking-widest text-surface/60 uppercase">
                   [APPROVED IMAGERY ONLY]
                 </span>
               </div>
             </div>
           </div>
           <div className="glass-panel p-8 rounded-3xl">
-            <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-white/50 mb-6">
+            <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-surface/50 mb-6">
               Visual Approach
             </h3>
             <ul className="flex flex-col gap-6">
@@ -170,7 +170,7 @@ export default function EcoBalanceCaseStudyPage() {
       </section>
 
       {/* Visual Asset Showcase */}
-      <section className="bg-dark-ui py-24 border-y border-white/5 mb-24">
+      <section className="bg-dark-ui py-24 border-y border-surface/5 mb-24">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -187,7 +187,7 @@ export default function EcoBalanceCaseStudyPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Deliverable 1 */}
-            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel">
+            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel bg-black">
               <div
                 className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-100"
                 style={{ backgroundImage: "url('/images/stitch/5677735a6c.jpg')" }}
@@ -195,7 +195,7 @@ export default function EcoBalanceCaseStudyPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 flex flex-col justify-end">
                 <div className="flex items-center gap-2 mb-2">
                   <MaterialIcon name="movie_filter" className="text-primary text-sm" />
-                  <span className="text-xs font-bold tracking-widest uppercase">
+                  <span className="text-xs font-bold tracking-widest uppercase text-white">
                     Monthly Update Films
                   </span>
                 </div>
@@ -205,7 +205,7 @@ export default function EcoBalanceCaseStudyPage() {
               </div>
             </div>
             {/* Deliverable 2 */}
-            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel">
+            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel bg-black">
               <div
                 className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-100"
                 style={{ backgroundImage: "url('/images/stitch/9cfe507b06.jpg')" }}
@@ -213,7 +213,7 @@ export default function EcoBalanceCaseStudyPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 flex flex-col justify-end">
                 <div className="flex items-center gap-2 mb-2">
                   <MaterialIcon name="bolt" className="text-primary text-sm" />
-                  <span className="text-xs font-bold tracking-widest uppercase">
+                  <span className="text-xs font-bold tracking-widest uppercase text-white">
                     Milestone Reels
                   </span>
                 </div>
@@ -223,7 +223,7 @@ export default function EcoBalanceCaseStudyPage() {
               </div>
             </div>
             {/* Deliverable 3 */}
-            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel">
+            <div className="group relative aspect-video rounded-2xl overflow-hidden glass-panel bg-black">
               <div
                 className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-100"
                 style={{ backgroundImage: "url('/images/stitch/980656c7aa.jpg')" }}
@@ -231,7 +231,7 @@ export default function EcoBalanceCaseStudyPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 flex flex-col justify-end">
                 <div className="flex items-center gap-2 mb-2">
                   <MaterialIcon name="photo_library" className="text-primary text-sm" />
-                  <span className="text-xs font-bold tracking-widest uppercase">
+                  <span className="text-xs font-bold tracking-widest uppercase text-white">
                     High-Res Still Packs
                   </span>
                 </div>
@@ -263,16 +263,16 @@ export default function EcoBalanceCaseStudyPage() {
                 that proprietary processes remain strictly confidential while delivering
                 world-class visual assets.
               </p>
-              <div className="p-4 bg-black/40 rounded-xl border border-white/5">
+              <div className="p-4 bg-background/40 rounded-xl border border-surface/5">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">
+                  <span className="text-[9px] font-bold text-surface/40 uppercase tracking-widest">
                     Protocol Status
                   </span>
                   <span className="text-[9px] font-bold text-primary uppercase tracking-widest">
                     Active
                   </span>
                 </div>
-                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-full h-1 bg-surface/10 rounded-full overflow-hidden">
                   <div className="w-full h-full bg-primary origin-left scale-x-75 animate-pulse [animation-duration:3s]" />
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function EcoBalanceCaseStudyPage() {
                   Professional-grade visual capture for heavy industry environments, fabrication
                   yards, and energy infrastructure.
                 </p>
-                <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-white/40">
+                <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-surface/40">
                   <span>Learn More</span>
                   <MaterialIcon
                     name="arrow_forward"
@@ -334,7 +334,7 @@ export default function EcoBalanceCaseStudyPage() {
                   Comprehensive visual mapping and cinematic overviews of large-scale assets and
                   operational territories.
                 </p>
-                <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-white/40">
+                <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-surface/40">
                   <span>Learn More</span>
                   <MaterialIcon
                     name="arrow_forward"
@@ -349,7 +349,7 @@ export default function EcoBalanceCaseStudyPage() {
 
       {/* Final CTA */}
       <section className="max-w-[1280px] mx-auto px-8 mb-32">
-        <div className="relative rounded-[3rem] overflow-hidden bg-dark-ui border border-white/5 py-24 px-8 text-center">
+        <div className="relative rounded-[3rem] overflow-hidden bg-dark-ui border border-surface/5 py-24 px-8 text-center">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#d12027,transparent_70%)] opacity-20" />
           </div>
@@ -371,7 +371,7 @@ export default function EcoBalanceCaseStudyPage() {
               <span className="w-3 h-3 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="w-1 h-1 rounded-full bg-primary" />
               </span>
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-surface/40">
                 Limited Onboarding Capacity
               </span>
             </div>

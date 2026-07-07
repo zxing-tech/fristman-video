@@ -56,19 +56,19 @@ export default function CorporateVideosPage() {
     <main>
       {/* Breadcrumbs */}
       <div className="max-w-[1280px] mx-auto px-8 pt-28 flex items-center gap-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
-        <Link className="hover:text-white transition-colors" href="/">
+        <Link className="hover:text-surface transition-colors" href="/">
           Home
         </Link>
         <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <Link className="hover:text-white transition-colors" href="/services">
+        <Link className="hover:text-surface transition-colors" href="/services">
           Services
         </Link>
         <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <span className="text-white font-bold">Corporate Videos</span>
+        <span className="text-surface font-bold">Corporate Videos</span>
       </div>
 
       {/* Hero Section */}
-      <header className="relative w-full min-h-[819px] flex items-center justify-center mt-8 px-4 overflow-hidden">
+      <header className="relative w-full min-h-[819px] flex items-center justify-center mt-8 px-4 overflow-hidden bg-black">
         {/* Background Image with FUI Overlay */}
         <div className="absolute inset-0 z-0">
           <div
@@ -129,7 +129,7 @@ export default function CorporateVideosPage() {
       <section className="py-24 px-4 md:px-8 max-w-[1280px] mx-auto">
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="font-headline font-bold text-3xl md:text-4xl tracking-tight text-white mb-4">
+            <h2 className="font-headline font-bold text-3xl md:text-4xl tracking-tight text-surface mb-4">
               Strategic Applications
             </h2>
             <p className="font-body text-industrial-grey max-w-xl">
@@ -144,13 +144,13 @@ export default function CorporateVideosPage() {
               key={audience.title}
               className="glass-panel p-8 rounded-2xl group hover:border-primary transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+              <div className="w-12 h-12 rounded-full bg-background border border-surface/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
                 <MaterialIcon
                   name={audience.icon}
-                  className="text-white text-2xl [font-variation-settings:'FILL'_0] group-hover:[font-variation-settings:'FILL'_1] group-hover:text-primary [transition:font-variation-settings_0.3s_ease,color_0.3s_ease]"
+                  className="text-surface text-2xl [font-variation-settings:'FILL'_0] group-hover:[font-variation-settings:'FILL'_1] group-hover:text-primary [transition:font-variation-settings_0.3s_ease,color_0.3s_ease]"
                 />
               </div>
-              <h3 className="font-headline font-bold text-lg text-white mb-3 tracking-wide">
+              <h3 className="font-headline font-bold text-lg text-surface mb-3 tracking-wide">
                 {audience.title}
               </h3>
               <p className="font-body text-sm text-industrial-grey leading-relaxed">
@@ -162,13 +162,13 @@ export default function CorporateVideosPage() {
       </section>
 
       {/* Use Cases Grid */}
-      <section className="py-24 bg-[#111111] relative border-y border-white/5">
+      <section className="py-24 bg-graphite relative border-y border-surface/5">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <SectionLabel className="mb-2 block">
               Deployment Scenarios
             </SectionLabel>
-            <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-white">
+            <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-surface">
               Facility Overviews
             </h2>
           </div>

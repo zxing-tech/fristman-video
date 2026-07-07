@@ -43,7 +43,7 @@ export default function ContactPage() {
           className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity blur-[4px]"
           style={{ backgroundImage: "url('/images/stitch/d3edef792e.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -59,10 +59,10 @@ export default function ContactPage() {
           aria-label="Breadcrumb"
           className="flex items-center text-xs font-body uppercase tracking-wider text-industrial-grey gap-2"
         >
-          <Link className="hover:text-white transition-colors" href="/">
+          <Link className="hover:text-surface transition-colors" href="/">
             Home
           </Link>
-          <span className="text-white/30">/</span>
+          <span className="text-surface/30">/</span>
           <span className="text-primary font-bold">Contact</span>
         </nav>
       </div>
@@ -78,11 +78,11 @@ export default function ContactPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="text-xs font-bold uppercase tracking-wider text-white">
+              <span className="text-xs font-bold uppercase tracking-wider text-surface">
                 Priority consultation slots available this month
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-headline font-black tracking-tighter uppercase text-white mb-6 leading-none">
+            <h1 className="text-5xl md:text-6xl font-headline font-black tracking-tighter uppercase text-surface mb-6 leading-none">
               Get in{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#b01a20]">
                 Touch
@@ -91,7 +91,7 @@ export default function ContactPage() {
             <p className="text-industrial-grey text-lg font-body mb-12 max-w-md leading-relaxed">
               Request a consultation, quote or site assessment. Our specialized industrial
               cinematography team typically responds within{" "}
-              <strong className="text-white">24 business hours</strong>.
+              <strong className="text-surface">24 business hours</strong>.
             </p>
             {/* Contact Info Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
@@ -106,13 +106,13 @@ export default function ContactPage() {
                       className="text-industrial-grey text-2xl transition-all duration-300 group-hover:text-primary group-hover:scale-110 group-hover:[font-variation-settings:'FILL'_1]"
                     />
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-1">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-surface/50 mb-1">
                         {card.title}
                       </h3>
                       {card.lines.map((line, index) => (
                         <p
                           key={line}
-                          className={`text-sm font-medium text-white${
+                          className={`text-sm font-medium text-surface${
                             index < card.lines.length - 1 ? " mb-0.5" : ""
                           }`}
                         >
@@ -128,7 +128,7 @@ export default function ContactPage() {
             <div className="mt-auto border-l-2 border-primary/50 pl-4 py-1">
               <div className="flex items-center gap-2 mb-1">
                 <MaterialIcon name="timer" fill className="text-primary text-sm" />
-                <span className="text-xs font-bold uppercase tracking-wider text-white">
+                <span className="text-xs font-bold uppercase tracking-wider text-surface">
                   Response SLA
                 </span>
               </div>

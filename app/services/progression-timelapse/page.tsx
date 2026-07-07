@@ -116,7 +116,7 @@ export default function ProgressionTimelapsePage() {
   return (
     <div>
       {/* Hero Section */}
-      <header className="relative min-h-[819px] flex items-center justify-center pt-24 overflow-hidden">
+      <header className="relative bg-black min-h-[819px] flex items-center justify-center pt-24 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#000000] z-10" />
@@ -152,10 +152,10 @@ export default function ProgressionTimelapsePage() {
       </header>
 
       {/* Section 1: Value for Stakeholders */}
-      <section className="py-24 bg-[#000000] relative">
+      <section className="py-24 bg-background relative">
         <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
               Value for Stakeholders
             </h2>
             <div className="w-16 h-1 bg-primary mx-auto" />
@@ -166,13 +166,13 @@ export default function ProgressionTimelapsePage() {
                 className="glass-panel p-8 rounded-2xl group transition-all duration-300 hover:-translate-y-2 hover:border-primary/30"
                 key={card.title}
               >
-                <div className="w-14 h-14 rounded-full bg-graphite flex items-center justify-center mb-6 border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="w-14 h-14 rounded-full bg-graphite flex items-center justify-center mb-6 border border-surface/10 group-hover:border-primary/50 transition-colors">
                   <MaterialIcon
                     name={card.icon}
-                    className="text-3xl text-white transition-all duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                    className="text-3xl text-surface transition-all duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                   />
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-3">
+                <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-3">
                   {card.title}
                 </h3>
                 <p className="text-industrial-grey text-sm leading-relaxed">{card.description}</p>
@@ -183,11 +183,11 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 2: Capture Approach */}
-      <section className="py-24 bg-[#111111] relative overflow-hidden" id="approach">
+      <section className="py-24 bg-dark-ui relative overflow-hidden" id="approach">
         <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-6">
                 Capture Approach
               </h2>
               <p className="text-industrial-grey text-base leading-relaxed mb-6">
@@ -199,12 +199,12 @@ export default function ProgressionTimelapsePage() {
                 {captureApproachPoints.map((point) => (
                   <li className="flex items-start" key={point}>
                     <MaterialIcon name="check_circle" className="text-primary mr-3 mt-0.5" />
-                    <span className="text-white text-sm font-medium">{point}</span>
+                    <span className="text-surface text-sm font-medium">{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-video border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+            <div className="relative rounded-2xl overflow-hidden aspect-video border border-surface/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
               <div className="absolute inset-0 bg-black/20 z-10" />
               <div className="absolute inset-0 border-2 border-primary/20 z-20 pointer-events-none rounded-2xl m-2" />
               {/* Reticle corners */}
@@ -224,10 +224,10 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 3: Deliverables */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
               Deliverables
             </h2>
             <div className="w-16 h-1 bg-primary mx-auto" />
@@ -235,14 +235,14 @@ export default function ProgressionTimelapsePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {deliverables.map((item) => (
               <div
-                className="glass-panel p-6 rounded-xl border border-white/10 hover:border-primary/50 transition-colors group"
+                className="glass-panel p-6 rounded-xl border border-surface/10 hover:border-primary/50 transition-colors group"
                 key={item.title}
               >
                 <MaterialIcon
                   name={item.icon}
                   className="text-2xl text-industrial-grey group-hover:text-primary transition-colors mb-4 block"
                 />
-                <h4 className="text-white font-bold uppercase text-sm tracking-wider mb-2">
+                <h4 className="text-surface font-bold uppercase text-sm tracking-wider mb-2">
                   {item.title}
                 </h4>
                 <p className="text-industrial-grey text-xs">{item.description}</p>
@@ -253,10 +253,10 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 4: Sample Timeline Module */}
-      <section className="py-24 bg-[#111111]">
+      <section className="py-24 bg-dark-ui">
         <div className="container mx-auto px-6 lg:px-12 max-w-[1000px]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
               Sample Progression
             </h2>
             <div className="w-16 h-1 bg-primary mx-auto" />
@@ -271,13 +271,13 @@ export default function ProgressionTimelapsePage() {
                 } items-center w-full ${index < timelinePhases.length - 1 ? "mb-24" : ""}`}
                 key={item.phase}
               >
-                <div className="absolute left-6 md:left-1/2 top-0 w-4 h-4 rounded-full bg-black border-2 border-primary -translate-x-1/2 z-10" />
+                <div className="absolute left-6 md:left-1/2 top-0 w-4 h-4 rounded-full bg-background border-2 border-primary -translate-x-1/2 z-10" />
                 <div
                   className={`w-full md:w-1/2 pl-12 mb-6 md:mb-0 ${
                     item.reversed ? "md:pl-12" : "md:pl-0 md:pr-12 md:text-right"
                   }`}
                 >
-                  <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-2">
+                  <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-2">
                     {item.phase}
                   </h3>
                   <h4 className="text-primary font-bold text-lg mb-3">{item.title}</h4>
@@ -288,7 +288,7 @@ export default function ProgressionTimelapsePage() {
                     item.reversed ? "md:pr-12 flex md:justify-end" : "md:pl-12"
                   }`}
                 >
-                  <div className="rounded-lg overflow-hidden border border-white/10 shadow-lg aspect-video w-full max-w-sm">
+                  <div className="rounded-lg overflow-hidden border border-surface/10 shadow-lg aspect-video w-full max-w-sm">
                     <div
                       aria-label={item.alt}
                       className="w-full h-full bg-cover bg-center"
@@ -304,12 +304,12 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 5: Project Checklist */}
-      <section className="py-24 bg-[#000000] border-t border-white/5">
+      <section className="py-24 bg-background border-t border-surface/5">
         <div className="container mx-auto px-6 lg:px-12 max-w-[800px]">
           <div className="glass-panel rounded-2xl p-8 md:p-12 border-l-4 border-l-primary">
             <div className="flex items-center mb-8">
               <MaterialIcon name="checklist" className="text-3xl text-primary mr-4" />
-              <h2 className="text-2xl font-bold uppercase tracking-wide text-white">
+              <h2 className="text-2xl font-bold uppercase tracking-wide text-surface">
                 Pre-Deployment Checklist
               </h2>
             </div>
@@ -320,12 +320,12 @@ export default function ProgressionTimelapsePage() {
             <ul className="space-y-4">
               {checklistItems.map((item) => (
                 <li
-                  className="flex items-start bg-graphite-light/30 p-4 rounded-lg border border-white/5"
+                  className="flex items-start bg-graphite-light/30 p-4 rounded-lg border border-surface/5"
                   key={item.title}
                 >
-                  <MaterialIcon name={item.icon} className="text-white mr-4 mt-0.5 opacity-50" />
+                  <MaterialIcon name={item.icon} className="text-surface mr-4 mt-0.5 opacity-50" />
                   <div>
-                    <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-1">
+                    <h4 className="text-surface text-sm font-bold uppercase tracking-wider mb-1">
                       {item.title}
                     </h4>
                     <p className="text-industrial-grey text-xs">{item.description}</p>
@@ -338,7 +338,7 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 bg-[#111111] relative overflow-hidden text-center">
+      <section className="py-32 bg-dark-ui relative overflow-hidden text-center">
         <div
           className="absolute inset-0 z-0 opacity-20"
           style={{
@@ -347,7 +347,7 @@ export default function ProgressionTimelapsePage() {
           }}
         />
         <div className="relative z-10 container mx-auto px-6 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-white mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-surface mb-10">
             Document the next milestone clearly
           </h2>
           <Link

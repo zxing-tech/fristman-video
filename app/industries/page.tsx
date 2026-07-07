@@ -109,7 +109,7 @@ export default function IndustriesPage() {
   return (
     <main className="flex-grow flex flex-col relative">
       {/* Hero Section */}
-      <section className="relative min-h-[819px] flex items-center pt-24 pb-16 overflow-hidden">
+      <section className="relative min-h-[819px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full opacity-40 mix-blend-luminosity"
@@ -136,7 +136,7 @@ export default function IndustriesPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary text-white font-label uppercase tracking-widest text-sm font-bold hover:bg-white hover:text-background transition-all duration-300 group"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary text-white font-label uppercase tracking-widest text-sm font-bold hover:bg-surface hover:text-background transition-all duration-300 group"
               href="#oil-gas"
             >
               Explore Oil & Gas
@@ -152,13 +152,13 @@ export default function IndustriesPage() {
       </section>
 
       {/* Primary Industry Feature: Oil & Gas */}
-      <section className="py-24 relative border-t border-white/5 bg-[#111111]" id="oil-gas">
+      <section className="py-24 relative border-t border-surface/5 bg-dark-ui" id="oil-gas">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center space-x-2 mb-6">
                 <MaterialIcon name="oil_barrel" className="text-primary text-3xl" />
-                <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-white uppercase">
+                <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-surface uppercase">
                   Oil & Gas
                 </h2>
               </div>
@@ -179,7 +179,7 @@ export default function IndustriesPage() {
                       className={`text-industrial-grey mt-0.5 ${hoverIconClass}`}
                     />
                     <div>
-                      <h4 className="font-label font-bold text-sm text-white uppercase tracking-wider mb-1">
+                      <h4 className="font-label font-bold text-sm text-surface uppercase tracking-wider mb-1">
                         {item.title}
                       </h4>
                       <p className="font-body text-xs text-industrial-grey">{item.summary}</p>
@@ -210,7 +210,7 @@ export default function IndustriesPage() {
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="mb-12">
-            <h2 className="font-headline font-bold text-2xl md:text-3xl tracking-tight text-white uppercase border-l-4 border-primary pl-4">
+            <h2 className="font-headline font-bold text-2xl md:text-3xl tracking-tight text-surface uppercase border-l-4 border-primary pl-4">
               Specialized Sectors
             </h2>
           </div>
@@ -219,13 +219,13 @@ export default function IndustriesPage() {
               <Link
                 key={card.title}
                 href={card.href}
-                className="glass-panel rounded-2xl p-8 transition-all duration-300 group flex flex-col h-full relative overflow-hidden hover:border-primary/50 hover:bg-[#1a1a1a]/60"
+                className="glass-panel rounded-2xl p-8 transition-all duration-300 group flex flex-col h-full relative overflow-hidden hover:border-primary/50 hover:bg-graphite/60"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:bg-primary/10 transition-colors" />
-                <div className="mb-6 h-12 w-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-primary transition-colors">
-                  <MaterialIcon name={card.icon} className={`text-2xl text-white ${hoverIconClass}`} />
+                <div className="mb-6 h-12 w-12 rounded-full border border-surface/20 flex items-center justify-center group-hover:border-primary transition-colors">
+                  <MaterialIcon name={card.icon} className={`text-2xl text-surface ${hoverIconClass}`} />
                 </div>
-                <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-white mb-3">
+                <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-surface mb-3">
                   {card.title}
                 </h3>
                 <p className="font-body text-industrial-grey text-sm leading-relaxed mt-auto">
@@ -238,7 +238,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Regional Coverage & Buyer Outcomes */}
-      <section className="py-24 bg-graphite border-t border-b border-white/5">
+      <section className="py-24 bg-graphite border-t border-b border-surface/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Regional Coverage Panel */}
@@ -256,7 +256,7 @@ export default function IndustriesPage() {
                     Regional Coverage
                   </h3>
                 </div>
-                <h4 className="font-headline font-bold text-3xl text-white mb-6 leading-tight">
+                <h4 className="font-headline font-bold text-3xl text-surface mb-6 leading-tight">
                   Southeast Asia Operations
                 </h4>
                 <p className="font-body text-industrial-grey text-sm mb-8">
@@ -268,9 +268,9 @@ export default function IndustriesPage() {
                 {regionalCoverage.map((row) => (
                   <div
                     key={row.country}
-                    className="flex items-center justify-between border-b border-white/10 pb-2"
+                    className="flex items-center justify-between border-b border-surface/10 pb-2"
                   >
-                    <span className="font-body font-bold text-white">{row.country}</span>
+                    <span className="font-body font-bold text-surface">{row.country}</span>
                     <span
                       className={`font-label text-xs uppercase tracking-wider ${
                         row.highlight ? "text-primary" : "text-industrial-grey"
@@ -284,7 +284,7 @@ export default function IndustriesPage() {
             </div>
             {/* Buyer-Specific Outcomes */}
             <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-              <h3 className="font-headline font-bold text-2xl uppercase tracking-wide text-white mb-4">
+              <h3 className="font-headline font-bold text-2xl uppercase tracking-wide text-surface mb-4">
                 Value by Function
               </h3>
               {buyerOutcomes.map((item) => (
@@ -297,7 +297,7 @@ export default function IndustriesPage() {
                     className={`text-industrial-grey mt-1 ${hoverIconClass}`}
                   />
                   <div>
-                    <h4 className="font-label font-bold text-sm text-white uppercase tracking-wider mb-2">
+                    <h4 className="font-label font-bold text-sm text-surface uppercase tracking-wider mb-2">
                       {item.title}
                     </h4>
                     <p className="font-body text-sm text-industrial-grey">{item.summary}</p>
@@ -319,7 +319,7 @@ export default function IndustriesPage() {
           }}
         />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="glass-panel rounded-3xl p-8 md:p-12 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="glass-panel rounded-3xl p-8 md:p-12 border border-surface/10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-xl">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-primary/50 text-primary mb-6">
                 <MaterialIcon name="lock" className="text-sm" />
@@ -327,7 +327,7 @@ export default function IndustriesPage() {
                   Public Preview
                 </span>
               </div>
-              <h2 className="font-headline font-bold text-3xl md:text-4xl text-white mb-4 leading-tight">
+              <h2 className="font-headline font-bold text-3xl md:text-4xl text-surface mb-4 leading-tight">
                 Petrofac Kemaman Supply Base
               </h2>
               <p className="font-body text-industrial-grey text-lg mb-8 leading-relaxed">
@@ -336,7 +336,7 @@ export default function IndustriesPage() {
                 and operational security.
               </p>
               <Link
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-transparent text-white font-label uppercase tracking-widest text-xs font-bold border border-white/20 hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-transparent text-surface font-label uppercase tracking-widest text-xs font-bold border border-surface/20 hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
                 href="/case-studies"
               >
                 View Case Studies
@@ -349,7 +349,7 @@ export default function IndustriesPage() {
             {/* Thumbnail */}
             <RequestAccessTrigger
               defaultVideo="Petrofac Kemaman Supply Base"
-              className="w-full md:w-1/2 aspect-video rounded-xl overflow-hidden relative group cursor-pointer border border-white/10"
+              className="w-full md:w-1/2 aspect-video rounded-xl overflow-hidden relative group cursor-pointer border border-surface/10"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -366,13 +366,13 @@ export default function IndustriesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-32 bg-[#111111] relative flex justify-center items-center">
+      <section className="py-32 bg-dark-ui relative flex justify-center items-center">
         <div className="text-center z-10 px-6">
-          <h2 className="font-headline font-bold text-4xl md:text-5xl text-white mb-8 max-w-2xl mx-auto uppercase tracking-tight">
+          <h2 className="font-headline font-bold text-4xl md:text-5xl text-surface mb-8 max-w-2xl mx-auto uppercase tracking-tight">
             Ready to document your next critical operation?
           </h2>
           <Link
-            className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-primary text-white font-label uppercase tracking-widest text-sm font-bold hover:bg-white hover:text-background transition-all duration-300 group shadow-[0_0_30px_rgba(209,32,39,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)]"
+            className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-primary text-white font-label uppercase tracking-widest text-sm font-bold hover:bg-surface hover:text-background transition-all duration-300 group shadow-[0_0_30px_rgba(209,32,39,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)]"
             href="/contact"
           >
             Speak to Our Industrial Cinematography Team

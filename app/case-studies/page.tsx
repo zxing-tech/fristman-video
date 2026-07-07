@@ -102,7 +102,7 @@ function PortfolioCard({
           {title}
         </h3>
         <p className="font-body text-industrial-grey text-sm mb-6 flex-grow">{summary}</p>
-        <div className="flex items-center text-xs font-bold uppercase tracking-widest text-white gap-2 mt-auto">
+        <div className="flex items-center text-xs font-bold uppercase tracking-widest text-surface gap-2 mt-auto">
           View Project{" "}
           <MaterialIcon
             name="arrow_forward"
@@ -122,11 +122,11 @@ export default function CaseStudiesPage() {
       <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-8 relative z-10">
         {/* Breadcrumb */}
         <div className="flex items-center text-industrial-grey text-xs tracking-widest uppercase mb-12">
-          <Link className="hover:text-white transition-colors" href="/">
+          <Link className="hover:text-surface transition-colors" href="/">
             Home
           </Link>
           <MaterialIcon name="chevron_right" className="text-[16px] mx-2" />
-          <span className="text-white">Case Studies</span>
+          <span className="text-surface">Case Studies</span>
         </div>
 
         {/* Hero Section */}
@@ -142,7 +142,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Filter Bar */}
-        <div className="sticky top-24 z-40 bg-black/90 backdrop-blur-md py-4 mb-12 -mx-4 px-4 overflow-x-auto whitespace-nowrap no-scrollbar flex gap-3 border-y border-white/5 shadow-lg">
+        <div className="sticky top-24 z-40 bg-background/90 backdrop-blur-md py-4 mb-12 -mx-4 px-4 overflow-x-auto whitespace-nowrap no-scrollbar flex gap-3 border-y border-surface/5 shadow-lg">
           <button
             type="button"
             className="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white border border-primary transition-colors"
@@ -153,7 +153,7 @@ export default function CaseStudiesPage() {
             <button
               key={chip}
               type="button"
-              className="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-widest bg-graphite text-white border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-colors"
+              className="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-widest bg-graphite text-surface border border-surface/10 hover:border-primary/50 hover:bg-primary/10 transition-colors"
             >
               {chip}
             </button>
@@ -178,7 +178,7 @@ export default function CaseStudiesPage() {
                 <div className="w-20 h-20 rounded-full bg-graphite border border-primary flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(209,32,39,0.4)]">
                   <MaterialIcon name="lock" fill className="text-4xl text-primary" />
                 </div>
-                <h3 className="font-headline font-bold text-2xl uppercase tracking-wider mb-2">
+                <h3 className="font-headline font-bold text-2xl uppercase tracking-wider mb-2 text-white">
                   Restricted Access
                 </h3>
                 <p className="font-body text-industrial-grey text-sm max-w-md">
@@ -189,7 +189,7 @@ export default function CaseStudiesPage() {
             </div>
             <div className="lg:w-2/5 p-10 flex flex-col justify-center">
               <div className="flex gap-2 mb-6 flex-wrap">
-                <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-graphite text-white rounded-full border border-white/10">
+                <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-graphite text-surface rounded-full border border-surface/10">
                   Petrofac
                 </span>
                 <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary rounded-full border border-primary/30 flex items-center gap-1">
@@ -210,13 +210,13 @@ export default function CaseStudiesPage() {
               <div className="flex flex-col sm:flex-row gap-4 mt-auto">
                 <RequestAccessTrigger
                   defaultVideo="Safety Induction Video — Kemaman Supply Base"
-                  className="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white hover:bg-black hover:text-primary hover:border-primary border border-transparent transition-all flex items-center justify-center gap-2 group/btn"
+                  className="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white hover:bg-background hover:text-primary hover:border-primary border border-transparent transition-all flex items-center justify-center gap-2 group/btn"
                 >
                   <MaterialIcon name="key" className="text-[18px]" /> Request Access
                 </RequestAccessTrigger>
                 <Link
                   href="/case-studies/petrofac-kemaman"
-                  className="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-primary hover:bg-primary/10 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-transparent text-surface border border-surface/20 hover:border-primary hover:bg-primary/10 transition-colors flex items-center justify-center gap-2"
                 >
                   Read Public Summary
                 </Link>
@@ -237,6 +237,7 @@ export default function CaseStudiesPage() {
               className={`glass-panel rounded-xl overflow-hidden flex flex-col group cursor-pointer h-full border-primary/20 relative ${cardHoverLift}`}
             >
               <div className="h-56 relative overflow-hidden bg-graphite">
+                <div className="absolute inset-0 bg-black" />
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60"
                   style={{ backgroundImage: "url('/images/stitch/c5510b9322.jpg')" }}
@@ -281,7 +282,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Access Explanation Section */}
-        <section className="mb-24 py-16 px-8 border-y border-white/10 bg-gradient-to-r from-graphite/50 via-transparent to-graphite/50 text-center relative overflow-hidden">
+        <section className="mb-24 py-16 px-8 border-y border-surface/10 bg-gradient-to-r from-graphite/50 via-transparent to-graphite/50 text-center relative overflow-hidden">
           <div className="absolute left-0 top-0 w-1 h-full bg-primary" />
           <div className="max-w-2xl mx-auto flex flex-col items-center">
             <MaterialIcon name="shield_lock" className="text-4xl text-industrial-grey mb-4" />
@@ -294,7 +295,7 @@ export default function CaseStudiesPage() {
               restricted. Approved access requires verification via a company email address and
               relevant project context.
             </p>
-            <div className="text-[10px] font-bold uppercase tracking-widest text-industrial-grey/60 border border-white/10 rounded-full px-4 py-2 inline-block">
+            <div className="text-[10px] font-bold uppercase tracking-widest text-industrial-grey/60 border border-surface/10 rounded-full px-4 py-2 inline-block">
               Client approval required before publication
             </div>
           </div>
@@ -313,7 +314,7 @@ export default function CaseStudiesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white hover:bg-white hover:text-primary transition-all shadow-[0_0_20px_rgba(209,32,39,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+              className="inline-block px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white hover:bg-surface hover:text-primary transition-all shadow-[0_0_20px_rgba(209,32,39,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
             >
               Request a Similar Project
             </Link>

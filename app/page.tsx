@@ -222,7 +222,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
             {/* Large Feature */}
-            <div className="md:col-span-2 glass-panel p-10 rounded-xl flex flex-col justify-end relative overflow-hidden group">
+            <div className="md:col-span-2 glass-panel bg-black p-10 rounded-xl flex flex-col justify-end relative overflow-hidden group">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/ba0390236d.jpg')" }}
@@ -241,7 +241,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Small Feature 1 */}
-            <div className="glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
+            <div className="glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/13ca39f31a.jpg')" }}
@@ -257,7 +257,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Small Feature 2 */}
-            <div className="glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
+            <div className="glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/a37924086a.jpg')" }}
@@ -273,7 +273,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Small Feature 3 */}
-            <div className="md:col-span-2 glass-panel p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group border-l-4 border-l-primary min-h-[200px]">
+            <div className="md:col-span-2 glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group border-l-4 border-l-primary min-h-[200px]">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/6d4182646b.jpg')" }}

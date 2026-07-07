@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 
-const labelClass = "block text-xs font-bold uppercase tracking-wider text-white/70"
+const labelClass = "block text-xs font-bold uppercase tracking-wider text-surface/70"
 const inputClass =
-  "w-full form-input-dark bg-black/40 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary block placeholder:text-white/40"
-const optionClass = "bg-[#111111] text-white"
+  "w-full form-input-dark bg-background/40 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary block placeholder:text-surface/40"
+const optionClass = "bg-graphite text-surface"
 
 export function ConsultationForm() {
   const router = useRouter()
@@ -112,7 +112,7 @@ export function ConsultationForm() {
               required
               defaultValue=""
             >
-              <option className="bg-[#111111] text-white/50" disabled value="">
+              <option className="bg-graphite text-surface/50" disabled value="">
                 Select Region
               </option>
               <option className={optionClass} value="Malaysia">
@@ -131,7 +131,7 @@ export function ConsultationForm() {
                 Other
               </option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-surface/50">
               <MaterialIcon name="expand_more" className="text-[20px]" />
             </div>
           </div>
@@ -149,7 +149,7 @@ export function ConsultationForm() {
               required
               defaultValue=""
             >
-              <option className="bg-[#111111] text-white/50" disabled value="">
+              <option className="bg-graphite text-surface/50" disabled value="">
                 Select Service
               </option>
               <option className={optionClass} value="Corporate Videos">
@@ -177,7 +177,7 @@ export function ConsultationForm() {
                 General Enquiry
               </option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white/50">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-surface/50">
               <MaterialIcon name="expand_more" className="text-[20px]" />
             </div>
           </div>
@@ -213,7 +213,7 @@ export function ConsultationForm() {
       <div className="flex items-start mt-6">
         <div className="flex h-5 items-center">
           <input
-            className="h-4 w-4 rounded border border-white/20 bg-black/40 accent-primary transition-colors"
+            className="h-4 w-4 rounded border border-surface/20 bg-background/40 accent-primary transition-colors"
             id="consent"
             name="consent"
             required
@@ -222,7 +222,7 @@ export function ConsultationForm() {
         </div>
         <div className="ml-3 text-xs text-industrial-grey">
           <label
-            className="font-medium text-white/80 cursor-pointer hover:text-white transition-colors"
+            className="font-medium text-surface/80 cursor-pointer hover:text-surface transition-colors"
             htmlFor="consent"
           >
             I consent to the collection and processing of my data.
@@ -235,13 +235,13 @@ export function ConsultationForm() {
       </div>
       {/* Submit Button */}
       <button
-        className="group relative w-full overflow-hidden rounded-xl bg-primary text-white px-8 py-4 flex items-center justify-center gap-3 mt-8 font-headline transition-all duration-300 hover:bg-black hover:text-primary hover:shadow-[inset_0_0_0_1px_#d12027,0_0_20px_rgba(209,32,39,0.3)] disabled:opacity-70 disabled:pointer-events-none"
+        className="group relative w-full overflow-hidden rounded-xl bg-primary text-white px-8 py-4 flex items-center justify-center gap-3 mt-8 font-headline transition-all duration-300 hover:bg-background hover:text-primary hover:shadow-[inset_0_0_0_1px_#d12027,0_0_20px_rgba(209,32,39,0.3)] disabled:opacity-70 disabled:pointer-events-none"
         type="submit"
         disabled={submitting}
       >
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-surface/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
         />
         <span className="relative z-10 text-sm font-bold uppercase tracking-widest">
           {submitting ? "Submitting..." : "Submit Request"}

@@ -36,7 +36,7 @@ export default function PetrofacKemamanPage() {
             </p>
             <RequestAccessTrigger
               defaultVideo="Petrofac Kemaman Supply Base"
-              className="bg-primary text-white font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all flex items-center gap-2"
+              className="bg-primary text-white font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full hover:bg-surface hover:text-background transition-all flex items-center gap-2"
             >
               <MaterialIcon name="key" /> Request Access
             </RequestAccessTrigger>
@@ -46,7 +46,7 @@ export default function PetrofacKemamanPage() {
 
       {/* Project Details */}
       <section className="max-w-[1280px] mx-auto px-8 -mt-16 relative z-20">
-        <div className="glass-panel grid grid-cols-2 md:grid-cols-5 gap-6 p-6 rounded-xl">
+        <div className="glass-panel bg-card grid grid-cols-2 md:grid-cols-5 gap-6 p-6 rounded-xl">
           <div>
             <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
               Client

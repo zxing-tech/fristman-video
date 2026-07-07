@@ -64,7 +64,7 @@ export default function ServicesPage() {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+      <section className="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
           style={{ backgroundImage: "url('/images/stitch/90739e14ed.jpg')" }}
@@ -75,7 +75,7 @@ export default function ServicesPage() {
             <MaterialIcon name="videocam" className="text-[14px]" />
             Core Offerings
           </div>
-          <h1 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-tight mb-8">
+          <h1 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-tight mb-8 text-white">
             INDUSTRIAL <br /> <span className="text-white/50">CINEMATOGRAPHY</span> & <br />{" "}
             VISUAL DOCUMENTATION
           </h1>
@@ -96,10 +96,10 @@ export default function ServicesPage() {
               href={service.href}
               className="glass-panel rounded-xl p-8 flex flex-col group transition-all duration-300 hover:border-primary/50"
             >
-              <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-6 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
+              <div className="w-12 h-12 rounded-full border border-surface/10 flex items-center justify-center mb-6 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
                 <MaterialIcon
                   name={service.icon}
-                  className="text-white transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  className="text-surface transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                 />
               </div>
               <h3 className="font-headline font-bold text-xl mb-3">{service.title}</h3>

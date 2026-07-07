@@ -104,9 +104,9 @@ const deliverables = [
 
 export default function FabricationConstructionPage() {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-background text-surface">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black z-10" />
           <div className="absolute inset-0 bg-black/40 z-10" />
@@ -128,7 +128,7 @@ export default function FabricationConstructionPage() {
               Industry Sector: Construction
             </span>
           </div>
-          <h1 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tighter mb-6 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tighter mb-6 leading-tight text-white">
             Visual Documentation for <br />
             <span className="text-primary">Fabrication & Construction</span> Progress
           </h1>
@@ -156,7 +156,7 @@ export default function FabricationConstructionPage() {
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 animate-bounce opacity-50">
-          <MaterialIcon name="keyboard_double_arrow_down" className="text-3xl" />
+          <MaterialIcon name="keyboard_double_arrow_down" className="text-3xl text-white" />
         </div>
       </section>
 
@@ -164,7 +164,7 @@ export default function FabricationConstructionPage() {
       <section className="py-24 bg-dark-ui relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="absolute -top-10 -left-10 text-[12rem] font-black text-white/[0.02] select-none pointer-events-none uppercase">
+            <div className="absolute -top-10 -left-10 text-[12rem] font-black text-surface/[0.02] select-none pointer-events-none uppercase">
               Gap
             </div>
             <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-8 leading-tight">
@@ -187,7 +187,7 @@ export default function FabricationConstructionPage() {
           </div>
           <div className="relative group">
             <div className="absolute -inset-1 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000" />
-            <div className="relative glass-panel rounded-2xl overflow-hidden aspect-video border border-white/5">
+            <div className="relative glass-panel bg-black rounded-2xl overflow-hidden aspect-video border border-surface/5">
               <div
                 className="w-full h-full bg-cover bg-center opacity-70"
                 style={{ backgroundImage: "url('/images/stitch/01a51b489a.jpg')" }}
@@ -203,7 +203,7 @@ export default function FabricationConstructionPage() {
       </section>
 
       {/* Section 2: Bento Grid Strategic Use Cases */}
-      <section id="capabilities" className="py-24 bg-black">
+      <section id="capabilities" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">
@@ -260,10 +260,10 @@ export default function FabricationConstructionPage() {
                   ) : null}
                   {useCase.footer === "tags" ? (
                     <div className="flex space-x-2">
-                      <span className="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-tighter">
+                      <span className="px-2 py-1 bg-surface/5 rounded text-[10px] uppercase font-bold tracking-tighter">
                         Secure Link
                       </span>
-                      <span className="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-tighter">
+                      <span className="px-2 py-1 bg-surface/5 rounded text-[10px] uppercase font-bold tracking-tighter">
                         Client Portal
                       </span>
                     </div>
@@ -276,12 +276,12 @@ export default function FabricationConstructionPage() {
       </section>
 
       {/* Section 3: Recommended Services */}
-      <section className="py-24 bg-[#111111] border-y border-white/5">
+      <section className="py-24 bg-graphite border-y border-surface/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="md:w-1/2 order-2 md:order-1">
               <div
-                className="w-full aspect-square rounded-3xl bg-cover bg-center border border-white/10 shadow-2xl relative overflow-hidden group"
+                className="w-full aspect-square rounded-3xl bg-cover bg-center border border-surface/10 shadow-2xl relative overflow-hidden group"
                 style={{ backgroundImage: "url('/images/stitch/d35bd35b17.jpg')" }}
               >
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -312,13 +312,13 @@ export default function FabricationConstructionPage() {
                     <div className="mt-1 w-5 h-5 rounded-full border border-primary flex items-center justify-center flex-shrink-0">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
-                    <span className="text-[#e9e9eb] font-medium">{point}</span>
+                    <span className="text-surface font-medium">{point}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href="/contact"
-                className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all duration-300"
+                className="inline-block bg-surface text-background px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all duration-300"
               >
                 Discuss Site Integration
               </Link>
@@ -328,7 +328,7 @@ export default function FabricationConstructionPage() {
       </section>
 
       {/* Section 4: Visual Lifecycle Tracking (Timeline) */}
-      <section className="py-24 bg-black overflow-hidden">
+      <section className="py-24 bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase mb-4">
@@ -338,15 +338,15 @@ export default function FabricationConstructionPage() {
           </div>
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -translate-y-1/2 hidden md:block" />
+            <div className="absolute top-1/2 left-0 w-full h-px bg-surface/10 -translate-y-1/2 hidden md:block" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
               {timelinePhases.map((phase) => (
                 <div key={phase.number} className="relative group">
-                  <div className="absolute -top-12 left-0 text-6xl font-black text-white/5 select-none transition-all group-hover:text-primary/10">
+                  <div className="absolute -top-12 left-0 text-6xl font-black text-surface/5 select-none transition-all group-hover:text-primary/10">
                     {phase.number}
                   </div>
                   <div className="md:pt-16">
-                    <div className="w-4 h-4 rounded-full bg-black border-2 border-primary absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+                    <div className="w-4 h-4 rounded-full bg-background border-2 border-primary absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
                       <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20" />
                     </div>
                     <div
@@ -415,13 +415,13 @@ export default function FabricationConstructionPage() {
       </section>
 
       {/* Section 6: Confidentiality */}
-      <section className="py-24 bg-black border-t border-white/5">
+      <section className="py-24 bg-background border-t border-surface/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="glass-panel rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-20" />
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/3 text-center md:text-left">
-                <div className="w-24 h-24 rounded-full bg-[#111111] border border-primary/30 flex items-center justify-center mx-auto md:mx-0 mb-8">
+                <div className="w-24 h-24 rounded-full bg-graphite border border-primary/30 flex items-center justify-center mx-auto md:mx-0 mb-8">
                   <MaterialIcon name="lock" fill className="text-5xl text-primary" />
                 </div>
                 <h2 className="text-3xl font-bold uppercase tracking-tighter mb-4">
@@ -442,13 +442,13 @@ export default function FabricationConstructionPage() {
                   client portals. Access is strictly audited to maintain project integrity.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex items-center space-x-3 bg-white/5 p-4 rounded-xl border border-white/5">
+                  <div className="flex items-center space-x-3 bg-surface/5 p-4 rounded-xl border border-surface/5">
                     <MaterialIcon name="verified_user" className="text-primary" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       NDA Compliance
                     </span>
                   </div>
-                  <div className="flex items-center space-x-3 bg-white/5 p-4 rounded-xl border border-white/5">
+                  <div className="flex items-center space-x-3 bg-surface/5 p-4 rounded-xl border border-surface/5">
                     <MaterialIcon name="encrypted" className="text-primary" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       AES-256 Encryption
@@ -462,7 +462,7 @@ export default function FabricationConstructionPage() {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-32 bg-black relative">
+      <section className="py-32 bg-background relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-10">
             Capture the next <br />
@@ -477,7 +477,7 @@ export default function FabricationConstructionPage() {
             </Link>
             <Link
               href="/contact"
-              className="w-full sm:w-auto border border-white/20 text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition-all duration-300"
+              className="w-full sm:w-auto border border-surface/20 text-surface px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-sm hover:bg-surface hover:text-background transition-all duration-300"
             >
               Direct Inquiry
             </Link>

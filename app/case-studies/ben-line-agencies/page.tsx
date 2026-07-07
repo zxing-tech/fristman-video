@@ -15,7 +15,7 @@ export default function BenLineAgenciesPage() {
   return (
     <main className="relative">
       {/* Hero Section */}
-      <section className="relative h-[819px] w-full flex items-end pb-24 overflow-hidden">
+      <section className="relative h-[819px] w-full flex items-end pb-24 overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
           <div
@@ -26,12 +26,12 @@ export default function BenLineAgenciesPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
           <div className="flex items-center gap-3 mb-4">
-            <span className="bg-primary px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em]">
+            <span className="bg-primary px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white">
               Logistics Reference
             </span>
             <div className="h-px w-24 bg-primary/50" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter max-w-4xl leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter max-w-4xl leading-tight text-white">
             Ben Line Agencies — <span className="text-primary">Logistics Visual Reference</span>
           </h1>
           <p className="mt-6 text-industrial-grey text-lg max-w-2xl font-light leading-relaxed">
@@ -55,7 +55,7 @@ export default function BenLineAgenciesPage() {
               </h2>
             </div>
             <div className="glass-panel p-8 rounded-xl border-l-4 border-l-primary">
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-surface/80 leading-relaxed">
                 The operational environment for this reference project included high-traffic
                 maritime gateways and container terminals. Visual capture required strict adherence
                 to safety exclusion zones and maritime security protocols. We focused on capturing
@@ -75,12 +75,12 @@ export default function BenLineAgenciesPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-surface/80 leading-relaxed">
                   Our cinematography strategy prioritized non-intrusive capture techniques. Using
                   high-altitude drone maneuvers and long-lens ground coverage, we maintained
                   industrial safety buffers while delivering cinematic intimacy.
                 </p>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-surface/80 leading-relaxed">
                   The color grade follows a technical, high-contrast palette—deep blacks and
                   metallic silvers—punctuated by the natural industrial reds and safety oranges
                   inherent to the site environment.
@@ -112,7 +112,7 @@ export default function BenLineAgenciesPage() {
                   name="domain"
                   className="text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-surface">
                   Facility Overview
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function BenLineAgenciesPage() {
                   name="auto_stories"
                   className="text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-surface">
                   Site Storytelling
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function BenLineAgenciesPage() {
                   name="photo_camera"
                   className="text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-surface">
                   High-Res Stills
                 </span>
               </div>
@@ -139,7 +139,7 @@ export default function BenLineAgenciesPage() {
                   name="assignment_ind"
                   className="text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-surface">
                   Stakeholder Briefings
                 </span>
               </div>
@@ -172,7 +172,7 @@ export default function BenLineAgenciesPage() {
 
           {/* Related Services */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-industrial-grey border-b border-white/10 pb-2">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-industrial-grey border-b border-surface/10 pb-2">
               Related Services
             </h3>
             <div className="space-y-4">
@@ -210,7 +210,7 @@ export default function BenLineAgenciesPage() {
               <h4 className="text-[10px] font-black uppercase text-primary mb-1">
                 Safety Compliant
               </h4>
-              <p className="text-[11px] text-white/60 uppercase tracking-wide">
+              <p className="text-[11px] text-surface/60 uppercase tracking-wide">
                 Documentation captured under strict industrial safety management systems.
               </p>
             </div>
@@ -219,7 +219,7 @@ export default function BenLineAgenciesPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-dark-ui border-y border-white/5 py-24">
+      <section className="bg-dark-ui border-y border-surface/5 py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-black uppercase tracking-tighter mb-6">
             Ready to showcase your industrial assets?
@@ -237,7 +237,7 @@ export default function BenLineAgenciesPage() {
               <MaterialIcon name="send" />
             </RequestAccessTrigger>
             <Link
-              className="text-white hover:text-primary transition-colors font-bold uppercase text-xs tracking-[0.2em] flex items-center gap-2"
+              className="text-surface hover:text-primary transition-colors font-bold uppercase text-xs tracking-[0.2em] flex items-center gap-2"
               href="/case-studies"
             >
               View Portfolio

@@ -14,7 +14,7 @@ export default function SyndelAsiaPage() {
   return (
     <main className="relative">
       {/* Hero Section */}
-      <section className="relative h-[870px] w-full overflow-hidden flex items-end pb-24">
+      <section className="relative h-[870px] w-full overflow-hidden flex items-end pb-24 bg-black">
         <div className="absolute inset-0 z-0">
           <div
             aria-label="Cinematic wide-angle view of a sprawling industrial refinery facility at dusk"
@@ -36,7 +36,7 @@ export default function SyndelAsiaPage() {
           <h2 className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4">
             CASE STUDY DETAIL — SYNDEL ASIA
           </h2>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl text-white">
             Syndel Asia —{" "}
             <span className="text-white/60">Industrial Visual Documentation Reference</span>
           </h1>
@@ -52,7 +52,7 @@ export default function SyndelAsiaPage() {
               <h3 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-primary" /> Public Summary
               </h3>
-              <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed">
+              <p className="text-xl md:text-2xl text-surface/90 font-light leading-relaxed">
                 A comprehensive visual documentation project for Syndel Asia, focused on capturing
                 the operational scale and safety protocols of their industrial hub. This cinematic
                 reference serves as the primary visual foundation for their stakeholder reporting
@@ -65,7 +65,7 @@ export default function SyndelAsiaPage() {
                 Project Context
               </h3>
               <div className="flex items-start gap-6">
-                <MaterialIcon name="location_on" className="text-4xl text-white/20" />
+                <MaterialIcon name="location_on" className="text-4xl text-surface/20" />
                 <div>
                   <p className="text-industrial-grey uppercase tracking-widest text-xs mb-2">
                     Facility & Location
@@ -114,7 +114,7 @@ export default function SyndelAsiaPage() {
                 </li>
               </ul>
             </div>
-            <div className="pt-8 border-t border-white/10">
+            <div className="pt-8 border-t border-surface/10">
               <h3 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">
                 Visual Approach
               </h3>
@@ -217,7 +217,7 @@ export default function SyndelAsiaPage() {
       </section>
 
       {/* Gated Access Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div
             aria-hidden="true"
@@ -233,7 +233,7 @@ export default function SyndelAsiaPage() {
               Confidential Asset Portal
             </span>
           </div>
-          <h2 className="text-4xl font-extrabold uppercase tracking-tighter mb-6">
+          <h2 className="text-4xl font-extrabold uppercase tracking-tighter mb-6 text-white">
             RESTRICTED ACCESS ONLY
           </h2>
           <p className="text-xl text-industrial-grey mb-10 leading-relaxed">
@@ -259,7 +259,7 @@ export default function SyndelAsiaPage() {
       </section>
 
       {/* Related Services */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-surface/5">
         <div className="max-w-[1280px] mx-auto px-8">
           <h3 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-12">
             Related Capability Reference
@@ -267,7 +267,7 @@ export default function SyndelAsiaPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
               href="/services/corporate-videos"
-              className="flex items-center justify-between p-8 rounded-2xl border border-white/10 hover:border-primary/50 group transition-all"
+              className="flex items-center justify-between p-8 rounded-2xl border border-surface/10 hover:border-primary/50 group transition-all"
             >
               <div>
                 <h4 className="text-xl font-bold uppercase group-hover:text-primary transition-colors">
@@ -284,7 +284,7 @@ export default function SyndelAsiaPage() {
             </Link>
             <Link
               href="/services/facility-overview-films"
-              className="flex items-center justify-between p-8 rounded-2xl border border-white/10 hover:border-primary/50 group transition-all"
+              className="flex items-center justify-between p-8 rounded-2xl border border-surface/10 hover:border-primary/50 group transition-all"
             >
               <div>
                 <h4 className="text-xl font-bold uppercase group-hover:text-primary transition-colors">

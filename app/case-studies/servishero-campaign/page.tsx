@@ -16,7 +16,7 @@ export default function ServisHeroCampaignPage() {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
-      <header className="relative h-[870px] w-full flex items-center justify-center overflow-hidden">
+      <header className="relative bg-black h-[870px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black z-10" />
           <div
@@ -34,7 +34,7 @@ export default function ServisHeroCampaignPage() {
             </span>
             <span className="w-12 h-[1px] bg-primary" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase mb-6 leading-none italic">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase mb-6 leading-none italic text-white">
             ServisHero — <span className="text-primary">Campaign</span> Visual Reference
           </h1>
           <div className="glass-panel px-6 py-4 rounded-full inline-flex items-center gap-4 border-white/5">
@@ -72,17 +72,17 @@ export default function ServisHeroCampaignPage() {
                   service delivery.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/50 uppercase">
+                  <span className="px-3 py-1 bg-surface/5 border border-surface/10 rounded-full text-[10px] font-bold text-surface/50 uppercase">
                     Industrial
                   </span>
-                  <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white/50 uppercase">
+                  <span className="px-3 py-1 bg-surface/5 border border-surface/10 rounded-full text-[10px] font-bold text-surface/50 uppercase">
                     Aerial
                   </span>
                 </div>
               </div>
             </div>
             <div className="md:col-span-8">
-              <div className="bg-dark-ui border border-white/5 p-12 rounded-xl">
+              <div className="bg-dark-ui border border-surface/5 p-12 rounded-xl">
                 <h2 className="text-2xl font-bold tracking-tighter uppercase mb-6 flex items-center gap-3">
                   <MaterialIcon name="analytics" className="text-primary" /> Campaign Context
                 </h2>
@@ -100,7 +100,7 @@ export default function ServisHeroCampaignPage() {
                     the visual assets remained suitable for both stakeholder presentations and
                     public-facing marketing.
                   </p>
-                  <div className="flex items-center gap-4 text-white text-xs font-bold tracking-widest uppercase pt-4">
+                  <div className="flex items-center gap-4 text-surface text-xs font-bold tracking-widest uppercase pt-4">
                     <MaterialIcon name="verified_user" className="text-primary" />
                     HSE Compliant Operations • Credentials available upon request
                   </div>
@@ -122,7 +122,7 @@ export default function ServisHeroCampaignPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 relative h-80 rounded-xl overflow-hidden group">
+            <div className="md:col-span-2 relative bg-black h-80 rounded-xl overflow-hidden group">
               <div
                 className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 role="img"
@@ -143,7 +143,7 @@ export default function ServisHeroCampaignPage() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/30">
                 <MaterialIcon name="movie_filter" fill className="text-primary" />
               </div>
-              <h3 className="text-white font-bold uppercase tracking-widest mb-4">
+              <h3 className="text-surface font-bold uppercase tracking-widest mb-4">
                 Site-Aware Capture
               </h3>
               <p className="text-industrial-grey text-sm leading-relaxed">
@@ -151,8 +151,8 @@ export default function ServisHeroCampaignPage() {
                 cinematic scale of the facility.
               </p>
             </div>
-            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center border-white/5">
-              <h3 className="text-white font-bold uppercase tracking-widest mb-4">Color Grading</h3>
+            <div className="glass-panel p-8 rounded-xl flex flex-col justify-center border-surface/5">
+              <h3 className="text-surface font-bold uppercase tracking-widest mb-4">Color Grading</h3>
               <p className="text-industrial-grey text-sm leading-relaxed mb-6">
                 Industrial-grade post-production featuring consistent skin-tone retention and
                 structural contrast enhancement.
@@ -160,11 +160,11 @@ export default function ServisHeroCampaignPage() {
               <div className="flex gap-1">
                 <div className="h-1 flex-1 bg-primary" />
                 <div className="h-1 flex-1 bg-graphite-light" />
-                <div className="h-1 flex-1 bg-white/20" />
-                <div className="h-1 flex-1 bg-black" />
+                <div className="h-1 flex-1 bg-surface/20" />
+                <div className="h-1 flex-1 bg-background" />
               </div>
             </div>
-            <div className="md:col-span-2 relative h-80 rounded-xl overflow-hidden group">
+            <div className="md:col-span-2 relative bg-black h-80 rounded-xl overflow-hidden group">
               <div
                 className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 role="img"
@@ -185,7 +185,7 @@ export default function ServisHeroCampaignPage() {
         </section>
 
         {/* Deliverables Grid */}
-        <section className="bg-[#111111] py-24 border-y border-white/5">
+        <section className="bg-dark-ui py-24 border-y border-surface/5">
           <div className="max-w-[1200px] mx-auto px-8">
             <div className="flex items-end justify-between mb-12">
               <div>
@@ -203,7 +203,7 @@ export default function ServisHeroCampaignPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Card 1 */}
               <div className="group">
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-surface/10 group-hover:border-primary/50 transition-colors">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     role="img"
@@ -214,7 +214,7 @@ export default function ServisHeroCampaignPage() {
                     <MaterialIcon name="play_circle" className={`text-white text-5xl ${iconFillHover}`} />
                   </div>
                 </div>
-                <h4 className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <h4 className="text-surface text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                   <MaterialIcon name="movie" className={`text-primary text-sm ${iconFillHover}`} /> Hero
                   Cinematic Film
                 </h4>
@@ -224,7 +224,7 @@ export default function ServisHeroCampaignPage() {
               </div>
               {/* Card 2 */}
               <div className="group">
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-surface/10 group-hover:border-primary/50 transition-colors">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     role="img"
@@ -232,7 +232,7 @@ export default function ServisHeroCampaignPage() {
                     style={{ backgroundImage: "url('/images/stitch/80cbaef611.jpg')" }}
                   />
                 </div>
-                <h4 className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <h4 className="text-surface text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                   <MaterialIcon name="phone_iphone" className={`text-primary text-sm ${iconFillHover}`} />{" "}
                   Social Cutdowns
                 </h4>
@@ -242,7 +242,7 @@ export default function ServisHeroCampaignPage() {
               </div>
               {/* Card 3 */}
               <div className="group">
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-surface/10 group-hover:border-primary/50 transition-colors">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     role="img"
@@ -250,7 +250,7 @@ export default function ServisHeroCampaignPage() {
                     style={{ backgroundImage: "url('/images/stitch/fcd8f7a826.jpg')" }}
                   />
                 </div>
-                <h4 className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <h4 className="text-surface text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                   <MaterialIcon name="photo_camera" className={`text-primary text-sm ${iconFillHover}`} />{" "}
                   High-Res Stills
                 </h4>
@@ -260,7 +260,7 @@ export default function ServisHeroCampaignPage() {
               </div>
               {/* Card 4 */}
               <div className="group">
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-surface/10 group-hover:border-primary/50 transition-colors">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     role="img"
@@ -277,7 +277,7 @@ export default function ServisHeroCampaignPage() {
                     </span>
                   </RequestAccessTrigger>
                 </div>
-                <h4 className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <h4 className="text-surface text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                   <MaterialIcon name="groups" className={`text-primary text-sm ${iconFillHover}`} />{" "}
                   Stakeholder Cut
                 </h4>
@@ -304,7 +304,7 @@ export default function ServisHeroCampaignPage() {
                 safety standards. Our crews are trained for high-risk site environments, ensuring
                 zero interference with active operations.
               </p>
-              <div className="flex items-start gap-4 glass-panel p-4 rounded-lg border-white/5">
+              <div className="flex items-start gap-4 glass-panel p-4 rounded-lg border-surface/5">
                 <MaterialIcon name="gpp_maybe" className="text-primary" />
                 <p className="text-[11px]">
                   Sensitive material including internal logistics data and specific facility
@@ -315,14 +315,14 @@ export default function ServisHeroCampaignPage() {
             </div>
             <div className="mt-8 flex gap-8">
               <div>
-                <div className="text-white font-bold text-xl">100%</div>
-                <div className="text-[10px] uppercase text-white/40 font-bold tracking-widest">
+                <div className="text-surface font-bold text-xl">100%</div>
+                <div className="text-[10px] uppercase text-surface/40 font-bold tracking-widest">
                   HSE Compliance
                 </div>
               </div>
               <div>
-                <div className="text-white font-bold text-xl">0</div>
-                <div className="text-[10px] uppercase text-white/40 font-bold tracking-widest">
+                <div className="text-surface font-bold text-xl">0</div>
+                <div className="text-[10px] uppercase text-surface/40 font-bold tracking-widest">
                   Incident Record
                 </div>
               </div>
@@ -331,7 +331,7 @@ export default function ServisHeroCampaignPage() {
           <div className="order-1 md:order-2">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-transparent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000" />
-              <div className="relative glass-panel rounded-2xl overflow-hidden aspect-square border-white/10">
+              <div className="relative glass-panel rounded-2xl overflow-hidden aspect-square border-surface/10">
                 <div
                   className="w-full h-full bg-cover bg-center grayscale contrast-125"
                   role="img"
@@ -348,12 +348,12 @@ export default function ServisHeroCampaignPage() {
 
         {/* Related Services */}
         <section className="max-w-[1200px] mx-auto px-8 pb-32">
-          <h2 className="text-xs font-bold tracking-[0.4em] uppercase text-white/40 mb-12 text-center">
+          <h2 className="text-xs font-bold tracking-[0.4em] uppercase text-surface/40 mb-12 text-center">
             Continue Exploring Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
-              className="group glass-panel p-10 rounded-2xl border-white/5 hover:border-primary/40 transition-all duration-500 overflow-hidden relative"
+              className="group glass-panel p-10 rounded-2xl border-surface/5 hover:border-primary/40 transition-all duration-500 overflow-hidden relative"
               href="/services/corporate-videos"
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
@@ -362,7 +362,7 @@ export default function ServisHeroCampaignPage() {
               <span className="text-primary text-[10px] font-black tracking-widest uppercase mb-4 block">
                 Capability 01
               </span>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-2">
+              <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-2">
                 Corporate Videos
               </h3>
               <p className="text-industrial-grey text-sm max-w-xs">
@@ -370,7 +370,7 @@ export default function ServisHeroCampaignPage() {
               </p>
             </Link>
             <Link
-              className="group glass-panel p-10 rounded-2xl border-white/5 hover:border-primary/40 transition-all duration-500 overflow-hidden relative"
+              className="group glass-panel p-10 rounded-2xl border-surface/5 hover:border-primary/40 transition-all duration-500 overflow-hidden relative"
               href="/services/facility-overview-films"
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
@@ -379,7 +379,7 @@ export default function ServisHeroCampaignPage() {
               <span className="text-primary text-[10px] font-black tracking-widest uppercase mb-4 block">
                 Capability 02
               </span>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-2">
+              <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-2">
                 Facility Overviews
               </h3>
               <p className="text-industrial-grey text-sm max-w-xs">
@@ -390,7 +390,7 @@ export default function ServisHeroCampaignPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative py-32 overflow-hidden bg-black">
+        <section className="relative py-32 overflow-hidden bg-background">
           <div className="relative z-10 max-w-[800px] mx-auto px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-8 italic">
               Ready to Capture <br />
@@ -403,12 +403,12 @@ export default function ServisHeroCampaignPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <RequestAccessTrigger
                 defaultVideo="ServisHero Campaign"
-                className="bg-primary text-white text-xs uppercase tracking-[0.2em] font-black px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_30px_rgba(209,32,39,0.4)] hover:shadow-white/20 active:scale-95"
+                className="bg-primary text-white text-xs uppercase tracking-[0.2em] font-black px-10 py-5 rounded-full hover:bg-surface hover:text-background transition-all duration-300 shadow-[0_0_30px_rgba(209,32,39,0.4)] hover:shadow-white/20 active:scale-95"
               >
                 Request Access / Discuss Campaign
               </RequestAccessTrigger>
               <Link
-                className="text-white/60 hover:text-white text-xs uppercase tracking-widest font-bold flex items-center gap-2 group"
+                className="text-surface/60 hover:text-surface text-xs uppercase tracking-widest font-bold flex items-center gap-2 group"
                 href="/case-studies"
               >
                 View Portfolio{" "}
@@ -418,7 +418,7 @@ export default function ServisHeroCampaignPage() {
                 />
               </Link>
             </div>
-            <div className="mt-12 text-[10px] text-white/30 font-bold uppercase tracking-[0.3em]">
+            <div className="mt-12 text-[10px] text-surface/30 font-bold uppercase tracking-[0.3em]">
               Priority site assessment slots available this month
             </div>
           </div>
