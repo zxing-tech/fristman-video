@@ -192,7 +192,7 @@ export default function HomePage() {
                     key={`a-${i}`}
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                    className="h-14 md:h-20 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
                   />
                 ))}
               </div>
@@ -210,7 +210,7 @@ export default function HomePage() {
                     key={`c-${i}`}
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                    className="h-14 md:h-20 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
                   />
                 ))}
               </div>
