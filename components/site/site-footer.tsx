@@ -15,12 +15,12 @@ export function SiteFooter() {
     <footer className="bg-black border-t border-white/5 py-12 w-full mt-24">
       <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-start gap-12">
         <div className="space-y-4">
-          <div className="text-lg font-bold text-white tracking-tighter">First Man Videos</div>
+          <div className="text-lg font-bold text-white tracking-tighter">Firstman Videos</div>
           <p className="font-body text-sm text-industrial-grey max-w-xs">
             Industrial Cinematography for Oil &amp; Gas and Heavy Industry.
           </p>
           <p className="font-body text-sm text-industrial-grey">
-            © 2024 First Man Videos. Industrial Cinematography.
+            © 2024 Firstman Videos. Industrial Cinematography.
           </p>
         </div>
         <div className="flex flex-col gap-3">

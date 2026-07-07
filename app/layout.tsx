@@ -14,8 +14,8 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "First Man Videos - Industrial Cinematography",
-    template: "%s | First Man Videos",
+    default: "Firstman Videos - Industrial Cinematography",
+    template: "%s | Firstman Videos",
   },
   description:
     "Industrial cinematography for Oil & Gas and heavy industry. Cinematic UAV and ground-based visual documentation across Southeast Asia.",

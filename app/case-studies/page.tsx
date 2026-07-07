@@ -7,7 +7,7 @@ import { RequestAccessTrigger } from "@/components/site/request-access-modal"
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "Real projects. Real results. Explore how First Man Videos supports oil & gas and heavy industry teams with industrial cinematography, visual documentation and stakeholder-ready media.",
+    "Real projects. Real results. Explore how Firstman Videos supports oil & gas and heavy industry teams with industrial cinematography, visual documentation and stakeholder-ready media.",
 }
 
 const filterChips = [
@@ -135,7 +135,7 @@ export default function CaseStudiesPage() {
             Project Case Studies & <span className="text-primary">Portfolio</span>
           </h1>
           <p className="font-body text-xl text-industrial-grey max-w-3xl leading-relaxed">
-            Real projects. Real results. Explore how First Man Videos supports oil & gas and heavy
+            Real projects. Real results. Explore how Firstman Videos supports oil & gas and heavy
             industry teams with industrial cinematography, visual documentation and stakeholder-ready
             media.
           </p>

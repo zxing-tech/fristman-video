@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
             <h1 className="text-5xl md:text-6xl font-headline font-bold leading-tight mb-6 uppercase tracking-tight">
-              About First Man Videos
+              About Firstman Videos
             </h1>
             <div className="w-24 h-1 bg-primary mb-8" />
             <p className="text-xl text-industrial-grey leading-relaxed mb-8 font-light">

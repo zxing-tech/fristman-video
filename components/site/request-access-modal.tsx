@@ -264,7 +264,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
               <div className="mt-6 text-center">
                 <p className="text-[11px] text-industrial-grey flex items-center justify-center gap-1">
                   <MaterialIcon name="info" className="text-[14px]" />A copy of the request is sent
-                  to you and the First Man Videos Business Development team.
+                  to you and the Firstman Videos Business Development team.
                 </p>
               </div>
             </div>

@@ -149,7 +149,7 @@ export default function ThankYouCaseStudyAccessPage() {
         <div className="mt-16 text-center max-w-2xl mx-auto">
           <p className="text-industrial-grey text-[11px] leading-relaxed uppercase tracking-widest opacity-60">
             Confidentiality Notice: Access is subject to manual review due to the restricted
-            nature of certain industrial footage involving sensitive assets. First Man Videos
+            nature of certain industrial footage involving sensitive assets. Firstman Videos
             maintains strict drone-enabled visual documentation protocols to protect client
             intellectual property and site security.
           </p>

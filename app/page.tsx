@@ -188,14 +188,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why First Man Videos (Bento Grid Style) */}
+      {/* Why Firstman Videos (Bento Grid Style) */}
       <section className="w-full py-24 bg-dark-ui border-y border-white/5 relative">
         {/* Abstract background accent */}
         <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="mb-16">
             <SectionLabel className="mb-4 block">The Advantage</SectionLabel>
-            <h2 className="font-headline font-black text-4xl md:text-5xl">Why First Man Videos</h2>
+            <h2 className="font-headline font-black text-4xl md:text-5xl">Why Firstman Videos</h2>
           </div>
           {/* Metrics Bar */}
           <div className="w-full glass-panel rounded-xl mb-12 py-10 px-8 flex flex-col md:flex-row justify-around items-center gap-10 border-b border-white/10">

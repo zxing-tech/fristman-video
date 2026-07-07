@@ -6,7 +6,7 @@ import { MaterialIcon } from "@/components/site/material-icon"
 export const metadata: Metadata = {
   title: "About / Team",
   description:
-    "Meet the specialized collective of production-led drone operators and industrial cinematographers behind First Man Videos.",
+    "Meet the specialized collective of production-led drone operators and industrial cinematographers behind Firstman Videos.",
 }
 
 const gridPatternStyle = {

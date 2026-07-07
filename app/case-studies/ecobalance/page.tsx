@@ -258,7 +258,7 @@ export default function EcoBalanceCaseStudyPage() {
                 </h3>
               </div>
               <p className="text-sm text-industrial-grey leading-relaxed mb-6">
-                FIRST MAN VIDEOS ensures the secure handling of all sensitive industrial data. Our
+                FIRSTMAN VIDEOS ensures the secure handling of all sensitive industrial data. Our
                 workflows are designed to accommodate site-specific NDA requirements, ensuring
                 that proprietary processes remain strictly confidential while delivering
                 world-class visual assets.

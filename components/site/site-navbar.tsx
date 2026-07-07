@@ -33,7 +33,7 @@ export function SiteNavbar() {
           className="text-xl font-black tracking-tighter text-white"
           onClick={() => setMenuOpen(false)}
         >
-          First Man Videos
+          Firstman Videos
         </Link>
         <div className="hidden md:flex gap-6 items-center">
           {navLinks.map((link) => (

@@ -129,7 +129,7 @@ export default function PrivacyPolicyPage() {
                 Regulatory Compliance Note
               </h4>
               <p className="text-sm text-industrial-grey font-body leading-relaxed m-0">
-                First Man Videos adheres strictly to the Personal Data Protection Act 2010 (PDPA)
+                Firstman Videos adheres strictly to the Personal Data Protection Act 2010 (PDPA)
                 of Malaysia for domestic operations, mapping core principles to international
                 standards for offshore engagements.
               </p>

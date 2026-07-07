@@ -116,7 +116,7 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* First Man Videos — design tokens (dark cinematic, aksen merah, per DESIGN.md) */
+/* Firstman Videos — design tokens (dark cinematic, aksen merah, per DESIGN.md) */
 @theme {
     --color-surface: #ffffff;
     --color-dark-ui: #080808;
