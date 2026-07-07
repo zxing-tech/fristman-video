@@ -98,7 +98,7 @@ export default function CorporateVideosPage() {
             <br />
             <span className="text-gradient">VIDEOS</span>
           </h1>
-          <p className="font-body text-lg md:text-xl text-industrial-grey max-w-2xl mb-10 leading-relaxed border-l-2 border-primary pl-6 py-2">
+          <p className="font-body text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed border-l-2 border-primary pl-6 py-2">
             Capture the scale, complexity and operational story of large
             industrial environments with cinematic UAV and ground-based
             production.
@@ -190,7 +190,7 @@ export default function CorporateVideosPage() {
                   <h3 className="font-headline font-bold text-xl text-white mb-2">
                     {useCase.title}
                   </h3>
-                  <p className="font-body text-sm text-industrial-grey group-hover:text-white/90 transition-colors">
+                  <p className="font-body text-sm text-white/70 group-hover:text-white/90 transition-colors">
                     {useCase.body}
                   </p>
                 </div>

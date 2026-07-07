@@ -34,7 +34,7 @@ export default function BenLineAgenciesPage() {
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter max-w-4xl leading-tight text-white">
             Ben Line Agencies — <span className="text-primary">Logistics Visual Reference</span>
           </h1>
-          <p className="mt-6 text-industrial-grey text-lg max-w-2xl font-light leading-relaxed">
+          <p className="mt-6 text-white/70 text-lg max-w-2xl font-light leading-relaxed">
             A comprehensive visual documentation project focusing on drone-enabled cinematography
             for complex logistics hubs and port operations. Capturing scale and operational flow
             without site interference.

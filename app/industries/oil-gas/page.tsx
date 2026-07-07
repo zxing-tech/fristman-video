@@ -386,13 +386,13 @@ export default function OilGasIndustryPage() {
                 </p>
                 <div className="flex gap-4 mb-8">
                   <div className="bg-white/5 border border-white/10 rounded px-3 py-2 text-center">
-                    <div className="text-[10px] text-industrial-grey font-label uppercase tracking-widest mb-1">
+                    <div className="text-[10px] text-white/70 font-label uppercase tracking-widest mb-1">
                       Environment
                     </div>
                     <div className="text-sm text-white font-headline">Marine / Yard</div>
                   </div>
                   <div className="bg-white/5 border border-white/10 rounded px-3 py-2 text-center">
-                    <div className="text-[10px] text-industrial-grey font-label uppercase tracking-widest mb-1">
+                    <div className="text-[10px] text-white/70 font-label uppercase tracking-widest mb-1">
                       Deliverable
                     </div>
                     <div className="text-sm text-white font-headline">Stakeholder Reel</div>
@@ -422,7 +422,7 @@ export default function OilGasIndustryPage() {
                 <h5 className="text-white font-headline font-bold text-lg mb-2">
                   Authorization Required
                 </h5>
-                <p className="text-industrial-grey text-xs mb-6 max-w-[200px] leading-relaxed">
+                <p className="text-white/70 text-xs mb-6 max-w-[200px] leading-relaxed">
                   Client verification required to view restricted operational documentation.
                 </p>
                 <RequestAccessTrigger

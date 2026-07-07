@@ -130,7 +130,7 @@ export default function ProgressionTimelapsePage() {
         <div className="relative z-20 container mx-auto px-6 lg:px-12 max-w-7xl text-center">
           <div className="inline-flex items-center space-x-2 bg-graphite/60 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.2em] text-industrial-grey font-bold">
+            <span className="text-xs uppercase tracking-[0.2em] text-white/70 font-bold">
               Service Detail
             </span>
           </div>
@@ -138,7 +138,7 @@ export default function ProgressionTimelapsePage() {
             Progression & <br />
             <span className="text-primary">Timelapse</span> Documentation
           </h1>
-          <p className="text-lg md:text-xl text-industrial-grey max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
+          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
             Visual documentation for construction, fabrication, site upgrades, shutdowns,
             fit-outs and industrial project milestones.
           </p>

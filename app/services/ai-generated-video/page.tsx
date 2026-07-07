@@ -55,7 +55,7 @@ export default function AiGeneratedVideoPage() {
           />
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-          <div className="flex items-center gap-2 text-industrial-grey text-xs font-bold uppercase tracking-widest mb-8">
+          <div className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest mb-8">
             <Link className="hover:text-white transition-colors" href="/services">
               Services
             </Link>
@@ -73,7 +73,7 @@ export default function AiGeneratedVideoPage() {
                 For Scenes You Can&apos;t Re-Shoot
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-industrial-grey max-w-2xl mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed">
               AI-generated recreations of scenes too hazardous or impossible to film live — from an
               offshore rig explosion to a full crew evacuation. We render these moments with cinematic
               realism, backed by copywriting that frames each sequence for training and communications.
@@ -181,7 +181,7 @@ export default function AiGeneratedVideoPage() {
                 <h3 className="text-xl font-bold text-white uppercase mb-2">
                   Historical & Inaccessible Events
                 </h3>
-                <p className="text-industrial-grey leading-relaxed max-w-xl">
+                <p className="text-white/70 leading-relaxed max-w-xl">
                   Reconstruct past milestones or restricted-access operations that were never filmed —
                   rebuilt from archival references into cinematic footage for anniversaries, corporate
                   storytelling, and heritage records.

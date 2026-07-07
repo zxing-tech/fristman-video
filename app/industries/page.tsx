@@ -119,7 +119,7 @@ export default function IndustriesPage() {
         <div className="scanning-line" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-start">
           {/* Breadcrumb */}
-          <div className="glass-panel rounded-full px-4 py-1.5 mb-8 inline-flex items-center space-x-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
+          <div className="glass-panel rounded-full px-4 py-1.5 mb-8 inline-flex items-center space-x-2 text-xs font-label uppercase tracking-widest text-white/70">
             <Link className="hover:text-primary transition-colors" href="/">
               Home
             </Link>
@@ -129,7 +129,7 @@ export default function IndustriesPage() {
           <h1 className="font-headline font-bold text-5xl md:text-7xl leading-[1.1] tracking-tight max-w-4xl mb-6 text-white drop-shadow-lg">
             Industry Expertise for High-Stakes Environments.
           </h1>
-          <p className="font-body text-lg md:text-xl text-industrial-grey max-w-3xl leading-relaxed mb-10 border-l-4 border-primary pl-6">
+          <p className="font-body text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed mb-10 border-l-4 border-primary pl-6">
             We focus where scale, safety and clarity matter most — oil & gas, energy,
             utilities, marine/offshore and large fabrication environments across Southeast
             Asia.

@@ -114,7 +114,7 @@ export default function FacilityOverviewFilmsPage() {
               Facility Overview Films <br />
               <span className="text-white/60">for Industrial Sites</span>
             </h1>
-            <p className="text-lg md:text-xl text-industrial-grey max-w-2xl mb-8 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-8 leading-relaxed font-light">
               Drone-enabled aerial and ground cinematography that helps industrial teams
               explain scale, layout, access points and project context to stakeholders.
             </p>

@@ -78,7 +78,7 @@ export default function EnergyUtilitiesPage() {
               </span>{" "}
               Projects.
             </h1>
-            <p className="text-xl text-industrial-grey font-light max-w-2xl mb-10 leading-relaxed">
+            <p className="text-xl text-white/70 font-light max-w-2xl mb-10 leading-relaxed">
               Drone-enabled and ground-based visual documentation for infrastructure upgrades,
               facility communications, internal reporting, stakeholder education, and
               public-facing explainers.
@@ -162,7 +162,7 @@ export default function EnergyUtilitiesPage() {
               <div className="relative z-20">
                 <MaterialIcon name="landscape" className="text-primary mb-4 block text-3xl" />
                 <h3 className="text-2xl font-bold mb-2 text-white">Facility Overviews</h3>
-                <p className="text-industrial-grey text-sm max-w-md">
+                <p className="text-white/70 text-sm max-w-md">
                   Comprehensive ground and drone-enabled capture establishing the scale,
                   context, and operational footprint of energy assets.
                 </p>
@@ -212,7 +212,7 @@ export default function EnergyUtilitiesPage() {
               <div className="relative z-20">
                 <MaterialIcon name="movie" className="text-primary mb-4 block text-3xl" />
                 <h3 className="text-2xl font-bold mb-2 text-white">Stakeholder Education Films</h3>
-                <p className="text-industrial-grey text-sm max-w-md">
+                <p className="text-white/70 text-sm max-w-md">
                   Narrative-driven visual assets explaining complex facility operations or
                   safety protocols to public and internal audiences.
                 </p>
@@ -367,7 +367,7 @@ export default function EnergyUtilitiesPage() {
             Show energy infrastructure <br />
             <span className="text-primary">with clarity.</span>
           </h2>
-          <p className="text-industrial-grey mb-10 max-w-xl mx-auto">
+          <p className="text-white/70 mb-10 max-w-xl mx-auto">
             Limited onboarding capacity available for upcoming site documentation projects.
             Secure your production schedule.
           </p>

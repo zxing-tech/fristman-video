@@ -30,7 +30,7 @@ export default function PetrofacKemamanPage() {
           <div className="glass-panel p-8 rounded-2xl flex flex-col items-center max-w-md mx-4">
             <MaterialIcon name="lock" fill className="text-5xl text-primary mb-4" />
             <h2 className="text-2xl font-bold mb-2 uppercase tracking-wide">Confidential Asset</h2>
-            <p className="text-industrial-grey text-sm mb-6 text-center">
+            <p className="text-white/70 text-sm mb-6 text-center">
               This video asset contains restricted industrial site footage. Access requires
               clearance.
             </p>

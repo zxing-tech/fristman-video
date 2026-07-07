@@ -132,7 +132,7 @@ export default function FabricationConstructionPage() {
             Visual Documentation for <br />
             <span className="text-primary">Fabrication & Construction</span> Progress
           </h1>
-          <p className="text-industrial-grey text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+          <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
             Providing stakeholders with high-fidelity visual intelligence across complex asset
             lifecycles in heavy industry and fabrication environments.
           </p>

@@ -181,7 +181,7 @@ export default function CaseStudiesPage() {
                 <h3 className="font-headline font-bold text-2xl uppercase tracking-wider mb-2 text-white">
                   Restricted Access
                 </h3>
-                <p className="font-body text-industrial-grey text-sm max-w-md">
+                <p className="font-body text-white/70 text-sm max-w-md">
                   This project contains sensitive industrial protocols and is gated for approved
                   industry stakeholders only.
                 </p>

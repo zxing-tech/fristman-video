@@ -236,7 +236,7 @@ export default function SyndelAsiaPage() {
           <h2 className="text-4xl font-extrabold uppercase tracking-tighter mb-6 text-white">
             RESTRICTED ACCESS ONLY
           </h2>
-          <p className="text-xl text-industrial-grey mb-10 leading-relaxed">
+          <p className="text-xl text-white/70 mb-10 leading-relaxed">
             The full high-fidelity visual documentation library for Syndel Asia contains sensitive
             site-aware assets. Access is restricted to authorized personnel and verified project
             stakeholders.

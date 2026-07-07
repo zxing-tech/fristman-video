@@ -51,7 +51,7 @@ export default function ThankYouConsultationPage() {
           <h1 className="text-4xl md:text-6xl font-black tracking-widest uppercase mb-6 leading-tight text-white">
             THANK YOU — <span className="text-primary">CONSULTATION</span> REQUEST RECEIVED
           </h1>
-          <p className="text-industrial-grey text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto font-light leading-relaxed">
             Your enquiry for industrial visual documentation has been successfully logged into our
             production pipeline.
           </p>
@@ -84,7 +84,7 @@ export default function ThankYouConsultationPage() {
         </div>
         {/* Next Steps Grid */}
         <div className="mb-16">
-          <h2 className="text-xs tracking-[0.4em] uppercase text-industrial-grey font-bold mb-10">
+          <h2 className="text-xs tracking-[0.4em] uppercase text-white/70 font-bold mb-10">
             Standard Protocol Following Submission
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -112,7 +112,7 @@ export default function ThankYouConsultationPage() {
         </div>
         {/* Confirmation Note */}
         <div className="max-w-xl mx-auto mb-12">
-          <p className="text-xs text-industrial-grey font-light italic flex items-center justify-center gap-2">
+          <p className="text-xs text-white/70 font-light italic flex items-center justify-center gap-2">
             <MaterialIcon name="mail" className="text-sm" />
             A confirmation of this request has been dispatched to your provided email and our
             Business Development team.

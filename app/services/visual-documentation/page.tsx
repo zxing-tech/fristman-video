@@ -49,7 +49,7 @@ export default function VisualDocumentationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col items-start gap-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
             <MaterialIcon name="videocam" fill className="text-primary text-sm" />
-            <span className="text-xs font-bold uppercase tracking-widest text-industrial-grey">
+            <span className="text-xs font-bold uppercase tracking-widest text-white/70">
               Visual Documentation Services
             </span>
           </div>
@@ -58,7 +58,7 @@ export default function VisualDocumentationPage() {
               Industrial Visual Documentation <br />
               <span className="text-gradient">For Stakeholder Communication</span>
             </h1>
-            <p className="text-lg md:text-xl text-industrial-grey max-w-2xl font-light leading-relaxed mb-10">
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl font-light leading-relaxed mb-10">
               Structured, safety-conscious photo and video documentation designed
               specifically for briefing management, updating partners, and supporting
               training teams within heavy industry environments. We capture site-aware
@@ -90,7 +90,7 @@ export default function VisualDocumentationPage() {
               <p className="text-sm font-bold uppercase tracking-wider mb-1 text-white">
                 Safety-Conscious Planning
               </p>
-              <p className="text-xs text-industrial-grey">
+              <p className="text-xs text-white/70">
                 Operations executed with strict adherence to site protocols. Full HSSE
                 credentials and operational documentation available upon request prior to
                 deployment.

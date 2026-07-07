@@ -23,7 +23,7 @@ export default function MahbAirportServicesPage() {
           />
         </div>
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <nav className="flex items-center gap-2 text-industrial-grey text-xs uppercase tracking-[0.2em] mb-6">
+          <nav className="flex items-center gap-2 text-white/70 text-xs uppercase tracking-[0.2em] mb-6">
             <Link className="hover:text-white transition-colors" href="/">
               Home
             </Link>
@@ -108,7 +108,7 @@ export default function MahbAirportServicesPage() {
             <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
               <div className="max-w-xl">
                 <h3 className="text-2xl font-bold mb-2 text-white">Site-Aware Capture</h3>
-                <p className="text-industrial-grey text-sm">
+                <p className="text-white/70 text-sm">
                   Strategic drone positioning to document complex ground service maneuvers without
                   interference.
                 </p>
@@ -313,7 +313,7 @@ export default function MahbAirportServicesPage() {
                 <h4 className="text-2xl font-bold group-hover:text-primary transition-colors text-white">
                   Corporate Videos
                 </h4>
-                <p className="text-industrial-grey text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <p className="text-white/70 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   Cinematic documentation for heavy industry.
                 </p>
               </div>
@@ -331,7 +331,7 @@ export default function MahbAirportServicesPage() {
                 <h4 className="text-2xl font-bold group-hover:text-primary transition-colors text-white">
                   Facility Overviews
                 </h4>
-                <p className="text-industrial-grey text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <p className="text-white/70 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   Site-aware visual mapping for vast infrastructures.
                 </p>
               </div>

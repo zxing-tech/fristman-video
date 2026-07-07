@@ -59,7 +59,7 @@ export default function AboutTeamPage() {
         </div>
         <div className="max-w-[1280px] mx-auto px-6 relative z-10 w-full">
           {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-industrial-grey mb-8">
+          <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-white/70 mb-8">
             <Link className="hover:text-white transition-colors" href="/">
               Home
             </Link>
@@ -81,7 +81,7 @@ export default function AboutTeamPage() {
               Meet the Team <br />
               <span className="text-gradient">Behind the Lens</span>
             </h1>
-            <p className="text-lg text-industrial-grey max-w-2xl font-light leading-relaxed mb-10">
+            <p className="text-lg text-white/70 max-w-2xl font-light leading-relaxed mb-10">
               We are a specialized collective of production-led drone operators and industrial
               cinematographers. Focused on site-aware planning and rigorous safety protocols to
               capture heavy industry environments safely and cinematically.

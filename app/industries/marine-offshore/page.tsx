@@ -104,7 +104,7 @@ export default function MarineOffshorePage() {
               For Heavy Operations
             </span>
           </h1>
-          <p className="text-industrial-grey text-lg md:text-xl max-w-2xl font-light mb-10">
+          <p className="text-white/70 text-lg md:text-xl max-w-2xl font-light mb-10">
             High-fidelity drone capture and industrial cinematography for offshore
             assets, vessels, and fabrication yards. Providing stakeholders with premium
             visual records of operational milestones.
@@ -335,7 +335,7 @@ export default function MarineOffshorePage() {
             <br />
             Your Next Milestone?
           </h2>
-          <p className="text-industrial-grey text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
             Initiate a conversation regarding location logistics, visual requirements,
             and deployment availability for your marine or offshore asset.
           </p>
