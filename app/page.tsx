@@ -180,30 +180,40 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="flex flex-col gap-8">
-          <div className="marquee">
-            <div className="marquee-track animate-marquee-left hover:[animation-play-state:paused]">
-              {[...agencyLogos, ...agencyLogos].map((logo, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={`a-${i}`}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
-                />
-              ))}
+          <div className="flex items-center gap-4 md:gap-8 pl-4 md:pl-8">
+            <span className="shrink-0 bg-primary text-white font-label font-bold uppercase tracking-wider text-[11px] md:text-xs px-5 md:px-8 py-2.5 rounded-md text-center w-[104px] md:w-[150px]">
+              Agencies
+            </span>
+            <div className="marquee flex-1">
+              <div className="marquee-track animate-marquee-left hover:[animation-play-state:paused]">
+                {[...agencyLogos, ...agencyLogos].map((logo, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={`a-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                  />
+                ))}
+              </div>
             </div>
           </div>
-          <div className="marquee">
-            <div className="marquee-track animate-marquee-right hover:[animation-play-state:paused]">
-              {[...clienteleLogos, ...clienteleLogos].map((logo, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={`c-${i}`}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
-                />
-              ))}
+          <div className="flex items-center gap-4 md:gap-8 pl-4 md:pl-8">
+            <span className="shrink-0 bg-primary text-white font-label font-bold uppercase tracking-wider text-[11px] md:text-xs px-5 md:px-8 py-2.5 rounded-md text-center w-[104px] md:w-[150px]">
+              Clientele
+            </span>
+            <div className="marquee flex-1">
+              <div className="marquee-track animate-marquee-right hover:[animation-play-state:paused]">
+                {[...clienteleLogos, ...clienteleLogos].map((logo, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={`c-${i}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
