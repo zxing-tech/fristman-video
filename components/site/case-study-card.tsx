@@ -58,7 +58,7 @@ export function CaseStudyCard({
         {summary && (
           <p className="font-body text-industrial-grey text-sm leading-relaxed mb-4">{summary}</p>
         )}
-        <span className="font-label uppercase tracking-wider text-xs font-bold text-white/80 flex items-center gap-2 group-hover:text-primary transition-colors">
+        <span className="font-label uppercase tracking-wider text-xs font-bold text-surface/80 flex items-center gap-2 group-hover:text-primary transition-colors">
           View Case Study
           <MaterialIcon
             name="arrow_forward"

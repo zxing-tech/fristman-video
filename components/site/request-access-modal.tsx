@@ -12,8 +12,8 @@ type RequestAccessModalProps = {
   defaultVideo?: string
 }
 
-const inputClass = "form-input-dark w-full rounded-[6px] px-4 py-3 text-sm transition-all focus:bg-white/5"
-const labelClass = "block text-xs font-bold uppercase tracking-wider text-white/70 mb-2"
+const inputClass = "form-input-dark w-full rounded-[6px] px-4 py-3 text-sm transition-all focus:bg-surface/5"
+const labelClass = "block text-xs font-bold uppercase tracking-wider text-surface/70 mb-2"
 
 export function RequestAccessModal({ open, onClose, defaultVideo }: RequestAccessModalProps) {
   if (!open) return null
@@ -55,15 +55,15 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
         className="glass-modal rounded-[12px] shadow-2xl relative z-10 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="px-8 pt-10 pb-6 border-b border-white/5 text-center">
-          <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-white/5 mb-6">
+        <div className="px-8 pt-10 pb-6 border-b border-surface/5 text-center">
+          <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-surface/5 mb-6">
             <MaterialIcon
               name={state === "success" ? "check_circle" : "lock"}
-              className={cn("text-3xl", state === "success" ? "text-primary" : "text-white")}
+              className={cn("text-3xl", state === "success" ? "text-primary" : "text-surface")}
             />
           </div>
           <h2
-            className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-3"
+            className="text-2xl md:text-3xl font-bold tracking-tight text-surface mb-3"
             id="request-access-title"
           >
             {state === "success" ? "Request Submitted" : "Request Access to Confidential Video"}
@@ -78,7 +78,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
 
         {state === "success" ? (
           <div className="flex flex-col items-center justify-center py-12 px-8 text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">Request Received</h3>
+            <h3 className="text-2xl font-bold text-surface mb-2">Request Received</h3>
             <p className="text-industrial-grey mb-8">We typically respond within 24 business hours.</p>
             <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
               <Link
@@ -89,7 +89,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
               </Link>
               <Link
                 href="/services"
-                className="flex-1 border border-white/20 text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white/10 transition-colors text-center"
+                className="flex-1 border border-surface/20 text-surface px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-surface/10 transition-colors text-center"
               >
                 View Services
               </Link>
@@ -207,7 +207,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
                 <div className="flex items-start mt-6">
                   <div className="flex items-center h-5">
                     <input
-                      className="w-4 h-4 rounded-[4px] border-white/20 bg-white/5 text-primary focus:ring-primary"
+                      className="w-4 h-4 rounded-[4px] border-surface/20 bg-surface/5 text-primary focus:ring-primary"
                       id="consent"
                       name="consent"
                       required
@@ -215,7 +215,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label className="font-medium text-white/80" htmlFor="consent">
+                    <label className="font-medium text-surface/80" htmlFor="consent">
                       I consent to processing my data for this request.
                     </label>
                     <p className="text-industrial-grey text-xs mt-1">
@@ -229,11 +229,11 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
                 </div>
               </form>
             </div>
-            <div className="mt-auto border-t border-white/5 bg-black/40 px-8 py-6 relative">
+            <div className="mt-auto border-t border-surface/5 bg-background/40 px-8 py-6 relative">
               <div className="absolute top-0 left-0 w-full h-px scanner-line" />
               <div className="flex flex-col sm:flex-row-reverse justify-between items-center gap-4">
                 <button
-                  className="w-full sm:w-auto bg-primary text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-black border border-transparent hover:border-primary transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70"
+                  className="w-full sm:w-auto bg-primary text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-background border border-transparent hover:border-primary transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70"
                   disabled={state === "submitting"}
                   form="access-form"
                   type="submit"
@@ -254,7 +254,7 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
                   )}
                 </button>
                 <button
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-white/70 hover:text-white border border-transparent hover:border-white/20 transition-all duration-300"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-surface/70 hover:text-surface border border-transparent hover:border-surface/20 transition-all duration-300"
                   onClick={onClose}
                   type="button"
                 >

@@ -12,10 +12,10 @@ const exploreLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-black border-t border-white/5 py-12 w-full mt-24">
+    <footer className="bg-background border-t border-surface/10 py-12 w-full mt-24">
       <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-start gap-12">
         <div className="space-y-4">
-          <div className="text-lg font-bold text-white tracking-tighter">Firstman Videos</div>
+          <div className="text-lg font-bold text-surface tracking-tighter">Firstman Videos</div>
           <p className="font-body text-sm text-industrial-grey max-w-xs">
             Industrial Cinematography for Oil &amp; Gas and Heavy Industry.
           </p>
@@ -24,7 +24,7 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <span className="font-label uppercase tracking-widest text-xs font-bold text-white mb-2">
+          <span className="font-label uppercase tracking-widest text-xs font-bold text-surface mb-2">
             Explore
           </span>
           {exploreLinks.map((link) => (
@@ -38,7 +38,7 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="flex flex-col gap-3">
-          <span className="font-label uppercase tracking-widest text-xs font-bold text-white mb-2">
+          <span className="font-label uppercase tracking-widest text-xs font-bold text-surface mb-2">
             Legal &amp; Access
           </span>
           <Link
@@ -67,21 +67,21 @@ export function SiteFooter() {
           </a>
         </div>
         <div className="flex flex-col gap-4">
-          <span className="font-label uppercase tracking-widest text-xs font-bold text-white mb-2">
+          <span className="font-label uppercase tracking-widest text-xs font-bold text-surface mb-2">
             Connect
           </span>
           <div className="flex gap-4">
             <a
               href="#"
               aria-label="Share"
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
             >
               <MaterialIcon name="share" className="text-sm" />
             </a>
             <a
               href="mailto:hello@firstmanvideos.com"
               aria-label="Email"
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
             >
               <MaterialIcon name="mail" className="text-sm" />
             </a>

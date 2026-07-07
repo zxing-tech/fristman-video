@@ -65,7 +65,7 @@ export default function HomePage() {
         {/* Cinematic Background Image */}
         <div className="absolute inset-0 z-0">
           <div
-            className="bg-cover bg-center w-full h-full opacity-40"
+            className="bg-cover bg-center w-full h-full opacity-50 dark:opacity-40"
             style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -97,7 +97,7 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 p-4 opacity-20">
                 <MaterialIcon name="hub" className="text-6xl" />
               </div>
-              <h3 className="font-headline font-bold text-xl mb-4 border-b border-white/10 pb-4">
+              <h3 className="font-headline font-bold text-xl mb-4 border-b border-surface/10 pb-4">
                 What You Can Count On
               </h3>
               <ul className="space-y-4">
@@ -110,24 +110,24 @@ export default function HomePage() {
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <MaterialIcon name="schedule" className="text-white text-sm" />
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-surface/5 flex items-center justify-center border border-surface/10">
+                    <MaterialIcon name="schedule" className="text-surface text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
                     Quick video project turnaround
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <MaterialIcon name="verified_user" className="text-white text-sm" />
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-surface/5 flex items-center justify-center border border-surface/10">
+                    <MaterialIcon name="verified_user" className="text-surface text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
                     Offshore readiness with certified crew
                   </span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <div className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                    <MaterialIcon name="high_quality" className="text-white text-sm" />
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-surface/5 flex items-center justify-center border border-surface/10">
+                    <MaterialIcon name="high_quality" className="text-surface text-sm" />
                   </div>
                   <span className="font-label text-sm uppercase tracking-wider text-industrial-grey">
                     Confidentiality at every step
@@ -140,7 +140,7 @@ export default function HomePage() {
       </header>
 
       {/* Trust Bar */}
-      <section className="w-full bg-dark-ui border-y border-white/5 py-10 overflow-hidden relative">
+      <section className="w-full bg-dark-ui border-y border-surface/10 py-10 overflow-hidden relative">
         <div className="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-8 justify-between">
           <span className="font-label uppercase tracking-widest text-xs font-bold text-industrial-grey whitespace-nowrap">
             Our Clientele
@@ -189,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Firstman Videos (Bento Grid Style) */}
-      <section className="w-full py-24 bg-dark-ui border-y border-white/5 relative">
+      <section className="w-full py-24 bg-dark-ui border-y border-surface/10 relative">
         {/* Abstract background accent */}
         <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
         <div className="max-w-[1280px] mx-auto px-8">
@@ -198,24 +198,24 @@ export default function HomePage() {
             <h2 className="font-headline font-black text-4xl md:text-5xl">Why Firstman Videos</h2>
           </div>
           {/* Metrics Bar */}
-          <div className="w-full glass-panel rounded-xl mb-12 py-10 px-8 flex flex-col md:flex-row justify-around items-center gap-10 border-b border-white/10">
+          <div className="w-full glass-panel rounded-xl mb-12 py-10 px-8 flex flex-col md:flex-row justify-around items-center gap-10 border-b border-surface/10">
             <div className="flex flex-col items-center md:items-start">
               <span className="text-primary font-headline font-black text-4xl">25+ Years</span>
-              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+              <span className="text-surface/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
                 Corporate Video
               </span>
             </div>
-            <div className="hidden md:block w-px h-12 bg-white/10" />
+            <div className="hidden md:block w-px h-12 bg-surface/10" />
             <div className="flex flex-col items-center md:items-start">
               <span className="text-primary font-headline font-black text-4xl">15+ Years</span>
-              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+              <span className="text-surface/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
                 Oil & Gas Sector
               </span>
             </div>
-            <div className="hidden md:block w-px h-12 bg-white/10" />
+            <div className="hidden md:block w-px h-12 bg-surface/10" />
             <div className="flex flex-col items-center md:items-start">
               <span className="text-primary font-headline font-black text-4xl">500+ Projects</span>
-              <span className="text-white/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
+              <span className="text-surface/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
                 Industrial Deployments
               </span>
             </div>
@@ -230,7 +230,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10">
                 <MaterialIcon name="shield" className="text-primary text-4xl mb-4 block" />
-                <h3 className="font-headline font-bold text-2xl mb-2">
+                <h3 className="font-headline font-bold text-2xl mb-2 text-white">
                   Safety-First Workflow & Compliance
                 </h3>
                 <p className="font-body text-white/90 max-w-lg">
@@ -249,7 +249,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10">
                 <MaterialIcon name="factory" className="text-primary text-3xl mb-4 block" />
-                <h3 className="font-headline font-bold text-lg mb-2">Deep Industrial Site Awareness</h3>
+                <h3 className="font-headline font-bold text-lg mb-2 text-white">Deep Industrial Site Awareness</h3>
                 <p className="font-body text-white/90 text-sm">
                   Deep understanding of the logistics, safety gates, and operational realities of heavy
                   industry environments from the moment we mobilise.
@@ -265,7 +265,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10">
                 <MaterialIcon name="photo_camera" className="text-primary text-3xl mb-4 block" />
-                <h3 className="font-headline font-bold text-lg mb-2">Integrated UAV + Ground Production</h3>
+                <h3 className="font-headline font-bold text-lg mb-2 text-white">Integrated UAV + Ground Production</h3>
                 <p className="font-body text-white/90 text-sm">
                   Comprehensive multi-angle coverage combining aerial perspectives with detailed
                   ground-level cinematography.
@@ -281,7 +281,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
               <div className="relative z-10 flex flex-col sm:flex-row gap-6 sm:items-center justify-between w-full">
                 <div>
-                  <h3 className="font-headline font-bold text-xl mb-2">Rapid Regional Deployment</h3>
+                  <h3 className="font-headline font-bold text-xl mb-2 text-white">Rapid Regional Deployment</h3>
                   <p className="font-body text-white/90 text-sm max-w-md">
                     Wherever your project is — a major fabrication yard or a short-notice site visit —
                     we mobilise across the region to cover it. Large-scale or ad-hoc, if it calls for

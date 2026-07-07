@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { ThemeToggle } from "@/components/site/theme-toggle"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -27,10 +28,10 @@ export function SiteNavbar() {
 
   return (
     <nav className="fixed top-4 inset-x-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-[1280px]">
-      <div className="flex justify-between items-center w-full px-6 md:px-8 py-3 bg-black/60 backdrop-blur-md rounded-full border border-white/10 shadow-xl shadow-[0_0_15px_rgba(209,32,39,0.1)]">
+      <div className="flex justify-between items-center w-full px-6 md:px-8 py-3 bg-background/70 backdrop-blur-md rounded-full border border-surface/10 shadow-xl shadow-[0_0_15px_rgba(209,32,39,0.1)]">
         <Link
           href="/"
-          className="text-xl font-black tracking-tighter text-white"
+          className="text-xl font-black tracking-tighter text-surface"
           onClick={() => setMenuOpen(false)}
         >
           Firstman Videos
@@ -44,7 +45,7 @@ export function SiteNavbar() {
                 "font-label uppercase tracking-widest text-xs font-bold transition-all duration-300",
                 isActive(pathname, link.href)
                   ? "text-primary border-b-2 border-primary pb-1"
-                  : "text-white/80 hover:text-primary"
+                  : "text-surface/80 hover:text-primary"
               )}
             >
               {link.label}
@@ -52,9 +53,10 @@ export function SiteNavbar() {
           ))}
         </div>
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden sm:flex bg-primary text-white px-6 py-2 rounded-full font-label uppercase tracking-wider text-xs font-bold hover:bg-black hover:text-primary border border-primary transition-all duration-300 items-center gap-2 group"
+            className="hidden sm:flex bg-primary text-white px-6 py-2 rounded-full font-label uppercase tracking-wider text-xs font-bold hover:bg-background hover:text-primary border border-primary transition-all duration-300 items-center gap-2 group"
           >
             Get an Estimate
             <MaterialIcon
@@ -66,7 +68,7 @@ export function SiteNavbar() {
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="md:hidden w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:border-primary hover:text-primary transition-colors"
+            className="md:hidden w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center text-surface hover:border-primary hover:text-primary transition-colors"
             onClick={() => setMenuOpen((open) => !open)}
           >
             <MaterialIcon name={menuOpen ? "close" : "menu"} className="text-xl" />
@@ -81,7 +83,7 @@ export function SiteNavbar() {
               href={link.href}
               className={cn(
                 "font-label uppercase tracking-widest text-sm font-bold transition-colors",
-                isActive(pathname, link.href) ? "text-primary" : "text-white/80 hover:text-primary"
+                isActive(pathname, link.href) ? "text-primary" : "text-surface/80 hover:text-primary"
               )}
               onClick={() => setMenuOpen(false)}
             >
@@ -90,7 +92,7 @@ export function SiteNavbar() {
           ))}
           <Link
             href="/contact"
-            className="bg-primary text-white px-6 py-3 rounded-full font-label uppercase tracking-wider text-xs font-bold text-center border border-primary hover:bg-black hover:text-primary transition-all duration-300"
+            className="bg-primary text-white px-6 py-3 rounded-full font-label uppercase tracking-wider text-xs font-bold text-center border border-primary hover:bg-background hover:text-primary transition-all duration-300"
             onClick={() => setMenuOpen(false)}
           >
             Get an Estimate

@@ -4,6 +4,7 @@ import { Open_Sans } from "next/font/google"
 import "./globals.css"
 import { SiteFooter } from "@/components/site/site-footer"
 import { SiteNavbar } from "@/components/site/site-navbar"
+import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
 const openSans = Open_Sans({
@@ -31,7 +32,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={cn("dark antialiased font-sans", openSans.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("antialiased font-sans", openSans.variable)}
+    >
       <head>
         {/* Material Symbols dimuat sebagai stylesheet ikon (bukan next/font) agar font-variation-settings FILL tetap bisa dianimasikan */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -41,9 +46,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-surface font-body antialiased overflow-x-hidden selection:bg-primary selection:text-white">
-        <SiteNavbar />
-        {children}
-        <SiteFooter />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <SiteNavbar />
+          {children}
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   )

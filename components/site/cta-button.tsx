@@ -33,9 +33,9 @@ export function CtaButton({
         "rounded-full font-label uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center gap-2 group w-fit",
         sizeClasses[size],
         variant === "primary" &&
-          "bg-primary text-white border border-primary hover:bg-black hover:text-primary",
+          "bg-primary text-white border border-primary hover:bg-background hover:text-primary",
         variant === "secondary" &&
-          "glass-panel text-white hover:bg-primary/20 hover:border-primary",
+          "glass-panel text-surface hover:bg-primary/20 hover:border-primary",
         className
       )}
     >
