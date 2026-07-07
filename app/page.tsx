@@ -14,17 +14,17 @@ const trustLogos = ["PETROFAC", "MAHB", "SYNDEL ASIA", "BEN LINE", "LIVESCAPE", 
 
 const serviceCards = [
   {
-    icon: "videocam",
-    title: "Industrial Cinematography",
+    icon: "movie",
+    title: "Corporate Videos",
     summary:
       "High-end cinematic production for corporate communications, marketing, and investor relations within heavy industry.",
     href: "/services/industrial-cinematography",
   },
   {
-    icon: "domain",
+    icon: "factory",
     title: "Large-Scale Facility Overviews",
     summary:
-      "Comprehensive aerial and ground mapping of extensive industrial complexes, refineries, and fabrication yards.",
+      "Comprehensive aerial and ground visual acquisition of extensive industrial complexes, refineries and fabrication yards.",
     href: "/services/facility-overview-films",
   },
   {
@@ -35,21 +35,21 @@ const serviceCards = [
     href: "/services/progression-timelapse",
   },
   {
-    icon: "inventory_2",
+    icon: "perm_media",
     title: "Visual Asset Documentation",
     summary:
       "Systematic photographic and video recording of critical infrastructure assets for maintenance and archival purposes.",
     href: "/services/visual-documentation",
   },
   {
-    icon: "flight",
-    title: "Cinematic FPV Fly-Throughs",
+    icon: "auto_awesome",
+    title: "AI-Generated Video",
     summary:
-      "Dynamic, immersive first-person view drone tours of complex industrial environments and offshore platforms.",
-    href: "/services/fpv-fly-throughs",
+      "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism.",
+    href: "/contact",
   },
   {
-    icon: "analytics",
+    icon: "assessment",
     title: "Inspection Reports & Data Delivery",
     summary:
       "Structured delivery of high-resolution visual data integrated into comprehensive inspection reports.",
@@ -143,7 +143,7 @@ export default function HomePage() {
       <section className="w-full bg-dark-ui border-y border-white/5 py-10 overflow-hidden relative">
         <div className="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-8 justify-between">
           <span className="font-label uppercase tracking-widest text-xs font-bold text-industrial-grey whitespace-nowrap">
-            Trusted By Industry Leaders
+            Our Clientele
           </span>
           <div className="flex gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto pb-4 md:pb-0 w-full justify-between items-center no-scrollbar">
             {trustLogos.map((logo) =>
@@ -170,7 +170,7 @@ export default function HomePage() {
       <section className="w-full py-24 relative bg-background">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="flex flex-col items-center mb-16 text-center">
-            <SectionLabel className="mb-4 block">Core Capabilities</SectionLabel>
+            <SectionLabel className="mb-4 block text-base md:text-lg">Core Capabilities</SectionLabel>
             <h2 className="font-headline font-black text-4xl md:text-5xl">Visual Intelligence Solutions</h2>
             <div className="w-24 h-1 bg-primary mt-8" />
           </div>
