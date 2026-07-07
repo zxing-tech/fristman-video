@@ -71,7 +71,7 @@ export default function MarineOffshorePage() {
           <div className="absolute inset-0 bg-black z-[-10]" />
           <div
             aria-label="Imposing offshore oil rig rising from dark waters against a stormy sky"
-            className="w-full h-full bg-cover bg-center opacity-40"
+            className="w-full h-full bg-cover bg-center opacity-90 dark:opacity-40"
             role="img"
             style={{ backgroundImage: "url('/images/stitch/4d64dd70b0.jpg')" }}
           />

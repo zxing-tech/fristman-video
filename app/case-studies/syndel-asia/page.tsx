@@ -221,7 +221,7 @@ export default function SyndelAsiaPage() {
         <div className="absolute inset-0 z-0">
           <div
             aria-hidden="true"
-            className="w-full h-full bg-cover bg-center opacity-30"
+            className="w-full h-full bg-cover bg-center opacity-90 dark:opacity-30"
             style={{ backgroundImage: "url('/images/stitch/fa4a82d5bf.jpg')" }}
           />
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />

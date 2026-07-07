@@ -39,7 +39,7 @@ export default function VisualDocumentationPage() {
         <div className="absolute inset-0 z-0">
           <div
             aria-label="Monochrome industrial oil and gas facility at dusk with red interface overlays"
-            className="w-full h-full bg-cover bg-center opacity-40"
+            className="w-full h-full bg-cover bg-center opacity-90 dark:opacity-40"
             role="img"
             style={{ backgroundImage: "url('/images/stitch/e8622506e9.jpg')" }}
           />

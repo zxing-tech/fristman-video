@@ -112,7 +112,7 @@ export default function IndustriesPage() {
       <section className="relative min-h-[819px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full opacity-40 mix-blend-luminosity"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full opacity-90 mix-blend-normal dark:opacity-40 dark:mix-blend-luminosity"
           style={{ backgroundImage: "url('/images/stitch/d6202ff285.jpg')" }}
         />
         {/* Scanning Line Effect */}

@@ -57,21 +57,21 @@ export default function EnergyUtilitiesPage() {
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-[-1]" />
 
       {/* 1. Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 overflow-hidden bg-black">
-        <div className="absolute inset-0 z-[-1]">
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-40"
+            className="absolute inset-0 bg-cover bg-center opacity-90 dark:opacity-40"
             style={{ backgroundImage: "url('/images/stitch/f4e4febd13.jpg')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/75 dark:from-black dark:via-black/80 dark:to-black" />
         </div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">
             <div className={`${pillBadge} mb-8`}>
               <MaterialIcon name="bolt" fill className="text-[16px]" />
               INDUSTRY — ENERGY &amp; UTILITIES
             </div>
-            <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-white">
+            <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-white drop-shadow-lg">
               Visual Storytelling for <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-industrial-grey">
                 Energy &amp; Utilities
@@ -155,7 +155,7 @@ export default function EnergyUtilitiesPage() {
               className={`${glassCard} bg-black rounded-2xl p-8 flex flex-col justify-end relative overflow-hidden group md:col-span-2`}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity duration-500 z-0 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-0 mix-blend-normal dark:opacity-40 dark:group-hover:opacity-50 dark:mix-blend-luminosity"
                 style={{ backgroundImage: "url('/images/stitch/7627d789be.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
@@ -205,7 +205,7 @@ export default function EnergyUtilitiesPage() {
               className={`${glassCard} bg-black rounded-2xl p-8 flex flex-col justify-end relative overflow-hidden group md:col-span-2`}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity duration-500 z-0 mix-blend-luminosity"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-0 mix-blend-normal dark:opacity-40 dark:group-hover:opacity-50 dark:mix-blend-luminosity"
                 style={{ backgroundImage: "url('/images/stitch/cfcd764d9e.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />

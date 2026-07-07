@@ -50,7 +50,7 @@ export default function AboutTeamPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div
-            className="bg-cover bg-center w-full h-full opacity-40"
+            className="bg-cover bg-center w-full h-full opacity-90 dark:opacity-40"
             style={{ backgroundImage: "url('/images/stitch/9c1e6ec500.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />

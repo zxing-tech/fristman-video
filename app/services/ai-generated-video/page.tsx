@@ -168,7 +168,7 @@ export default function AiGeneratedVideoPage() {
             <div className="glass-panel bg-black p-8 rounded-2xl group hover:border-primary/50 transition-colors md:col-span-2 relative overflow-hidden">
               <div
                 aria-label="Industrial workers in safety gear operating heavy machinery in a steel fabrication facility"
-                className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500"
+                className="absolute inset-0 bg-cover bg-center opacity-90 mix-blend-normal dark:opacity-30 dark:mix-blend-luminosity dark:group-hover:mix-blend-normal transition-all duration-500"
                 role="img"
                 style={{ backgroundImage: "url('/images/stitch/f6f0469b18.jpg')" }}
               />

@@ -66,7 +66,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-black">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+          className="absolute inset-0 bg-cover bg-center opacity-90 mix-blend-normal dark:opacity-30 dark:mix-blend-luminosity"
           style={{ backgroundImage: "url('/images/stitch/90739e14ed.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />

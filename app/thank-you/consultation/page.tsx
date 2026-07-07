@@ -37,7 +37,7 @@ export default function ThankYouConsultationPage() {
       <div className="absolute inset-0 z-0 bg-black">
         <div
           aria-hidden="true"
-          className="w-full h-full bg-cover bg-center opacity-40 grayscale"
+          className="w-full h-full bg-cover bg-center opacity-90 grayscale-0 dark:opacity-40 dark:grayscale"
           style={{ backgroundImage: "url('/images/stitch/32988292cc.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />

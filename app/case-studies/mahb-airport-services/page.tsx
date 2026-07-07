@@ -18,7 +18,7 @@ export default function MahbAirportServicesPage() {
         <div className="absolute inset-0 z-0 overflow-hidden bg-black">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
           <div
-            className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30"
+            className="absolute inset-0 bg-cover bg-center opacity-90 mix-blend-normal dark:opacity-30 dark:mix-blend-overlay"
             style={{ backgroundImage: "url('/images/stitch/e5f0e42271.jpg')" }}
           />
         </div>
