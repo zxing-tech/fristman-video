@@ -224,7 +224,7 @@ export default function HomePage() {
             {/* Large Feature */}
             <div className="md:col-span-2 glass-panel bg-black p-10 rounded-xl flex flex-col justify-end relative overflow-hidden group">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 dark:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/ba0390236d.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
@@ -243,7 +243,7 @@ export default function HomePage() {
             {/* Small Feature 1 */}
             <div className="glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 dark:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/13ca39f31a.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
@@ -259,7 +259,7 @@ export default function HomePage() {
             {/* Small Feature 2 */}
             <div className="glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group min-h-[250px]">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 dark:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/a37924086a.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
@@ -275,7 +275,7 @@ export default function HomePage() {
             {/* Small Feature 3 */}
             <div className="md:col-span-2 glass-panel bg-black p-8 rounded-xl flex flex-col justify-end relative overflow-hidden group border-l-4 border-l-primary min-h-[200px]">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                className="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 dark:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-700"
                 style={{ backgroundImage: "url('/images/stitch/6d4182646b.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
