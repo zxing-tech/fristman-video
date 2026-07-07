@@ -285,7 +285,7 @@ export default function OilGasIndustryPage() {
               <div className="p-8 flex-grow flex flex-col justify-between relative z-10 -mt-12">
                 <div>
                   <h4 className="text-2xl font-bold font-headline text-white mb-3">
-                    Industrial Cinematography
+                    Corporate Videos
                   </h4>
                   <p className="text-[#a0a4a8] font-body text-sm leading-relaxed mb-6">
                     Premium, large-sensor aerial and ground capture designed for visual impact. We
@@ -294,7 +294,7 @@ export default function OilGasIndustryPage() {
                   </p>
                 </div>
                 <Link
-                  href="/services/industrial-cinematography"
+                  href="/services/corporate-videos"
                   className="flex items-center text-primary text-sm font-label uppercase tracking-wider group-hover:text-white transition-colors"
                 >
                   Explore Methodology{" "}
@@ -311,15 +311,15 @@ export default function OilGasIndustryPage() {
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
                 <div className="mb-4">
                   <MaterialIcon
-                    name="flight"
+                    name="auto_awesome"
                     className="text-3xl text-industrial-grey group-hover:text-primary transition-colors"
                   />
                 </div>
-                <h4 className="text-xl font-bold font-headline text-white mb-3">FPV Fly-Throughs</h4>
+                <h4 className="text-xl font-bold font-headline text-white mb-3">AI-Generated Video</h4>
                 <p className="text-industrial-grey font-body text-sm leading-relaxed flex-grow">
-                  Dynamic, single-take spatial navigation through complex structural environments.
-                  Ideal for demonstrating spatial relationships and facility flow in a highly
-                  engaging format.
+                  AI-generated recreations of scenes too hazardous or impossible to film live — from
+                  offshore incident simulations to emergency evacuation sequences — rendered with
+                  cinematic realism for training and communications.
                 </p>
               </div>
               {/* Service 3 */}

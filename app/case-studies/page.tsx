@@ -15,7 +15,7 @@ const filterChips = [
   "Facility Overview",
   "Safety Induction",
   "Timelapse",
-  "FPV",
+  "AI Video",
   "Photography",
   "Public",
 ]
@@ -259,7 +259,7 @@ export default function CaseStudiesPage() {
                 </h3>
                 <p className="font-body text-industrial-grey text-sm mb-6 flex-grow">
                   Advanced aerial surveying and visual asset mapping for a major offshore installation
-                  utilizing FPV and heavy-lift drones.
+                  utilizing aerial and heavy-lift drones.
                 </p>
                 <RequestAccessTrigger
                   defaultVideo="Future O&G Drone Documentation"

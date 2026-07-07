@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 const serviceCards = [
   {
-    href: "/services/industrial-cinematography",
+    href: "/services/corporate-videos",
     icon: "movie",
-    title: "Industrial Cinematography & Site Storytelling",
+    title: "Corporate Videos & Site Storytelling",
     summary:
       "High-end narrative video production tailored for complex industrial environments, highlighting operational scale and safety culture.",
     cta: "Discuss Your Production",
@@ -35,12 +35,12 @@ const serviceCards = [
     cta: "Plan Timelapse Capture",
   },
   {
-    href: "/services/fpv-fly-throughs",
-    icon: "flight",
-    title: "Cinematic FPV Fly-Throughs",
+    href: "/services/ai-generated-video",
+    icon: "auto_awesome",
+    title: "AI-Generated Video",
     summary:
-      "Dynamic, immersive first-person view drone tours of complex industrial environments and offshore platforms.",
-    cta: "Plan FPV Fly-Through",
+      "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism.",
+    cta: "Discuss AI Recreation",
   },
   {
     href: "/services/industrial-photography",

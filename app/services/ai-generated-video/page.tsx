@@ -4,27 +4,27 @@ import Link from "next/link"
 import { MaterialIcon } from "@/components/site/material-icon"
 
 export const metadata: Metadata = {
-  title: "Cinematic FPV Fly-Throughs",
+  title: "AI-Generated Video",
   description:
-    "Drone-enabled visual intelligence that provides seamless facility orientation. High-impact, continuous-shot narratives designed for stakeholder presentations and project launches.",
+    "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism for training and communications.",
 }
 
 const applicationCards = [
   {
-    icon: "rocket_launch",
-    title: "Project Launches",
+    icon: "health_and_safety",
+    title: "Safety & HSE Training",
     description:
-      "High-energy visual momentum designed specifically to anchor major corporate announcements and capital project reveals.",
+      "Visualise worst-case scenarios — blowouts, gas releases, evacuations — so crews train against realistic footage without any real-world risk.",
   },
   {
-    icon: "groups",
-    title: "Stakeholder Presentations",
+    icon: "lightbulb",
+    title: "Concept & Pitch Visualization",
     description:
-      "Elevate quarterly reviews and board meetings with immersive, cinematic proof of operational scale and progress.",
+      "Render proposed facilities, future project phases, or planned events before they exist, giving investors and stakeholders a cinematic preview.",
   },
 ]
 
-export default function FpvFlyThroughsPage() {
+export default function AiGeneratedVideoPage() {
   return (
     <main className="flex-grow flex flex-col w-full">
       {/* Hero Section */}
@@ -60,30 +60,30 @@ export default function FpvFlyThroughsPage() {
               Services
             </Link>
             <MaterialIcon name="chevron_right" className="text-[14px]" />
-            <span className="text-primary">FPV Fly-Throughs</span>
+            <span className="text-primary">AI-Generated Video</span>
           </div>
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-              <MaterialIcon name="flight_takeoff" className="text-[16px]" />
-              Site-Aware Capture
+              <MaterialIcon name="auto_awesome" className="text-[16px]" />
+              Impossible-to-Film Scenes
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 uppercase">
-              Cinematic FPV Fly-Throughs <br className="hidden md:block" />
+              AI-Generated Video <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-industrial-grey">
-                For Industrial Environments
+                For Scenes You Can&apos;t Re-Shoot
               </span>
             </h1>
             <p className="text-lg md:text-xl text-industrial-grey max-w-2xl mb-10 leading-relaxed">
-              Drone-enabled visual intelligence that provides seamless facility
-              orientation. We deliver high-impact, continuous-shot narratives designed
-              for stakeholder presentations and project launches.
+              AI-generated recreations of scenes too hazardous or impossible to film live — from an
+              offshore rig explosion to a full crew evacuation. We render these moments with cinematic
+              realism, backed by copywriting that frames each sequence for training and communications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 className="bg-primary text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-black border border-primary transition-all duration-300 flex items-center justify-center gap-2 group"
                 href="/contact"
               >
-                Book Scoping Call
+                Discuss Your Scene
                 <MaterialIcon
                   name="arrow_forward"
                   className="group-hover:translate-x-1 transition-transform"
@@ -94,14 +94,14 @@ export default function FpvFlyThroughsPage() {
                 href="/case-studies"
               >
                 <MaterialIcon name="play_circle" />
-                View Showreel
+                View Our Work
               </Link>
             </div>
           </div>
         </div>
         {/* Decorative HUD Elements */}
         <div className="absolute bottom-8 right-8 text-primary font-mono text-xs opacity-50 hidden md:block">
-          REC [::] 4K RAW | F-STOP 2.8 | ISO 800
+          AI RENDER [::] 4K | CINEMATIC PIPELINE | SEED LOCKED
         </div>
       </section>
 
@@ -114,12 +114,12 @@ export default function FpvFlyThroughsPage() {
                 Strategic Applications
               </h2>
               <p className="text-industrial-grey uppercase tracking-widest text-sm font-bold">
-                When to deploy FPV capture
+                When AI recreation makes sense
               </p>
             </div>
             <div className="hidden md:flex gap-2 mt-4 md:mt-0">
               <span className="px-2 py-1 bg-yellow-500/20 text-yellow-500 text-[10px] font-mono uppercase rounded border border-yellow-500/50">
-                Confirm Access/Permissions
+                No Site Access Required
               </span>
             </div>
           </div>
@@ -134,16 +134,16 @@ export default function FpvFlyThroughsPage() {
                 }}
               />
               <MaterialIcon
-                name="factory"
+                name="emergency"
                 className="text-4xl text-industrial-grey mb-6 transition-colors cursor-default z-10 relative hover:text-primary hover:[font-variation-settings:'FILL'_1]"
               />
               <h3 className="text-xl font-bold text-white uppercase mb-3 z-10 relative">
-                Facility Orientation
+                Incident & Emergency Recreation
               </h3>
               <p className="text-industrial-grey leading-relaxed z-10 relative">
-                Provide stakeholders with a comprehensive, continuous spatial
-                understanding of massive fabrication yards and complex processing plants
-                without physical site visits.
+                Recreate offshore incidents, fires, and evacuation sequences that could never be filmed
+                safely on a live site — reconstructed frame-accurate from your reports and reference
+                material for investigations, drills, and stakeholder briefings.
               </p>
             </div>
             {/* Card 2 & 3 */}
@@ -175,16 +175,16 @@ export default function FpvFlyThroughsPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/80 to-transparent" />
               <div className="relative z-10 h-full flex flex-col justify-end">
                 <MaterialIcon
-                  name="badge"
+                  name="history"
                   className="text-4xl text-white mb-4 transition-colors cursor-default hover:text-primary hover:[font-variation-settings:'FILL'_1]"
                 />
                 <h3 className="text-xl font-bold text-white uppercase mb-2">
-                  Recruitment & Employer Branding
+                  Historical & Inaccessible Events
                 </h3>
                 <p className="text-gray-300 leading-relaxed max-w-xl">
-                  Showcase operational environments dynamically to attract top-tier
-                  engineering and technical talent by demonstrating cutting-edge
-                  facility capabilities.
+                  Reconstruct past milestones or restricted-access operations that were never filmed —
+                  rebuilt from archival references into cinematic footage for anniversaries, corporate
+                  storytelling, and heritage records.
                 </p>
               </div>
             </div>

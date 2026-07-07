@@ -5,9 +5,9 @@ import { MaterialIcon } from "@/components/site/material-icon"
 import { SectionLabel } from "@/components/site/section-label"
 
 export const metadata: Metadata = {
-  title: "Industrial Cinematography",
+  title: "Corporate Videos",
   description:
-    "Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based production.",
+    "Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based corporate video production.",
 }
 
 const audiences = [
@@ -51,7 +51,7 @@ const useCases = [
   },
 ]
 
-export default function IndustrialCinematographyPage() {
+export default function CorporateVideosPage() {
   return (
     <main>
       {/* Breadcrumbs */}
@@ -64,7 +64,7 @@ export default function IndustrialCinematographyPage() {
           Services
         </Link>
         <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <span className="text-white font-bold">Industrial Cinematography</span>
+        <span className="text-white font-bold">Corporate Videos</span>
       </div>
 
       {/* Hero Section */}
@@ -94,9 +94,9 @@ export default function IndustrialCinematographyPage() {
             </span>
           </div>
           <h1 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tighter text-white mb-6 max-w-4xl">
-            INDUSTRIAL
+            CORPORATE
             <br />
-            <span className="text-gradient">CINEMATOGRAPHY</span>
+            <span className="text-gradient">VIDEOS</span>
           </h1>
           <p className="font-body text-lg md:text-xl text-industrial-grey max-w-2xl mb-10 leading-relaxed border-l-2 border-primary pl-6 py-2">
             Capture the scale, complexity and operational story of large

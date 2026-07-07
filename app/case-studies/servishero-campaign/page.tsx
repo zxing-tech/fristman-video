@@ -354,7 +354,7 @@ export default function ServisHeroCampaignPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
               className="group glass-panel p-10 rounded-2xl border-white/5 hover:border-primary/40 transition-all duration-500 overflow-hidden relative"
-              href="/services/industrial-cinematography"
+              href="/services/corporate-videos"
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
                 <MaterialIcon name="arrow_outward" className="text-6xl text-primary" />
@@ -363,7 +363,7 @@ export default function ServisHeroCampaignPage() {
                 Capability 01
               </span>
               <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-2">
-                Industrial Cinematography
+                Corporate Videos
               </h3>
               <p className="text-industrial-grey text-sm max-w-xs">
                 High-end cinematic storytelling for heavy industry and energy sectors.

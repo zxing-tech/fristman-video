@@ -130,7 +130,7 @@ export default function SyndelAsiaPage() {
                   4K LOG ACQUISITION
                 </span>
                 <span className="px-3 py-1 bg-graphite rounded-full text-[10px] font-bold tracking-tighter">
-                  FPV SITE FLIGHTS
+                  AERIAL SITE FLIGHTS
                 </span>
                 <span className="px-3 py-1 bg-graphite rounded-full text-[10px] font-bold tracking-tighter">
                   TIME-LAPSE DOCUMENTATION
@@ -266,12 +266,12 @@ export default function SyndelAsiaPage() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
-              href="/services/industrial-cinematography"
+              href="/services/corporate-videos"
               className="flex items-center justify-between p-8 rounded-2xl border border-white/10 hover:border-primary/50 group transition-all"
             >
               <div>
                 <h4 className="text-xl font-bold uppercase group-hover:text-primary transition-colors">
-                  Industrial Cinematography
+                  Corporate Videos
                 </h4>
                 <p className="text-industrial-grey text-sm mt-2">
                   Specialized capture for heavy engineering.

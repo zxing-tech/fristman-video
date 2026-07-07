@@ -152,8 +152,8 @@ export function ConsultationForm() {
               <option className="bg-[#111111] text-white/50" disabled value="">
                 Select Service
               </option>
-              <option className={optionClass} value="Industrial Cinematography">
-                Industrial Cinematography
+              <option className={optionClass} value="Corporate Videos">
+                Corporate Videos
               </option>
               <option className={optionClass} value="Facility Overviews">
                 Facility Overviews
@@ -164,8 +164,8 @@ export function ConsultationForm() {
               <option className={optionClass} value="Visual Asset Documentation">
                 Visual Asset Documentation
               </option>
-              <option className={optionClass} value="FPV Fly-Throughs">
-                FPV Fly-Throughs
+              <option className={optionClass} value="AI-Generated Video">
+                AI-Generated Video
               </option>
               <option className={optionClass} value="Inspection Reports">
                 Inspection Reports & Data Delivery

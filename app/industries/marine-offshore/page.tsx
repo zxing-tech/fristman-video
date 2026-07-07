@@ -40,7 +40,7 @@ const capabilities = [
   },
   {
     icon: "slow_motion_video",
-    title: "FPV Walkthroughs",
+    title: "Aerial Walkthroughs",
     description:
       "Dynamic, single-take indoor/outdoor cinematic flights providing spatial context of vessel interiors and complex topside structures.",
   },

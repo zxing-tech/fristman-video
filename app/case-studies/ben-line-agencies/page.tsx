@@ -178,10 +178,10 @@ export default function BenLineAgenciesPage() {
             <div className="space-y-4">
               <Link
                 className="flex items-center justify-between p-4 glass-panel rounded-xl group hover:border-primary/50 transition-colors"
-                href="/services/industrial-cinematography"
+                href="/services/corporate-videos"
               >
                 <span className="text-sm font-bold uppercase tracking-tight">
-                  Industrial Cinematography
+                  Corporate Videos
                 </span>
                 <MaterialIcon
                   name="arrow_forward"

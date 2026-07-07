@@ -302,7 +302,7 @@ export default function MahbAirportServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
               className="group relative block aspect-[16/7] rounded-3xl overflow-hidden glass-panel"
-              href="/services/industrial-cinematography"
+              href="/services/corporate-videos"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -311,7 +311,7 @@ export default function MahbAirportServicesPage() {
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
               <div className="absolute inset-0 p-10 flex flex-col justify-end">
                 <h4 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                  Industrial Cinematography
+                  Corporate Videos
                 </h4>
                 <p className="text-industrial-grey text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   Cinematic documentation for heavy industry.

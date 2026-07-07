@@ -8,10 +8,10 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "industrial-cinematography",
-    href: "/services/industrial-cinematography",
-    title: "Industrial Cinematography",
-    icon: "videocam",
+    slug: "corporate-videos",
+    href: "/services/corporate-videos",
+    title: "Corporate Videos",
+    icon: "movie",
     summary:
       "High-end cinematic production for corporate communications, marketing, and investor relations within heavy industry.",
   },
@@ -24,12 +24,12 @@ export const services: Service[] = [
       "Comprehensive aerial and ground coverage of extensive industrial complexes, refineries, and fabrication yards.",
   },
   {
-    slug: "fpv-fly-throughs",
-    href: "/services/fpv-fly-throughs",
-    title: "Cinematic FPV Fly-Throughs",
-    icon: "flight",
+    slug: "ai-generated-video",
+    href: "/services/ai-generated-video",
+    title: "AI-Generated Video",
+    icon: "auto_awesome",
     summary:
-      "Dynamic, immersive first-person view drone tours of complex industrial environments and offshore platforms.",
+      "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism.",
   },
   {
     slug: "industrial-photography",

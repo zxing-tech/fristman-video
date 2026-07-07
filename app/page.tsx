@@ -18,7 +18,7 @@ const serviceCards = [
     title: "Corporate Videos",
     summary:
       "High-end cinematic production for corporate communications, marketing, and investor relations within heavy industry.",
-    href: "/services/industrial-cinematography",
+    href: "/services/corporate-videos",
   },
   {
     icon: "factory",
@@ -46,7 +46,7 @@ const serviceCards = [
     title: "AI-Generated Video",
     summary:
       "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism.",
-    href: "/contact",
+    href: "/services/ai-generated-video",
   },
   {
     icon: "assessment",

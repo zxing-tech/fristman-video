@@ -44,7 +44,7 @@ export default function EcoBalanceCaseStudyPage() {
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
                 <MaterialIcon name="precision_manufacturing" className="text-primary text-sm" />
                 <span className="text-xs font-bold tracking-widest uppercase">
-                  Industrial Cinematography
+                  Corporate Videos
                 </span>
               </div>
             </div>
@@ -288,7 +288,7 @@ export default function EcoBalanceCaseStudyPage() {
             {/* Card 1 */}
             <Link
               className="group block glass-panel p-1 rounded-[2rem] hover:border-primary/50 transition-all duration-500"
-              href="/services/industrial-cinematography"
+              href="/services/corporate-videos"
             >
               <div className="relative overflow-hidden rounded-[1.8rem] aspect-[4/3] mb-6">
                 <div
@@ -299,7 +299,7 @@ export default function EcoBalanceCaseStudyPage() {
               </div>
               <div className="px-6 pb-8">
                 <h3 className="text-xl font-bold uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors">
-                  Industrial Cinematography
+                  Corporate Videos
                 </h3>
                 <p className="text-xs text-industrial-grey mb-6 leading-relaxed">
                   Professional-grade visual capture for heavy industry environments, fabrication
