@@ -10,7 +10,39 @@ export const metadata: Metadata = {
     "Cinematic UAV and long term time-lapse visual documentation & reporting. Precision data capture, safety-first deployment and high fidelity deliverables for the energy and industrial sectors.",
 }
 
-const trustLogos = ["PETROFAC", "MAHB", "SYNDEL ASIA", "BEN LINE", "LIVESCAPE", "ECOBALANCE", "SERVISHERO"]
+const agencyLogos = [
+  { src: "/images/clients/agency-01.png", alt: "Leo Burnett" },
+  { src: "/images/clients/agency-02.png", alt: "M&C Saatchi" },
+  { src: "/images/clients/agency-03.png", alt: "deFINE International" },
+  { src: "/images/clients/agency-04.png", alt: "Pat-Lin Communications" },
+  { src: "/images/clients/agency-05.png", alt: "Emerald Communications" },
+  { src: "/images/clients/agency-06.png", alt: "PR Communications" },
+  { src: "/images/clients/agency-07.png", alt: "Livescape" },
+  { src: "/images/clients/agency-08.png", alt: "arc" },
+  { src: "/images/clients/agency-09.png", alt: "Time Out Solutions" },
+  { src: "/images/clients/agency-10.png", alt: "Ben Line Agencies" },
+  { src: "/images/clients/agency-11.png", alt: "Enfiniti Vision Media" },
+  { src: "/images/clients/agency-12.png", alt: "Media Prima" },
+]
+
+const clienteleLogos = [
+  { src: "/images/clients/clientele-01.png", alt: "BWW" },
+  { src: "/images/clients/clientele-02.png", alt: "Petrofac" },
+  { src: "/images/clients/clientele-03.png", alt: "ALAM" },
+  { src: "/images/clients/clientele-04.png", alt: "Malaysia Airports" },
+  { src: "/images/clients/clientele-05.png", alt: "GIVI" },
+  { src: "/images/clients/clientele-06.png", alt: "NORR Systems" },
+  { src: "/images/clients/clientele-07.png", alt: "Toastmasters International" },
+  { src: "/images/clients/clientele-08.png", alt: "Bayer" },
+  { src: "/images/clients/clientele-09.png", alt: "DKSH" },
+  { src: "/images/clients/clientele-10.png", alt: "Mercedes-Benz" },
+  { src: "/images/clients/clientele-11.png", alt: "Belum Rainforest Resort" },
+  { src: "/images/clients/clientele-12.png", alt: "BTL" },
+  { src: "/images/clients/clientele-13.png", alt: "Eco Balance" },
+  { src: "/images/clients/clientele-14.png", alt: "YouTube" },
+  { src: "/images/clients/clientele-15.png", alt: "Visual Retale" },
+  { src: "/images/clients/clientele-16.png", alt: "Chow Tai Fook" },
+]
 
 const serviceCards = [
   {
@@ -139,29 +171,40 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Trust Bar */}
-      <section className="w-full bg-dark-ui border-y border-surface/10 py-10 overflow-hidden relative">
-        <div className="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-8 justify-between">
-          <span className="font-label uppercase tracking-widest text-xs font-bold text-industrial-grey whitespace-nowrap">
-            Our Clientele
-          </span>
-          <div className="flex gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto pb-4 md:pb-0 w-full justify-between items-center no-scrollbar">
-            {trustLogos.map((logo) =>
-              logo === "BEN LINE" ? (
-                <span
-                  key={logo}
-                  className="font-display font-bold text-xl tracking-tighter text-center leading-none whitespace-nowrap"
-                >
-                  BEN LINE
-                  <br />
-                  <span className="text-xs">AGENCIES</span>
-                </span>
-              ) : (
-                <span key={logo} className="font-display font-bold text-xl tracking-tighter whitespace-nowrap">
-                  {logo}
-                </span>
-              )
-            )}
+      {/* Clientele Logo Wall */}
+      <section className="w-full bg-dark-ui border-y border-surface/10 py-14 overflow-hidden relative">
+        <div className="max-w-[1280px] mx-auto px-8 mb-10 text-center">
+          <SectionLabel className="mb-3 block">Our Clientele</SectionLabel>
+          <h2 className="font-headline font-bold text-2xl md:text-3xl">
+            We&apos;ve produced corporate video for these companies
+          </h2>
+        </div>
+        <div className="flex flex-col gap-8">
+          <div className="marquee">
+            <div className="marquee-track animate-marquee-left hover:[animation-play-state:paused]">
+              {[...agencyLogos, ...agencyLogos].map((logo, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={`a-${i}`}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="marquee">
+            <div className="marquee-track animate-marquee-right hover:[animation-play-state:paused]">
+              {[...clienteleLogos, ...clienteleLogos].map((logo, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={`c-${i}`}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 md:h-12 w-auto object-contain shrink-0 opacity-70 hover:opacity-100 dark:invert transition-opacity duration-300"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
