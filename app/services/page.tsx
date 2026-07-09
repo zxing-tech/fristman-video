@@ -80,7 +80,7 @@ export default function ServicesPage() {
           style={{ backgroundImage: "url('/images/stitch/90739e14ed.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-        <div className="relative max-w-7xl px-10 mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
             <MaterialIcon name="videocam" className="text-[14px]" />
             Core Offerings
