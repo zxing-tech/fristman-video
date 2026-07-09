@@ -118,7 +118,6 @@ export default function FabricationConstructionPage() {
           <div className="absolute inset-0 z-20 pointer-events-none opacity-40">
             <div className="absolute top-1/4 left-10 w-32 h-32 border-l border-t border-primary/50" />
             <div className="absolute bottom-1/4 right-10 w-32 h-32 border-r border-b border-primary/50" />
-            <div className="scanning-line" />
           </div>
         </div>
         <div className="relative z-30 text-center max-w-5xl px-6">

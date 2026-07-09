@@ -16,7 +16,6 @@ export default function EcoBalanceCaseStudyPage() {
       <section className="max-w-[1280px] mx-auto px-8 mb-16 relative">
         <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden glass-panel bg-black border-white/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
-          <div className="scanning-line opacity-30" />
           <div
             className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: "url('/images/stitch/14777df4fc.jpg')" }}

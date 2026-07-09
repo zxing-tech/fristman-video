@@ -88,7 +88,6 @@ export default function MarineOffshorePage() {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="scanning-line z-[11] pointer-events-none" />
         {/* Crosshairs */}
         <div className="absolute top-1/4 left-[10%] w-8 h-8 border-l border-t border-primary/50 pointer-events-none hidden md:block" />
         <div className="absolute bottom-1/4 right-[10%] w-8 h-8 border-r border-b border-primary/50 pointer-events-none hidden md:block" />

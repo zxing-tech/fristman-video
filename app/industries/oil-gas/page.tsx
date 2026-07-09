@@ -88,7 +88,6 @@ export default function OilGasIndustryPage() {
                 "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PC9zdmc+')",
             }}
           />
-          <div className="scanning-line opacity-50" />
           {/* Corner HUD accents */}
           <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-primary/40" />
           <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-primary/40" />
@@ -364,7 +363,6 @@ export default function OilGasIndustryPage() {
             <div className="absolute inset-0 bg-black/70" />
             {/* HUD Scanline specific to this card */}
             <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-              <div className="scanning-line opacity-30 blur-sm" />
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between p-8 md:p-12 min-h-[400px]">
               <div className="max-w-lg mb-8 md:mb-0">

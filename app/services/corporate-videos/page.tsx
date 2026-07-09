@@ -84,7 +84,6 @@ export default function CorporateVideosPage() {
               backgroundSize: "40px 40px",
             }}
           />
-          <div className="scanning-line top-0 left-0 pointer-events-none" />
         </div>
         <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 md:px-8 flex flex-col items-start">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/50 bg-black/50 backdrop-blur-sm mb-6">

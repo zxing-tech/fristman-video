@@ -55,7 +55,6 @@ export default function AboutTeamPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
           <div className="absolute inset-0 opacity-20" style={gridPatternStyle} />
-          <div className="scanning-line opacity-30 pointer-events-none" />
         </div>
         <div className="max-w-[1280px] mx-auto px-6 relative z-10 w-full">
           {/* Breadcrumb */}

@@ -61,7 +61,6 @@ export default function ServisHeroCampaignPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4">
               <div className="glass-panel p-8 rounded-xl relative overflow-hidden group h-full">
-                <div className="scanning-line" style={{ opacity: 0.3 }} />
                 <h2 className="text-primary text-sm font-black tracking-widest uppercase mb-4">
                   Public Summary
                 </h2>

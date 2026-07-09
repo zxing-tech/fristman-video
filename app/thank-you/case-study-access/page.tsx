@@ -38,7 +38,6 @@ export default function ThankYouCaseStudyAccessPage() {
         {/* Hero Section */}
         <section className="flex flex-col items-center text-center mb-16">
           <div className="relative w-24 h-24 mb-8 flex items-center justify-center rounded-full border border-primary/30 bg-primary/5 group transition-all duration-500 hover:border-primary overflow-hidden">
-            <div className="scanning-line opacity-30" />
             <MaterialIcon name="lock_open" fill className="text-5xl text-primary" />
           </div>
           <p className="text-primary font-bold tracking-[0.3em] text-sm mb-4">

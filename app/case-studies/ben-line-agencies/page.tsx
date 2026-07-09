@@ -22,7 +22,6 @@ export default function BenLineAgenciesPage() {
             className="w-full h-full bg-cover bg-center scale-105 transform"
             style={{ backgroundImage: "url('/images/stitch/a73f0ee0ad.jpg')" }}
           />
-          <div className="scanning-line" />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
           <div className="flex items-center gap-3 mb-4">

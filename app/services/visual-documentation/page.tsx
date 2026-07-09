@@ -44,7 +44,6 @@ export default function VisualDocumentationPage() {
             style={{ backgroundImage: "url('/images/stitch/e8622506e9.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
-          <div className="scanning-line z-10" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col items-start gap-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">

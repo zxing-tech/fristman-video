@@ -115,8 +115,6 @@ export default function IndustriesPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full opacity-90 mix-blend-normal dark:opacity-40 dark:mix-blend-luminosity"
           style={{ backgroundImage: "url('/images/stitch/d6202ff285.jpg')" }}
         />
-        {/* Scanning Line Effect */}
-        <div className="scanning-line" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-start">
           {/* Breadcrumb */}
           <div className="glass-panel rounded-full px-4 py-1.5 mb-8 inline-flex items-center space-x-2 text-xs font-label uppercase tracking-widest text-white/70">

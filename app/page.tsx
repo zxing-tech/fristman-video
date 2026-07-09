@@ -101,7 +101,6 @@ export default function HomePage() {
             style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          <div className="scanning-line z-10" />
         </div>
         <div className="relative z-20 max-w-[1280px] mx-auto px-8 w-full flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-3/5 space-y-8">

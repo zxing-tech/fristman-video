@@ -60,7 +60,6 @@ export default function SyndelAsiaPage() {
               </p>
             </div>
             <div className="glass-panel p-10 rounded-2xl relative overflow-hidden">
-              <div className="scanning-line" />
               <h3 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">
                 Project Context
               </h3>
