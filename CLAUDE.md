@@ -51,7 +51,15 @@ Reusable pieces live in `components/site/`: `SiteNavbar` (**`fixed`**, floats ov
 - `lib/data/{services,industries,case-studies}.ts` — typed arrays for listing grids and cross-page links; page bodies are otherwise static JSX.
 - `lib/data/image-manifest.json` — maps the original design-export image URLs to the downloaded local paths.
 - All imagery is local under `public/images/` (`stitch/` = page photos, `clients/` = clientele/agency logos). Logos are transparent grayscale PNGs shown with `dark:invert` so they read in both themes.
-- Forms (`app/contact/consultation-form.tsx`, `app/industries/marine-offshore/brief-form.tsx`) are `"use client"`, validate client-side, and `router.push()` to a thank-you route. No API is wired up.
+- Forms (`app/contact/consultation-form.tsx`, `app/industries/marine-offshore/brief-form.tsx`) are `"use client"`, validate client-side, POST to Web3Forms, then `router.push()` to a thank-you route. The access key comes from `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` (inlined at build — set it before `npm run build`).
+
+## SEO & metadata (`lib/seo.ts`)
+
+Every page's metadata goes through the `pageMeta({ title, description, path, ogImage?, ogType?, noindex? })` helper — **do not** hand-write a `Metadata` object per page. Next.js overwrites `openGraph` wholesale in child segments, so `pageMeta()` builds the full canonical + Open Graph + Twitter block consistently. `metadataBase` (the canonical domain `SITE.url`) lives in `app/layout.tsx`, which also emits site-wide **Organization + WebSite** JSON-LD and the default OG image.
+
+- **New page checklist:** `export const metadata = pageMeta({ description /* 140-160 chars */, path: "/its/canonical/path", title? })`; add page-type JSON-LD via `<JsonLd data={graph(breadcrumbSchema([...]), serviceSchema(...) | creativeWorkSchema(...))} />` (import from `@/lib/seo` + `@/components/seo/json-ld`) as the first child of the returned element; ensure exactly **one `<h1>`** (use an `sr-only` h1 if the hero has no textual heading); thank-you/utility pages pass `noindex: true` and skip JSON-LD.
+- `app/robots.ts`, `app/sitemap.ts` (pulls hrefs from the data files — new routes must be added there), `app/manifest.ts` are file-convention routes. Case-study pages set `ogType: "article"` + a page-specific `ogImage`.
+- Site is single-locale (English) by design — no hreflang. Descriptions must stay unique and avoid AI-writing tells (em dashes, "comprehensive/seamless/leverage").
 
 ## Route map & content notes
 
