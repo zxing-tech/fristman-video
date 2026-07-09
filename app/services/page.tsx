@@ -64,13 +64,13 @@ export default function ServicesPage() {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden bg-black">
+      <section className="relative pt-32 pb-24 px-6 md:px-12 mx-auto overflow-hidden bg-black">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-90 mix-blend-normal dark:opacity-30 dark:mix-blend-luminosity"
+          className="absolute inset-0 bg-cover w-full bg-center opacity-90 mix-blend-normal dark:opacity-90"
           style={{ backgroundImage: "url('/images/stitch/90739e14ed.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-        <div className="relative max-w-4xl">
+        <div className="relative max-w-7xl px-10 mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
             <MaterialIcon name="videocam" className="text-[14px]" />
             Core Offerings
