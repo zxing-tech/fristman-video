@@ -6,6 +6,8 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { MaterialIcon } from "@/components/site/material-icon"
 
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+
 type RequestAccessModalProps = {
   open: boolean
   onClose: () => void
@@ -22,6 +24,7 @@ export function RequestAccessModal({ open, onClose, defaultVideo }: RequestAcces
 
 function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalProps, "open">) {
   const [state, setState] = useState<"form" | "submitting" | "success">("form")
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -35,10 +38,36 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
     }
   }, [onClose])
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (state === "submitting") return
+    setError(null)
     setState("submitting")
-    window.setTimeout(() => setState("success"), 1200)
+
+    const formData = new FormData(event.currentTarget)
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY ?? "")
+    formData.append("subject", "New confidential video access request — Firstman Videos")
+    formData.append("from_name", "Firstman Videos Website")
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        setState("success")
+        return
+      }
+      setError(
+        data.message ||
+          "We couldn't send your request. Please try again or email info@firstmanvideos.com."
+      )
+    } catch {
+      setError("Network error — please try again, or email us directly at info@firstmanvideos.com.")
+    }
+    setState("form")
   }
 
   return (
@@ -99,6 +128,16 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
           <>
             <div className="px-8 py-8 overflow-y-auto">
               <form className="space-y-6" id="access-form" onSubmit={handleSubmit}>
+                {/* Honeypot — spam trap, hidden from real users */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={labelClass} htmlFor="fullName">
@@ -231,6 +270,15 @@ function RequestAccessDialog({ onClose, defaultVideo }: Omit<RequestAccessModalP
             </div>
             <div className="mt-auto border-t border-surface/5 bg-background/40 px-8 py-6 relative">
               <div className="absolute top-0 left-0 w-full h-px scanner-line" />
+              {error && (
+                <p
+                  role="alert"
+                  className="mb-4 flex items-start gap-2 text-sm text-primary font-medium bg-primary/10 border border-primary/30 rounded-lg px-4 py-3"
+                >
+                  <MaterialIcon name="error" className="text-base shrink-0 mt-0.5" />
+                  <span>{error}</span>
+                </p>
+              )}
               <div className="flex flex-col sm:flex-row-reverse justify-between items-center gap-4">
                 <button
                   className="w-full sm:w-auto bg-primary text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-background border border-transparent hover:border-primary transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70"
