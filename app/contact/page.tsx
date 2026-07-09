@@ -1,15 +1,24 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
 
 import { ConsultationForm } from "./consultation-form"
 
-export const metadata: Metadata = {
-  title: "Contact / Request Consultation",
+export const metadata = pageMeta({
+  title: "Contact Us",
   description:
-    "Request a consultation, quote or site assessment. Our specialized industrial cinematography team typically responds within 24 business hours.",
-}
+    "Contact Firstman Videos for industrial drone cinematography in Malaysia and Southeast Asia. Request a consultation or quote - we reply within 24 business hours.",
+  path: "/contact",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ])
+)
 
 const contactCards: {
   icon: string
@@ -47,6 +56,7 @@ const contactCards: {
 export default function ContactPage() {
   return (
     <div className="relative min-h-screen flex flex-col">
+      <JsonLd data={schema} />
       {/* Background Image */}
       <div className="fixed inset-0 -z-10">
         <div
@@ -92,7 +102,7 @@ export default function ContactPage() {
                 Priority consultation slots available this month
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-headline font-black tracking-tighter uppercase text-surface mb-6 leading-none">
+            <h1 className="text-4xl md:text-6xl font-headline font-black tracking-tighter uppercase text-surface mb-6 leading-none">
               Get in{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#b01a20]">
                 Touch

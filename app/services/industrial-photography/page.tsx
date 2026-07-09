@@ -1,14 +1,30 @@
-import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Industrial Photography",
+export const metadata = pageMeta({
+  title: "Industrial Photography Malaysia",
   description:
-    "Supporting industrial documentation and corporate storytelling with high-fidelity, ground-based photography. Precise visual assets captured in demanding environments.",
-}
+    "Industrial photography for Oil & Gas and heavy industry sites across Malaysia and Southeast Asia, with PPE-compliant crews and unified asset delivery.",
+  path: "/services/industrial-photography",
+})
+
+const pageSchema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Industrial Photography", path: "/services/industrial-photography" },
+  ]),
+  serviceSchema({
+    name: "Industrial Photography",
+    description:
+      "High-fidelity, ground-based industrial photography for Oil & Gas and heavy industry sites in Malaysia and Southeast Asia.",
+    path: "/services/industrial-photography",
+  }),
+)
 
 const iconHover =
   "transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
@@ -16,6 +32,7 @@ const iconHover =
 export default function IndustrialPhotographyPage() {
   return (
     <>
+      <JsonLd data={pageSchema} />
       {/* Ambient UI Accents */}
       <div
         aria-hidden="true"
@@ -39,7 +56,7 @@ export default function IndustrialPhotographyPage() {
                   Capability Specification
                 </span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[1.1]">
+              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.1]">
                 Industrial <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-surface via-surface to-surface/50">
                   Photography
@@ -122,7 +139,7 @@ export default function IndustrialPhotographyPage() {
                   name="domain"
                   className={`text-4xl mb-4 text-white/50 ${iconHover}`}
                 />
-                <h3 className="text-2xl font-bold uppercase tracking-wider mb-2 text-white">
+                <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wider mb-2 text-white">
                   Site Documentation
                 </h3>
                 <p className="text-white/70 text-sm max-w-sm">
@@ -229,7 +246,7 @@ export default function IndustrialPhotographyPage() {
         <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="absolute -inset-4 bg-surface/5 rounded-[2rem] transform -rotate-3 z-0" />
+              <div className="absolute -inset-2 sm:-inset-4 bg-surface/5 rounded-[2rem] transform -rotate-3 z-0" />
               <div className="bg-background/60 backdrop-blur-lg border border-surface/5 rounded-lg p-8 relative z-10 border-l-4 border-l-primary">
                 <div className="flex items-center gap-3 mb-6">
                   <MaterialIcon name="movie_filter" className="text-primary" />
@@ -250,15 +267,15 @@ export default function IndustrialPhotographyPage() {
                   motion and static assets from a single deployment.
                 </p>
               </div>
-              {/* Floating Delivery Chips */}
-              <div className="absolute -right-8 -bottom-8 flex flex-col gap-3 z-20">
+              {/* Floating Delivery Chips — in-flow row on mobile, floating on desktop */}
+              <div className="mt-6 flex flex-row flex-wrap justify-center gap-3 z-20 lg:mt-0 lg:absolute lg:-right-8 lg:-bottom-8 lg:flex-col lg:justify-start">
                 <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform hover:-translate-y-1 transition-transform cursor-default">
                   <MaterialIcon name="image" className="text-sm text-surface/50" />
                   <span className="text-xs uppercase tracking-wider font-bold">
                     High-Res Stills
                   </span>
                 </div>
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform translate-x-4 hover:-translate-y-1 transition-transform cursor-default">
+                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform lg:translate-x-4 hover:-translate-y-1 transition-transform cursor-default">
                   <MaterialIcon
                     name="grid_view"
                     className="text-sm text-surface/50"
@@ -267,7 +284,7 @@ export default function IndustrialPhotographyPage() {
                     Stakeholder Galleries
                   </span>
                 </div>
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform translate-x-8 hover:-translate-y-1 transition-transform cursor-default">
+                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform lg:translate-x-8 hover:-translate-y-1 transition-transform cursor-default">
                   <MaterialIcon
                     name="folder_zip"
                     className="text-sm text-surface/50"

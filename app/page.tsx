@@ -1,14 +1,14 @@
-import type { Metadata } from "next"
-
 import { MaterialIcon } from "@/components/site/material-icon"
 import { SectionLabel } from "@/components/site/section-label"
 import { CtaButton } from "@/components/site/cta-button"
 import { ServiceCard } from "@/components/site/service-card"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   description:
-    "Cinematic UAV and long term time-lapse visual documentation & reporting. Precision data capture, safety-first deployment and high fidelity deliverables for the energy and industrial sectors.",
-}
+    "Industrial drone cinematography for Oil & Gas and heavy industry. Cinematic UAV, timelapse and ground-based visual documentation across Malaysia & Southeast Asia.",
+  path: "/",
+})
 
 const agencyLogos = [
   { src: "/images/clients/agency-01.png", alt: "Leo Burnett" },
@@ -105,7 +105,7 @@ export default function HomePage() {
         <div className="relative z-20 max-w-[1280px] mx-auto px-8 w-full flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-3/5 space-y-8">
             <SectionLabel withLine>Industrial Visual Data</SectionLabel>
-            <h1 className="font-headline font-black text-5xl md:text-7xl leading-[1.1] tracking-tight">
+            <h1 className="font-headline font-black text-4xl md:text-7xl leading-[1.1] tracking-tight">
               Industrial Drone Cinematography for <span className="text-primary">Oil & Gas</span> and
               Heavy Industry
             </h1>

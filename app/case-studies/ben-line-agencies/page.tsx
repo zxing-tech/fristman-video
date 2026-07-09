@@ -1,19 +1,40 @@
-import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, creativeWorkSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Ben Line Agencies",
+export const metadata = pageMeta({
+  title: "Ben Line Agencies: Industrial Drone Case Study",
   description:
-    "Case study: drone-enabled cinematography and visual documentation for Ben Line Agencies' logistics hubs and port operations — capturing scale and operational flow without site interference.",
-}
+    "Drone cinematography case study for Ben Line Agencies' port and logistics hubs in Southeast Asia, capturing industrial scale under strict maritime safety rules.",
+  path: "/case-studies/ben-line-agencies",
+  ogImage: "/images/stitch/a73f0ee0ad.jpg",
+  ogType: "article",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "Ben Line Agencies", path: "/case-studies/ben-line-agencies" },
+  ]),
+  creativeWorkSchema({
+    name: "Ben Line Agencies",
+    description:
+      "Drone-enabled cinematography and visual documentation of Ben Line Agencies' logistics hubs and port operations in Southeast Asia.",
+    path: "/case-studies/ben-line-agencies",
+    client: "Ben Line Agencies",
+    image: "/images/stitch/a73f0ee0ad.jpg",
+  }),
+)
 
 export default function BenLineAgenciesPage() {
   return (
     <main className="relative">
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="relative h-[819px] w-full flex items-end pb-24 overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
@@ -30,7 +51,7 @@ export default function BenLineAgenciesPage() {
             </span>
             <div className="h-px w-24 bg-primary/50" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter max-w-4xl leading-tight text-white">
+          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter max-w-4xl leading-tight text-white">
             Ben Line Agencies — <span className="text-primary">Logistics Visual Reference</span>
           </h1>
           <p className="mt-6 text-white/70 text-lg max-w-2xl font-light leading-relaxed">

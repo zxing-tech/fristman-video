@@ -1,13 +1,29 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Visual Documentation",
+export const metadata = pageMeta({
+  title: "Industrial Visual Documentation Services",
   description:
-    "Structured, safety-conscious photo and video documentation designed for briefing management, updating partners, and supporting training teams within heavy industry environments.",
-}
+    "Structured photo and video documentation for Oil & Gas and heavy industry sites in Malaysia and Southeast Asia, built for stakeholder updates and training.",
+  path: "/services/visual-documentation",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Visual Documentation", path: "/services/visual-documentation" },
+  ]),
+  serviceSchema({
+    name: "Visual Documentation",
+    description:
+      "Safety-conscious photo and video documentation of industrial sites for handovers, training, and stakeholder reporting.",
+    path: "/services/visual-documentation",
+  })
+)
 
 const supportCards = [
   {
@@ -33,6 +49,7 @@ const supportCards = [
 export default function VisualDocumentationPage() {
   return (
     <div>
+      <JsonLd data={schema} />
       {/* Hero Section */}
       <header className="relative min-h-[921px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
         {/* Background Image with Overlay */}
@@ -53,7 +70,7 @@ export default function VisualDocumentationPage() {
             </span>
           </div>
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight leading-[1.1] mb-6 text-white">
+            <h1 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tight leading-[1.1] mb-6 text-white">
               Industrial Visual Documentation <br />
               <span className="text-gradient">For Stakeholder Communication</span>
             </h1>

@@ -1,13 +1,29 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Progression & Timelapse Documentation",
   description:
-    "Visual documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones.",
-}
+    "Drone progression and timelapse video documentation for construction, fabrication and shutdowns across Malaysia and Southeast Asia's Oil & Gas sites.",
+  path: "/services/progression-timelapse",
+})
+
+const structuredData = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Progression & Timelapse", path: "/services/progression-timelapse" },
+  ]),
+  serviceSchema({
+    name: "Progression & Timelapse",
+    description:
+      "Scheduled drone photo and video documentation of long-term industrial builds, tracking site progress from establishment through structural completion.",
+    path: "/services/progression-timelapse",
+  }),
+)
 
 const stakeholderCards = [
   {
@@ -115,6 +131,7 @@ const checklistItems = [
 export default function ProgressionTimelapsePage() {
   return (
     <div>
+      <JsonLd data={structuredData} />
       {/* Hero Section */}
       <header className="relative bg-black min-h-[819px] flex items-center justify-center pt-24 overflow-hidden">
         {/* Background Image */}
@@ -134,7 +151,7 @@ export default function ProgressionTimelapsePage() {
               Service Detail
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight mb-6 text-white leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight mb-6 text-white leading-tight">
             Progression & <br />
             <span className="text-primary">Timelapse</span> Documentation
           </h1>

@@ -1,14 +1,16 @@
-import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = pageMeta({
+  title: "About Us — Industrial Video Production",
   description:
-    "Industrial cinematography and visual documentation team built for oil & gas operators, heavy industry projects and large-scale stakeholder communication across Southeast Asia.",
-}
+    "Firstman Videos is an industrial cinematography team based in Malaysia serving Oil & Gas operators across Southeast Asia with safety-certified drone crews.",
+  path: "/about",
+})
 
 const redGridBg = {
   backgroundImage:
@@ -56,6 +58,14 @@ const capabilities = [
 export default function AboutPage() {
   return (
     <main className="pt-32 pb-24">
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+          ])
+        )}
+      />
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <div className="flex items-center gap-2 text-sm text-industrial-grey font-label tracking-wide uppercase">
@@ -71,7 +81,7 @@ export default function AboutPage() {
       <section className="relative max-w-7xl mx-auto px-6 mb-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
-            <h1 className="text-5xl md:text-6xl font-headline font-bold leading-tight mb-6 uppercase tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-headline font-bold leading-tight mb-6 uppercase tracking-tight">
               About Firstman Videos
             </h1>
             <div className="w-24 h-1 bg-primary mb-8" />

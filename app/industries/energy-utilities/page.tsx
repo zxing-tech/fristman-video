@@ -1,14 +1,30 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Energy & Utilities",
+export const metadata = pageMeta({
+  title: "Energy & Utilities Video Production Malaysia",
   description:
-    "Drone-enabled and ground-based visual documentation for infrastructure upgrades, facility communications, internal reporting, stakeholder education, and public-facing explainers.",
-}
+    "Drone and ground-based video production for energy and utilities infrastructure in Malaysia, covering facility, stakeholder, and progress documentation films.",
+  path: "/industries/energy-utilities",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: "Energy & Utilities", path: "/industries/energy-utilities" },
+  ]),
+  serviceSchema({
+    name: "Industrial Video Production - Energy & Utilities",
+    description:
+      "Drone and ground-based video documentation for energy and utilities infrastructure projects across Malaysia and Southeast Asia.",
+    path: "/industries/energy-utilities",
+  }),
+)
 
 const btnPrimary =
   "inline-flex items-center justify-center bg-primary text-white rounded-full px-8 py-3 font-bold tracking-wider uppercase text-sm transition-all duration-300 hover:bg-background hover:border-primary border-2 border-transparent"
@@ -44,6 +60,7 @@ const planningSteps = [
 export default function EnergyUtilitiesPage() {
   return (
     <main className="flex-grow relative">
+      <JsonLd data={schema} />
       {/* Global Background Elements */}
       <div className="fixed inset-0 z-[-2] bg-background" />
       <div
@@ -71,7 +88,7 @@ export default function EnergyUtilitiesPage() {
               <MaterialIcon name="bolt" fill className="text-[16px]" />
               INDUSTRY — ENERGY &amp; UTILITIES
             </div>
-            <h1 className="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-white drop-shadow-lg">
+            <h1 className="text-4xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-white drop-shadow-lg">
               Visual Storytelling for <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-industrial-grey">
                 Energy &amp; Utilities
@@ -147,7 +164,7 @@ export default function EnergyUtilitiesPage() {
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">
               Capabilities
             </span>
-            <h2 className="text-4xl font-black tracking-tight">Visual Documentation Scope</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight">Visual Documentation Scope</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
             {/* B1: Facility Overviews */}
@@ -363,7 +380,7 @@ export default function EnergyUtilitiesPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent" />
         </div>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-black tracking-tight mb-8 text-white">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8 text-white">
             Show energy infrastructure <br />
             <span className="text-primary">with clarity.</span>
           </h2>

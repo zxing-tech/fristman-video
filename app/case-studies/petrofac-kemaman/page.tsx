@@ -1,18 +1,43 @@
-import type { Metadata } from "next"
 import Image from "next/image"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { breadcrumbSchema, creativeWorkSchema, graph, pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Petrofac Kemaman Supply Base",
+export const metadata = pageMeta({
+  title: "Petrofac Kemaman Supply Base Video Case Study",
   description:
-    "Confidential case study for Petrofac: safety induction and visual asset documentation at the Kemaman Supply Base, Malaysia. Gated video — access requires clearance.",
-}
+    "Petrofac Kemaman Supply Base case study: safety induction and visual documentation at an Oil & Gas site in Malaysia. Gated video, access requires clearance.",
+  path: "/case-studies/petrofac-kemaman",
+  ogImage: "/images/stitch/920da913d9.jpg",
+  ogType: "article",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "Petrofac Kemaman Supply Base", path: "/case-studies/petrofac-kemaman" },
+  ]),
+  creativeWorkSchema({
+    name: "Petrofac Kemaman Supply Base",
+    description:
+      "Safety induction and visual asset documentation filmed at Petrofac's Kemaman Supply Base, an Oil & Gas facility in Malaysia.",
+    path: "/case-studies/petrofac-kemaman",
+    client: "Petrofac",
+    image: "/images/stitch/920da913d9.jpg",
+  })
+)
 
 export default function PetrofacKemamanPage() {
   return (
     <main className="flex-grow">
+      <JsonLd data={schema} />
+      {/* Descriptive page heading for SEO/accessibility (the visible hero is a gated panel). */}
+      <h1 className="sr-only">
+        Petrofac Kemaman Supply Base — Industrial Visual Documentation
+      </h1>
       {/* Hero Section */}
       <section className="relative h-[819px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black">

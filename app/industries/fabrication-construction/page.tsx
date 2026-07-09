@@ -1,13 +1,29 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Fabrication & Construction",
+export const metadata = pageMeta({
+  title: "Fabrication & Construction Drone Video Malaysia",
   description:
-    "Providing stakeholders with high-fidelity visual intelligence across complex asset lifecycles in heavy industry and fabrication environments.",
-}
+    "Drone video for fabrication yards and construction sites in Malaysia and Southeast Asia, covering progress updates, milestone reels, and handover visuals.",
+  path: "/industries/fabrication-construction",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: "Fabrication & Construction", path: "/industries/fabrication-construction" },
+  ]),
+  serviceSchema({
+    name: "Industrial Video Production - Fabrication & Construction",
+    description:
+      "Drone-enabled visual documentation of fabrication yards and construction sites for progress reporting, milestones, and handover records.",
+    path: "/industries/fabrication-construction",
+  })
+)
 
 const useCases = [
   {
@@ -105,6 +121,7 @@ const deliverables = [
 export default function FabricationConstructionPage() {
   return (
     <div className="bg-background text-surface">
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">

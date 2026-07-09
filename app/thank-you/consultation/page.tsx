@@ -1,13 +1,15 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Thank You — Consultation Request Received",
+export const metadata = pageMeta({
+  title: "Consultation Request Received",
   description:
-    "Your enquiry for industrial visual documentation has been successfully logged into our production pipeline.",
-}
+    "Thank you for requesting a drone cinematography consultation with Firstman Videos. Our industrial production team in Malaysia will contact you shortly.",
+  path: "/thank-you/consultation",
+  noindex: true,
+})
 
 const steps = [
   {
@@ -33,14 +35,15 @@ const steps = [
 export default function ThankYouConsultationPage() {
   return (
     <main className="relative min-h-screen pt-32 pb-20 flex flex-col items-center justify-center">
-      {/* Cinematic Background Image */}
+      {/* Cinematic Background Image — dark in both themes so white copy stays readable */}
       <div className="absolute inset-0 z-0 bg-black">
         <div
           aria-hidden="true"
-          className="w-full h-full bg-cover bg-center opacity-90 grayscale-0 dark:opacity-40 dark:grayscale"
-          style={{ backgroundImage: "url('/images/stitch/32988292cc.jpg')" }}
+          className="w-full h-full bg-cover bg-center opacity-40 grayscale"
+          style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black" />
       </div>
       <div className="container max-w-5xl px-6 relative z-10 text-center mx-auto">
         {/* Header */}
@@ -48,7 +51,7 @@ export default function ThankYouConsultationPage() {
           <span className="inline-block px-4 py-1 border border-primary/30 rounded-full text-primary text-[10px] tracking-[0.3em] font-bold mb-6 bg-primary/5 uppercase">
             Request Logged
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-widest uppercase mb-6 leading-tight text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-wide md:tracking-widest uppercase mb-6 leading-tight text-white">
             THANK YOU — <span className="text-primary">CONSULTATION</span> REQUEST RECEIVED
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto font-light leading-relaxed">
@@ -63,22 +66,22 @@ export default function ThankYouConsultationPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
+              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
                 Project Scope
               </p>
-              <p className="font-semibold text-surface">Site-Aware Documentation</p>
+              <p className="font-semibold text-white">Site-Aware Documentation</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
+              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
                 Region
               </p>
-              <p className="font-semibold text-surface">Industrial Corridor</p>
+              <p className="font-semibold text-white">Industrial Corridor</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-industrial-grey mb-1">
+              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
                 Contact Reference
               </p>
-              <p className="font-semibold text-surface">Pending Assignment</p>
+              <p className="font-semibold text-white">Pending Assignment</p>
             </div>
           </div>
         </div>
@@ -99,13 +102,13 @@ export default function ThankYouConsultationPage() {
                 >
                   {step.number}
                 </div>
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 mt-4 flex items-center gap-2">
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 mt-4 flex items-center gap-2 text-white">
                   {step.title}
                   {step.pulse && (
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   )}
                 </h3>
-                <p className="text-sm text-industrial-grey leading-relaxed">{step.body}</p>
+                <p className="text-sm text-white/70 leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>

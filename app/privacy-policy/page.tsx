@@ -1,15 +1,24 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import { JsonLd } from "@/components/seo/json-ld"
 
 import { CookieBanner } from "./cookie-banner"
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Privacy Policy",
   description:
-    "Operational protocols for handling enquiry data, gated requests, and media permissions across our industrial cinematography services.",
-}
+    "How Firstman Videos, a Malaysia industrial drone cinematography provider, collects and protects enquiry data and media assets under PDPA across Southeast Asia.",
+  path: "/privacy-policy",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
+  ])
+)
 
 const summaryCards = [
   {
@@ -52,6 +61,7 @@ const consentOptions = [
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <JsonLd data={schema} />
       <main className="flex-grow w-full max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-16 relative z-10">
         {/* Hero Section */}
         <header className="flex flex-col gap-4 max-w-4xl">
@@ -65,7 +75,7 @@ export default function PrivacyPolicyPage() {
             <MaterialIcon name="chevron_right" className="text-xs" />
             <span className="text-surface">Privacy Policy</span>
           </nav>
-          <h1 className="text-5xl md:text-6xl font-headline font-bold uppercase tracking-tight text-surface leading-tight">
+          <h1 className="text-4xl md:text-6xl font-headline font-bold uppercase tracking-tight text-surface leading-tight">
             Privacy Policy &amp; <span className="text-primary">Consent</span>
           </h1>
           <p className="text-lg text-industrial-grey font-body max-w-3xl leading-relaxed mt-4">

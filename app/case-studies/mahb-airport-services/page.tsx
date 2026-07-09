@@ -1,18 +1,39 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, creativeWorkSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "MAHB Airport Services 2018",
+export const metadata = pageMeta({
+  title: "MAHB Airport Services Case Study",
   description:
-    "Case study: industrial cinematography and drone-enabled documentation for MAHB Airport Services' 2018 operational cycle — a visual storytelling reference for aviation logistics.",
-}
+    "Industrial drone cinematography case study: MAHB Airport Services in Malaysia, documenting ground logistics with site-aware aerial capture for Southeast Asia.",
+  path: "/case-studies/mahb-airport-services",
+  ogImage: "/images/stitch/e5f0e42271.jpg",
+  ogType: "article",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "MAHB Airport Services", path: "/case-studies/mahb-airport-services" },
+  ]),
+  creativeWorkSchema({
+    name: "MAHB Airport Services",
+    description:
+      "Industrial drone cinematography and site-aware aerial documentation of MAHB Airport Services' ground logistics operations in Malaysia.",
+    path: "/case-studies/mahb-airport-services",
+    client: "MAHB",
+    image: "/images/stitch/e5f0e42271.jpg",
+  })
+)
 
 export default function MahbAirportServicesPage() {
   return (
     <>
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <header className="relative min-h-[716px] flex flex-col justify-end pb-24 px-8 pt-40">
         <div className="absolute inset-0 z-0 overflow-hidden bg-black">
@@ -34,7 +55,7 @@ export default function MahbAirportServicesPage() {
             <MaterialIcon name="chevron_right" className="text-[10px]" />
             <span className="text-white">MAHB 2018</span>
           </nav>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-none max-w-4xl text-white">
+          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter leading-none max-w-4xl text-white">
             MAHB Airport Services — <span className="text-primary">Visual Storytelling Reference.</span>
           </h1>
         </div>
@@ -48,7 +69,7 @@ export default function MahbAirportServicesPage() {
               <div className="w-12 h-[1px] bg-primary" />
               <span className="text-primary font-bold uppercase tracking-widest text-sm">Overview</span>
             </div>
-            <h2 className="text-3xl font-bold mb-8">Industrial Cinematography for Aviation Logistics.</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8">Industrial Cinematography for Aviation Logistics.</h2>
             <p className="text-industrial-grey text-lg leading-relaxed mb-8">
               This visual engagement for MAHB Airport Services focused on creating a comprehensive
               visual storytelling reference for their 2018 operational cycle. Our approach prioritized
@@ -255,7 +276,7 @@ export default function MahbAirportServicesPage() {
 
         {/* Confidentiality Note */}
         <section className="max-w-4xl mx-auto">
-          <div className="bg-dark-ui border border-surface/10 p-12 rounded-3xl text-center relative overflow-hidden group">
+          <div className="bg-dark-ui border border-surface/10 p-6 sm:p-10 md:p-12 rounded-3xl text-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-5">
               <MaterialIcon name="lock" className="text-9xl" />
             </div>
@@ -264,7 +285,7 @@ export default function MahbAirportServicesPage() {
                 <MaterialIcon name="encrypted" fill className="text-sm" />
                 Restricted Industrial Data
               </div>
-              <h3 className="text-3xl font-bold mb-6">Confidentiality & Secure Access</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Confidentiality & Secure Access</h3>
               <p className="text-industrial-grey leading-relaxed mb-8">
                 The full visual dataset for MAHB Airport Services contains sensitive operational site
                 details. Specific asset visualizations, security protocols, and unrestricted terminal
@@ -341,11 +362,11 @@ export default function MahbAirportServicesPage() {
 
         {/* Request Access CTA */}
         <section className="py-20">
-          <div className="glass-panel p-16 rounded-[3rem] border-primary/30 relative overflow-hidden text-center shadow-[0_0_20px_rgba(209,32,39,0.15)]">
+          <div className="glass-panel p-8 sm:p-12 md:p-16 rounded-[2rem] md:rounded-[3rem] border-primary/30 relative overflow-hidden text-center shadow-[0_0_20px_rgba(209,32,39,0.15)]">
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter">
                 View Private Industrial Archives.
               </h2>
               <p className="text-industrial-grey text-lg mb-10">

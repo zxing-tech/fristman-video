@@ -1,20 +1,36 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "AI-Generated Video",
+export const metadata = pageMeta({
+  title: "AI-Generated Video Production",
   description:
-    "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism for training and communications.",
-}
+    "AI-generated video recreations of hazardous scenes for Oil & Gas sites in Malaysia and Southeast Asia, built for safety training and stakeholder communications.",
+  path: "/services/ai-generated-video",
+})
+
+const pageSchema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "AI-Generated Video", path: "/services/ai-generated-video" },
+  ]),
+  serviceSchema({
+    name: "AI-Generated Video",
+    description:
+      "AI-generated recreations of hazardous or inaccessible industrial scenes for safety training, concept visualization, and corporate communications.",
+    path: "/services/ai-generated-video",
+  })
+)
 
 const applicationCards = [
   {
     icon: "health_and_safety",
     title: "Safety & HSE Training",
     description:
-      "Visualise worst-case scenarios — blowouts, gas releases, evacuations — so crews train against realistic footage without any real-world risk.",
+      "Visualise worst-case scenarios (blowouts, gas releases, evacuations) so crews train against realistic footage without any real-world risk.",
   },
   {
     icon: "lightbulb",
@@ -27,6 +43,7 @@ const applicationCards = [
 export default function AiGeneratedVideoPage() {
   return (
     <main className="flex-grow flex flex-col w-full">
+      <JsonLd data={pageSchema} />
       {/* Hero Section */}
       <section className="relative w-full min-h-[716px] flex items-center pt-32 pb-16 overflow-hidden bg-black">
         {/* Background Image */}
@@ -67,7 +84,7 @@ export default function AiGeneratedVideoPage() {
               <MaterialIcon name="auto_awesome" className="text-[16px]" />
               Impossible-to-Film Scenes
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 uppercase">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 uppercase">
               AI-Generated Video <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-industrial-grey">
                 For Scenes You Can&apos;t Re-Shoot

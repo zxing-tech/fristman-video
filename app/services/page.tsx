@@ -1,13 +1,22 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import { JsonLd } from "@/components/seo/json-ld"
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata = pageMeta({
+  title: "Industrial Video & Drone Services",
   description:
-    "Purpose-built media and UAV capture workflows for oil & gas, energy and heavy industry teams that need project visibility, safety communication and stakeholder-ready documentation.",
-}
+    "Industrial video and drone cinematography services for Oil & Gas and heavy industry across Malaysia and Southeast Asia, from facility films to AI recreations.",
+  path: "/services",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ])
+)
 
 const serviceCards = [
   {
@@ -63,6 +72,7 @@ const serviceCards = [
 export default function ServicesPage() {
   return (
     <main className="flex-grow">
+      <JsonLd data={schema} />
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 md:px-12 mx-auto overflow-hidden bg-black">
         <div
@@ -75,7 +85,7 @@ export default function ServicesPage() {
             <MaterialIcon name="videocam" className="text-[14px]" />
             Core Offerings
           </div>
-          <h1 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-tight mb-8 text-white">
+          <h1 className="font-headline font-black text-4xl md:text-7xl tracking-tighter leading-tight mb-8 text-white">
             INDUSTRIAL <br /> <span className="text-white/50">CINEMATOGRAPHY</span> & <br />{" "}
             VISUAL DOCUMENTATION
           </h1>

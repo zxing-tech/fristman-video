@@ -1,14 +1,29 @@
-import type { Metadata } from "next"
-
 import { MaterialIcon } from "@/components/site/material-icon"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 import { MarineBriefForm } from "./brief-form"
 
-export const metadata: Metadata = {
-  title: "Marine & Offshore",
+export const metadata = pageMeta({
+  title: "Marine & Offshore Video Production Malaysia",
   description:
-    "High-fidelity drone capture and industrial cinematography for offshore assets, vessels, and fabrication yards. Providing stakeholders with premium visual records of operational milestones.",
-}
+    "Marine and offshore drone video production in Malaysia. Cinematography for vessels, rigs, and fabrication yards serving Oil & Gas clients across Southeast Asia.",
+  path: "/industries/marine-offshore",
+})
+
+const structuredData = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: "Marine & Offshore", path: "/industries/marine-offshore" },
+  ]),
+  serviceSchema({
+    name: "Industrial Video Production - Marine & Offshore",
+    description:
+      "Drone cinematography and industrial video documentation for vessels, offshore installations, and fabrication yards.",
+    path: "/industries/marine-offshore",
+  })
+)
 
 const environments = [
   {
@@ -36,7 +51,7 @@ const capabilities = [
     icon: "landscape",
     title: "Facility Overviews",
     description:
-      "Comprehensive drone cinematography capturing the full scale and layout of maritime installations and operational footprints.",
+      "Full-scale drone cinematography capturing the scale and layout of maritime installations and operational footprints.",
   },
   {
     icon: "slow_motion_video",
@@ -64,6 +79,7 @@ const glassCardClass =
 export default function MarineOffshorePage() {
   return (
     <main className="flex-grow w-full">
+      <JsonLd data={structuredData} />
       {/* Hero Section */}
       <section className="relative min-h-[870px] flex items-center justify-center overflow-hidden w-full pt-20">
         {/* Background Image */}

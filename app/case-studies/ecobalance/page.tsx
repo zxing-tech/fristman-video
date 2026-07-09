@@ -1,17 +1,38 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, creativeWorkSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "EcoBalance Corporate Story",
+export const metadata = pageMeta({
+  title: "EcoBalance Industrial Video Case Study",
   description:
-    "Case study: drone-enabled corporate storytelling for EcoBalance — site-aware industrial cinematography capturing facility scale without disrupting operations.",
-}
+    "Case study: industrial drone cinematography for EcoBalance in Malaysia, capturing facility scale for corporate storytelling without disrupting site operations.",
+  path: "/case-studies/ecobalance",
+  ogImage: "/images/stitch/14777df4fc.jpg",
+  ogType: "article",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "EcoBalance Corporate Story", path: "/case-studies/ecobalance" },
+  ]),
+  creativeWorkSchema({
+    name: "EcoBalance Corporate Story",
+    description:
+      "Drone-enabled corporate storytelling for EcoBalance, capturing industrial facility scale in Malaysia without disrupting operations.",
+    path: "/case-studies/ecobalance",
+    client: "EcoBalance",
+    image: "/images/stitch/14777df4fc.jpg",
+  })
+)
 
 export default function EcoBalanceCaseStudyPage() {
   return (
     <main className="pt-32 pb-20">
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="max-w-[1280px] mx-auto px-8 mb-16 relative">
         <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden glass-panel bg-black border-white/10 group">
@@ -30,7 +51,7 @@ export default function EcoBalanceCaseStudyPage() {
                 Ref: 2024-EB-CS
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter uppercase leading-[0.9] mb-6 text-white">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase leading-[0.9] mb-6 text-white">
               EcoBalance — <span className="text-primary">Corporate Storytelling</span> Reference
             </h1>
             <div className="flex flex-wrap gap-4">

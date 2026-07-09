@@ -1,13 +1,15 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Thank You — Access Request Received",
+export const metadata = pageMeta({
+  title: "Case Study Access Request Received",
   description:
-    "Your request for restricted industrial cinematography documentation has been logged. Our security protocols require manual verification for site-sensitive footage.",
-}
+    "Your request for restricted industrial cinematography case study footage has been logged for manual review by our Malaysia-based drone production team.",
+  path: "/thank-you/case-study-access",
+  noindex: true,
+})
 
 const steps = [
   {
@@ -43,7 +45,7 @@ export default function ThankYouCaseStudyAccessPage() {
           <p className="text-primary font-bold tracking-[0.3em] text-sm mb-4">
             /CASE-STUDIES/REQUEST-ACCESS/THANK-YOU
           </p>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter uppercase mb-6 leading-none">
+          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter uppercase mb-6 leading-none">
             Access Request <span className="text-primary">Received</span>
           </h1>
           <p className="text-industrial-grey max-w-2xl text-lg font-light leading-relaxed">

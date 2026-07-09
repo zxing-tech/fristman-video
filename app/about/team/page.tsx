@@ -1,13 +1,23 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import { JsonLd } from "@/components/seo/json-ld"
 
-export const metadata: Metadata = {
-  title: "About / Team",
+export const metadata = pageMeta({
+  title: "Our Team - Industrial Drone Operators",
   description:
-    "Meet the specialized collective of production-led drone operators and industrial cinematographers behind Firstman Videos.",
-}
+    "Meet the Firstman Videos team of verified drone operators and industrial cinematographers serving Oil & Gas and heavy industry clients across Malaysia.",
+  path: "/about/team",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Our Team", path: "/about/team" },
+  ])
+)
 
 const gridPatternStyle = {
   backgroundSize: "40px 40px",
@@ -45,6 +55,7 @@ const teamMembers = [
 export default function AboutTeamPage() {
   return (
     <main className="pt-32 relative">
+      <JsonLd data={schema} />
       {/* Hero Section */}
       <section className="relative min-h-[614px] flex items-center pt-16 pb-24 overflow-hidden bg-black border-b border-white/5">
         {/* Background Image */}
@@ -76,7 +87,7 @@ export default function AboutTeamPage() {
                 Verified Industrial Professionals
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
               Meet the Team <br />
               <span className="text-gradient">Behind the Lens</span>
             </h1>

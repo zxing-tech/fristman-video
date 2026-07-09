@@ -159,6 +159,10 @@
 /* Fill the canvas (incl. area behind the fixed nav) with the theme colour */
 html {
     background-color: var(--background);
+    /* Safety net: never allow horizontal page scroll from decorative overhangs
+       (blurred blobs, rotated accents, off-canvas glows). `clip` — not `hidden` —
+       so it does not create a scroll container and keeps position:sticky/fixed working. */
+    overflow-x: clip;
 }
 
 @layer base {

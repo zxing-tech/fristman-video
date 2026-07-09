@@ -1,14 +1,16 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Industries",
+export const metadata = pageMeta({
+  title: "Industries We Serve",
   description:
-    "We focus where scale, safety and clarity matter most — oil & gas, energy, utilities, marine/offshore and large fabrication environments across Southeast Asia.",
-}
+    "Industrial drone cinematography for Oil & Gas, energy, marine and fabrication sectors across Malaysia and Southeast Asia, built for safety and scale.",
+  path: "/industries",
+})
 
 const oilGasApplications = [
   {
@@ -108,6 +110,14 @@ const hoverIconClass =
 export default function IndustriesPage() {
   return (
     <main className="flex-grow flex flex-col relative">
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Industries", path: "/industries" },
+          ])
+        )}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[819px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
         {/* Background Image */}
@@ -124,7 +134,7 @@ export default function IndustriesPage() {
             <MaterialIcon name="chevron_right" className="text-[14px]" />
             <span className="text-white font-bold">Industries</span>
           </div>
-          <h1 className="font-headline font-bold text-5xl md:text-7xl leading-[1.1] tracking-tight max-w-4xl mb-6 text-white drop-shadow-lg">
+          <h1 className="font-headline font-bold text-4xl md:text-7xl leading-[1.1] tracking-tight max-w-4xl mb-6 text-white drop-shadow-lg">
             Industry Expertise for High-Stakes Environments.
           </h1>
           <p className="font-body text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed mb-10 border-l-4 border-primary pl-6">

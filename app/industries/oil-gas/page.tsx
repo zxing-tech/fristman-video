@@ -1,14 +1,30 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Oil & Gas",
+export const metadata = pageMeta({
+  title: "Oil & Gas Drone Video Production",
   description:
-    "Precision visual documentation engineered for the complexities of offshore and onshore energy environments. High-fidelity cinematic capture prioritizing site awareness and operational scale.",
-}
+    "Industrial drone cinematography for Oil & Gas sites in Malaysia and Southeast Asia, from site overviews to safety documentation and stakeholder reels.",
+  path: "/industries/oil-gas",
+})
+
+const pageSchema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: "Oil & Gas", path: "/industries/oil-gas" },
+  ]),
+  serviceSchema({
+    name: "Industrial Video Production - Oil & Gas",
+    description:
+      "Drone-enabled cinematography and visual documentation for Oil & Gas sites across Malaysia and Southeast Asia, from site overviews to safety training footage.",
+    path: "/industries/oil-gas",
+  })
+)
 
 const visualApplications = [
   {
@@ -71,6 +87,7 @@ const workflowSteps = [
 export default function OilGasIndustryPage() {
   return (
     <main className="flex-grow">
+      <JsonLd data={pageSchema} />
       {/* Hero Section */}
       <section className="relative min-h-[870px] flex items-center justify-center pt-24 pb-16 px-6 lg:px-12 overflow-hidden bg-black">
         {/* Background Image */}
@@ -101,7 +118,7 @@ export default function OilGasIndustryPage() {
               Sector Subpage / Energy Infrastructure
             </span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-[0.9] mb-6 max-w-4xl">
+          <h1 className="text-4xl md:text-7xl font-black font-headline tracking-tighter leading-[0.9] mb-6 max-w-4xl">
             <span className="block text-white">DRONE-ENABLED</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">
               INDUSTRIAL CINEMATOGRAPHY

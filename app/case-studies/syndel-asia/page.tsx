@@ -1,18 +1,39 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, creativeWorkSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Syndel Asia Industrial Documentation",
+export const metadata = pageMeta({
+  title: "Syndel Asia - Industrial Site Documentation",
   description:
-    "Case study: comprehensive visual documentation for Syndel Asia — capturing operational scale and safety protocols at their strategic fabrication yard and marine terminal.",
-}
+    "Case study: industrial drone cinematography for Syndel Asia fabrication yard and marine terminal in Malaysia, for safety training and stakeholder reporting.",
+  path: "/case-studies/syndel-asia",
+  ogImage: "/images/stitch/ea3a0c1e8b.jpg",
+  ogType: "article",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "Syndel Asia Documentation", path: "/case-studies/syndel-asia" },
+  ]),
+  creativeWorkSchema({
+    name: "Syndel Asia Documentation",
+    description:
+      "Industrial drone cinematography documenting Syndel Asia's fabrication yard and marine terminal operations for safety training and stakeholder reporting.",
+    path: "/case-studies/syndel-asia",
+    client: "Syndel Asia",
+    image: "/images/stitch/ea3a0c1e8b.jpg",
+  })
+)
 
 export default function SyndelAsiaPage() {
   return (
     <main className="relative">
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="relative h-[870px] w-full overflow-hidden flex items-end pb-24 bg-black">
         <div className="absolute inset-0 z-0">
@@ -36,7 +57,7 @@ export default function SyndelAsiaPage() {
           <h2 className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4">
             CASE STUDY DETAIL — SYNDEL ASIA
           </h2>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl text-white">
+          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl text-white">
             Syndel Asia —{" "}
             <span className="text-white/60">Industrial Visual Documentation Reference</span>
           </h1>

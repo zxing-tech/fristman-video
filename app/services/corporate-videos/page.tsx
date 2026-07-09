@@ -1,14 +1,30 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { SectionLabel } from "@/components/site/section-label"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Corporate Videos",
   description:
-    "Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based corporate video production.",
-}
+    "Corporate video production for Oil & Gas and industrial sites in Malaysia. Cinematic UAV and ground-based footage that documents scale and operations.",
+  path: "/services/corporate-videos",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Corporate Videos", path: "/services/corporate-videos" },
+  ]),
+  serviceSchema({
+    name: "Corporate Videos",
+    description:
+      "Cinematic UAV and ground-based corporate video production documenting large industrial and Oil & Gas facilities in Malaysia and Southeast Asia.",
+    path: "/services/corporate-videos",
+  })
+)
 
 const audiences = [
   {
@@ -54,6 +70,7 @@ const useCases = [
 export default function CorporateVideosPage() {
   return (
     <main>
+      <JsonLd data={schema} />
       {/* Breadcrumbs */}
       <div className="max-w-[1280px] mx-auto px-8 pt-28 flex items-center gap-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
         <Link className="hover:text-surface transition-colors" href="/">
@@ -92,7 +109,7 @@ export default function CorporateVideosPage() {
               Service Protocol Active
             </span>
           </div>
-          <h1 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tighter text-white mb-6 max-w-4xl">
+          <h1 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl leading-none tracking-tighter text-white mb-6 max-w-4xl">
             CORPORATE
             <br />
             <span className="text-gradient">VIDEOS</span>

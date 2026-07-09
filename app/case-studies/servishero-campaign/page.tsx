@@ -1,20 +1,41 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { JsonLd } from "@/components/seo/json-ld"
+import { pageMeta, graph, breadcrumbSchema, creativeWorkSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "ServisHero Campaign",
+export const metadata = pageMeta({
+  title: "ServisHero Drone Campaign Case Study",
   description:
-    "Case study detail: a high-impact visual campaign for ServisHero — drone-enabled capture, cinematic site-aware planning, and HSE compliant industrial documentation across Southeast Asia.",
-}
+    "ServisHero case study: industrial drone cinematography for a Southeast Asia service campaign, featuring site-aware aerial capture and HSE-compliant filming.",
+  path: "/case-studies/servishero-campaign",
+  ogImage: "/images/stitch/a6afb92c9f.jpg",
+  ogType: "article",
+})
+
+const jsonLd = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "ServisHero Campaign", path: "/case-studies/servishero-campaign" },
+  ]),
+  creativeWorkSchema({
+    name: "ServisHero Campaign",
+    description:
+      "A drone-enabled visual campaign documenting ServisHero's regional service operations across Southeast Asia with site-aware, HSE-compliant aerial capture.",
+    path: "/case-studies/servishero-campaign",
+    client: "ServisHero",
+    image: "/images/stitch/a6afb92c9f.jpg",
+  })
+)
 
 const iconFillHover = "group-hover:[font-variation-settings:'FILL'_1]"
 
 export default function ServisHeroCampaignPage() {
   return (
     <main className="flex-grow">
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <header className="relative bg-black h-[870px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -294,7 +315,7 @@ export default function ServisHeroCampaignPage() {
             <div className="flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest mb-6">
               <MaterialIcon name="security" className="text-sm" /> Site-Safety protocols
             </div>
-            <h2 className="text-3xl font-black tracking-tighter uppercase mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-black tracking-tighter uppercase mb-6 leading-tight">
               Confidentiality & HSE Compliance
             </h2>
             <div className="space-y-4 text-industrial-grey text-sm leading-relaxed">

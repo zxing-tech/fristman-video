@@ -1,14 +1,23 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import { JsonLd } from "@/components/seo/json-ld"
 
-export const metadata: Metadata = {
-  title: "Case Studies",
+export const metadata = pageMeta({
+  title: "Case Studies: Oil & Gas Drone Video Portfolio",
   description:
-    "Real projects. Real results. Explore how Firstman Videos supports oil & gas and heavy industry teams with industrial cinematography, visual documentation and stakeholder-ready media.",
-}
+    "Case studies of industrial drone cinematography and safety documentation for Oil & Gas and heavy industry clients across Malaysia and Southeast Asia.",
+  path: "/case-studies",
+})
+
+const caseStudiesSchema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+  ])
+)
 
 const filterChips = [
   "Oil & Gas",
@@ -117,6 +126,7 @@ function PortfolioCard({
 export default function CaseStudiesPage() {
   return (
     <main className="flex-grow flex flex-col relative">
+      <JsonLd data={caseStudiesSchema} />
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none z-0" />
       <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-8 relative z-10">
@@ -131,7 +141,7 @@ export default function CaseStudiesPage() {
 
         {/* Hero Section */}
         <section className="mb-16 max-w-4xl">
-          <h1 className="font-headline font-bold text-5xl md:text-7xl leading-tight mb-6 tracking-tight uppercase">
+          <h1 className="font-headline font-bold text-4xl md:text-7xl leading-tight mb-6 tracking-tight uppercase">
             Project Case Studies & <span className="text-primary">Portfolio</span>
           </h1>
           <p className="font-body text-xl text-industrial-grey max-w-3xl leading-relaxed">
@@ -303,9 +313,9 @@ export default function CaseStudiesPage() {
 
         {/* Footer CTA */}
         <section className="mb-24 text-center">
-          <div className="glass-panel rounded-2xl p-16 border-primary/20 relative overflow-hidden">
+          <div className="glass-panel rounded-2xl p-8 sm:p-12 md:p-16 border-primary/20 relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-primary shadow-[0_0_10px_#d12027]" />
-            <h2 className="font-headline font-bold text-4xl uppercase tracking-tight mb-6">
+            <h2 className="font-headline font-bold text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight mb-6">
               Need a similar project documented?
             </h2>
             <p className="font-body text-industrial-grey mb-10 max-w-xl mx-auto">

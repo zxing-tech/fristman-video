@@ -1,14 +1,30 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 
+import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Facility Overview Films",
+export const metadata = pageMeta({
+  title: "Facility Overview Films for Industrial Sites",
   description:
-    "Drone-enabled aerial and ground cinematography that helps industrial teams explain scale, layout, access points and project context to stakeholders.",
-}
+    "Facility overview films use drone aerial footage to show scale, layout and access at Oil & Gas and industrial sites across Malaysia and Southeast Asia.",
+  path: "/services/facility-overview-films",
+})
+
+const schema = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Facility Overview Films", path: "/services/facility-overview-films" },
+  ]),
+  serviceSchema({
+    name: "Facility Overview Films",
+    description:
+      "Drone-enabled aerial and ground cinematography that shows the scale, layout and access points of industrial facilities for stakeholders.",
+    path: "/services/facility-overview-films",
+  }),
+)
 
 const designedFor = [
   { icon: "factory", label: "Oil & Gas" },
@@ -86,6 +102,7 @@ const workflowSteps = [
 export default function FacilityOverviewFilmsPage() {
   return (
     <div className="pt-32 pb-24">
+      <JsonLd data={schema} />
       {/* Hero Section */}
       <section className="relative max-w-7xl mx-auto px-6 lg:px-8 mb-24">
         <div className="relative w-full h-[614px] min-h-[500px] rounded-[24px] overflow-hidden group bg-black">
