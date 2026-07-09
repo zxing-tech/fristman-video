@@ -10,21 +10,57 @@ const inputClass =
   "w-full form-input-dark bg-background/40 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary block placeholder:text-surface/40"
 const optionClass = "bg-graphite text-surface"
 
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+
 export function ConsultationForm() {
   const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (submitting) return
+    setError(null)
     setSubmitting(true)
-    setTimeout(() => {
-      router.push("/thank-you/consultation")
-    }, 600)
+
+    const formData = new FormData(event.currentTarget)
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY ?? "")
+    formData.append("subject", "New consultation request — Firstman Videos")
+    formData.append("from_name", "Firstman Videos Website")
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        router.push("/thank-you/consultation")
+        return
+      }
+      setError(
+        data.message ||
+          "We couldn't send your request. Please try again or email info@firstmanvideos.com."
+      )
+    } catch {
+      setError("Network error — please try again, or email us directly at info@firstmanvideos.com.")
+    }
+    setSubmitting(false)
   }
 
   return (
     <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+      {/* Honeypot — spam trap, hidden from real users */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Full Name */}
         <div className="space-y-2">
@@ -233,6 +269,16 @@ export function ConsultationForm() {
           </p>
         </div>
       </div>
+      {/* Submit error */}
+      {error && (
+        <p
+          role="alert"
+          className="flex items-start gap-2 text-sm text-primary font-medium bg-primary/10 border border-primary/30 rounded-lg px-4 py-3"
+        >
+          <MaterialIcon name="error" className="text-base shrink-0 mt-0.5" />
+          <span>{error}</span>
+        </p>
+      )}
       {/* Submit Button */}
       <button
         className="group relative w-full overflow-hidden rounded-xl bg-primary text-white px-8 py-4 flex items-center justify-center gap-3 mt-8 font-headline transition-all duration-300 hover:bg-background hover:text-primary hover:shadow-[inset_0_0_0_1px_#d12027,0_0_20px_rgba(209,32,39,0.3)] disabled:opacity-70 disabled:pointer-events-none"
