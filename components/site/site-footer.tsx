@@ -72,14 +72,16 @@ export function SiteFooter() {
           </span>
           <div className="flex gap-4">
             <a
-              href="#"
-              aria-label="Share"
+              href="https://www.facebook.com/firstmanvideos"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
               className="w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
             >
               <MaterialIcon name="share" className="text-sm" />
             </a>
             <a
-              href="mailto:hello@firstmanvideos.com"
+              href="mailto:info@firstmanvideos.com"
               aria-label="Email"
               className="w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white text-industrial-grey transition-all duration-300"
             >

@@ -11,7 +11,13 @@ export const metadata: Metadata = {
     "Request a consultation, quote or site assessment. Our specialized industrial cinematography team typically responds within 24 business hours.",
 }
 
-const contactCards = [
+const contactCards: {
+  icon: string
+  title: string
+  lines: string[]
+  href?: string
+  external?: boolean
+}[] = [
   {
     icon: "smartphone",
     title: "Mobile",
@@ -21,16 +27,20 @@ const contactCards = [
     icon: "deskphone",
     title: "Office",
     lines: ["+603 7968 6737"],
+    href: "tel:+60379686737",
   },
   {
     icon: "mail",
     title: "Email",
     lines: ["info@firstmanvideos.com"],
+    href: "mailto:info@firstmanvideos.com",
   },
   {
     icon: "share",
     title: "Facebook",
     lines: ["firstmanvideos"],
+    href: "https://www.facebook.com/firstmanvideos",
+    external: true,
   },
 ]
 
@@ -95,11 +105,10 @@ export default function ContactPage() {
             </p>
             {/* Contact Info Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-              {contactCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="glass-panel p-5 rounded-xl group cursor-pointer transition-all duration-300 hover:border-primary/50"
-                >
+              {contactCards.map((card) => {
+                const cardClass =
+                  "glass-panel p-5 rounded-xl group cursor-pointer transition-all duration-300 hover:border-primary/50"
+                const inner = (
                   <div className="flex items-start gap-4">
                     <MaterialIcon
                       name={card.icon}
@@ -121,8 +130,44 @@ export default function ContactPage() {
                       ))}
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+                return card.href ? (
+                  <a
+                    key={card.title}
+                    href={card.href}
+                    className={cardClass}
+                    target={card.external ? "_blank" : undefined}
+                    rel={card.external ? "noopener noreferrer" : undefined}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={card.title} className={cardClass}>
+                    {inner}
+                  </div>
+                )
+              })}
+            </div>
+            {/* Registered Office */}
+            <div className="glass-panel p-5 rounded-xl mb-12 flex items-start gap-4">
+              <MaterialIcon
+                name="location_on"
+                className="text-industrial-grey text-2xl shrink-0 mt-0.5"
+              />
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-surface/50 mb-1">
+                  Address
+                </h3>
+                <p className="text-sm font-bold text-surface">
+                  Firstman Productions{" "}
+                  <span className="font-medium text-industrial-grey">(001335693-M)</span>
+                </p>
+                <p className="text-sm text-industrial-grey leading-relaxed mt-1">
+                  No. 39-G, Block D, No. 1, Jalan SS7/26,
+                  <br />
+                  Kelana Jaya, 47301 Selangor, Malaysia
+                </p>
+              </div>
             </div>
             {/* SLA Notice */}
             <div className="mt-auto border-l-2 border-primary/50 pl-4 py-1">

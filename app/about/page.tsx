@@ -80,6 +80,11 @@ export default function AboutPage() {
               built for oil &amp; gas operators, heavy industry projects and
               large-scale stakeholder communication across Southeast Asia.
             </p>
+            <p className="text-sm text-industrial-grey mb-8">
+              Firstman Videos is the industrial video production brand of{" "}
+              <span className="font-semibold text-surface">Firstman Productions</span>{" "}
+              (001335693-M).
+            </p>
             <Link
               href="/about/team"
               className="inline-flex items-center gap-2 text-primary font-body uppercase tracking-widest text-sm font-bold hover:gap-3 transition-all duration-300"
