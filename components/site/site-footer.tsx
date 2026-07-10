@@ -53,18 +53,6 @@ export function SiteFooter() {
           >
             Terms of Service
           </a>
-          <a
-            href="#"
-            className="font-body text-sm text-industrial-grey hover:text-primary transition-colors"
-          >
-            Safety Standards
-          </a>
-          <a
-            href="#"
-            className="font-body text-sm text-industrial-grey hover:text-primary transition-colors"
-          >
-            Client Login
-          </a>
         </div>
         <div className="flex flex-col gap-4">
           <span className="font-label uppercase tracking-widest text-xs font-bold text-surface mb-2">

@@ -130,13 +130,6 @@ export default function CorporateVideosPage() {
                 className="text-[18px] group-hover:translate-x-1 transition-transform"
               />
             </Link>
-            <a
-              className="group inline-flex items-center justify-center gap-3 bg-transparent border border-white/20 text-white font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300"
-              href="#"
-            >
-              View Workflow
-              <MaterialIcon name="account_tree" className="text-[18px]" />
-            </a>
           </div>
         </div>
       </header>

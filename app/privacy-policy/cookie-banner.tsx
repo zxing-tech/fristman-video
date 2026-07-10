@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 
@@ -24,12 +25,12 @@ export function CookieBanner() {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
-          <button
-            type="button"
-            className="px-5 py-2 rounded-full border border-surface/20 text-industrial-grey text-xs font-bold uppercase tracking-widest hover:text-surface transition-colors"
+          <Link
+            href="/privacy-policy"
+            className="px-5 py-2 rounded-full border border-surface/20 text-industrial-grey text-xs font-bold uppercase tracking-widest hover:text-surface transition-colors text-center"
           >
             Manage
-          </button>
+          </Link>
           <button
             type="button"
             onClick={() => setVisible(false)}
