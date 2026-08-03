@@ -3,6 +3,7 @@ import Link from "next/link"
 import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { SectionLabel } from "@/components/site/section-label"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -15,7 +16,6 @@ export const metadata = pageMeta({
 const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "Facility Overview Films", path: "/services/facility-overview-films" },
   ]),
   serviceSchema({
@@ -60,42 +60,21 @@ const focusAreas = [
   },
 ]
 
-const deliverables = [
-  { icon: "movie", label: "Hero Cinematic Film" },
-  { icon: "dynamic_feed", label: "Short Social Cutdowns" },
-  { icon: "image", label: "High-Res Still Frames" },
-  { icon: "lock", label: "Private Review Link" },
-  { icon: "groups", label: "Stakeholder Version" },
-]
-
-const workflowSteps = [
+const useCases = [
   {
-    number: "01",
-    title: "Brief & Objectives",
-    description:
-      "Aligning on required assets, target audience, and key visual messaging priorities.",
-    active: true,
+    image: "/images/stitch/9ef2719993.jpg",
+    title: "Fabrication Yard Overview",
+    body: "Comprehensive documentation of yard capabilities and layout.",
   },
   {
-    number: "02",
-    title: "Site Planning",
-    description:
-      "Reviewing site access, evaluating safety constraints, and scheduling industrial visual documentation.",
-    active: false,
+    image: "/images/stitch/df312360c8.jpg",
+    title: "Offshore Module Lifecycle",
+    body: "From construction phase to final load-out and installation.",
   },
   {
-    number: "03",
-    title: "Capture",
-    description:
-      "Execution of drone-enabled capture and ground cinematography with minimal operational footprint.",
-    active: false,
-  },
-  {
-    number: "04",
-    title: "Edit & Delivery",
-    description:
-      "Post-production formatting, color grading, and secure delivery of finalized assets.",
-    active: false,
+    image: "/images/stitch/2c0f0ecbd8.jpg",
+    title: "Refinery Overview",
+    body: "Detailed mapping of operational zones and critical infrastructure.",
   },
 ]
 
@@ -199,72 +178,40 @@ export default function FacilityOverviewFilmsPage() {
         </div>
       </section>
 
-      {/* Deliverables & Workflow Bento Grid */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-surface mb-12 text-center">
-          Output & Execution
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Deliverables Card */}
-          <div className="md:col-span-1 glass-panel rounded-[24px] p-8 flex flex-col border-t-2 border-t-primary/50">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
-              <MaterialIcon name="folder_open" fill className="text-lg" />
-              Deliverables
-            </h3>
-            <ul className="space-y-4 flex-grow text-sm">
-              {deliverables.map((item) => (
-                <li className="flex items-start gap-3" key={item.label}>
-                  <MaterialIcon name={item.icon} className="text-surface/40 text-base mt-0.5" />
-                  <span className="text-surface/90 font-medium">{item.label}</span>
-                </li>
-              ))}
-            </ul>
+      {/* Use Cases Grid */}
+      <section className="py-24 mb-24 bg-graphite relative border-y border-surface/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <SectionLabel className="mb-2 block">Deployment Scenarios</SectionLabel>
+            <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-surface">
+              Facility Overviews
+            </h2>
           </div>
-          {/* Workflow Card */}
-          <div className="md:col-span-2 glass-panel rounded-[24px] p-8 overflow-hidden relative group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full" />
-            <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-8 flex items-center gap-2">
-              <MaterialIcon name="route" fill className="text-lg" />
-              Production Workflow
-            </h3>
-            <div className="relative">
-              {/* Connecting Line */}
-              <div className="absolute left-4 top-4 bottom-4 w-0.5 bg-surface/10 hidden sm:block" />
-              <div className="space-y-6">
-                {workflowSteps.map((step) => (
-                  <div
-                    className="flex flex-col sm:flex-row gap-4 sm:gap-6 relative z-10"
-                    key={step.number}
-                  >
-                    <div
-                      className={
-                        step.active
-                          ? "w-8 h-8 rounded-full bg-graphite border border-primary flex items-center justify-center flex-shrink-0 text-primary font-bold text-xs z-10"
-                          : "w-8 h-8 rounded-full bg-graphite border border-surface/20 flex items-center justify-center flex-shrink-0 text-surface/50 font-bold text-xs z-10 group-hover:border-primary group-hover:text-primary transition-colors"
-                      }
-                    >
-                      {step.number}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-surface uppercase text-sm mb-1">{step.title}</h4>
-                      <p className="text-industrial-grey text-xs leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {useCases.map((useCase) => (
+              <div
+                key={useCase.title}
+                className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-black border border-white/10"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
+                  style={{ backgroundImage: `url('${useCase.image}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    <MaterialIcon name="add" className="text-white text-sm" />
                   </div>
-                ))}
+                  <h3 className="font-headline font-bold text-xl text-white mb-2">
+                    {useCase.title}
+                  </h3>
+                  <p className="font-body text-sm text-white/70 group-hover:text-white/90 transition-colors">
+                    {useCase.body}
+                  </p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-        <div className="mt-6 flex justify-end gap-6 text-xs text-industrial-grey uppercase tracking-widest font-bold">
-          <span className="flex items-center gap-1">
-            <MaterialIcon name="info" className="text-[14px]" /> Confirm site permissions
-          </span>
-          <span className="flex items-center gap-1">
-            <MaterialIcon name="badge" className="text-[14px]" /> Credentials available upon
-            request
-          </span>
         </div>
       </section>
 

@@ -116,7 +116,7 @@ export function RequestAccessDialog({ onClose, defaultVideo }: RequestAccessDial
                 Book Consultation
               </Link>
               <Link
-                href="/services"
+                href="/#services"
                 className="flex-1 border border-surface/20 text-surface px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-surface/10 transition-colors text-center"
               >
                 View Services

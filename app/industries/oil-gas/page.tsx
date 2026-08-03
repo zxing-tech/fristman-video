@@ -275,7 +275,7 @@ export default function OilGasIndustryPage() {
               </h3>
             </div>
             <Link
-              href="/services"
+              href="/#services"
               className="text-xs font-label uppercase tracking-widest text-surface border-b border-primary pb-1 hover:text-primary transition-colors flex items-center"
             >
               View Full Capability Statement{" "}

@@ -8,20 +8,19 @@ import { pageMeta, graph, breadcrumbSchema, serviceSchema } from "@/lib/seo"
 export const metadata = pageMeta({
   title: "Industrial Photography Malaysia",
   description:
-    "Industrial photography for Oil & Gas and heavy industry sites across Malaysia and Southeast Asia, with PPE-compliant crews and unified asset delivery.",
+    "Industrial photography in Malaysia documenting critical structural phases, heavy lifts, and compliance checks for Oil & Gas and heavy industry sites.",
   path: "/services/industrial-photography",
 })
 
 const pageSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "Industrial Photography", path: "/services/industrial-photography" },
   ]),
   serviceSchema({
     name: "Industrial Photography",
     description:
-      "High-fidelity, ground-based industrial photography for Oil & Gas and heavy industry sites in Malaysia and Southeast Asia.",
+      "Ground-based industrial photography documenting structural phases, heavy lift operations, and compliance checkpoints on Oil & Gas and heavy industry sites.",
     path: "/services/industrial-photography",
   }),
 )
@@ -67,9 +66,9 @@ export default function IndustrialPhotographyPage() {
                 </span>
               </h1>
               <p className="text-industrial-grey text-lg leading-relaxed max-w-md">
-                Supporting industrial documentation and corporate storytelling
-                with high-fidelity, ground-based photography. Precise visual
-                assets captured in demanding environments.
+                Documenting critical structural phases, heavy lifts, and
+                compliance checks with high-fidelity, ground-based photography.
+                Precise visual assets captured in demanding environments.
               </p>
               <div className="flex items-center gap-4 pt-4 border-t border-surface/10">
                 <MaterialIcon name="verified_user" className="text-primary" />
@@ -109,7 +108,7 @@ export default function IndustrialPhotographyPage() {
           <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <h2 className="text-3xl font-bold uppercase tracking-tight mb-2">
-                Visual Documentation Parameters
+                Photographic Coverage Parameters
               </h2>
               <p className="text-industrial-grey">
                 Categorized photographic applications for industrial entities.
@@ -140,12 +139,12 @@ export default function IndustrialPhotographyPage() {
                   className={`text-4xl mb-4 text-white/50 ${iconHover}`}
                 />
                 <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wider mb-2 text-white">
-                  Site Documentation
+                  Structural Phase Records
                 </h3>
                 <p className="text-white/70 text-sm max-w-sm">
-                  Comprehensive visual mapping of facility layouts, operational
-                  scale, and structural integrity for internal archives and
-                  external reporting.
+                  Visual records of critical build and installation phases,
+                  captured alongside the compliance checkpoints that sign each
+                  one off, for internal archives and external reporting.
                 </p>
               </div>
             </div>
@@ -231,171 +230,17 @@ export default function IndustrialPhotographyPage() {
               </div>
               <div>
                 <h4 className="font-bold uppercase tracking-wider text-sm mb-1">
-                  Equipment Context
+                  Heavy Lift Coverage
                 </h4>
                 <p className="text-industrial-grey text-xs">
-                  Detailed asset visuals demonstrating capability without
-                  unsupported technical measurement claims.
+                  Lift and load-out sequences shot from agreed standoff
+                  positions, without unsupported technical measurement claims.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Seamless Integration & Delivery Formats (Asymmetric Layout) */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="absolute -inset-2 sm:-inset-4 bg-surface/5 rounded-[2rem] transform -rotate-3 z-0" />
-              <div className="bg-background/60 backdrop-blur-lg border border-surface/5 rounded-lg p-8 relative z-10 border-l-4 border-l-primary">
-                <div className="flex items-center gap-3 mb-6">
-                  <MaterialIcon name="movie_filter" className="text-primary" />
-                  <h3 className="text-xl font-bold uppercase tracking-widest">
-                    The Supporting Role
-                  </h3>
-                </div>
-                <p className="text-industrial-grey leading-relaxed mb-6">
-                  Photography acts as a crucial force multiplier when deployed
-                  alongside our primary cinematic film productions. By
-                  capturing high-resolution stills concurrently with video
-                  acquisition, we ensure a unified visual aesthetic across all
-                  your communication channels.
-                </p>
-                <p className="text-industrial-grey leading-relaxed">
-                  This integrated approach minimizes operational disruption
-                  on-site and delivers a cohesive package of both dynamic
-                  motion and static assets from a single deployment.
-                </p>
-              </div>
-              {/* Floating Delivery Chips — in-flow row on mobile, floating on desktop */}
-              <div className="mt-6 flex flex-row flex-wrap justify-center gap-3 z-20 lg:mt-0 lg:absolute lg:-right-8 lg:-bottom-8 lg:flex-col lg:justify-start">
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform hover:-translate-y-1 transition-transform cursor-default">
-                  <MaterialIcon name="image" className="text-sm text-surface/50" />
-                  <span className="text-xs uppercase tracking-wider font-bold">
-                    High-Res Stills
-                  </span>
-                </div>
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform lg:translate-x-4 hover:-translate-y-1 transition-transform cursor-default">
-                  <MaterialIcon
-                    name="grid_view"
-                    className="text-sm text-surface/50"
-                  />
-                  <span className="text-xs uppercase tracking-wider font-bold">
-                    Stakeholder Galleries
-                  </span>
-                </div>
-                <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3 shadow-xl transform lg:translate-x-8 hover:-translate-y-1 transition-transform cursor-default">
-                  <MaterialIcon
-                    name="folder_zip"
-                    className="text-sm text-surface/50"
-                  />
-                  <span className="text-xs uppercase tracking-wider font-bold">
-                    Reporting Packs
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 space-y-6">
-              <h2 className="text-4xl font-bold uppercase tracking-tighter">
-                Unified <br />
-                Asset Delivery
-              </h2>
-              <p className="text-xl text-surface/60 font-light">
-                Engineered for immediate integration into corporate workflows.
-              </p>
-              <div className="w-16 h-1 bg-primary" />
-            </div>
-          </div>
-        </section>
-
-        {/* Confidentiality & Safety Protocol Panel */}
-        <section className="max-w-5xl mx-auto px-6 md:px-8 mb-24">
-          <div className="bg-dark-ui border border-surface/10 rounded-lg overflow-hidden shadow-2xl relative">
-            {/* Red top border accent */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
-            <div className="p-8 md:p-12">
-              <div className="flex items-center gap-4 mb-8 border-b border-surface/5 pb-6">
-                <MaterialIcon
-                  name="admin_panel_settings"
-                  className="text-3xl text-primary"
-                />
-                <h2 className="text-2xl font-bold uppercase tracking-widest text-surface">
-                  Operational Protocols
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex gap-3">
-                    <MaterialIcon
-                      name="gpp_maybe"
-                      className="text-surface/30 text-sm mt-1"
-                    />
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-wider text-surface/90 mb-1">
-                        Safety First
-                      </h4>
-                      <p className="text-xs text-industrial-grey leading-relaxed">
-                        Full compliance with site-specific PPE requirements,
-                        safety briefings, and access protocols is mandatory for
-                        all our operators.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <MaterialIcon
-                      name="visibility_off"
-                      className="text-surface/30 text-sm mt-1"
-                    />
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-wider text-surface/90 mb-1">
-                        Confidentiality
-                      </h4>
-                      <p className="text-xs text-industrial-grey leading-relaxed">
-                        We navigate gated access environments with discretion.
-                        Non-Disclosure Agreements strictly observed.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex gap-3">
-                    <MaterialIcon
-                      name="fact_check"
-                      className="text-primary text-sm mt-1"
-                    />
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-wider text-primary mb-1">
-                        Critical Note
-                      </h4>
-                      <p className="text-xs text-surface/80 leading-relaxed font-semibold">
-                        Clients must independently confirm image approvals
-                        regarding proprietary technology or unreleased assets
-                        prior to public publication.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <MaterialIcon
-                      name="block"
-                      className="text-surface/30 text-sm mt-1"
-                    />
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-wider text-surface/90 mb-1">
-                        Scope Limitations
-                      </h4>
-                      <p className="text-xs text-industrial-grey leading-relaxed">
-                        Services focus purely on high-fidelity visual
-                        documentation. No unsupported technical measurements or
-                        certified engineering inspections are provided or
-                        claimed.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto px-6 text-center py-12">

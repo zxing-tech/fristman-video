@@ -14,7 +14,6 @@ export const metadata = pageMeta({
 const pageSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "AI-Generated Video", path: "/services/ai-generated-video" },
   ]),
   serviceSchema({
@@ -73,8 +72,8 @@ export default function AiGeneratedVideoPage() {
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest mb-8">
-            <Link className="hover:text-white transition-colors" href="/services">
-              Services
+            <Link className="hover:text-white transition-colors" href="/">
+              Home
             </Link>
             <MaterialIcon name="chevron_right" className="text-[14px]" />
             <span className="text-primary">AI-Generated Video</span>

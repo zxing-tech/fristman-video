@@ -61,17 +61,16 @@ const serviceCards = [
   },
   {
     icon: "timelapse",
-    title: "Aerial Progression & Timelapses",
+    title: "Construction Progress and timelapse capture",
     summary:
-      "Long-term visual documentation of construction and engineering projects to track progress and milestones.",
+      "Automated interval camera setups tracking multi-year site changes.",
     href: "/services/progression-timelapse",
   },
   {
-    icon: "perm_media",
-    title: "Visual Asset Documentation",
-    summary:
-      "Systematic photographic and video recording of critical infrastructure assets for maintenance and archival purposes.",
-    href: "/services/visual-documentation",
+    icon: "health_and_safety",
+    title: "Safety and Induction Videos",
+    summary: "Onsite protocol tutorials covering PPE rules and hazard zones.",
+    href: "/services/safety-induction-videos",
   },
   {
     icon: "auto_awesome",
@@ -81,10 +80,10 @@ const serviceCards = [
     href: "/services/ai-generated-video",
   },
   {
-    icon: "assessment",
-    title: "Inspection Reports & Data Delivery",
+    icon: "photo_camera",
+    title: "Industrial Photography",
     summary:
-      "Structured delivery of high-resolution visual data integrated into comprehensive inspection reports.",
+      "Documenting critical structural phases, heavy lifts, and compliance checks.",
     href: "/services/industrial-photography",
   },
 ]
@@ -97,19 +96,19 @@ export default function HomePage() {
         {/* Cinematic Background Image */}
         <div className="absolute inset-0 z-0">
           <div
-            className="bg-cover bg-center w-full h-full opacity-50 dark:opacity-40"
+            className="bg-cover bg-center w-full h-full"
             style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0" />
         </div>
         <div className="relative z-20 max-w-[1280px] mx-auto px-8 w-full flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-3/5 space-y-8">
             <SectionLabel withLine>Industrial Visual Data</SectionLabel>
-            <h1 className="font-headline font-black text-4xl md:text-7xl leading-[1.1] tracking-tight">
+            <h1 className="font-headline text-white font-black text-4xl md:text-7xl leading-[1.1] tracking-tight">
               Industrial Drone Cinematography for <span className="text-primary">Oil & Gas</span> and
               Heavy Industry
             </h1>
-            <p className="font-body text-industrial-grey text-lg max-w-2xl leading-relaxed">
+            <p className="font-body text-white/80 text-lg max-w-2xl leading-relaxed">
               Cinematic UAV and long term time-lapse visual documentation & reporting. Precision data
               capture, safety-first deployment and high fidelity deliverables for the energy and
               industrial sectors.
@@ -123,7 +122,7 @@ export default function HomePage() {
               </CtaButton>
             </div>
           </div>
-          <div className="w-full md:w-2/5">
+          {/* <div className="w-full md:w-2/5">
             <div className="glass-panel rounded-2xl p-8 space-y-6 border-l-2 border-l-primary relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-20">
                 <MaterialIcon name="hub" className="text-6xl" />
@@ -166,7 +165,7 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
 
@@ -218,12 +217,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="w-full py-24 relative bg-background">
+      {/* Services Overview — landing target for the removed /services hub (see next.config.ts).
+          scroll-mt clears the fixed navbar when arriving via the #services anchor. */}
+      <section id="services" className="w-full py-24 relative bg-background scroll-mt-28">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="flex flex-col items-center mb-16 text-center">
             <SectionLabel className="mb-4 block text-base md:text-lg">Core Capabilities</SectionLabel>
-            <h2 className="font-headline font-black text-4xl md:text-5xl">Visual Intelligence Solutions</h2>
+            <h2 className="font-headline font-black text-4xl md:text-5xl">Our Core Services</h2>
             <div className="w-24 h-1 bg-primary mt-8" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -268,7 +268,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center md:items-start">
               <span className="text-primary font-headline font-black text-4xl">500+ Projects</span>
               <span className="text-surface/60 font-label uppercase tracking-[0.2em] text-[10px] font-bold mt-1">
-                Industrial Deployments
+                Across Diverse Industries
               </span>
             </div>
           </div>

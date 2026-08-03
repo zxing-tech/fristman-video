@@ -244,7 +244,7 @@ export default function AboutPage() {
             </Link>
             <Link
               className="inline-flex items-center justify-center gap-3 bg-transparent text-surface font-body uppercase tracking-widest text-sm font-bold px-8 py-4 rounded-full border border-surface/20 hover:border-primary hover:bg-primary/10 transition-colors"
-              href="/services"
+              href="/#services"
             >
               View Services
             </Link>

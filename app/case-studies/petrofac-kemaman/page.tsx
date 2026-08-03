@@ -88,7 +88,7 @@ export default function PetrofacKemamanPage() {
             <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
               Service
             </div>
-            <div className="font-bold text-sm">Safety Induction / Visual Asset Documentation</div>
+            <div className="font-bold text-sm">Safety and Induction Videos</div>
           </div>
           <div>
             <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">

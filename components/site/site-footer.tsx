@@ -3,7 +3,8 @@ import Link from "next/link"
 import { MaterialIcon } from "@/components/site/material-icon"
 
 const exploreLinks = [
-  { href: "/services", label: "Services" },
+  // No /services hub any more — this lands on the homepage services grid.
+  { href: "/#services", label: "Services" },
   { href: "/industries", label: "Industries" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/about", label: "About" },

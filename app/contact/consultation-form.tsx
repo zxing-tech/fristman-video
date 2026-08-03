@@ -197,14 +197,11 @@ export function ConsultationForm() {
               <option className={optionClass} value="Progression & Timelapses">
                 Progression & Timelapses
               </option>
-              <option className={optionClass} value="Visual Asset Documentation">
-                Visual Asset Documentation
+              <option className={optionClass} value="Safety and Induction Videos">
+                Safety and Induction Videos
               </option>
               <option className={optionClass} value="AI-Generated Video">
                 AI-Generated Video
-              </option>
-              <option className={optionClass} value="Inspection Reports">
-                Inspection Reports & Data Delivery
               </option>
               <option className={optionClass} value="Industrial Photography">
                 Industrial Photography

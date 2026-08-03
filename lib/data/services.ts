@@ -37,7 +37,7 @@ export const services: Service[] = [
     title: "Industrial Photography",
     icon: "photo_camera",
     summary:
-      "High-resolution stills for corporate reports, marketing collateral, and documentation of industrial operations.",
+      "Documenting critical structural phases, heavy lifts, and compliance checks.",
   },
   {
     slug: "progression-timelapse",
@@ -48,11 +48,11 @@ export const services: Service[] = [
       "Long-term visual documentation of construction and engineering projects to track progress and milestones.",
   },
   {
-    slug: "visual-documentation",
-    href: "/services/visual-documentation",
-    title: "Visual Documentation",
-    icon: "inventory_2",
+    slug: "safety-induction-videos",
+    href: "/services/safety-induction-videos",
+    title: "Safety and Induction Videos",
+    icon: "health_and_safety",
     summary:
-      "Systematic photographic and video recording of critical infrastructure assets for maintenance and archival purposes.",
+      "Onsite protocol tutorials covering PPE rules and hazard zones.",
   },
 ]

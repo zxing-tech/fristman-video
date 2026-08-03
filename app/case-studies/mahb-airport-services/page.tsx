@@ -315,7 +315,7 @@ export default function MahbAirportServicesPage() {
             </div>
             <Link
               className="text-sm font-bold uppercase tracking-widest border-b border-primary text-surface hover:text-primary transition-colors pb-1"
-              href="/services"
+              href="/#services"
             >
               View All Services
             </Link>

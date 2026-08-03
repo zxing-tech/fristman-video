@@ -125,7 +125,7 @@ export default function ThankYouConsultationPage() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <Link
             className="w-full md:w-auto bg-primary hover:bg-[#b01b21] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 group"
-            href="/services"
+            href="/#services"
           >
             View Services
             <MaterialIcon

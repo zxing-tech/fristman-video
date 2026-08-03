@@ -14,7 +14,6 @@ export const metadata = pageMeta({
 const structuredData = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "Progression & Timelapse", path: "/services/progression-timelapse" },
   ]),
   serviceSchema({
@@ -36,13 +35,13 @@ const stakeholderCards = [
     icon: "campaign",
     title: "Corporate Comms",
     description:
-      "High-quality cinematic assets ready for internal reporting, public relations, and stakeholder presentations detailing infrastructure development.",
+      "High-quality video assets ready for internal reporting, public relations, and stakeholder presentations detailing infrastructure development.",
   },
   {
     icon: "visibility",
     title: "Client Updates",
     description:
-      "Clear project visibility providing off-site stakeholders with accurate, methodical visual records of development intervals.",
+      "Clear project visibility providing off-site stakeholders with accurate, methodical video records of development intervals.",
   },
 ]
 
@@ -55,19 +54,20 @@ const captureApproachPoints = [
 const deliverables = [
   {
     icon: "movie",
-    title: "Monthly Update Films",
+    title: "Adhoc Project Status",
     description: "Edited sequences detailing chronological progression over 30-day intervals.",
   },
   {
     icon: "video_library",
-    title: "Milestone Reels",
+    title: "Milestone Reels To Reports",
     description: "Focused compilation videos highlighting significant structural achievements.",
   },
-  {
-    icon: "photo_library",
-    title: "Still Image Packs",
-    description: "High-resolution photographic documentation for reporting and presentations.",
-  },
+    {
+      icon: "photo_library",
+      title: "Drone Aerial Photographs And Maintenance The Explanation",
+      description:
+        "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
+    },
   {
     icon: "rate_review",
     title: "Review Versions",
@@ -105,28 +105,28 @@ const timelinePhases = [
   },
 ]
 
-const checklistItems = [
-  {
-    icon: "gpp_good",
-    title: "Site Access Requirements",
-    description: "Clearance protocols and restricted zone definitions.",
-  },
-  {
-    icon: "schedule",
-    title: "Safety Induction Schedules",
-    description: "Coordination for necessary site-specific safety briefings.",
-  },
-  {
-    icon: "map",
-    title: "Site-Aware Flight Planning",
-    description: "Mapping documentation routes to avoid operational interference.",
-  },
-  {
-    icon: "badge",
-    title: "Credentials Available",
-    description: "Documentation of personnel training and equipment specifics upon request.",
-  },
-]
+// const checklistItems = [
+//   {
+//     icon: "gpp_good",
+//     title: "Site Access Requirements",
+//     description: "Clearance protocols and restricted zone definitions.",
+//   },
+//   {
+//     icon: "schedule",
+//     title: "Safety Induction Schedules",
+//     description: "Coordination for necessary site-specific safety briefings.",
+//   },
+//   {
+//     icon: "map",
+//     title: "Site-Aware Flight Planning",
+//     description: "Mapping documentation routes to avoid operational interference.",
+//   },
+//   {
+//     icon: "badge",
+//     title: "Credentials Available",
+//     description: "Documentation of personnel training and equipment specifics upon request.",
+//   },
+// ]
 
 export default function ProgressionTimelapsePage() {
   return (
@@ -152,8 +152,8 @@ export default function ProgressionTimelapsePage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight mb-6 text-white leading-tight">
-            Progression & <br />
-            <span className="text-primary">Timelapse</span> Documentation
+            Construction Progress & <br />
+            <span className="text-primary">Timelapse</span> Capture
           </h1>
           <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
             Visual documentation for construction, fabrication, site upgrades, shutdowns,
@@ -320,7 +320,7 @@ export default function ProgressionTimelapsePage() {
         </div>
       </section>
 
-      {/* Section 5: Project Checklist */}
+      {/* Section 5: Project Checklist
       <section className="py-24 bg-background border-t border-surface/5">
         <div className="container mx-auto px-6 lg:px-12 max-w-[800px]">
           <div className="glass-panel rounded-2xl p-8 md:p-12 border-l-4 border-l-primary">
@@ -352,7 +352,7 @@ export default function ProgressionTimelapsePage() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
       <section className="py-32 bg-dark-ui relative overflow-hidden text-center">

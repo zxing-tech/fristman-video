@@ -9,9 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   // Top-level + hub pages (thank-you pages are intentionally excluded — noindex).
+  // There is no /services hub: it redirects to the homepage grid at /#services.
   const core: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "", priority: 1.0, freq: "weekly" },
-    { path: "/services", priority: 0.9, freq: "monthly" },
     { path: "/industries", priority: 0.9, freq: "monthly" },
     { path: "/case-studies", priority: 0.9, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "yearly" },
