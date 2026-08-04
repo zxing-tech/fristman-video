@@ -107,7 +107,7 @@ export default function AiGeneratedVideoPage() {
               </Link>
               <Link
                 className="glass-panel text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:border-primary transition-all duration-300 flex items-center justify-center gap-2"
-                href="/case-studies"
+                href="/our-work"
               >
                 <MaterialIcon name="play_circle" />
                 View Our Work

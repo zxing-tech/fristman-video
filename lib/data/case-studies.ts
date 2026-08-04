@@ -10,7 +10,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "petrofac-kemaman",
-    href: "/case-studies/petrofac-kemaman",
+    href: "/our-work/petrofac-kemaman",
     title: "Petrofac Kemaman Supply Base",
     client: "Petrofac",
     industry: "Oil & Gas",
@@ -18,7 +18,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "mahb-airport-services",
-    href: "/case-studies/mahb-airport-services",
+    href: "/our-work/mahb-airport-services",
     title: "MAHB Airport Services 2018",
     client: "MAHB",
     industry: "Aviation & Infrastructure",
@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "servishero-campaign",
-    href: "/case-studies/servishero-campaign",
+    href: "/our-work/servishero-campaign",
     title: "ServisHero Campaign",
     client: "ServisHero",
     industry: "Commercial",
@@ -34,7 +34,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "syndel-asia",
-    href: "/case-studies/syndel-asia",
+    href: "/our-work/syndel-asia",
     title: "Syndel Asia Industrial Documentation",
     client: "Syndel Asia",
     industry: "Industrial",
@@ -42,7 +42,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "ecobalance",
-    href: "/case-studies/ecobalance",
+    href: "/our-work/ecobalance",
     title: "EcoBalance Corporate Story",
     client: "EcoBalance",
     industry: "Environmental Services",
@@ -50,7 +50,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "ben-line-agencies",
-    href: "/case-studies/ben-line-agencies",
+    href: "/our-work/ben-line-agencies",
     title: "Ben Line Agencies Logistics Industrial Media",
     client: "Ben Line Agencies",
     industry: "Logistics & Marine",

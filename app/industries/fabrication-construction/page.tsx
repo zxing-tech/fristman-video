@@ -154,7 +154,7 @@ export default function FabricationConstructionPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/case-studies"
+              href="/our-work"
               className="bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#b01b21] transition-all duration-300 shadow-lg shadow-primary/20 flex items-center group"
             >
               View Sector Portfolio

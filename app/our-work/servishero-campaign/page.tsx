@@ -9,7 +9,7 @@ export const metadata = pageMeta({
   title: "ServisHero Drone Campaign Case Study",
   description:
     "ServisHero case study: industrial drone cinematography for a Southeast Asia service campaign, featuring site-aware aerial capture and HSE-compliant filming.",
-  path: "/case-studies/servishero-campaign",
+  path: "/our-work/servishero-campaign",
   ogImage: "/images/stitch/a6afb92c9f.jpg",
   ogType: "article",
 })
@@ -17,14 +17,14 @@ export const metadata = pageMeta({
 const jsonLd = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "ServisHero Campaign", path: "/case-studies/servishero-campaign" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "ServisHero Campaign", path: "/our-work/servishero-campaign" },
   ]),
   creativeWorkSchema({
     name: "ServisHero Campaign",
     description:
       "A drone-enabled visual campaign documenting ServisHero's regional service operations across Southeast Asia with site-aware, HSE-compliant aerial capture.",
-    path: "/case-studies/servishero-campaign",
+    path: "/our-work/servishero-campaign",
     client: "ServisHero",
     image: "/images/stitch/a6afb92c9f.jpg",
   })
@@ -429,7 +429,7 @@ export default function ServisHeroCampaignPage() {
               </RequestAccessTrigger>
               <Link
                 className="text-surface/60 hover:text-surface text-xs uppercase tracking-widest font-bold flex items-center gap-2 group"
-                href="/case-studies"
+                href="/our-work"
               >
                 View Portfolio{" "}
                 <MaterialIcon

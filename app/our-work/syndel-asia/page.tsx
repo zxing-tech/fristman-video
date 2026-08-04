@@ -9,7 +9,7 @@ export const metadata = pageMeta({
   title: "Syndel Asia - Industrial Site Documentation",
   description:
     "Case study: industrial drone cinematography for Syndel Asia fabrication yard and marine terminal in Malaysia, for safety training and stakeholder reporting.",
-  path: "/case-studies/syndel-asia",
+  path: "/our-work/syndel-asia",
   ogImage: "/images/stitch/ea3a0c1e8b.jpg",
   ogType: "article",
 })
@@ -17,14 +17,14 @@ export const metadata = pageMeta({
 const jsonLd = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Syndel Asia Documentation", path: "/case-studies/syndel-asia" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "Syndel Asia Documentation", path: "/our-work/syndel-asia" },
   ]),
   creativeWorkSchema({
     name: "Syndel Asia Documentation",
     description:
       "Industrial drone cinematography documenting Syndel Asia's fabrication yard and marine terminal operations for safety training and stakeholder reporting.",
-    path: "/case-studies/syndel-asia",
+    path: "/our-work/syndel-asia",
     client: "Syndel Asia",
     image: "/images/stitch/ea3a0c1e8b.jpg",
   })

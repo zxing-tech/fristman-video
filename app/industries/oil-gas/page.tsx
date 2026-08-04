@@ -145,7 +145,7 @@ export default function OilGasIndustryPage() {
               <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out z-0" />
             </Link>
             <Link
-              href="/case-studies"
+              href="/our-work"
               className="group px-8 py-4 bg-transparent text-white rounded-full font-label uppercase tracking-wider text-sm font-bold border border-white/20 hover:border-primary hover:bg-primary/10 transition-all duration-300 glass-panel"
             >
               <span className="flex items-center">
@@ -414,7 +414,7 @@ export default function OilGasIndustryPage() {
                   </div>
                 </div>
                 <Link
-                  href="/case-studies/petrofac-kemaman"
+                  href="/our-work/petrofac-kemaman"
                   className="inline-flex items-center text-xs font-label uppercase tracking-widest text-white border-b border-primary pb-1 hover:text-primary transition-colors"
                 >
                   View Case Study <MaterialIcon name="arrow_forward" className="text-[16px] ml-1" />

@@ -17,7 +17,7 @@ const linksBeforeServices: NavLink[] = [{ href: "/", label: "Home" }]
 
 const linksAfterServices: NavLink[] = [
   { href: "/industries", label: "Industries" },
-  { href: "/case-studies", label: "Our Work" },
+  { href: "/our-work", label: "Our Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ]

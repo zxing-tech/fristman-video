@@ -108,7 +108,7 @@ export default function EnergyUtilitiesPage() {
                   className="ml-2 transition-transform group-hover:translate-x-1"
                 />
               </a>
-              <Link className={`${btnSecondary} group`} href="/case-studies">
+              <Link className={`${btnSecondary} group`} href="/our-work">
                 View Energy Portfolio
               </Link>
             </div>

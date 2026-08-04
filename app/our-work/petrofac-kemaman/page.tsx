@@ -9,7 +9,7 @@ export const metadata = pageMeta({
   title: "Petrofac Kemaman Supply Base Video Case Study",
   description:
     "Petrofac Kemaman Supply Base case study: safety induction and visual documentation at an Oil & Gas site in Malaysia. Gated video, access requires clearance.",
-  path: "/case-studies/petrofac-kemaman",
+  path: "/our-work/petrofac-kemaman",
   ogImage: "/images/stitch/920da913d9.jpg",
   ogType: "article",
 })
@@ -17,14 +17,14 @@ export const metadata = pageMeta({
 const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Petrofac Kemaman Supply Base", path: "/case-studies/petrofac-kemaman" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "Petrofac Kemaman Supply Base", path: "/our-work/petrofac-kemaman" },
   ]),
   creativeWorkSchema({
     name: "Petrofac Kemaman Supply Base",
     description:
       "Safety induction and visual asset documentation filmed at Petrofac's Kemaman Supply Base, an Oil & Gas facility in Malaysia.",
-    path: "/case-studies/petrofac-kemaman",
+    path: "/our-work/petrofac-kemaman",
     client: "Petrofac",
     image: "/images/stitch/920da913d9.jpg",
   })

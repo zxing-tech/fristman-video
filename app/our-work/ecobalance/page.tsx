@@ -8,7 +8,7 @@ export const metadata = pageMeta({
   title: "EcoBalance Industrial Video Case Study",
   description:
     "Case study: industrial drone cinematography for EcoBalance in Malaysia, capturing facility scale for corporate storytelling without disrupting site operations.",
-  path: "/case-studies/ecobalance",
+  path: "/our-work/ecobalance",
   ogImage: "/images/stitch/14777df4fc.jpg",
   ogType: "article",
 })
@@ -16,14 +16,14 @@ export const metadata = pageMeta({
 const jsonLd = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "EcoBalance Corporate Story", path: "/case-studies/ecobalance" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "EcoBalance Corporate Story", path: "/our-work/ecobalance" },
   ]),
   creativeWorkSchema({
     name: "EcoBalance Corporate Story",
     description:
       "Drone-enabled corporate storytelling for EcoBalance, capturing industrial facility scale in Malaysia without disrupting operations.",
-    path: "/case-studies/ecobalance",
+    path: "/our-work/ecobalance",
     client: "EcoBalance",
     image: "/images/stitch/14777df4fc.jpg",
   })

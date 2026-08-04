@@ -43,7 +43,7 @@ export default function ThankYouCaseStudyAccessPage() {
             <MaterialIcon name="lock_open" fill className="text-5xl text-primary" />
           </div>
           <p className="text-primary font-bold tracking-[0.3em] text-sm mb-4">
-            /CASE-STUDIES/REQUEST-ACCESS/THANK-YOU
+            /our-work/REQUEST-ACCESS/THANK-YOU
           </p>
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter uppercase mb-6 leading-none">
             Access Request <span className="text-primary">Received</span>
@@ -126,7 +126,7 @@ export default function ThankYouCaseStudyAccessPage() {
         <section className="mt-20 flex flex-col md:flex-row gap-6 justify-center items-center">
           <Link
             className="group relative px-10 py-4 bg-primary rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 flex items-center gap-3"
-            href="/case-studies"
+            href="/our-work"
           >
             <span className="relative z-10 text-white font-bold uppercase tracking-widest text-sm">
               View Public Case Studies

@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   title: "Ben Line Agencies: Industrial Drone Case Study",
   description:
     "Drone cinematography case study for Ben Line Agencies' port and logistics hubs in Southeast Asia, capturing industrial scale under strict maritime safety rules.",
-  path: "/case-studies/ben-line-agencies",
+  path: "/our-work/ben-line-agencies",
   ogImage: "/images/stitch/a73f0ee0ad.jpg",
   ogType: "article",
 })
@@ -18,14 +18,14 @@ export const metadata = pageMeta({
 const jsonLd = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Ben Line Agencies", path: "/case-studies/ben-line-agencies" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "Ben Line Agencies", path: "/our-work/ben-line-agencies" },
   ]),
   creativeWorkSchema({
     name: "Ben Line Agencies",
     description:
       "Drone-enabled cinematography and visual documentation of Ben Line Agencies' logistics hubs and port operations in Southeast Asia.",
-    path: "/case-studies/ben-line-agencies",
+    path: "/our-work/ben-line-agencies",
     client: "Ben Line Agencies",
     image: "/images/stitch/a73f0ee0ad.jpg",
   }),
@@ -258,7 +258,7 @@ export default function BenLineAgenciesPage() {
             </RequestAccessTrigger>
             <Link
               className="text-surface hover:text-primary transition-colors font-bold uppercase text-xs tracking-[0.2em] flex items-center gap-2"
-              href="/case-studies"
+              href="/our-work"
             >
               View Portfolio
               <MaterialIcon name="chevron_right" />

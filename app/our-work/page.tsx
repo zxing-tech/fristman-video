@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
-import { CaseStudiesPortfolio } from "@/components/site/case-studies-portfolio"
+import { CaseStudiesPortfolio } from "@/components/site/our-work-portfolio"
 import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
 import { JsonLd } from "@/components/seo/json-ld"
 
@@ -9,13 +9,13 @@ export const metadata = pageMeta({
   title: "Case Studies: Oil & Gas Drone Video Portfolio",
   description:
     "Case studies of industrial drone cinematography and safety documentation for Oil & Gas and heavy industry clients across Malaysia and Southeast Asia.",
-  path: "/case-studies",
+  path: "/our-work",
 })
 
 const caseStudiesSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
+    { name: "Case Studies", path: "/our-work" },
   ])
 )
 

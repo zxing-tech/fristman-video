@@ -110,7 +110,7 @@ export default function SafetyInductionVideosPage() {
               </Link>
               <Link
                 className="bg-transparent border border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-all duration-300 rounded-full px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2"
-                href="/case-studies"
+                href="/our-work"
               >
                 View Sample Deliverables
               </Link>

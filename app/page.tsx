@@ -117,7 +117,7 @@ export default function HomePage() {
               <CtaButton href="/contact" arrow className="w-full sm:w-fit">
                 Get a Full Quote
               </CtaButton>
-              <CtaButton href="/case-studies" variant="secondary" className="w-full sm:w-fit">
+              <CtaButton href="/our-work" variant="secondary" className="w-full sm:w-fit">
                 View Our Work
               </CtaButton>
             </div>

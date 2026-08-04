@@ -345,7 +345,7 @@ export default function IndustriesPage() {
               </p>
               <Link
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-transparent text-surface font-label uppercase tracking-widest text-xs font-bold border border-surface/20 hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
-                href="/case-studies"
+                href="/our-work"
               >
                 View Case Studies
                 <MaterialIcon

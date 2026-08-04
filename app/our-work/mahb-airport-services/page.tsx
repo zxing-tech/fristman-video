@@ -9,7 +9,7 @@ export const metadata = pageMeta({
   title: "MAHB Airport Services Case Study",
   description:
     "Industrial drone cinematography case study: MAHB Airport Services in Malaysia, documenting ground logistics with site-aware aerial capture for Southeast Asia.",
-  path: "/case-studies/mahb-airport-services",
+  path: "/our-work/mahb-airport-services",
   ogImage: "/images/stitch/e5f0e42271.jpg",
   ogType: "article",
 })
@@ -17,14 +17,14 @@ export const metadata = pageMeta({
 const jsonLd = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "MAHB Airport Services", path: "/case-studies/mahb-airport-services" },
+    { name: "Case Studies", path: "/our-work" },
+    { name: "MAHB Airport Services", path: "/our-work/mahb-airport-services" },
   ]),
   creativeWorkSchema({
     name: "MAHB Airport Services",
     description:
       "Industrial drone cinematography and site-aware aerial documentation of MAHB Airport Services' ground logistics operations in Malaysia.",
-    path: "/case-studies/mahb-airport-services",
+    path: "/our-work/mahb-airport-services",
     client: "MAHB",
     image: "/images/stitch/e5f0e42271.jpg",
   })
@@ -49,7 +49,7 @@ export default function MahbAirportServicesPage() {
               Home
             </Link>
             <MaterialIcon name="chevron_right" className="text-[10px]" />
-            <Link className="hover:text-white transition-colors" href="/case-studies">
+            <Link className="hover:text-white transition-colors" href="/our-work">
               Case Studies
             </Link>
             <MaterialIcon name="chevron_right" className="text-[10px]" />

@@ -95,13 +95,13 @@ export default function AboutPage() {
               <span className="font-semibold text-surface">Firstman Productions</span>{" "}
               (001335693-M).
             </p>
-            <Link
+            {/* <Link
               href="/about/team"
               className="inline-flex items-center gap-2 text-primary font-body uppercase tracking-widest text-sm font-bold hover:gap-3 transition-all duration-300"
             >
               Meet the Team
               <MaterialIcon name="arrow_forward" className="text-lg" />
-            </Link>
+            </Link> */}
           </div>
           <div className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel bg-black border-surface/10 group">
             <div

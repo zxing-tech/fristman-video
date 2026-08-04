@@ -20,7 +20,7 @@ const cardHoverLift =
 
 const publicCards: PortfolioCardData[] = [
   {
-    href: "/case-studies/mahb-airport-services",
+    href: "/our-work/mahb-airport-services",
     client: "MAHB",
     title: "Airport Services Campaign",
     summary:
@@ -29,7 +29,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Facility Overview", "Public"],
   },
   {
-    href: "/case-studies/ecobalance",
+    href: "/our-work/ecobalance",
     client: "EcoBalance",
     title: "Corporate Short Story",
     summary:
@@ -38,7 +38,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Public"],
   },
   {
-    href: "/case-studies/servishero-campaign",
+    href: "/our-work/servishero-campaign",
     client: "ServisHero",
     title: "Google Adwords Campaign",
     summary:
@@ -47,7 +47,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Public"],
   },
   {
-    href: "/case-studies/syndel-asia",
+    href: "/our-work/syndel-asia",
     client: "Syndel Asia",
     title: "Industrial Documentation",
     summary:
@@ -56,7 +56,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Facility Overview", "Photography", "Public"],
   },
   {
-    href: "/case-studies/ben-line-agencies",
+    href: "/our-work/ben-line-agencies",
     client: "Ben Line Agencies",
     title: "Logistics / Industrial Media",
     summary:
@@ -201,7 +201,7 @@ export function CaseStudiesPortfolio() {
                   <MaterialIcon name="key" className="text-[18px]" /> Request Access
                 </RequestAccessTrigger>
                 <Link
-                  href="/case-studies/petrofac-kemaman"
+                  href="/our-work/petrofac-kemaman"
                   className="px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest bg-transparent text-surface border border-surface/20 hover:border-primary hover:bg-primary/10 transition-colors flex items-center justify-center gap-2"
                 >
                   Read Public Summary
