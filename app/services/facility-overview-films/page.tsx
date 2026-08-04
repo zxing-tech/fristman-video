@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
 import { SectionLabel } from "@/components/site/section-label"
+import { sectors } from "@/lib/data/sectors"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -26,12 +27,8 @@ const schema = graph(
   }),
 )
 
-const designedFor = [
-  { icon: "factory", label: "Oil & Gas" },
-  { icon: "electric_bolt", label: "Energy Sector" },
-  { icon: "directions_boat", label: "Marine / Offshore" },
-  { icon: "construction", label: "Fabrication Yards" },
-]
+// The four sectors come from lib/data/sectors.ts — the same list that drives the
+// homepage #industries section, so the taxonomy stays in one place.
 
 const focusAreas = [
   {
@@ -138,16 +135,21 @@ export default function FacilityOverviewFilmsPage() {
               Designed For
             </h3>
             <ul className="space-y-4">
-              {designedFor.map((item) => (
+              {sectors.map((sector) => (
                 <li
-                  key={item.label}
-                  className="glass-panel rounded-xl p-4 flex items-center gap-4 border border-surface/5 group cursor-default transition-colors hover:border-surface/20"
+                  key={sector.slug}
+                  className="glass-panel rounded-xl p-4 flex items-start gap-4 border border-surface/5 group cursor-default transition-colors hover:border-surface/20"
                 >
                   <MaterialIcon
-                    name={item.icon}
-                    className="text-surface/50 transition-colors group-hover:text-primary"
+                    name={sector.icon}
+                    className="text-surface/50 transition-colors group-hover:text-primary mt-0.5"
                   />
-                  <span className="font-bold tracking-tight">{item.label}</span>
+                  <div>
+                    <span className="font-bold tracking-tight block">{sector.title}</span>
+                    <p className="text-industrial-grey text-xs leading-relaxed mt-1">
+                      {sector.summary}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>

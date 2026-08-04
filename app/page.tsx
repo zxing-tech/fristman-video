@@ -2,6 +2,7 @@ import { MaterialIcon } from "@/components/site/material-icon"
 import { SectionLabel } from "@/components/site/section-label"
 import { CtaButton } from "@/components/site/cta-button"
 import { ServiceCard } from "@/components/site/service-card"
+import { sectors } from "@/lib/data/sectors"
 import { pageMeta } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -86,6 +87,15 @@ const serviceCards = [
       "Documenting critical structural phases, heavy lifts, and compliance checks.",
     href: "/services/industrial-photography",
   },
+]
+
+// Countries the crew mobilises to. Kept in sync with the Region / Country
+// options in app/contact/consultation-form.tsx.
+const regionalCoverage = [
+  { country: "Malaysia", status: "Sabah & Sarawak focus", highlight: true },
+  { country: "Singapore", status: "Active", highlight: false },
+  { country: "Indonesia", status: "Active", highlight: false },
+  { country: "Brunei", status: "Active", highlight: false },
 ]
 
 export default function HomePage() {
@@ -236,6 +246,93 @@ export default function HomePage() {
                 href={card.href}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sectors — landing target for the removed /industries pages (see next.config.ts).
+          scroll-mt clears the fixed navbar when arriving via the #industries anchor. */}
+      <section
+        id="industries"
+        className="w-full py-24 bg-graphite border-y border-surface/10 scroll-mt-28"
+      >
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="flex flex-col items-center mb-16 text-center">
+            <SectionLabel className="mb-4 block text-base md:text-lg">Where We Operate</SectionLabel>
+            <h2 className="font-headline font-black text-4xl md:text-5xl">Sectors We Serve</h2>
+            <p className="font-body text-industrial-grey max-w-2xl mt-6">
+              We work where scale, safety and site access matter most. Every deployment is planned
+              around live operations rather than dropped on top of them.
+            </p>
+            <div className="w-24 h-1 bg-primary mt-8" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sectors.map((sector) => (
+              <div
+                key={sector.slug}
+                className="glass-panel rounded-2xl p-8 flex flex-col group transition-all duration-300 hover:border-primary/50 hover:-translate-y-1"
+              >
+                <div className="mb-6 h-12 w-12 rounded-full border border-surface/20 flex items-center justify-center group-hover:border-primary transition-colors">
+                  <MaterialIcon
+                    name={sector.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-surface mb-3">
+                  {sector.title}
+                </h3>
+                <p className="font-body text-industrial-grey text-sm leading-relaxed mb-6">
+                  {sector.summary}
+                </p>
+                <ul className="mt-auto space-y-2 pt-6 border-t border-surface/10">
+                  {sector.focus.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <MaterialIcon
+                        name="chevron_right"
+                        className="text-primary text-[16px] mt-0.5 shrink-0"
+                      />
+                      <span className="font-body text-xs text-industrial-grey">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Regional coverage */}
+          <div className="glass-panel rounded-2xl mt-6 p-8 md:p-10 flex flex-col lg:flex-row gap-10 lg:items-center">
+            <div className="lg:w-2/5">
+              <div className="inline-flex items-center gap-2 mb-4 text-primary">
+                <MaterialIcon name="map" />
+                <span className="font-label font-bold text-xs uppercase tracking-widest">
+                  Regional Coverage
+                </span>
+              </div>
+              <h3 className="font-headline font-bold text-2xl md:text-3xl text-surface mb-4 leading-tight">
+                Southeast Asia Operations
+              </h3>
+              <p className="font-body text-industrial-grey text-sm">
+                Rapid deployment across the region&apos;s major industrial hubs, with experience
+                working through the site access and clearance requirements that come with them.
+              </p>
+            </div>
+            <div className="lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+              {regionalCoverage.map((row) => (
+                <div
+                  key={row.country}
+                  className="flex items-center justify-between border-b border-surface/10 pb-3"
+                >
+                  <span className="font-body font-bold text-surface">{row.country}</span>
+                  <span
+                    className={`font-label text-xs uppercase tracking-wider ${
+                      row.highlight ? "text-primary" : "text-industrial-grey"
+                    }`}
+                  >
+                    {row.status}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

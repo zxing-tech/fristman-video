@@ -103,6 +103,15 @@ const timelinePhases = [
     alt: "Steel I-beams rising against a black sky beside a crane hook",
     reversed: false,
   },
+  {
+    phase: "Phase 04",
+    title: "Load-Out & Transport Prep",
+    description:
+      "Final-state documentation of completed modules in the yard before barge loading, sea fastening and departure to site.",
+    image: "/images/stitch/2c4e1b2f45.jpg",
+    alt: "Waterfront fabrication yard at dusk with completed modules staged beside a heavy-lift vessel",
+    reversed: true,
+  },
 ]
 
 // const checklistItems = [

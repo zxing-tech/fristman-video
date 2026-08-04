@@ -134,7 +134,7 @@ export function ConsultationForm() {
           type="email"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Country */}
         <div className="space-y-2">
           <label className={labelClass} htmlFor="country">
@@ -162,6 +162,43 @@ export function ConsultationForm() {
               </option>
               <option className={optionClass} value="Brunei">
                 Brunei
+              </option>
+              <option className={optionClass} value="Other">
+                Other
+              </option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-surface/50">
+              <MaterialIcon name="expand_more" className="text-[20px]" />
+            </div>
+          </div>
+        </div>
+        {/* Sector — the industry taxonomy that used to live on the /industries
+            pages; kept here so enquiries still arrive tagged by sector. */}
+        <div className="space-y-2">
+          <label className={labelClass} htmlFor="sector">
+            Sector
+          </label>
+          <div className="relative">
+            <select
+              className={`${inputClass} appearance-none`}
+              id="sector"
+              name="sector"
+              defaultValue=""
+            >
+              <option className="bg-graphite text-surface/50" value="">
+                Select Sector
+              </option>
+              <option className={optionClass} value="Oil & Gas">
+                Oil &amp; Gas
+              </option>
+              <option className={optionClass} value="Energy & Utilities">
+                Energy &amp; Utilities
+              </option>
+              <option className={optionClass} value="Marine & Offshore">
+                Marine &amp; Offshore
+              </option>
+              <option className={optionClass} value="Fabrication & Construction">
+                Fabrication &amp; Construction
               </option>
               <option className={optionClass} value="Other">
                 Other

@@ -45,6 +45,42 @@ const coreValues = [
   },
 ]
 
+// What happens before the cameras come out. Buyers in Oil & Gas, marine and
+// fabrication ask about these four things first.
+const deployment = [
+  {
+    icon: "badge",
+    title: "Access & Clearances",
+    description:
+      "Coordination for permit-to-work systems, facility inductions and site-specific access protocols ahead of mobilisation.",
+  },
+  {
+    icon: "health_and_safety",
+    title: "Safety & Site Coordination",
+    description:
+      "We align with your HSE managers on operational parameters, required PPE, restricted zones and permitting for both ground and drone-enabled capture.",
+  },
+  {
+    icon: "cloudy",
+    title: "Weather Windows",
+    description:
+      "Offshore and marine work is scheduled against forecasts, so aerial capture lands in conditions that actually produce usable footage.",
+  },
+  {
+    icon: "engineering",
+    title: "Non-Disruptive Capture",
+    description:
+      "Filming is planned to run alongside active infrastructure. Your operations set the schedule, not our shot list.",
+  },
+]
+
+const dataHandling = [
+  { icon: "verified_user", label: "NDA executed before deployment" },
+  { icon: "encrypted", label: "Encrypted transfer & storage" },
+  { icon: "lock_person", label: "Password-gated client portals" },
+  { icon: "hard_drive", label: "Offline cold storage on request" },
+]
+
 const capabilities = [
   { icon: "flight", title: "Certified UAV Pilots" },
   { icon: "videocam", title: "Ground Camera Crews" },
@@ -220,6 +256,73 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deployment & Site Coordination */}
+      <section className="max-w-7xl mx-auto px-6 mb-32">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-headline font-bold uppercase tracking-tight mb-4">
+            Deployment &amp; Site Coordination
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-industrial-grey max-w-2xl mx-auto">
+            Most of the work on a live industrial site happens before the first flight. This is
+            what we settle with your team first.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {deployment.map((item) => (
+            <div
+              key={item.title}
+              className="glass-panel p-8 rounded-2xl flex items-start gap-6 border-l-2 border-l-transparent hover:border-l-primary transition-colors group"
+            >
+              <div className="w-12 h-12 shrink-0 rounded-full bg-background/50 border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                <MaterialIcon name={item.icon} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold uppercase tracking-wide mb-3">{item.title}</h3>
+                <p className="text-sm text-industrial-grey leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Confidentiality & Data Handling */}
+      <section className="max-w-7xl mx-auto px-6 mb-32">
+        <div className="glass-panel rounded-3xl p-10 md:p-16 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-20 pointer-events-none" />
+          <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-4">
+              <div className="w-20 h-20 rounded-full bg-background/50 border border-primary/30 flex items-center justify-center mb-8">
+                <MaterialIcon name="lock" fill className="text-4xl text-primary" />
+              </div>
+              <h2 className="text-3xl font-headline font-bold uppercase tracking-tight mb-4">
+                Confidentiality &amp; Data Handling
+              </h2>
+              <div className="w-16 h-1 bg-primary" />
+            </div>
+            <div className="lg:col-span-8">
+              <p className="text-industrial-grey text-lg leading-relaxed mb-8">
+                Site layouts, operational procedures and fabrication techniques are proprietary,
+                and we treat footage of them that way. Raw material is moved and stored through
+                controlled channels, and anything sensitive is delivered gated rather than posted
+                publicly. Access to those deliverables is logged.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {dataHandling.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 bg-surface/5 p-4 rounded-xl border border-surface/5"
+                  >
+                    <MaterialIcon name={item.icon} className="text-primary shrink-0" />
+                    <span className="text-sm font-bold uppercase tracking-wider">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

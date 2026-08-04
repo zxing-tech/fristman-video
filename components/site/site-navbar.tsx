@@ -16,7 +16,6 @@ type NavLink = { href: string; label: string }
 const linksBeforeServices: NavLink[] = [{ href: "/", label: "Home" }]
 
 const linksAfterServices: NavLink[] = [
-  { href: "/industries", label: "Industries" },
   { href: "/our-work", label: "Our Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

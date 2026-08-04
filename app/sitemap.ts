@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next"
 
 import { caseStudies } from "@/lib/data/our-work"
-import { industries } from "@/lib/data/industries"
 import { services } from "@/lib/data/services"
 import { SITE } from "@/lib/seo"
 
@@ -9,10 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   // Top-level + hub pages (thank-you pages are intentionally excluded — noindex).
-  // There is no /services hub: it redirects to the homepage grid at /#services.
+  // Neither /services nor /industries exists: both redirect to homepage sections
+  // (/#services and /#industries), so neither belongs here.
   const core: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "", priority: 1.0, freq: "weekly" },
-    { path: "/industries", priority: 0.9, freq: "monthly" },
     { path: "/our-work", priority: 0.9, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "yearly" },
     { path: "/about/team", priority: 0.5, freq: "yearly" },
@@ -22,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const detail = [
     ...services.map((s) => s.href),
-    ...industries.map((i) => i.href),
     ...caseStudies.map((c) => c.href),
   ].map((path) => ({ path, priority: 0.8, freq: "monthly" as const }))
 

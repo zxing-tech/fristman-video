@@ -19,12 +19,12 @@ Perhatikan frasa **"it doesn't just go to the video"** — klien mengira videony
 | Temuan | Bukti di repo |
 |---|---|
 | **Nol video di seluruh situs** | Tidak ada `<video>`, iframe YouTube/Vimeo, atau file `.mp4`/`.webm` di `public/` |
-| 7 ikon play yang tidak memutar apa pun | `app/industries/oil-gas/page.tsx` ("View Sector Reel" → grid foto), `app/industries/page.tsx`, `app/industries/fabrication-construction/page.tsx`, `app/our-work/syndel-asia/page.tsx` (×2), `app/our-work/servishero-campaign/page.tsx`, `app/services/ai-generated-video/page.tsx` |
+| ~~7~~ **4** ikon play yang tidak memutar apa pun | `app/our-work/syndel-asia/page.tsx` (×2), `app/our-work/servishero-campaign/page.tsx`, `app/services/ai-generated-video/page.tsx`. Tiga sisanya ikut hilang saat `app/industries/*` dihapus (2026-08-04) |
 | Semua 88 gambar = render AI, bukan foto proyek | `public/images/stitch/` — asalnya `lh3.googleusercontent.com/aida-public/` (Google Stitch), lihat `lib/data/image-manifest.json`. Maks **512px** sisi terpanjang, direntangkan jadi hero 819px |
 | Teks placeholder internal tayang di production | `app/our-work/ecobalance/page.tsx:124-148` → `[CONFIRM CLIENT APPROVAL]`, `[REPLACE PLACEHOLDER TEXT]`, `[APPROVED IMAGERY ONLY]`. Juga di `app/our-work/syndel-asia/page.tsx` |
 | Portofolio berisi tebakan, bukan pekerjaan | Judul section **"Likely Deliverables"** (`ecobalance:200`), "Standard Visual Deliverables" (`mahb-airport-services`) |
 | Angka & prop karangan | `Ref: 2024-EB-CS`, `256-bit encryption`, `Operational Reference 04`, progress bar "Protocol Status" dengan `scale-x-75` hardcoded |
-| Klaim tak terbukti | `app/page.tsx:269` → **"500+ Projects"** tepat di atas portofolio berisi 6 item |
+| ~~Klaim tak terbukti~~ → **klaimnya benar, buktinya yang tidak ada** | `app/page.tsx:366` → "500+ Projects" tepat di atas portofolio berisi 6 item. **Update 2026-08-04:** pemilik mengonfirmasi 25+ thn, 15+ thn, dan 500+ proyek semuanya akurat dan bisa dibuktikan. Angkanya boleh tayang. Masalahnya bukan kejujuran angka itu, tapi tidak adanya satu pun proyek yang bisa ditonton di bawahnya |
 | Nol testimonial | Tidak ada satu pun kutipan klien di `app/our-work/` |
 | Homepage tidak punya section portofolio | `app/page.tsx` sama sekali tidak menampilkan pekerjaan |
 | Belum terkonfirmasi | Apakah 6 "case study" yang ada memang proyek nyata, atau karangan Stitch |
@@ -83,8 +83,8 @@ Ini **triase kejujuran**, bukan perbaikan. Situs akan terasa lebih kosong setela
 - [ ] Hapus 6 chip placeholder di `ecobalance` + `syndel-asia`
 - [ ] Hapus semua prop karangan (`Ref: 2024-EB-CS`, `256-bit encryption`, `Operational Reference 04`, progress bar palsu)
 - [ ] Ganti judul hedged "Likely Deliverables" / "Standard Visual Deliverables"
-- [ ] Pangkas prosa halaman `app/industries/*` sekitar 50%
-- [ ] Selesaikan klaim `500+ Projects` di `app/page.tsx:269` — buktikan atau hapus
+- [x] ~~Pangkas prosa halaman `app/industries/*` sekitar 50%~~ — **selesai secara radikal (2026-08-04)**: hub `/industries` + 4 halaman sektor dihapus seluruhnya. Yang bersubstansi dipindah (taksonomi sektor → grid `/#industries` via `lib/data/sectors.ts` + `/services/facility-overview-films`, cakupan regional → homepage, PTW/HSE/weather window + NDA/enkripsi/portal gated → 2 section baru di `/about`, fase load-out → Phase 04 di `/services/progression-timelapse`, taksonomi sektor juga jadi field Sector di form kontak). Sisanya prosa kosong dan ikut terbuang. Semua URL lama 308 → `/#industries`
+- [x] ~~Selesaikan klaim `500+ Projects` — buktikan atau hapus~~ — **terkonfirmasi akurat oleh pemilik (2026-08-04)**, biarkan tayang. Lihat `PRODUCT.md` → `## Evidence on Hand`
 - [ ] Tambah grid "Recent Work" di homepage
 - [ ] **Roster klien** — 26 logo di `public/images/clients/` adalah aset nyata paling tidak terpakai. Satu baris per klien: logo, tahun, scope 1 kalimat, deliverable. Nol fotografi dibutuhkan. Ini satu-satunya *bukti* baru yang bisa diproduksi Fase 1
 - [ ] Berhenti merentangkan sumber 512px jadi hero 819px
@@ -97,7 +97,7 @@ Kalau container-nya di-ship duluan, hasilnya grid cantik yang kosong — versi l
 - [ ] `/our-work` jadi satu halaman panjang dengan section per sektor ber-`id` + `scroll-mt-28` (pola yang sudah dipakai di `/#services`); chip filter jadi anchor link — persis yang diminta klien, dan crawlable
 - [ ] Anatomi kartu: media 16:9 (frame asli) → judul ≤6 kata → satu baris ≤18 kata → satu baris metadata `Client · Sector · Year · Format`
 - [ ] 6 detail page **dikecilkan jadi satu template, jangan dihapus** — cap ~120 kata, urutan wajib: player dulu → spec strip (Client / Site / Year / Deliverable) → stills → 3 bullet → next/prev. Menghapusnya cuma mengubah keluhan dari "banyak omong" jadi "kalian tidak punya apa-apa", dan route-nya sudah terindeks
-- [ ] Rail proyek di 4 halaman `app/industries/*`, sektor demi sektor saat lolos ambang 2 proyek. Arahkan ulang CTA yang salah alamat: "View Sector Reel" (oil-gas), "View Energy Portfolio" (energy-utilities), "View Sector Portfolio" (fabrication-construction) — ketiganya sekarang mendarat di hub tanpa filter
+- [ ] Rail proyek per sektor — sekarang tempatnya di kartu-kartu grid `/#industries` (`app/page.tsx`, data dari `lib/data/sectors.ts`), bukan lagi 4 halaman terpisah. Tambahkan saat sebuah sektor lolos ambang 2 proyek, dan tautkan ke `/our-work` yang sudah terfilter. Tiga CTA salah alamat ("View Sector Reel", "View Energy Portfolio", "View Sector Portfolio") sudah hilang bersama halamannya
 - [ ] `lib/seo.ts` — tambah `videoObjectSchema`; regenerate sitemap dari data file baru
 - [ ] `app/privacy-policy/cookie-banner.tsx` — kalau video di-embed dari YouTube/Vimeo, banner harus benar-benar menggerbang iframe-nya atau dihapus. Sekarang tidak mempersist apa pun
 

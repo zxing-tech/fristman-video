@@ -18,6 +18,20 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // The /industries hub and its four sector pages were removed; their
+        // content was folded into the homepage sectors grid, the About page
+        // (deployment + data handling) and the service pages.
+        source: "/industries",
+        destination: "/#industries",
+        permanent: true,
+      },
+      {
+        // oil-gas, energy-utilities, marine-offshore, fabrication-construction.
+        source: "/industries/:slug",
+        destination: "/#industries",
+        permanent: true,
+      },
+      {
         // The case-study hub moved to /our-work; keep the indexed URL alive.
         source: "/case-studies",
         destination: "/our-work",
