@@ -35,7 +35,8 @@ export const ORG_ID = `${SITE.url}/#organization`
 export const WEBSITE_ID = `${SITE.url}/#website`
 
 /** Resolve a site-relative path to an absolute URL (JSON-LD requires absolute URLs). */
-export const abs = (path: string) => (path.startsWith("http") ? path : `${SITE.url}${path}`)
+export const abs = (path: string) =>
+  path.startsWith("http") ? path : `${SITE.url}${path}`
 
 type MetaArgs = {
   /** Page title WITHOUT the brand suffix (the layout template appends " | Firstman Videos"). Omit for the homepage. */
@@ -58,7 +59,9 @@ export function pageMeta({
   ogType = "website",
   noindex = false,
 }: MetaArgs): Metadata {
-  const ogTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — Industrial Cinematography`
+  const ogTitle = title
+    ? `${title} | ${SITE.name}`
+    : `${SITE.name} — Industrial Cinematography`
   const image = ogImage ?? SITE.ogImage
   const images = [{ url: image, width: 1200, height: 630, alt: ogTitle }]
   return {

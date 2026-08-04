@@ -10,7 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Top-level + hub pages (thank-you pages are intentionally excluded — noindex).
   // Neither /services nor /industries exists: both redirect to homepage sections
   // (/#services and /#industries), so neither belongs here.
-  const core: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+  const core: {
+    path: string
+    priority: number
+    freq: MetadataRoute.Sitemap[number]["changeFrequency"]
+  }[] = [
     { path: "", priority: 1.0, freq: "weekly" },
     { path: "/our-work", priority: 0.9, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "yearly" },

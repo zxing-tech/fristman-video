@@ -3,7 +3,12 @@ import Image from "next/image"
 import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
-import { breadcrumbSchema, creativeWorkSchema, graph, pageMeta } from "@/lib/seo"
+import {
+  breadcrumbSchema,
+  creativeWorkSchema,
+  graph,
+  pageMeta,
+} from "@/lib/seo"
 
 export const metadata = pageMeta({
   title: "Petrofac Kemaman Supply Base Video Case Study",
@@ -18,7 +23,10 @@ const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Case Studies", path: "/our-work" },
-    { name: "Petrofac Kemaman Supply Base", path: "/our-work/petrofac-kemaman" },
+    {
+      name: "Petrofac Kemaman Supply Base",
+      path: "/our-work/petrofac-kemaman",
+    },
   ]),
   creativeWorkSchema({
     name: "Petrofac Kemaman Supply Base",
@@ -39,7 +47,7 @@ export default function PetrofacKemamanPage() {
         Petrofac Kemaman Supply Base — Industrial Visual Documentation
       </h1>
       {/* Hero Section */}
-      <section className="relative h-[819px] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative flex h-[819px] w-full items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black">
           <Image
             src="/images/stitch/920da913d9.jpg"
@@ -51,17 +59,23 @@ export default function PetrofacKemamanPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
-        <div className="relative z-10 text-center flex flex-col items-center">
-          <div className="glass-panel p-8 rounded-2xl flex flex-col items-center max-w-md mx-4">
-            <MaterialIcon name="lock" fill className="text-5xl text-primary mb-4" />
-            <h2 className="text-2xl font-bold mb-2 uppercase tracking-wide">Confidential Asset</h2>
-            <p className="text-white/70 text-sm mb-6 text-center">
-              This video asset contains restricted industrial site footage. Access requires
-              clearance.
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="glass-panel mx-4 flex max-w-md flex-col items-center rounded-2xl p-8">
+            <MaterialIcon
+              name="lock"
+              fill
+              className="mb-4 text-5xl text-primary"
+            />
+            <h2 className="mb-2 text-2xl font-bold tracking-wide uppercase">
+              Confidential Asset
+            </h2>
+            <p className="mb-6 text-center text-sm text-white/70">
+              This video asset contains restricted industrial site footage.
+              Access requires clearance.
             </p>
             <RequestAccessTrigger
               defaultVideo="Petrofac Kemaman Supply Base"
-              className="bg-primary text-white font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full hover:bg-surface hover:text-background transition-all flex items-center gap-2"
+              className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold tracking-widest text-white uppercase transition-all hover:bg-surface hover:text-background"
             >
               <MaterialIcon name="key" /> Request Access
             </RequestAccessTrigger>
@@ -70,34 +84,34 @@ export default function PetrofacKemamanPage() {
       </section>
 
       {/* Project Details */}
-      <section className="max-w-[1280px] mx-auto px-8 -mt-16 relative z-20">
-        <div className="glass-panel bg-card grid grid-cols-2 md:grid-cols-5 gap-6 p-6 rounded-xl">
+      <section className="relative z-20 mx-auto -mt-16 max-w-[1280px] px-8">
+        <div className="glass-panel grid grid-cols-2 gap-6 rounded-xl bg-card p-6 md:grid-cols-5">
           <div>
-            <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
+            <div className="mb-1 text-[10px] tracking-widest text-industrial-grey uppercase">
               Client
             </div>
             <div className="font-bold">Petrofac</div>
           </div>
           <div>
-            <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
+            <div className="mb-1 text-[10px] tracking-widest text-industrial-grey uppercase">
               Sector
             </div>
             <div className="font-bold">Oil & Gas</div>
           </div>
           <div className="col-span-2 md:col-span-1">
-            <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
+            <div className="mb-1 text-[10px] tracking-widest text-industrial-grey uppercase">
               Service
             </div>
-            <div className="font-bold text-sm">Safety and Induction Videos</div>
+            <div className="text-sm font-bold">Safety and Induction Videos</div>
           </div>
           <div>
-            <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
+            <div className="mb-1 text-[10px] tracking-widest text-industrial-grey uppercase">
               Region
             </div>
             <div className="font-bold">Kemaman, Malaysia</div>
           </div>
           <div>
-            <div className="text-[10px] text-industrial-grey uppercase tracking-widest mb-1">
+            <div className="mb-1 text-[10px] tracking-widest text-industrial-grey uppercase">
               Status
             </div>
             <div className="font-bold text-primary">Gated Video</div>

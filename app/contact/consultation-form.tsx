@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation"
 
 import { MaterialIcon } from "@/components/site/material-icon"
 
-const labelClass = "block text-xs font-bold uppercase tracking-wider text-surface/70"
+const labelClass =
+  "block text-xs font-bold uppercase tracking-wider text-surface/70"
 const inputClass =
   "w-full form-input-dark bg-background/40 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary block placeholder:text-surface/40"
 const optionClass = "bg-graphite text-surface"
@@ -44,13 +45,15 @@ export function ConsultationForm() {
           "We couldn't send your request. Please try again or email info@firstmanvideos.com."
       )
     } catch {
-      setError("Network error — please try again, or email us directly at info@firstmanvideos.com.")
+      setError(
+        "Network error — please try again, or email us directly at info@firstmanvideos.com."
+      )
     }
     setSubmitting(false)
   }
 
   return (
-    <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+    <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>
       {/* Honeypot — spam trap, hidden from real users */}
       <input
         type="checkbox"
@@ -61,7 +64,7 @@ export function ConsultationForm() {
         autoComplete="off"
         aria-hidden="true"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Full Name */}
         <div className="space-y-2">
           <label className={labelClass} htmlFor="fullName">
@@ -91,7 +94,7 @@ export function ConsultationForm() {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Job Title */}
         <div className="space-y-2">
           <label className={labelClass} htmlFor="jobTitle">
@@ -134,7 +137,7 @@ export function ConsultationForm() {
           type="email"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {/* Country */}
         <div className="space-y-2">
           <label className={labelClass} htmlFor="country">
@@ -197,7 +200,10 @@ export function ConsultationForm() {
               <option className={optionClass} value="Marine & Offshore">
                 Marine &amp; Offshore
               </option>
-              <option className={optionClass} value="Fabrication & Construction">
+              <option
+                className={optionClass}
+                value="Fabrication & Construction"
+              >
                 Fabrication &amp; Construction
               </option>
               <option className={optionClass} value="Other">
@@ -234,7 +240,10 @@ export function ConsultationForm() {
               <option className={optionClass} value="Progression & Timelapses">
                 Progression & Timelapses
               </option>
-              <option className={optionClass} value="Safety and Induction Videos">
+              <option
+                className={optionClass}
+                value="Safety and Induction Videos"
+              >
                 Safety and Induction Videos
               </option>
               <option className={optionClass} value="AI-Generated Video">
@@ -280,7 +289,7 @@ export function ConsultationForm() {
         />
       </div>
       {/* Consent Checkbox */}
-      <div className="flex items-start mt-6">
+      <div className="mt-6 flex items-start">
         <div className="flex h-5 items-center">
           <input
             className="h-4 w-4 rounded border border-surface/20 bg-background/40 accent-primary transition-colors"
@@ -292,14 +301,15 @@ export function ConsultationForm() {
         </div>
         <div className="ml-3 text-xs text-industrial-grey">
           <label
-            className="font-medium text-surface/80 cursor-pointer hover:text-surface transition-colors"
+            className="cursor-pointer font-medium text-surface/80 transition-colors hover:text-surface"
             htmlFor="consent"
           >
             I consent to the collection and processing of my data.
           </label>
           <p className="mt-1">
-            By submitting this form, you acknowledge that you have read and agree to our Privacy
-            Policy regarding the secure handling of corporate contact information.
+            By submitting this form, you acknowledge that you have read and
+            agree to our Privacy Policy regarding the secure handling of
+            corporate contact information.
           </p>
         </div>
       </div>
@@ -307,15 +317,15 @@ export function ConsultationForm() {
       {error && (
         <p
           role="alert"
-          className="flex items-start gap-2 text-sm text-primary font-medium bg-primary/10 border border-primary/30 rounded-lg px-4 py-3"
+          className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-medium text-primary"
         >
-          <MaterialIcon name="error" className="text-base shrink-0 mt-0.5" />
+          <MaterialIcon name="error" className="mt-0.5 shrink-0 text-base" />
           <span>{error}</span>
         </p>
       )}
       {/* Submit Button */}
       <button
-        className="group relative w-full overflow-hidden rounded-xl bg-primary text-white px-8 py-4 flex items-center justify-center gap-3 mt-8 font-headline transition-all duration-300 hover:bg-background hover:text-primary hover:shadow-[inset_0_0_0_1px_#d12027,0_0_20px_rgba(209,32,39,0.3)] disabled:opacity-70 disabled:pointer-events-none"
+        className="group relative mt-8 flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-primary px-8 py-4 font-headline text-white transition-all duration-300 hover:bg-background hover:text-primary hover:shadow-[inset_0_0_0_1px_#d12027,0_0_20px_rgba(209,32,39,0.3)] disabled:pointer-events-none disabled:opacity-70"
         type="submit"
         disabled={submitting}
       >
@@ -323,7 +333,7 @@ export function ConsultationForm() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-surface/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
         />
-        <span className="relative z-10 text-sm font-bold uppercase tracking-widest">
+        <span className="relative z-10 text-sm font-bold tracking-widest uppercase">
           {submitting ? "Submitting..." : "Submit Request"}
         </span>
         <MaterialIcon

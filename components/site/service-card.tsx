@@ -11,15 +11,20 @@ type ServiceCardProps = {
 
 export function ServiceCard({ icon, title, summary, href }: ServiceCardProps) {
   const card = (
-    <div className="glass-panel p-8 rounded-xl group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden h-full">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-        <MaterialIcon name={icon} className="text-primary group-hover:text-white text-3xl" />
+    <div className="glass-panel group relative h-full overflow-hidden rounded-xl p-8 transition-all duration-300 hover:-translate-y-2">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary transition-colors duration-300 group-hover:bg-primary">
+        <MaterialIcon
+          name={icon}
+          className="text-3xl text-primary group-hover:text-white"
+        />
       </div>
-      <h3 className="font-headline font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+      <h3 className="mb-3 font-headline text-xl font-bold transition-colors group-hover:text-primary">
         {title}
       </h3>
-      <p className="font-body text-industrial-grey text-sm leading-relaxed">{summary}</p>
+      <p className="font-body text-sm leading-relaxed text-industrial-grey">
+        {summary}
+      </p>
     </div>
   )
 

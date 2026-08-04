@@ -45,7 +45,8 @@ export function SiteNavbar() {
       if (event.key === "Escape") setServicesOpen(false)
     }
     const onPointerDown = (event: PointerEvent) => {
-      if (!servicesRef.current?.contains(event.target as Node)) setServicesOpen(false)
+      if (!servicesRef.current?.contains(event.target as Node))
+        setServicesOpen(false)
     }
 
     document.addEventListener("keydown", onKeyDown)
@@ -57,8 +58,8 @@ export function SiteNavbar() {
   }, [servicesOpen])
 
   return (
-    <nav className="fixed top-4 inset-x-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-[1280px]">
-      <div className="flex justify-between items-center w-full px-6 md:px-8 py-3 bg-background/70 backdrop-blur-md rounded-full border border-surface/10 shadow-xl shadow-[0_0_15px_rgba(209,32,39,0.1)]">
+    <nav className="fixed inset-x-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-[1280px]">
+      <div className="flex w-full items-center justify-between rounded-full border border-surface/10 bg-background/70 px-6 py-3 shadow-[0_0_15px_rgba(209,32,39,0.1)] shadow-xl backdrop-blur-md md:px-8">
         <Link
           href="/"
           className="text-xl font-black tracking-tighter text-surface"
@@ -66,7 +67,7 @@ export function SiteNavbar() {
         >
           Firstman Videos
         </Link>
-        <div className="hidden md:flex gap-6 items-center">
+        <div className="hidden items-center gap-6 md:flex">
           {linksBeforeServices.map((link) => (
             <Link
               key={link.href}
@@ -74,7 +75,7 @@ export function SiteNavbar() {
               className={cn(
                 navItemClass,
                 isActive(pathname, link.href)
-                  ? "text-primary border-b-2 border-primary pb-1"
+                  ? "border-b-2 border-primary pb-1 text-primary"
                   : "text-surface/80 hover:text-primary"
               )}
             >
@@ -98,7 +99,7 @@ export function SiteNavbar() {
                 navItemClass,
                 "flex items-center gap-1",
                 servicesActive
-                  ? "text-primary border-b-2 border-primary pb-1"
+                  ? "border-b-2 border-primary pb-1 text-primary"
                   : "text-surface/80 hover:text-primary"
               )}
             >
@@ -119,13 +120,13 @@ export function SiteNavbar() {
               className={cn(
                 "absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-200",
                 servicesOpen
-                  ? "visible opacity-100 translate-y-0"
-                  : "invisible opacity-0 -translate-y-1 pointer-events-none"
+                  ? "visible translate-y-0 opacity-100"
+                  : "pointer-events-none invisible -translate-y-1 opacity-0"
               )}
             >
               {/* Near-opaque rather than `glass-modal`: this panel floats over body
                   copy, and at 0.72 alpha the text underneath reads straight through it. */}
-              <div className="bg-background/97 backdrop-blur-xl border border-surface/10 rounded-2xl p-2 w-[320px] shadow-2xl">
+              <div className="w-[320px] rounded-2xl border border-surface/10 bg-background/97 p-2 shadow-2xl backdrop-blur-xl">
                 {services.map((service) => (
                   <Link
                     key={service.href}
@@ -139,9 +140,12 @@ export function SiteNavbar() {
                     )}
                   >
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-primary/40">
-                      <MaterialIcon name={service.icon} className="text-primary text-[18px]" />
+                      <MaterialIcon
+                        name={service.icon}
+                        className="text-[18px] text-primary"
+                      />
                     </span>
-                    <span className="font-label text-xs font-bold uppercase tracking-wider leading-snug">
+                    <span className="font-label text-xs leading-snug font-bold tracking-wider uppercase">
                       {service.title}
                     </span>
                   </Link>
@@ -157,7 +161,7 @@ export function SiteNavbar() {
               className={cn(
                 navItemClass,
                 isActive(pathname, link.href)
-                  ? "text-primary border-b-2 border-primary pb-1"
+                  ? "border-b-2 border-primary pb-1 text-primary"
                   : "text-surface/80 hover:text-primary"
               )}
             >
@@ -169,34 +173,39 @@ export function SiteNavbar() {
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden sm:flex bg-primary text-white px-6 py-2 rounded-full font-label uppercase tracking-wider text-xs font-bold hover:bg-background hover:text-primary border border-primary transition-all duration-300 items-center gap-2 group"
+            className="group hidden items-center gap-2 rounded-full border border-primary bg-primary px-6 py-2 font-label text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-background hover:text-primary sm:flex"
           >
             Get an Estimate
             <MaterialIcon
               name="arrow_forward"
-              className="text-sm group-hover:translate-x-1 transition-transform"
+              className="text-sm transition-transform group-hover:translate-x-1"
             />
           </Link>
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="md:hidden w-10 h-10 rounded-full border border-surface/10 flex items-center justify-center text-surface hover:border-primary hover:text-primary transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-surface/10 text-surface transition-colors hover:border-primary hover:text-primary md:hidden"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <MaterialIcon name={menuOpen ? "close" : "menu"} className="text-xl" />
+            <MaterialIcon
+              name={menuOpen ? "close" : "menu"}
+              className="text-xl"
+            />
           </button>
         </div>
       </div>
       {menuOpen && (
-        <div className="md:hidden bg-background/97 backdrop-blur-xl border border-surface/10 rounded-2xl mt-2 p-6 flex flex-col gap-4 max-h-[calc(100vh-8rem)] overflow-y-auto">
+        <div className="mt-2 flex max-h-[calc(100vh-8rem)] flex-col gap-4 overflow-y-auto rounded-2xl border border-surface/10 bg-background/97 p-6 backdrop-blur-xl md:hidden">
           {linksBeforeServices.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "font-label uppercase tracking-widest text-sm font-bold transition-colors",
-                isActive(pathname, link.href) ? "text-primary" : "text-surface/80 hover:text-primary"
+                "font-label text-sm font-bold tracking-widest uppercase transition-colors",
+                isActive(pathname, link.href)
+                  ? "text-primary"
+                  : "text-surface/80 hover:text-primary"
               )}
               onClick={() => setMenuOpen(false)}
             >
@@ -211,14 +220,19 @@ export function SiteNavbar() {
               aria-expanded={mobileServicesOpen}
               onClick={() => setMobileServicesOpen((open) => !open)}
               className={cn(
-                "flex items-center justify-between font-label uppercase tracking-widest text-sm font-bold transition-colors",
-                servicesActive ? "text-primary" : "text-surface/80 hover:text-primary"
+                "flex items-center justify-between font-label text-sm font-bold tracking-widest uppercase transition-colors",
+                servicesActive
+                  ? "text-primary"
+                  : "text-surface/80 hover:text-primary"
               )}
             >
               Services
               <MaterialIcon
                 name="expand_more"
-                className={cn("text-lg transition-transform duration-300", mobileServicesOpen && "rotate-180")}
+                className={cn(
+                  "text-lg transition-transform duration-300",
+                  mobileServicesOpen && "rotate-180"
+                )}
               />
             </button>
             {mobileServicesOpen && (
@@ -229,13 +243,16 @@ export function SiteNavbar() {
                     href={service.href}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "flex items-center gap-2 font-label text-xs font-bold uppercase tracking-wider transition-colors",
+                      "flex items-center gap-2 font-label text-xs font-bold tracking-wider uppercase transition-colors",
                       pathname === service.href
                         ? "text-primary"
                         : "text-surface/70 hover:text-primary"
                     )}
                   >
-                    <MaterialIcon name={service.icon} className="text-primary text-[16px]" />
+                    <MaterialIcon
+                      name={service.icon}
+                      className="text-[16px] text-primary"
+                    />
                     {service.title}
                   </Link>
                 ))}
@@ -248,8 +265,10 @@ export function SiteNavbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-label uppercase tracking-widest text-sm font-bold transition-colors",
-                isActive(pathname, link.href) ? "text-primary" : "text-surface/80 hover:text-primary"
+                "font-label text-sm font-bold tracking-widest uppercase transition-colors",
+                isActive(pathname, link.href)
+                  ? "text-primary"
+                  : "text-surface/80 hover:text-primary"
               )}
               onClick={() => setMenuOpen(false)}
             >
@@ -258,7 +277,7 @@ export function SiteNavbar() {
           ))}
           <Link
             href="/contact"
-            className="bg-primary text-white px-6 py-3 rounded-full font-label uppercase tracking-wider text-xs font-bold text-center border border-primary hover:bg-background hover:text-primary transition-all duration-300"
+            className="rounded-full border border-primary bg-primary px-6 py-3 text-center font-label text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-background hover:text-primary"
             onClick={() => setMenuOpen(false)}
           >
             Get an Estimate
