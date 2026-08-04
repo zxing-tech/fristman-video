@@ -17,35 +17,45 @@ colors:
   light-industrial-grey: "#4b4f57"
 typography:
   display:
-    fontFamily: "Open Sans, Open Sans Fallback, sans-serif"
+    fontFamily: "Archivo, Archivo Fallback, sans-serif"
     fontSize: "clamp(2.25rem, 5vw, 4.5rem)"
     fontWeight: 900
+    fontStretch: "87.5%"
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Open Sans, Open Sans Fallback, sans-serif"
+    fontFamily: "Archivo, Archivo Fallback, sans-serif"
     fontSize: "clamp(2.25rem, 4vw, 3rem)"
     fontWeight: 900
+    fontStretch: "100%"
     lineHeight: 1
     letterSpacing: "normal"
   title:
-    fontFamily: "Open Sans, Open Sans Fallback, sans-serif"
+    fontFamily: "Archivo, Archivo Fallback, sans-serif"
     fontSize: "1.25rem"
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: "normal"
   body:
-    fontFamily: "Open Sans, Open Sans Fallback, sans-serif"
+    fontFamily: "Archivo, Archivo Fallback, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "normal"
   label:
-    fontFamily: "Open Sans, Open Sans Fallback, sans-serif"
+    fontFamily: "Archivo, Archivo Fallback, sans-serif"
     fontSize: "0.75rem"
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: "0.1em"
+  readout:
+    fontFamily: "IBM Plex Mono, IBM Plex Mono Fallback, ui-monospace, monospace"
+    fontSize: "0.625rem"
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: "0.15em"
+  icon:
+    fontFamily: "Material Symbols Outlined"
 rounded:
   sm: "0.6rem"
   md: "0.8rem"
@@ -53,6 +63,7 @@ rounded:
   xl: "1.4rem"
   2xl: "1.8rem"
   3xl: "2.2rem"
+  4xl: "2.6rem"
   full: "9999px"
 spacing:
   gutter: "24px"
@@ -71,11 +82,20 @@ components:
     backgroundColor: "{colors.dark-background}"
     textColor: "{colors.primary}"
   button-secondary:
-    backgroundColor: "rgba(255, 255, 255, 0.05)"
-    textColor: "{colors.dark-surface}"
+    backgroundColor: "rgba(255, 255, 255, 0.1)"
+    textColor: "#ffffff"
     typography: "{typography.label}"
     rounded: "{rounded.full}"
     padding: "16px 32px"
+  button-secondary-hover:
+    backgroundColor: "rgba(209, 32, 39, 0.25)"
+    textColor: "#ffffff"
+  button-medium:
+    backgroundColor: "{colors.primary}"
+    textColor: "#ffffff"
+    typography: "{typography.label}"
+    rounded: "{rounded.full}"
+    padding: "14px 32px"
   button-compact:
     backgroundColor: "{colors.primary}"
     textColor: "#ffffff"
@@ -134,7 +154,8 @@ element in the body.
 
 - One chromatic colour (Signal Red `#d12027`), constant across both themes
 - A fully inverting neutral canvas — never a hardcoded black or white
-- A single typeface (Open Sans) doing all five roles through weight and tracking
+- A single typeface (Archivo) doing all five UI roles through weight, width and
+  tracking, plus IBM Plex Mono for readouts alone
 - Fully-rounded pills for every action; generous 22–29px radii for panels
 - Translucent panels with hairline borders; shadows are ambient, never structural
 - HUD vocabulary: pulsing status dots, corner brackets, scan lines, monospace readouts
@@ -189,38 +210,58 @@ light mode and disappears.
 
 ## Typography
 
-**Display Font:** Open Sans (with `Open Sans Fallback`, `sans-serif`)
-**Body Font:** Open Sans — the same family
-**Label/Mono Font:** Open Sans for labels; the platform monospace stack
-(`ui-monospace, SFMono-Regular, Menlo, …`) for HUD readouts
+**UI Font:** Archivo (with `Archivo Fallback`, `sans-serif`) — a two-axis
+variable font, `wght 100–900` and `wdth 62–125`, carrying every UI role
+**Readout Font:** IBM Plex Mono, 400 and 500, for HUD readouts only
 
-**Character:** One neutral, highly legible workhorse doing every job. The
-personality comes from how far apart the roles are pushed — 900-weight display
-at 72px against 700-weight labels at 12px tracked to 0.1em — not from a
-contrasting second face. The result reads as instrumentation rather than
-editorial, which is the point. The code aliases `--font-headline`,
-`--font-display`, `--font-body`, and `--font-label` to the same
-`--font-sans`; the roles are semantic, not typographic.
+**Character:** A grotesk in the American gothic line — the lettering of
+equipment plates, site signage, and permit paperwork rather than of a website.
+Personality comes from how far apart the roles are pushed: a 900-weight display
+condensed to 87.5% at 72px against a 700-weight label at 12px tracked to 0.1em.
+The result reads as instrumentation rather than editorial, which is the point.
+The code aliases `--font-headline`, `--font-display`, `--font-body`, and
+`--font-label` to the same `--font-sans`; those roles are semantic, not
+typographic.
+
+Both axes are load-bearing. `axes: ["wdth"]` must stay in the `Archivo()` call
+in `app/layout.tsx` — without it next/font emits `font-stretch: 100%` and every
+`font-stretch-*` utility silently does nothing. Verify after any font change
+with `grep -o 'font-family:Archivo[^}]*' .next/static/css/*.css`, which must
+report a `font-stretch` **range**, not a single value.
+
+> **Predecessor hazard.** The system ran on Open Sans until 2026-08-04. Its
+> variable `wght` axis stopped at **800**, so the 900 documented here was
+> clamped and `font-black` rendered identically to `font-extrabold` in all 34
+> places it appeared. If a future swap is considered, confirm the candidate
+> reaches a true 900 before writing 900 into this file.
 
 ### Hierarchy
 
-- **Display** (900, `clamp(2.25rem, 5vw, 4.5rem)` — 36px to 72px, line-height
-  1.1, tracking `-0.025em`): Page `h1` only. Tightened tracking at large sizes
-  is what keeps it from feeling like a web default.
-- **Headline** (900, 36px to 48px, line-height 1): Section titles. Often
-  uppercase on interior pages, sentence case on the homepage.
+- **Display** (900, width 87.5%, `clamp(2.25rem, 5vw, 4.5rem)` — 36px to 72px,
+  line-height 1.1, tracking `-0.025em`): Page `h1` only, and the only role that
+  leaves the normal width. Condensing buys roughly 12% more headline per line,
+  which is what lets a long case-study title hold at `text-7xl`.
+- **Headline** (900, width normal, 36px to 48px, line-height 1): Section titles.
+  Often uppercase on interior pages, sentence case on the homepage.
 - **Title** (700, 20px, line-height 1.4): Card and panel headings.
 - **Body** (400, 16px, line-height 1.5): Paragraph copy, in Industrial Grey.
   Supporting text drops to 14px, fine print to 12px.
 - **Label** (700, 12px, uppercase, tracking `0.1em`): Eyebrows, nav items,
   button text, metadata, status chips. The most characteristic type in the
   system.
+- **Readout** (IBM Plex Mono 500, 10–12px, uppercase, tracking `0.15em`):
+  Reference codes, coordinates, and status strings. See HUD Accents.
 
 ### Named Rules
 
-**The One Family Rule.** Every role is Open Sans. Hierarchy is built from
-weight, size, case, and tracking. Introducing a second typeface changes the
-system, it does not extend it.
+**The One Family Rule.** Every UI role is Archivo. Hierarchy is built from
+weight, width, size, case, and tracking — five levers, one family. A second
+face earns its place only by doing something Archivo cannot, which is why the
+sole exception is a monospace for tabular readouts.
+
+**The Width Rule.** Only Display leaves `font-stretch: 100%`. Condensed type is
+the page's loudest voice; spending it on a section heading or a card title
+flattens the one contrast the display role has.
 
 **The Wide Label Rule.** Small text earns authority by going uppercase, 700,
 and tracked to `0.1em` — never by getting bigger. A 12px tracked label outranks
@@ -288,8 +329,17 @@ the navbar carry a diffuse `rgba(209, 32, 39, 0.1–0.4)` bloom that says
 - **Ambient panel** (`box-shadow: 0 6px 24px rgba(0,0,0,0.35)` dark /
   `0 6px 24px rgba(10,10,10,0.06)` light): The only shadow on ordinary
   surfaces. Wide, soft, low-opacity.
-- **Signal bloom** (`box-shadow: 0 0 30px rgba(209,32,39,0.3)`): Primary CTAs
-  and the floating navbar. Never on a neutral element.
+- **Signal bloom** (nominally `box-shadow: 0 0 30px rgba(209,32,39,0.3)`): the
+  floating navbar and hand-written primary pill links. Never on a neutral
+  element.
+
+> **Known drift, measured 2026-08-04.** The bloom is documented as one token but
+> implemented as **16 distinct arbitrary values**, spanning 15–40px blur and
+> 0.1–0.5 alpha. The value written above appears exactly once; the most common
+> is `0 0 20px rgba(209,32,39,0.4)` (5 uses), and the navbar runs its own
+> `0 0 15px rgba(209,32,39,0.1)`. Consolidating them is unfinished work, not a
+> deliberate range — when adding a bloom, take the most common value rather than
+> inventing a seventeenth.
 
 ### Named Rules
 
@@ -329,14 +379,23 @@ equipment: wide-tracked capitals, bold weight, a full pill, and a state change
 you can feel.
 
 - **Shape:** Full pill (`9999px`), all variants, all sizes.
+- **Tracking:** Button text runs the Label role at `0.05em`, not the `0.1em` that
+  eyebrows and nav links use. Buttons hold more words than a nav item, and the
+  wider setting pushes a two-word CTA past its pill.
 - **Primary:** Signal Red background, white text, 1px Signal Red border,
   16px × 32px padding, Label typography. On hover it *inverts* — the fill drops
-  to the page background and the text and border become Signal Red. Some
-  primary CTAs add the Signal Bloom shadow.
-- **Secondary / Ghost:** `.glass-panel` treatment with foreground-coloured text.
-  On hover the fill becomes 20% Signal Red and the border goes solid red.
-- **Sizes:** compact `8px × 24px` at 12px (navbar), standard `16px × 32px` at
-  14px (page CTAs), and a `12px × 24px` middle step.
+  to the page background and the text and border become Signal Red. `CtaButton`
+  itself carries no glow; the red blooms in the wild are on hand-written pill
+  links, not on the shared component.
+- **Secondary / Ghost:** Not `.glass-panel` — a literal 10% white fill, a 40%
+  white border, white text and `backdrop-blur-md`. The whites are hardcoded on
+  purpose: this variant only ever appears beside a primary CTA over a
+  photograph, so it follows the Photo Exception. `text-surface` here would turn
+  near-black in light mode and vanish into the picture. On hover the border goes
+  solid Signal Red and the fill rises to 25% Signal Red.
+- **Sizes** (`CtaButton`, three steps): `sm` is `8px × 24px` at 12px (navbar and
+  compact rows), `md` is `14px × 32px` at 14px, `lg` is `16px × 32px` at 14px
+  and is the **default** — an omitted `size` prop renders `lg`.
 - **Arrow affordance:** Buttons that lead somewhere carry a trailing
   `arrow_forward` icon that translates 4px right on group hover. This is the
   system's most repeated micro-interaction.
@@ -398,9 +457,22 @@ you can feel.
 
 Material Symbols Outlined, loaded as a stylesheet rather than through the font
 pipeline so `font-variation-settings` stays animatable. Icons routinely fill on
-hover (`FILL 0` → `FILL 1`) as a state change. The icon font forces its own
-`display` value, so visibility must be toggled on a wrapper element, never on
-the icon span itself.
+hover (`FILL 0` → `FILL 1`) as a state change.
+
+> **Cascade hazard.** That stylesheet is a plain `<link>` in `<head>`, so it is
+> **unlayered** — and unlayered declarations win over anything in Tailwind's
+> `@layer utilities`, whatever the specificity or source order. Its
+> `.material-symbols-outlined` rule pins both `display` and `font-size: 24px`.
+> So visibility must be toggled on a wrapper element rather than the icon span,
+> and an icon size utility only lands with the important modifier
+> (`text-3xl!`). Written plainly, `text-4xl` on an icon is dead code: it parses,
+> it ships, and the glyph still renders at 24px. Confirm any icon size with
+> `getComputedStyle`, never by reading the class list.
+
+**Sizes.** Card-marker icons — the glyph above a card heading — are one size,
+`text-3xl!` (30px); they mark the card, they do not rank it. The only larger
+icon is an anchor glyph set apart from the heading it belongs to, at
+`text-5xl!` (48px) and `opacity-50`, so it recedes by tone rather than by scale.
 
 ### HUD Accents (signature)
 
@@ -414,8 +486,10 @@ where the meaning is real:
 - **Scan lines:** `.scanning-line` (a 2px red bar with a red glow travelling
   vertically over 4s) and `.scanner-line` (a horizontal red gradient pulsing
   over 2.5s).
-- **Monospace readouts:** 10–12px platform monospace, uppercase, wide tracking,
-  for coordinates, statuses, and reference codes.
+- **Monospace readouts:** 10–12px IBM Plex Mono 500, uppercase, tracked
+  `0.15em`, for coordinates, statuses, and reference codes. Reach for `font-mono`
+  only when the content is genuinely measured or identifying — a mono face
+  worn as a costume for "technical" spends the readout's meaning.
 - **Logo marquee:** two rows scrolling in opposite directions over 45s and 55s,
   edge-masked to transparent at both ends, paused on hover, and disabled
   entirely under `prefers-reduced-motion`.
@@ -453,8 +527,11 @@ where the meaning is real:
   gradient is fixed light and does not respond to the theme.
 - **Don't** toggle visibility on a `MaterialIcon` span. Its font CSS forces
   `display`; wrap it and toggle the wrapper.
-- **Don't** introduce a second typeface or a second chromatic hue. Both would
-  replace the system rather than extend it.
+- **Don't** introduce a third typeface or a second chromatic hue. Both would
+  replace the system rather than extend it. Archivo covers every UI role; IBM
+  Plex Mono covers readouts and nothing else.
+- **Don't** reach for `font-stretch-*` outside a page `h1`. Condensed width is
+  the Display role's signature, not a spacing fix for text that overflows.
 - **Don't** use shadow to communicate structure or state. Tone and translucency
   carry depth; Signal Red carries state.
 - **Don't** attach a play affordance to anything that does not actually start

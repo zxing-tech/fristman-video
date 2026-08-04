@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-04T08:42:29Z",
+  "generatedAt": "2026-08-04T11:14:38Z",
   "title": "Design System: Firstman Videos",
   "extensions": {
     "colorMeta": {
@@ -203,20 +203,27 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page h1 only. 900 weight, tightened tracking at large sizes."
+        "purpose": "Page h1 only, and the only role that leaves normal width — Archivo 900 condensed to 87.5%, tracking -0.025em."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section titles. Often uppercase on interior pages."
+        "purpose": "Section titles at normal width. Often uppercase on interior pages."
       },
-      "title": { "displayName": "Title", "purpose": "Card and panel headings." },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and panel headings (20px/700)."
+      },
       "body": {
         "displayName": "Body",
-        "purpose": "Paragraph copy, rendered in Industrial Grey."
+        "purpose": "Paragraph copy in Industrial Grey; supporting text drops to 14px."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Eyebrows, nav items, button text, metadata, status chips. The system's signature type."
+        "purpose": "Eyebrows, nav items, button text, metadata, status chips. The system's signature type. 0.1em everywhere except button text, which runs 0.05em."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "IBM Plex Mono 500, 10–12px, uppercase, 0.15em. Reference codes, coordinates and statuses only — the one role Archivo does not cover."
       }
     },
     "shadows": [
@@ -233,7 +240,7 @@
       {
         "name": "signal-bloom",
         "value": "0 0 30px rgba(209, 32, 39, 0.3)",
-        "purpose": "Reserved for primary CTAs and the floating navbar. Marks the one action that matters on a screen."
+        "purpose": "Reserved for the floating navbar and hand-written primary pill links; never on a neutral element. Known drift measured 2026-08-04: implemented as 16 distinct arbitrary values spanning 15–40px blur and 0.1–0.5 alpha. The value here appears once; the most common is 0 0 20px rgba(209,32,39,0.4). Prefer that when adding one."
       },
       {
         "name": "focus-ring",
@@ -279,10 +286,22 @@
       }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" },
-      { "name": "xl", "value": "1280px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
     ]
   },
   "components": [
@@ -292,15 +311,15 @@
       "refersTo": "button-primary",
       "description": "The main call to action. Inverts on hover: the red fill drops out and the text becomes red.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Get a Full Quote<svg class=\"ds-btn-arrow\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary, #d12027); color: #fff; border: 1px solid var(--primary, #d12027); border-radius: 9999px; padding: 16px 32px; font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease; } .ds-btn-primary:hover { background: var(--background, #000); color: var(--primary, #d12027); } .ds-btn-primary:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-arrow { transition: transform 300ms ease; } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(4px); }"
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary, #d12027); color: #fff; border: 1px solid var(--primary, #d12027); border-radius: 9999px; padding: 16px 32px; font-family: var(--font-sans, Archivo, sans-serif); font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease; } .ds-btn-primary:hover { background: var(--background, #000); color: var(--primary, #d12027); } .ds-btn-primary:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-arrow { transition: transform 300ms ease; } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(4px); }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "The glass-panel variant. Used beside a primary CTA for the lower-commitment action.",
+      "description": "The ghost variant. Only ever appears beside a primary CTA over a photograph, so it follows the Photo Exception and hardcodes white rather than using the theme foreground.",
       "html": "<a class=\"ds-btn-secondary\" href=\"#\">View Our Work</a>",
-      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--glass-bg, rgba(255,255,255,0.05)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); color: var(--surface, #fff); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); box-shadow: var(--glass-shadow, 0 6px 24px rgba(0,0,0,0.35)); border-radius: 9999px; padding: 16px 32px; font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, border-color 300ms ease; } .ds-btn-secondary:hover { background: rgba(209, 32, 39, 0.2); border-color: var(--primary, #d12027); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; }"
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.1); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); color: #fff; border: 1px solid rgba(255,255,255,0.4); border-radius: 9999px; padding: 16px 32px; font-family: var(--font-sans, Archivo, sans-serif); font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, border-color 300ms ease; } .ds-btn-secondary:hover { background: rgba(209, 32, 39, 0.25); border-color: var(--primary, #d12027); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; }"
     },
     {
       "name": "Status Chip",
@@ -308,7 +327,7 @@
       "refersTo": "chip-status",
       "description": "Marks a live or sector-scoped context. The pulsing dot is what makes it read as telemetry rather than a tag.",
       "html": "<span class=\"ds-chip-status\"><span class=\"ds-chip-dot\"></span>Operational Area: Marine &amp; Offshore</span>",
-      "css": ".ds-chip-status { display: inline-flex; align-items: center; gap: 8px; background: rgba(209, 32, 39, 0.1); border: 1px solid rgba(209, 32, 39, 0.3); color: var(--primary, #d12027); border-radius: 9999px; padding: 6px 16px; font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; } .ds-chip-dot { width: 8px; height: 8px; border-radius: 9999px; background: var(--primary, #d12027); animation: ds-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.35 } } @media (prefers-reduced-motion: reduce) { .ds-chip-dot { animation: none } }"
+      "css": ".ds-chip-status { display: inline-flex; align-items: center; gap: 8px; background: rgba(209, 32, 39, 0.1); border: 1px solid rgba(209, 32, 39, 0.3); color: var(--primary, #d12027); border-radius: 9999px; padding: 6px 16px; font-family: var(--font-sans, Archivo, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; } .ds-chip-dot { width: 8px; height: 8px; border-radius: 9999px; background: var(--primary, #d12027); animation: ds-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.35 } } @media (prefers-reduced-motion: reduce) { .ds-chip-dot { animation: none } }"
     },
     {
       "name": "Section Label",
@@ -316,7 +335,7 @@
       "refersTo": "typography.label",
       "description": "The eyebrow above every section heading. Optionally prefixed by a 48px red rule.",
       "html": "<div class=\"ds-label-line\"><span class=\"ds-label-rule\"></span><span class=\"ds-label\">Where We Operate</span></div>",
-      "css": ".ds-label-line { display: flex; align-items: center; gap: 12px; } .ds-label-rule { display: block; width: 48px; height: 1px; background: var(--primary, #d12027); } .ds-label { color: var(--primary, #d12027); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }"
+      "css": ".ds-label-line { display: flex; align-items: center; gap: 12px; } .ds-label-rule { display: block; width: 48px; height: 1px; background: var(--primary, #d12027); } .ds-label { color: var(--primary, #d12027); font-family: var(--font-sans, Archivo, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }"
     },
     {
       "name": "Service Card",
@@ -324,7 +343,7 @@
       "refersTo": "card-glass",
       "description": "The workhorse content card. Lifts 8px on hover; the icon ring fills red and its glyph flips to white.",
       "html": "<a class=\"ds-card-service\" href=\"#\"><span class=\"ds-card-wash\"></span><span class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 20V9l6-4 6 4v11\"/><path d=\"M15 20V13h6v7\"/><path d=\"M3 20h18\"/><path d=\"M7 12h2M7 16h2\"/></svg></span><h3 class=\"ds-card-title\">Facility Overview Films</h3><p class=\"ds-card-body\">Aerial and ground capture that shows the scale, layout and access points of an industrial site.</p></a>",
-      "css": ".ds-card-service { position: relative; display: block; overflow: hidden; background: var(--glass-bg, rgba(255,255,255,0.05)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); box-shadow: var(--glass-shadow, 0 6px 24px rgba(0,0,0,0.35)); border-radius: 22.4px; padding: 32px; text-decoration: none; transition: transform 300ms ease, border-color 300ms ease; } .ds-card-service:hover { transform: translateY(-8px); } .ds-card-service:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; } .ds-card-wash { position: absolute; inset: 0; background: linear-gradient(to bottom right, rgba(209,32,39,0.1), transparent); opacity: 0; transition: opacity 300ms ease; pointer-events: none; } .ds-card-service:hover .ds-card-wash { opacity: 1; } .ds-card-icon { position: relative; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 24px; border: 2px solid var(--primary, #d12027); border-radius: 9999px; color: var(--primary, #d12027); transition: background-color 300ms ease, color 300ms ease; } .ds-card-service:hover .ds-card-icon { background: var(--primary, #d12027); color: #fff; } .ds-card-title { position: relative; margin: 0 0 12px; color: var(--surface, #fff); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 20px; font-weight: 700; transition: color 300ms ease; } .ds-card-service:hover .ds-card-title { color: var(--primary, #d12027); } .ds-card-body { position: relative; margin: 0; color: var(--industrial-grey, #6f7378); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 14px; line-height: 1.6; } @media (prefers-reduced-motion: reduce) { .ds-card-service, .ds-card-icon, .ds-card-title { transition: none } .ds-card-service:hover { transform: none } }"
+      "css": ".ds-card-service { position: relative; display: block; overflow: hidden; background: var(--glass-bg, rgba(255,255,255,0.05)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); box-shadow: var(--glass-shadow, 0 6px 24px rgba(0,0,0,0.35)); border-radius: 22.4px; padding: 32px; text-decoration: none; transition: transform 300ms ease, border-color 300ms ease; } .ds-card-service:hover { transform: translateY(-8px); } .ds-card-service:focus-visible { outline: 2px solid var(--primary, #d12027); outline-offset: 3px; } .ds-card-wash { position: absolute; inset: 0; background: linear-gradient(to bottom right, rgba(209,32,39,0.1), transparent); opacity: 0; transition: opacity 300ms ease; pointer-events: none; } .ds-card-service:hover .ds-card-wash { opacity: 1; } .ds-card-icon { position: relative; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 24px; border: 2px solid var(--primary, #d12027); border-radius: 9999px; color: var(--primary, #d12027); transition: background-color 300ms ease, color 300ms ease; } .ds-card-service:hover .ds-card-icon { background: var(--primary, #d12027); color: #fff; } .ds-card-title { position: relative; margin: 0 0 12px; color: var(--surface, #fff); font-family: var(--font-sans, Archivo, sans-serif); font-size: 20px; font-weight: 700; transition: color 300ms ease; } .ds-card-service:hover .ds-card-title { color: var(--primary, #d12027); } .ds-card-body { position: relative; margin: 0; color: var(--industrial-grey, #6f7378); font-family: var(--font-sans, Archivo, sans-serif); font-size: 14px; line-height: 1.6; } @media (prefers-reduced-motion: reduce) { .ds-card-service, .ds-card-icon, .ds-card-title { transition: none } .ds-card-service:hover { transform: none } }"
     },
     {
       "name": "Input Field",
@@ -332,7 +351,7 @@
       "refersTo": "input-field",
       "description": "The consultation form field. Focus draws a 1px Signal Red ring; no glow, no scale.",
       "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-demo-input\">Corporate Email <span class=\"ds-req\">*</span></label><input class=\"ds-input\" id=\"ds-demo-input\" type=\"email\" placeholder=\"john.doe@company.com\"></div>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; max-width: 360px; } .ds-field-label { color: color-mix(in oklab, var(--surface, #fff) 70%, transparent); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; } .ds-req { color: var(--primary, #d12027); } .ds-input { width: 100%; background: var(--input-bg, rgba(255,255,255,0.03)); border: 1px solid var(--input-border, rgba(255,255,255,0.1)); border-radius: 12.8px; padding: 12px 16px; color: var(--surface, #fff); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 14px; transition: border-color 300ms ease, box-shadow 300ms ease; } .ds-input::placeholder { color: color-mix(in oklab, var(--surface, #fff) 40%, transparent); } .ds-input:focus { border-color: var(--primary, #d12027); outline: none; box-shadow: 0 0 0 1px var(--primary, #d12027); }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; max-width: 360px; } .ds-field-label { color: color-mix(in oklab, var(--surface, #fff) 70%, transparent); font-family: var(--font-sans, Archivo, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; } .ds-req { color: var(--primary, #d12027); } .ds-input { width: 100%; background: var(--input-bg, rgba(255,255,255,0.03)); border: 1px solid var(--input-border, rgba(255,255,255,0.1)); border-radius: 12.8px; padding: 12px 16px; color: var(--surface, #fff); font-family: var(--font-sans, Archivo, sans-serif); font-size: 14px; transition: border-color 300ms ease, box-shadow 300ms ease; } .ds-input::placeholder { color: color-mix(in oklab, var(--surface, #fff) 40%, transparent); } .ds-input:focus { border-color: var(--primary, #d12027); outline: none; box-shadow: 0 0 0 1px var(--primary, #d12027); }"
     },
     {
       "name": "Navigation Pill",
@@ -340,7 +359,7 @@
       "refersTo": "typography.label",
       "description": "The fixed floating navbar. Blurred, hairline-bordered, with a faint red bloom. The active route carries a 2px red underline.",
       "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">Firstman Videos</span><span class=\"ds-nav-links\"><a class=\"ds-nav-link ds-nav-link--active\" href=\"#\">Home</a><a class=\"ds-nav-link\" href=\"#\">Our Work</a><a class=\"ds-nav-link\" href=\"#\">About</a></span><a class=\"ds-nav-cta\" href=\"#\">Get an Estimate</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: color-mix(in oklab, var(--background, #000) 70%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); border-radius: 9999px; padding: 12px 32px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 0 15px rgba(209,32,39,0.1); } .ds-nav-brand { color: var(--surface, #fff); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 20px; font-weight: 900; letter-spacing: -0.03em; } .ds-nav-links { display: flex; align-items: center; gap: 24px; } .ds-nav-link { color: color-mix(in oklab, var(--surface, #fff) 80%, transparent); font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 300ms ease; } .ds-nav-link:hover { color: var(--primary, #d12027); } .ds-nav-link--active { color: var(--primary, #d12027); border-bottom: 2px solid var(--primary, #d12027); padding-bottom: 4px; } .ds-nav-cta { background: var(--primary, #d12027); color: #fff; border: 1px solid var(--primary, #d12027); border-radius: 9999px; padding: 8px 24px; font-family: var(--font-sans, 'Open Sans', sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, color 300ms ease; } .ds-nav-cta:hover { background: var(--background, #000); color: var(--primary, #d12027); }"
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: color-mix(in oklab, var(--background, #000) 70%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); border-radius: 9999px; padding: 12px 32px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 0 15px rgba(209,32,39,0.1); } .ds-nav-brand { color: var(--surface, #fff); font-family: var(--font-sans, Archivo, sans-serif); font-size: 20px; font-weight: 900; letter-spacing: -0.03em; } .ds-nav-links { display: flex; align-items: center; gap: 24px; } .ds-nav-link { color: color-mix(in oklab, var(--surface, #fff) 80%, transparent); font-family: var(--font-sans, Archivo, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 300ms ease; } .ds-nav-link:hover { color: var(--primary, #d12027); } .ds-nav-link--active { color: var(--primary, #d12027); border-bottom: 2px solid var(--primary, #d12027); padding-bottom: 4px; } .ds-nav-cta { background: var(--primary, #d12027); color: #fff; border: 1px solid var(--primary, #d12027); border-radius: 9999px; padding: 8px 24px; font-family: var(--font-sans, Archivo, sans-serif); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background-color 300ms ease, color 300ms ease; } .ds-nav-cta:hover { background: var(--background, #000); color: var(--primary, #d12027); }"
     },
     {
       "name": "HUD Readout",
@@ -348,16 +367,16 @@
       "refersTo": "card-glass",
       "description": "The signature accent that makes the system read as a console: corner brackets, monospace status lines, and a live dot over a dark plate.",
       "html": "<div class=\"ds-hud\"><span class=\"ds-hud-corner ds-hud-corner--tl\"></span><span class=\"ds-hud-corner ds-hud-corner--br\"></span><span class=\"ds-hud-row\"><span class=\"ds-hud-dot\"></span>ONSHORE_SECTOR_7</span><span class=\"ds-hud-row\">VIS_DOC_ACTIVE</span></div>",
-      "css": ".ds-hud { position: relative; display: inline-flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.8); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); border-radius: 12.8px; padding: 16px 20px; } .ds-hud-row { display: flex; align-items: center; gap: 8px; color: var(--primary, #d12027); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; } .ds-hud-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--primary, #d12027); box-shadow: 0 0 8px var(--primary, #d12027); } .ds-hud-corner { position: absolute; width: 14px; height: 14px; } .ds-hud-corner--tl { top: -1px; left: -1px; border-top: 2px solid var(--primary, #d12027); border-left: 2px solid var(--primary, #d12027); } .ds-hud-corner--br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--primary, #d12027); border-right: 2px solid var(--primary, #d12027); }"
+      "css": ".ds-hud { position: relative; display: inline-flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.8); border: 1px solid var(--glass-border, rgba(255,255,255,0.1)); border-radius: 12.8px; padding: 16px 20px; } .ds-hud-row { display: flex; align-items: center; gap: 8px; color: var(--primary, #d12027); font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, monospace); font-weight: 500; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; } .ds-hud-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--primary, #d12027); box-shadow: 0 0 8px var(--primary, #d12027); } .ds-hud-corner { position: absolute; width: 14px; height: 14px; } .ds-hud-corner--tl { top: -1px; left: -1px; border-top: 2px solid var(--primary, #d12027); border-left: 2px solid var(--primary, #d12027); } .ds-hud-corner--br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--primary, #d12027); border-right: 2px solid var(--primary, #d12027); }"
     }
   ],
   "narrative": {
     "northStar": "The Field Operations Console",
-    "overview": "The site behaves like the heads-up display a crew reads on a live industrial site. Status dots pulse next to labels. Corner brackets frame photographs the way a viewfinder frames a shot. Readouts sit in uppercase, wide-tracked capitals. One red marks anything that is active, restricted, or clickable, and nothing else in the system carries chroma at all. The register is procedural rather than promotional: it earns trust by looking like equipment, not like advertising.\n\nThe whole world is built on a single inversion. `background` and `surface` swap values between themes — the page is black with white text in dark, white with near-black text in light — so every surface, border, and secondary grey flips with them. Both themes are first-class: a decision that only reads well in one of them is not finished. Photography is the one exception, and it is a deliberate one. Image-backed heroes and cards stay dark in both themes, carry their own black base, and keep literal white text over the picture.\n\nDepth comes from layering, not from shadows. Panels are a faint translucent tint over whatever is behind them, closed with a hairline border and a soft ambient shadow that you are not meant to notice. Interaction is where the system gets tactile: cards lift, icon rings fill red, arrows slide forward, and every colour change eases over 0.3s because a global rule transitions background-color, border-color, color, box-shadow, and fill on every element in the body.",
+    "overview": "The site behaves like the heads-up display a crew reads on a live industrial\nsite. Status dots pulse next to labels. Corner brackets frame photographs the\nway a viewfinder frames a shot. Readouts sit in uppercase, wide-tracked\ncapitals. One red marks anything that is active, restricted, or clickable, and\nnothing else in the system carries chroma at all. The register is procedural\nrather than promotional: it earns trust by looking like equipment, not like\nadvertising.\n\nThe whole world is built on a single inversion. `background` and `surface` swap\nvalues between themes — the page is black with white text in dark, white with\nnear-black text in light — so every surface, border, and secondary grey flips\nwith them. Both themes are first-class: a decision that only reads well in one\nof them is not finished. Photography is the one exception, and it is a\ndeliberate one. Image-backed heroes and cards stay dark in both themes, carry\ntheir own black base, and keep literal white text over the picture.\n\nDepth comes from layering, not from shadows. Panels are a faint translucent\ntint over whatever is behind them, closed with a hairline border and a soft\nambient shadow that you are not meant to notice. Interaction is where the\nsystem gets tactile: cards lift, icon rings fill red, arrows slide forward,\nand every colour change eases over 0.3s because a global rule transitions\n`background-color`, `border-color`, `color`, `box-shadow`, and `fill` on every\nelement in the body.",
     "keyCharacteristics": [
-      "One chromatic colour (Signal Red #d12027), constant across both themes",
+      "One chromatic colour (Signal Red `#d12027`), constant across both themes",
       "A fully inverting neutral canvas — never a hardcoded black or white",
-      "A single typeface (Open Sans) doing all five roles through weight and tracking",
+      "A single typeface (Archivo) doing all five UI roles through weight, width and tracking, plus IBM Plex Mono for readouts alone",
       "Fully-rounded pills for every action; generous 22–29px radii for panels",
       "Translucent panels with hairline borders; shadows are ambient, never structural",
       "HUD vocabulary: pulsing status dots, corner brackets, scan lines, monospace readouts",
@@ -366,27 +385,32 @@
     "rules": [
       {
         "name": "The One Red Rule",
-        "body": "#d12027 is the system's only chroma. It appears on well under a tenth of any screen, and it always means something: active, critical, or actionable. A red used decoratively spends the one signal the system has.",
+        "body": "`#d12027` is the system's only chroma. It appears on well under a tenth of any screen, and it always means something: active, critical, or actionable. A red used decoratively spends the one signal the system has.",
         "section": "colors"
       },
       {
         "name": "The Inversion Rule",
-        "body": "Never write a literal bg-black, text-white, or border-white/10 in ordinary UI. Use bg-background, text-surface, border-surface/10, text-industrial-grey. Hardcoded neutrals survive the theme flip and break in the other one.",
+        "body": "Never write a literal `bg-black`, `text-white`, or `border-white/10` in ordinary UI. Use `bg-background`, `text-surface`, `border-surface/10`, `text-industrial-grey`. Hardcoded neutrals survive the theme flip and break in the other one.",
         "section": "colors"
       },
       {
         "name": "The Photo Exception Rule",
-        "body": "Over a photograph, the inversion is suspended. Image-backed regions carry a bg-black base in both themes and keep literal text-white for headings, text-white/70 for body copy, and from-black gradient scrims. text-industrial-grey over a photo is a bug: it goes dark in light mode and disappears.",
+        "body": "Over a photograph, the inversion is suspended. Image-backed regions carry a `bg-black` base in both themes and keep literal `text-white` for headings, `text-white/70` for body copy, and `from-black` gradient scrims. `text-industrial-grey` over a photo is a bug: it goes dark in light mode and disappears.",
         "section": "colors"
       },
       {
         "name": "The One Family Rule",
-        "body": "Every role is Open Sans. Hierarchy is built from weight, size, case, and tracking. Introducing a second typeface changes the system, it does not extend it.",
+        "body": "Every UI role is Archivo. Hierarchy is built from weight, width, size, case, and tracking — five levers, one family. A second face earns its place only by doing something Archivo cannot, which is why the sole exception is a monospace for tabular readouts.",
+        "section": "typography"
+      },
+      {
+        "name": "The Width Rule",
+        "body": "Only Display leaves `font-stretch: 100%`. Condensed type is the page's loudest voice; spending it on a section heading or a card title flattens the one contrast the display role has.",
         "section": "typography"
       },
       {
         "name": "The Wide Label Rule",
-        "body": "Small text earns authority by going uppercase, 700, and tracked to 0.1em — never by getting bigger. A 12px tracked label outranks a 14px sentence-case one.",
+        "body": "Small text earns authority by going uppercase, 700, and tracked to `0.1em` — never by getting bigger. A 12px tracked label outranks a 14px sentence-case one.",
         "section": "typography"
       },
       {
@@ -406,24 +430,25 @@
       }
     ],
     "dos": [
-      "Do use the semantic tokens — bg-background, text-surface, border-surface/10, text-industrial-grey — so markup survives the theme flip.",
-      "Do check every change in both themes before calling it done. Both are first-class; the type system cannot catch a contrast failure.",
-      "Do keep literal text-white headings and text-white/70 body copy over photographs, on a wrapper that carries its own bg-black.",
-      "Do render photographs with opacity-90 dark:opacity-40 (plus mix-blend-normal dark:mix-blend-luminosity where it applies), so the image is visible in light mode and stays subdued in dark.",
-      "Do place image layers at z-0 with content at z-10.",
-      "Do give buttons and status chips a full pill radius, and panels a value from the radius scale.",
-      "Do pair a trailing arrow_forward with any button that navigates, and slide it 4px on group hover.",
-      "Do reserve Signal Red for what is active, critical, or clickable."
+      "**Do** use the semantic tokens — `bg-background`, `text-surface`, `border-surface/10`, `text-industrial-grey` — so markup survives the theme flip.",
+      "**Do** check every change in both themes before calling it done. Both are first-class; the type system cannot catch a contrast failure.",
+      "**Do** keep literal `text-white` headings and `text-white/70` body copy over photographs, on a wrapper that carries its own `bg-black`.",
+      "**Do** render photographs with `opacity-90 dark:opacity-40` (plus `mix-blend-normal dark:mix-blend-luminosity` where it applies), so the image is visible in light mode and stays subdued in dark.",
+      "**Do** place image layers at `z-0` with content at `z-10`.",
+      "**Do** give buttons and status chips a full pill radius, and panels a value from the radius scale.",
+      "**Do** pair a trailing `arrow_forward` with any button that navigates, and slide it 4px on group hover.",
+      "**Do** reserve Signal Red for what is active, critical, or clickable."
     ],
     "donts": [
-      "Don't hardcode bg-black, text-white, or border-white/10 outside a photo-backed region. They do not flip.",
-      "Don't put text-industrial-grey over a photograph — it goes dark in light mode and vanishes.",
-      "Don't put an image layer at z-[-1] over a bg-black parent; it renders invisible.",
-      "Don't use .text-gradient anywhere but a heading over a dark photo. Its gradient is fixed light and does not respond to the theme.",
-      "Don't toggle visibility on a MaterialIcon span. Its font CSS forces display; wrap it and toggle the wrapper.",
-      "Don't introduce a second typeface or a second chromatic hue. Both would replace the system rather than extend it.",
-      "Don't use shadow to communicate structure or state. Tone and translucency carry depth; Signal Red carries state.",
-      "Don't attach a play affordance to anything that does not actually start playback."
+      "**Don't** hardcode `bg-black`, `text-white`, or `border-white/10` outside a photo-backed region. They do not flip.",
+      "**Don't** put `text-industrial-grey` over a photograph — it goes dark in light mode and vanishes.",
+      "**Don't** put an image layer at `z-[-1]` over a `bg-black` parent; it renders invisible.",
+      "**Don't** use `.text-gradient` anywhere but a heading over a dark photo. Its gradient is fixed light and does not respond to the theme.",
+      "**Don't** toggle visibility on a `MaterialIcon` span. Its font CSS forces `display`; wrap it and toggle the wrapper.",
+      "**Don't** introduce a third typeface or a second chromatic hue. Both would replace the system rather than extend it. Archivo covers every UI role; IBM Plex Mono covers readouts and nothing else.",
+      "**Don't** reach for `font-stretch-*` outside a page `h1`. Condensed width is the Display role's signature, not a spacing fix for text that overflows.",
+      "**Don't** use shadow to communicate structure or state. Tone and translucency carry depth; Signal Red carries state.",
+      "**Don't** attach a play affordance to anything that does not actually start playback."
     ]
   }
 }
