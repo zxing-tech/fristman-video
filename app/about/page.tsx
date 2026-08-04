@@ -103,9 +103,9 @@ export default function AboutPage() {
         )}
       />
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="flex items-center gap-2 text-sm text-industrial-grey font-label tracking-wide uppercase">
-          <Link className="hover:text-primary transition-colors" href="/">
+      <div className="mx-auto mb-12 max-w-7xl px-6">
+        <div className="flex items-center gap-2 font-label text-sm tracking-wide text-industrial-grey uppercase">
+          <Link className="transition-colors hover:text-primary" href="/">
             Home
           </Link>
           <MaterialIcon name="chevron_right" className="text-xs" />
@@ -114,21 +114,23 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-6 mb-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative mx-auto mb-32 max-w-7xl px-6">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="z-10">
-            <h1 className="text-4xl md:text-6xl font-headline font-bold leading-tight mb-6 uppercase tracking-tight">
+            <h1 className="mb-6 font-headline text-4xl leading-tight font-black tracking-tight uppercase font-stretch-semi-condensed md:text-6xl">
               About Firstman Videos
             </h1>
-            <div className="w-24 h-1 bg-primary mb-8" />
-            <p className="text-xl text-industrial-grey leading-relaxed mb-8 font-light">
+            <div className="mb-8 h-1 w-24 bg-primary" />
+            <p className="mb-8 text-xl leading-relaxed font-light text-industrial-grey">
               We are an industrial cinematography and visual documentation team
               built for oil &amp; gas operators, heavy industry projects and
               large-scale stakeholder communication across Southeast Asia.
             </p>
-            <p className="text-sm text-industrial-grey mb-8">
+            <p className="mb-8 text-sm text-industrial-grey">
               Firstman Videos is the industrial video production brand of{" "}
-              <span className="font-semibold text-surface">Firstman Productions</span>{" "}
+              <span className="font-semibold text-surface">
+                Firstman Productions
+              </span>{" "}
               (001335693-M).
             </p>
             {/* <Link
@@ -139,15 +141,15 @@ export default function AboutPage() {
               <MaterialIcon name="arrow_forward" className="text-lg" />
             </Link> */}
           </div>
-          <div className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel bg-black border-surface/10 group">
+          <div className="glass-panel group relative h-[500px] w-full overflow-hidden rounded-2xl border-surface/10 bg-black">
             <div
-              className="absolute inset-0 opacity-30 mix-blend-screen z-20 pointer-events-none group-hover:opacity-50 transition-opacity duration-700"
+              className="pointer-events-none absolute inset-0 z-20 opacity-30 mix-blend-screen transition-opacity duration-700 group-hover:opacity-50"
               style={redGridBg}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-            <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/30">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs uppercase tracking-widest text-primary font-bold">
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-transparent to-transparent" />
+            <div className="absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full border border-primary/30 bg-black/80 px-3 py-1 backdrop-blur-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+              <span className="text-xs font-bold tracking-widest text-primary uppercase">
                 Verified Operator
               </span>
             </div>
@@ -156,40 +158,40 @@ export default function AboutPage() {
               alt="Industrial film crew operating a heavy-duty drone near an offshore oil rig at twilight"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover grayscale opacity-80 group-hover:grayscale-0 transition-all duration-700"
+              className="object-cover opacity-80 grayscale transition-all duration-700 group-hover:grayscale-0"
             />
           </div>
         </div>
       </section>
 
       {/* Our Story & Mission Split */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="grid md:grid-cols-2 gap-px bg-surface/5 rounded-3xl overflow-hidden border border-surface/5">
-          <div className="glass-panel p-12 lg:p-16 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-1 h-full bg-primary origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
-            <div className="flex items-center gap-4 mb-8">
+      <section className="mx-auto mb-32 max-w-7xl px-6">
+        <div className="grid gap-px overflow-hidden rounded-3xl border border-surface/5 bg-surface/5 md:grid-cols-2">
+          <div className="glass-panel group relative overflow-hidden p-12 lg:p-16">
+            <div className="absolute top-0 left-0 h-full w-1 origin-top scale-y-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-y-100" />
+            <div className="mb-8 flex items-center gap-4">
               <MaterialIcon name="history" className="text-4xl text-primary" />
-              <h2 className="text-3xl font-headline font-bold uppercase tracking-tight">
+              <h2 className="font-headline text-3xl font-bold tracking-tight uppercase">
                 Our Story
               </h2>
             </div>
-            <p className="text-industrial-grey leading-relaxed text-lg">
-              Founded as First Man Productions, we evolved from video
-              production excellence into specialized industrial cinematography
-              and visual documentation designed explicitly for complex,
-              high-risk operational sites. We bridge the gap between creative
-              storytelling and rigorous technical documentation.
+            <p className="text-lg leading-relaxed text-industrial-grey">
+              Founded as First Man Productions, we evolved from video production
+              excellence into specialized industrial cinematography and visual
+              documentation designed explicitly for complex, high-risk
+              operational sites. We bridge the gap between creative storytelling
+              and rigorous technical documentation.
             </p>
           </div>
-          <div className="glass-panel p-12 lg:p-16 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-1 h-full bg-primary origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
-            <div className="flex items-center gap-4 mb-8">
+          <div className="glass-panel group relative overflow-hidden p-12 lg:p-16">
+            <div className="absolute top-0 right-0 h-full w-1 origin-bottom scale-y-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-y-100" />
+            <div className="mb-8 flex items-center gap-4">
               <MaterialIcon name="target" className="text-4xl text-primary" />
-              <h2 className="text-3xl font-headline font-bold uppercase tracking-tight">
+              <h2 className="font-headline text-3xl font-bold tracking-tight uppercase">
                 Mission
               </h2>
             </div>
-            <p className="text-industrial-grey leading-relaxed text-lg">
+            <p className="text-lg leading-relaxed text-industrial-grey">
               Deliver safe, precise and cost-effective high-definition visual
               documentation and cinematic production for industrial teams,
               ensuring flawless execution from initial site assessment to final
@@ -200,57 +202,59 @@ export default function AboutPage() {
       </section>
 
       {/* Values Bento Grid */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-headline font-bold uppercase tracking-tight mb-4">
+      <section className="mx-auto mb-32 max-w-7xl px-6">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 font-headline text-4xl font-bold tracking-tight uppercase">
             Core Values
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto" />
+          <div className="mx-auto h-1 w-16 bg-primary" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {coreValues.map((value) => (
             <div
               key={value.title}
-              className="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-surface/10 relative group"
+              className="glass-panel group relative rounded-2xl border-t border-t-surface/10 p-8 transition-transform duration-300 hover:-translate-y-2"
             >
-              <div className="w-12 h-12 rounded-full bg-background/50 border border-surface/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/10 bg-background/50 transition-colors group-hover:border-primary">
                 <MaterialIcon name={value.icon} className="text-primary" />
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wide mb-3">
+              <h3 className="mb-3 text-xl font-bold tracking-wide uppercase">
                 {value.title}
               </h3>
-              <p className="text-sm text-industrial-grey">{value.description}</p>
+              <p className="text-sm text-industrial-grey">
+                {value.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Capabilities List (Asymmetric Layout) */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4 sticky top-32">
-            <h2 className="text-4xl font-headline font-bold uppercase tracking-tight mb-4">
+      <section className="mx-auto mb-32 max-w-7xl px-6">
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          <div className="sticky top-32 lg:col-span-4">
+            <h2 className="mb-4 font-headline text-4xl font-bold tracking-tight uppercase">
               Operational Capabilities
             </h2>
-            <div className="w-16 h-1 bg-primary mb-6" />
-            <p className="text-industrial-grey text-lg mb-8">
+            <div className="mb-6 h-1 w-16 bg-primary" />
+            <p className="mb-8 text-lg text-industrial-grey">
               Comprehensive visual deployment services engineered for demanding
               industrial environments.
             </p>
           </div>
-          <div className="lg:col-span-8 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:col-span-8">
             {capabilities.map((capability) => (
               <div
                 key={capability.title}
-                className="glass-panel p-6 rounded-xl flex items-center gap-6 group hover:bg-surface/5 transition-colors"
+                className="glass-panel group flex items-center gap-6 rounded-xl p-6 transition-colors hover:bg-surface/5"
               >
-                <div className="w-2 h-12 bg-surface/10 group-hover:bg-primary transition-colors rounded-full" />
+                <div className="h-12 w-2 rounded-full bg-surface/10 transition-colors group-hover:bg-primary" />
                 <MaterialIcon
                   name={capability.icon}
-                  className="text-3xl text-industrial-grey group-hover:text-surface transition-colors"
+                  className="text-3xl text-industrial-grey transition-colors group-hover:text-surface"
                 />
                 <div className="flex-1">
-                  <h4 className="text-lg font-bold uppercase tracking-wide">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
                     {capability.title}
                   </h4>
                 </div>
@@ -261,29 +265,33 @@ export default function AboutPage() {
       </section>
 
       {/* Deployment & Site Coordination */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-headline font-bold uppercase tracking-tight mb-4">
+      <section className="mx-auto mb-32 max-w-7xl px-6">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 font-headline text-4xl font-bold tracking-tight uppercase">
             Deployment &amp; Site Coordination
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto mb-6" />
-          <p className="text-industrial-grey max-w-2xl mx-auto">
-            Most of the work on a live industrial site happens before the first flight. This is
-            what we settle with your team first.
+          <div className="mx-auto mb-6 h-1 w-16 bg-primary" />
+          <p className="mx-auto max-w-2xl text-industrial-grey">
+            Most of the work on a live industrial site happens before the first
+            flight. This is what we settle with your team first.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {deployment.map((item) => (
             <div
               key={item.title}
-              className="glass-panel p-8 rounded-2xl flex items-start gap-6 border-l-2 border-l-transparent hover:border-l-primary transition-colors group"
+              className="glass-panel group flex items-start gap-6 rounded-2xl border-l-2 border-l-transparent p-8 transition-colors hover:border-l-primary"
             >
-              <div className="w-12 h-12 shrink-0 rounded-full bg-background/50 border border-surface/10 flex items-center justify-center group-hover:border-primary transition-colors">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-surface/10 bg-background/50 transition-colors group-hover:border-primary">
                 <MaterialIcon name={item.icon} className="text-primary" />
               </div>
               <div>
-                <h3 className="text-lg font-bold uppercase tracking-wide mb-3">{item.title}</h3>
-                <p className="text-sm text-industrial-grey leading-relaxed">{item.description}</p>
+                <h3 className="mb-3 text-lg font-bold tracking-wide uppercase">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-industrial-grey">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
@@ -291,34 +299,44 @@ export default function AboutPage() {
       </section>
 
       {/* Confidentiality & Data Handling */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="glass-panel rounded-3xl p-10 md:p-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-20 pointer-events-none" />
-          <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+      <section className="mx-auto mb-32 max-w-7xl px-6">
+        <div className="glass-panel relative overflow-hidden rounded-3xl p-10 md:p-16">
+          <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 translate-x-20 -skew-x-12 bg-primary/5" />
+          <div className="relative z-10 grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <div className="w-20 h-20 rounded-full bg-background/50 border border-primary/30 flex items-center justify-center mb-8">
-                <MaterialIcon name="lock" fill className="text-4xl text-primary" />
+              <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-primary/30 bg-background/50">
+                <MaterialIcon
+                  name="lock"
+                  fill
+                  className="text-4xl text-primary"
+                />
               </div>
-              <h2 className="text-3xl font-headline font-bold uppercase tracking-tight mb-4">
+              <h2 className="mb-4 font-headline text-3xl font-bold tracking-tight uppercase">
                 Confidentiality &amp; Data Handling
               </h2>
-              <div className="w-16 h-1 bg-primary" />
+              <div className="h-1 w-16 bg-primary" />
             </div>
             <div className="lg:col-span-8">
-              <p className="text-industrial-grey text-lg leading-relaxed mb-8">
-                Site layouts, operational procedures and fabrication techniques are proprietary,
-                and we treat footage of them that way. Raw material is moved and stored through
-                controlled channels, and anything sensitive is delivered gated rather than posted
+              <p className="mb-8 text-lg leading-relaxed text-industrial-grey">
+                Site layouts, operational procedures and fabrication techniques
+                are proprietary, and we treat footage of them that way. Raw
+                material is moved and stored through controlled channels, and
+                anything sensitive is delivered gated rather than posted
                 publicly. Access to those deliverables is logged.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {dataHandling.map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 bg-surface/5 p-4 rounded-xl border border-surface/5"
+                    className="flex items-center gap-3 rounded-xl border border-surface/5 bg-surface/5 p-4"
                   >
-                    <MaterialIcon name={item.icon} className="text-primary shrink-0" />
-                    <span className="text-sm font-bold uppercase tracking-wider">{item.label}</span>
+                    <MaterialIcon
+                      name={item.icon}
+                      className="shrink-0 text-primary"
+                    />
+                    <span className="text-sm font-bold tracking-wider uppercase">
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -328,25 +346,25 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="glass-panel rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          <h2 className="text-3xl md:text-5xl font-headline font-bold uppercase tracking-tight mb-8 relative z-10">
+      <section className="mx-auto mb-12 max-w-7xl px-6">
+        <div className="glass-panel relative overflow-hidden rounded-3xl p-12 text-center md:p-20">
+          <div className="pointer-events-none absolute inset-0 bg-primary/5" />
+          <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <h2 className="relative z-10 mb-8 font-headline text-3xl font-bold tracking-tight uppercase md:text-5xl">
             Ready to Document Your
             <br />
             Next Critical Operation?
           </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
+          <div className="relative z-10 flex flex-col justify-center gap-6 sm:flex-row">
             <Link
-              className="inline-flex items-center justify-center gap-3 bg-primary text-white font-body uppercase tracking-widest text-sm font-bold px-8 py-4 rounded-full hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(209,32,39,0.15)]"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 font-body text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_15px_rgba(209,32,39,0.15)] transition-colors hover:bg-red-700"
               href="/contact"
             >
               Speak to our team
               <MaterialIcon name="arrow_forward" className="text-lg" />
             </Link>
             <Link
-              className="inline-flex items-center justify-center gap-3 bg-transparent text-surface font-body uppercase tracking-widest text-sm font-bold px-8 py-4 rounded-full border border-surface/20 hover:border-primary hover:bg-primary/10 transition-colors"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-surface/20 bg-transparent px-8 py-4 font-body text-sm font-bold tracking-widest text-surface uppercase transition-colors hover:border-primary hover:bg-primary/10"
               href="/#services"
             >
               View Services

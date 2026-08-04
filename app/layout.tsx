@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Open_Sans } from "next/font/google"
+import { Archivo, IBM_Plex_Mono } from "next/font/google"
 
 import "./globals.css"
 import { JsonLd } from "@/components/seo/json-ld"
@@ -9,10 +9,26 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { graph, organizationSchema, SITE, websiteSchema } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
-const openSans = Open_Sans({
+// Archivo carries every UI role. `axes: ["wdth"]` is load-bearing, not optional:
+// it is what lets the display heading condense via `font-stretch-*`. Without it
+// next/font emits `font-stretch: 100%` and the width utilities silently no-op.
+// The `wght` axis reaches a real 900 here — Open Sans stopped at 800, so every
+// `font-black` on the site used to clamp back down to `font-extrabold`.
+const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
+  axes: ["wdth"],
   variable: "--font-sans",
+})
+
+// HUD readouts only — reference codes, coordinates, statuses. Previously these
+// fell through to the platform monospace stack, so the signature rendered as a
+// different face on every operating system.
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
@@ -73,7 +89,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased font-sans", openSans.variable)}
+      className={cn(
+        "font-sans antialiased",
+        archivo.variable,
+        plexMono.variable
+      )}
     >
       <head>
         {/* Material Symbols dimuat sebagai stylesheet ikon (bukan next/font) agar font-variation-settings FILL tetap bisa dianimasikan */}
@@ -83,10 +103,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-background text-surface font-body antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+      <body className="overflow-x-hidden bg-background font-body text-surface antialiased selection:bg-primary selection:text-white">
         {/* Site-wide business identity + website structured data */}
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           <SiteNavbar />
           {children}
           <SiteFooter />

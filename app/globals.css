@@ -5,12 +5,20 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    /* One family (Archivo) for every UI role — hierarchy comes from weight,
+       width, size, case and tracking, not from a second face. These are `inline`
+       so Tailwind resolves them straight to the next/font variable on <html>
+       instead of re-emitting a self-referential custom property. */
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
     --font-headline: var(--font-sans);
     --font-display: var(--font-sans);
     --font-body: var(--font-sans);
     --font-label: var(--font-sans);
+    /* The one exception: IBM Plex Mono, for HUD readouts that are genuine
+       measurement — reference codes, coordinates, statuses. Overrides the
+       Tailwind default stack so the readout is the same face on every OS. */
+    --font-mono: var(--font-mono);
     /* First Man Videos brand tokens — theme-aware (flip light/dark) */
     --color-surface: var(--surface);
     --color-dark-ui: var(--dark-ui);
@@ -174,6 +182,17 @@ html {
     }
   html {
     @apply font-sans;
+    }
+
+  /* The inherited shadcn default (`outline-ring/50`) draws a 1px auto outline in
+     Signal Red at half alpha — invisible on a red primary button and barely there
+     anywhere else. This replaces it with a two-tone ring: a page-coloured halo in
+     the outline's offset gap, then the red outline. The halo is what keeps the
+     ring legible over a photograph or over the red fill itself. */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--background);
     }
 }
 

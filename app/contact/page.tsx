@@ -55,7 +55,7 @@ const contactCards: {
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <JsonLd data={schema} />
       {/* Background Image */}
       <div className="fixed inset-0 -z-10">
@@ -67,54 +67,55 @@ export default function ContactPage() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
       </div>
 
       {/* Breadcrumb */}
-      <div className="w-full max-w-[1280px] mx-auto px-8 pt-28">
+      <div className="mx-auto w-full max-w-[1280px] px-8 pt-28">
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center text-xs font-body uppercase tracking-wider text-industrial-grey gap-2"
+          className="flex items-center gap-2 font-body text-xs tracking-wider text-industrial-grey uppercase"
         >
-          <Link className="hover:text-surface transition-colors" href="/">
+          <Link className="transition-colors hover:text-surface" href="/">
             Home
           </Link>
           <span className="text-surface/30">/</span>
-          <span className="text-primary font-bold">Contact</span>
+          <span className="font-bold text-primary">Contact</span>
         </nav>
       </div>
 
       {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center justify-center pt-12 pb-24 px-4 sm:px-8 z-10 w-full max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
+      <main className="z-10 mx-auto flex w-full max-w-[1280px] flex-grow flex-col items-center justify-center px-4 pt-12 pb-24 sm:px-8">
+        <div className="grid w-full grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Column: Hero Copy & Contact Info */}
-          <div className="lg:col-span-5 flex flex-col justify-start pt-8">
+          <div className="flex flex-col justify-start pt-8 lg:col-span-5">
             {/* Scarcity Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-8 w-fit backdrop-blur-sm">
+            <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span className="text-xs font-bold uppercase tracking-wider text-surface">
+              <span className="text-xs font-bold tracking-wider text-surface uppercase">
                 Priority consultation slots available this month
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-headline font-black tracking-tighter uppercase text-surface mb-6 leading-none">
+            <h1 className="mb-6 font-headline text-4xl leading-none font-black tracking-tight text-surface uppercase font-stretch-semi-condensed md:text-6xl">
               Get in{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#b01a20]">
+              <span className="bg-gradient-to-r from-primary to-[#b01a20] bg-clip-text text-transparent">
                 Touch
               </span>
             </h1>
-            <p className="text-industrial-grey text-lg font-body mb-12 max-w-md leading-relaxed">
-              Request a consultation, quote or site assessment. Our specialized industrial
-              cinematography team typically responds within{" "}
+            <p className="mb-12 max-w-md font-body text-lg leading-relaxed text-industrial-grey">
+              Request a consultation, quote or site assessment. Our specialized
+              industrial cinematography team typically responds within{" "}
               <strong className="text-surface">24 business hours</strong>.
             </p>
             {/* Contact Info Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+            <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {contactCards.map((card) => {
                 const cardClass =
                   "glass-panel p-5 rounded-xl group cursor-pointer transition-all duration-300 hover:border-primary/50"
@@ -122,17 +123,17 @@ export default function ContactPage() {
                   <div className="flex items-start gap-4">
                     <MaterialIcon
                       name={card.icon}
-                      className="text-industrial-grey text-2xl transition-all duration-300 group-hover:text-primary group-hover:scale-110 group-hover:[font-variation-settings:'FILL'_1]"
+                      className="text-2xl text-industrial-grey transition-all duration-300 group-hover:scale-110 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                     />
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-surface/50 mb-1">
+                      <h3 className="mb-1 text-xs font-bold tracking-wider text-surface/50 uppercase">
                         {card.title}
                       </h3>
                       {card.lines.map((line, index) => (
                         <p
                           key={line}
                           className={`text-sm font-medium text-surface${
-                            index < card.lines.length - 1 ? " mb-0.5" : ""
+                            index < card.lines.length - 1 ? "mb-0.5" : ""
                           }`}
                         >
                           {line}
@@ -159,20 +160,22 @@ export default function ContactPage() {
               })}
             </div>
             {/* Registered Office */}
-            <div className="glass-panel p-5 rounded-xl mb-12 flex items-start gap-4">
+            <div className="glass-panel mb-12 flex items-start gap-4 rounded-xl p-5">
               <MaterialIcon
                 name="location_on"
-                className="text-industrial-grey text-2xl shrink-0 mt-0.5"
+                className="mt-0.5 shrink-0 text-2xl text-industrial-grey"
               />
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-surface/50 mb-1">
+                <h3 className="mb-1 text-xs font-bold tracking-wider text-surface/50 uppercase">
                   Address
                 </h3>
                 <p className="text-sm font-bold text-surface">
                   Firstman Productions{" "}
-                  <span className="font-medium text-industrial-grey">(001335693-M)</span>
+                  <span className="font-medium text-industrial-grey">
+                    (001335693-M)
+                  </span>
                 </p>
-                <p className="text-sm text-industrial-grey leading-relaxed mt-1">
+                <p className="mt-1 text-sm leading-relaxed text-industrial-grey">
                   No. 39-G, Block D, No. 1, Jalan SS7/26,
                   <br />
                   Kelana Jaya, 47301 Selangor, Malaysia
@@ -180,26 +183,31 @@ export default function ContactPage() {
               </div>
             </div>
             {/* SLA Notice */}
-            <div className="mt-auto border-l-2 border-primary/50 pl-4 py-1">
-              <div className="flex items-center gap-2 mb-1">
-                <MaterialIcon name="timer" fill className="text-primary text-sm" />
-                <span className="text-xs font-bold uppercase tracking-wider text-surface">
+            <div className="mt-auto border-l-2 border-primary/50 py-1 pl-4">
+              <div className="mb-1 flex items-center gap-2">
+                <MaterialIcon
+                  name="timer"
+                  fill
+                  className="text-sm text-primary"
+                />
+                <span className="text-xs font-bold tracking-wider text-surface uppercase">
                   Response SLA
                 </span>
               </div>
-              <p className="text-xs text-industrial-grey max-w-sm">
-                Enquiries are securely routed to our Business Development team. A confirmation copy
-                will be sent to your provided email address immediately.
+              <p className="max-w-sm text-xs text-industrial-grey">
+                Enquiries are securely routed to our Business Development team.
+                A confirmation copy will be sent to your provided email address
+                immediately.
               </p>
             </div>
           </div>
           {/* Right Column: Form Container */}
           <div className="lg:col-span-7">
-            <div className="glass-panel p-8 md:p-10 rounded-2xl relative overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+            <div className="glass-panel relative overflow-hidden rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] md:p-10">
               {/* Tech accents */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full blur-2xl" />
-              <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+              <div className="absolute top-0 right-0 h-24 w-24 rounded-bl-full bg-primary/10 blur-2xl" />
+              <div className="absolute top-4 right-4 h-2 w-2 animate-pulse rounded-full bg-primary" />
+              <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
               <ConsultationForm />
             </div>
           </div>

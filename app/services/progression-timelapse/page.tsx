@@ -14,14 +14,17 @@ export const metadata = pageMeta({
 const structuredData = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Progression & Timelapse", path: "/services/progression-timelapse" },
+    {
+      name: "Progression & Timelapse",
+      path: "/services/progression-timelapse",
+    },
   ]),
   serviceSchema({
     name: "Progression & Timelapse",
     description:
       "Scheduled drone photo and video documentation of long-term industrial builds, tracking site progress from establishment through structural completion.",
     path: "/services/progression-timelapse",
-  }),
+  })
 )
 
 const stakeholderCards = [
@@ -55,23 +58,26 @@ const deliverables = [
   {
     icon: "movie",
     title: "Adhoc Project Status",
-    description: "Edited sequences detailing chronological progression over 30-day intervals.",
+    description:
+      "Edited sequences detailing chronological progression over 30-day intervals.",
   },
   {
     icon: "video_library",
     title: "Milestone Reels To Reports",
-    description: "Focused compilation videos highlighting significant structural achievements.",
+    description:
+      "Focused compilation videos highlighting significant structural achievements.",
   },
-    {
-      icon: "photo_library",
-      title: "Drone Aerial Photographs And Maintenance The Explanation",
-      description:
-        "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
-    },
+  {
+    icon: "photo_library",
+    title: "Drone Aerial Photographs And Maintenance The Explanation",
+    description:
+      "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
+  },
   {
     icon: "rate_review",
     title: "Review Versions",
-    description: "Low-bandwidth drafts provided for internal stakeholder review and approval.",
+    description:
+      "Low-bandwidth drafts provided for internal stakeholder review and approval.",
   },
 ]
 
@@ -142,34 +148,34 @@ export default function ProgressionTimelapsePage() {
     <div>
       <JsonLd data={structuredData} />
       {/* Hero Section */}
-      <header className="relative bg-black min-h-[819px] flex items-center justify-center pt-24 overflow-hidden">
+      <header className="relative flex min-h-[819px] items-center justify-center overflow-hidden bg-black pt-24">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#000000] z-10" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/80 via-black/60 to-[#000000]" />
           <div
             aria-label="Industrial construction site at night illuminated by floodlights"
-            className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0"
+            className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
             role="img"
             style={{ backgroundImage: "url('/images/stitch/9b76d8b2fc.jpg')" }}
           />
         </div>
-        <div className="relative z-20 container mx-auto px-6 lg:px-12 max-w-7xl text-center">
-          <div className="inline-flex items-center space-x-2 bg-graphite/60 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.2em] text-white/70 font-bold">
+        <div className="relative z-20 container mx-auto max-w-7xl px-6 text-center lg:px-12">
+          <div className="mb-8 inline-flex items-center space-x-2 rounded-full border border-white/10 bg-graphite/60 px-4 py-1.5 backdrop-blur-md">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+            <span className="text-xs font-bold tracking-[0.2em] text-white/70 uppercase">
               Service Detail
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight mb-6 text-white leading-tight">
+          <h1 className="mb-6 text-4xl leading-tight font-black tracking-tight text-white uppercase font-stretch-semi-condensed md:text-6xl lg:text-7xl">
             Construction Progress & <br />
             <span className="text-primary">Timelapse</span> Capture
           </h1>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
-            Visual documentation for construction, fabrication, site upgrades, shutdowns,
-            fit-outs and industrial project milestones.
+          <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed font-medium text-white/70 md:text-xl">
+            Visual documentation for construction, fabrication, site upgrades,
+            shutdowns, fit-outs and industrial project milestones.
           </p>
           <a
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-primary transition-all duration-300"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 hover:border-primary hover:bg-white/10"
             href="#approach"
           >
             <MaterialIcon name="arrow_downward" />
@@ -178,30 +184,32 @@ export default function ProgressionTimelapsePage() {
       </header>
 
       {/* Section 1: Value for Stakeholders */}
-      <section className="py-24 bg-background relative">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
+      <section className="relative bg-background py-24">
+        <div className="container mx-auto max-w-[1280px] px-6 lg:px-12">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-wide text-surface uppercase md:text-4xl">
               Value for Stakeholders
             </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
+            <div className="mx-auto h-1 w-16 bg-primary" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {stakeholderCards.map((card) => (
               <div
-                className="glass-panel p-8 rounded-2xl group transition-all duration-300 hover:-translate-y-2 hover:border-primary/30"
+                className="glass-panel group rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30"
                 key={card.title}
               >
-                <div className="w-14 h-14 rounded-full bg-graphite flex items-center justify-center mb-6 border border-surface/10 group-hover:border-primary/50 transition-colors">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-surface/10 bg-graphite transition-colors group-hover:border-primary/50">
                   <MaterialIcon
                     name={card.icon}
                     className="text-3xl text-surface transition-all duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                   />
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-3">
+                <h3 className="mb-3 text-xl font-bold tracking-wider text-surface uppercase">
                   {card.title}
                 </h3>
-                <p className="text-industrial-grey text-sm leading-relaxed">{card.description}</p>
+                <p className="text-sm leading-relaxed text-industrial-grey">
+                  {card.description}
+                </p>
               </div>
             ))}
           </div>
@@ -209,40 +217,50 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 2: Capture Approach */}
-      <section className="py-24 bg-dark-ui relative overflow-hidden" id="approach">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section
+        className="relative overflow-hidden bg-dark-ui py-24"
+        id="approach"
+      >
+        <div className="container mx-auto max-w-[1280px] px-6 lg:px-12">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-6">
+              <h2 className="mb-6 text-3xl font-bold tracking-wide text-surface uppercase md:text-4xl">
                 Capture Approach
               </h2>
-              <p className="text-industrial-grey text-base leading-relaxed mb-6">
-                Methodical, site-aware planning for chronicling long-term project lifecycles. We
-                prioritize safe, unobtrusive visual documentation that aligns with industrial
-                operations.
+              <p className="mb-6 text-base leading-relaxed text-industrial-grey">
+                Methodical, site-aware planning for chronicling long-term
+                project lifecycles. We prioritize safe, unobtrusive visual
+                documentation that aligns with industrial operations.
               </p>
-              <ul className="space-y-4 mb-8">
+              <ul className="mb-8 space-y-4">
                 {captureApproachPoints.map((point) => (
                   <li className="flex items-start" key={point}>
-                    <MaterialIcon name="check_circle" className="text-primary mr-3 mt-0.5" />
-                    <span className="text-surface text-sm font-medium">{point}</span>
+                    <MaterialIcon
+                      name="check_circle"
+                      className="mt-0.5 mr-3 text-primary"
+                    />
+                    <span className="text-sm font-medium text-surface">
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-video border border-surface/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <div className="absolute inset-0 bg-black/20 z-10" />
-              <div className="absolute inset-0 border-2 border-primary/20 z-20 pointer-events-none rounded-2xl m-2" />
+            <div className="relative aspect-video overflow-hidden rounded-2xl border border-surface/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+              <div className="absolute inset-0 z-10 bg-black/20" />
+              <div className="pointer-events-none absolute inset-0 z-20 m-2 rounded-2xl border-2 border-primary/20" />
               {/* Reticle corners */}
-              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-primary z-20" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-primary z-20" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-primary z-20" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-primary z-20" />
+              <div className="absolute top-4 left-4 z-20 h-4 w-4 border-t-2 border-l-2 border-primary" />
+              <div className="absolute top-4 right-4 z-20 h-4 w-4 border-t-2 border-r-2 border-primary" />
+              <div className="absolute bottom-4 left-4 z-20 h-4 w-4 border-b-2 border-l-2 border-primary" />
+              <div className="absolute right-4 bottom-4 z-20 h-4 w-4 border-r-2 border-b-2 border-primary" />
               <div
                 aria-label="Symmetrical view down an industrial pipeline under construction"
-                className="w-full h-full bg-cover bg-center"
+                className="h-full w-full bg-cover bg-center"
                 role="img"
-                style={{ backgroundImage: "url('/images/stitch/16bb4dd413.jpg')" }}
+                style={{
+                  backgroundImage: "url('/images/stitch/16bb4dd413.jpg')",
+                }}
               />
             </div>
           </div>
@@ -250,28 +268,30 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 3: Deliverables */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
+      <section className="bg-background py-24">
+        <div className="container mx-auto max-w-[1280px] px-6 lg:px-12">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-wide text-surface uppercase md:text-4xl">
               Deliverables
             </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
+            <div className="mx-auto h-1 w-16 bg-primary" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {deliverables.map((item) => (
               <div
-                className="glass-panel p-6 rounded-xl border border-surface/10 hover:border-primary/50 transition-colors group"
+                className="glass-panel group rounded-xl border border-surface/10 p-6 transition-colors hover:border-primary/50"
                 key={item.title}
               >
                 <MaterialIcon
                   name={item.icon}
-                  className="text-2xl text-industrial-grey group-hover:text-primary transition-colors mb-4 block"
+                  className="mb-4 block text-2xl text-industrial-grey transition-colors group-hover:text-primary"
                 />
-                <h4 className="text-surface font-bold uppercase text-sm tracking-wider mb-2">
+                <h4 className="mb-2 text-sm font-bold tracking-wider text-surface uppercase">
                   {item.title}
                 </h4>
-                <p className="text-industrial-grey text-xs">{item.description}</p>
+                <p className="text-xs text-industrial-grey">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -279,45 +299,51 @@ export default function ProgressionTimelapsePage() {
       </section>
 
       {/* Section 4: Sample Timeline Module */}
-      <section className="py-24 bg-dark-ui">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1000px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
+      <section className="bg-dark-ui py-24">
+        <div className="container mx-auto max-w-[1000px] px-6 lg:px-12">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-wide text-surface uppercase md:text-4xl">
               Sample Progression
             </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
+            <div className="mx-auto h-1 w-16 bg-primary" />
           </div>
           <div className="relative py-8">
             {/* Center Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-graphite-light md:-translate-x-1/2" />
+            <div className="absolute top-0 bottom-0 left-6 w-0.5 bg-graphite-light md:left-1/2 md:-translate-x-1/2" />
             {timelinePhases.map((item, index) => (
               <div
                 className={`relative flex flex-col ${
                   item.reversed ? "md:flex-row-reverse" : "md:flex-row"
-                } items-center w-full ${index < timelinePhases.length - 1 ? "mb-24" : ""}`}
+                } w-full items-center ${index < timelinePhases.length - 1 ? "mb-24" : ""}`}
                 key={item.phase}
               >
-                <div className="absolute left-6 md:left-1/2 top-0 w-4 h-4 rounded-full bg-background border-2 border-primary -translate-x-1/2 z-10" />
+                <div className="absolute top-0 left-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-primary bg-background md:left-1/2" />
                 <div
-                  className={`w-full md:w-1/2 pl-12 mb-6 md:mb-0 ${
-                    item.reversed ? "md:pl-12" : "md:pl-0 md:pr-12 md:text-right"
+                  className={`mb-6 w-full pl-12 md:mb-0 md:w-1/2 ${
+                    item.reversed
+                      ? "md:pl-12"
+                      : "md:pr-12 md:pl-0 md:text-right"
                   }`}
                 >
-                  <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-2">
+                  <h3 className="mb-2 text-xl font-bold tracking-wider text-surface uppercase">
                     {item.phase}
                   </h3>
-                  <h4 className="text-primary font-bold text-lg mb-3">{item.title}</h4>
-                  <p className="text-industrial-grey text-sm">{item.description}</p>
+                  <h4 className="mb-3 text-lg font-bold text-primary">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-industrial-grey">
+                    {item.description}
+                  </p>
                 </div>
                 <div
-                  className={`w-full md:w-1/2 pl-12 ${
-                    item.reversed ? "md:pr-12 flex md:justify-end" : "md:pl-12"
+                  className={`w-full pl-12 md:w-1/2 ${
+                    item.reversed ? "flex md:justify-end md:pr-12" : "md:pl-12"
                   }`}
                 >
-                  <div className="rounded-lg overflow-hidden border border-surface/10 shadow-lg aspect-video w-full max-w-sm">
+                  <div className="aspect-video w-full max-w-sm overflow-hidden rounded-lg border border-surface/10 shadow-lg">
                     <div
                       aria-label={item.alt}
-                      className="w-full h-full bg-cover bg-center"
+                      className="h-full w-full bg-cover bg-center"
                       role="img"
                       style={{ backgroundImage: `url('${item.image}')` }}
                     />
@@ -364,7 +390,7 @@ export default function ProgressionTimelapsePage() {
       </section> */}
 
       {/* Final CTA */}
-      <section className="py-32 bg-dark-ui relative overflow-hidden text-center">
+      <section className="relative overflow-hidden bg-dark-ui py-32 text-center">
         <div
           className="absolute inset-0 z-0 opacity-20"
           style={{
@@ -372,18 +398,18 @@ export default function ProgressionTimelapsePage() {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="relative z-10 container mx-auto px-6 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-surface mb-10">
+        <div className="relative z-10 container mx-auto max-w-3xl px-6">
+          <h2 className="mb-10 text-4xl font-bold tracking-tight text-surface uppercase md:text-5xl">
             Document the next milestone clearly
           </h2>
           <Link
-            className="bg-primary hover:bg-[#9a161b] text-white font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(209,32,39,0.3)] hover:shadow-[0_0_40px_rgba(209,32,39,0.5)] inline-flex items-center justify-center mx-auto group"
+            className="group mx-auto inline-flex items-center justify-center rounded-full bg-primary px-10 py-5 text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_30px_rgba(209,32,39,0.3)] transition-all duration-300 hover:scale-105 hover:bg-[#9a161b] hover:shadow-[0_0_40px_rgba(209,32,39,0.5)] active:scale-95"
             href="/contact"
           >
             Request Consultation
             <MaterialIcon
               name="arrow_forward"
-              className="ml-3 group-hover:translate-x-1 transition-transform"
+              className="ml-3 transition-transform group-hover:translate-x-1"
             />
           </Link>
         </div>

@@ -17,14 +17,17 @@ export const metadata = pageMeta({
 const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Facility Overview Films", path: "/services/facility-overview-films" },
+    {
+      name: "Facility Overview Films",
+      path: "/services/facility-overview-films",
+    },
   ]),
   serviceSchema({
     name: "Facility Overview Films",
     description:
       "Drone-enabled aerial and ground cinematography that shows the scale, layout and access points of industrial facilities for stakeholders.",
     path: "/services/facility-overview-films",
-  }),
+  })
 )
 
 // The four sectors come from lib/data/sectors.ts — the same list that drives the
@@ -80,8 +83,8 @@ export default function FacilityOverviewFilmsPage() {
     <div className="pt-32 pb-24">
       <JsonLd data={schema} />
       {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-6 lg:px-8 mb-24">
-        <div className="relative w-full h-[614px] min-h-[500px] rounded-[24px] overflow-hidden group bg-black">
+      <section className="relative mx-auto mb-24 max-w-7xl px-6 lg:px-8">
+        <div className="group relative h-[614px] min-h-[500px] w-full overflow-hidden rounded-[24px] bg-black">
           {/* Background Image */}
           <div
             aria-label="Aerial view of an industrial oil refinery illuminated at dusk"
@@ -92,29 +95,30 @@ export default function FacilityOverviewFilmsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
           <div className="absolute inset-0 bg-black/30" />
           {/* HUD Elements */}
-          <div className="absolute top-8 left-8 w-16 h-px bg-white/30 hidden md:block" />
-          <div className="absolute top-8 left-8 w-px h-16 bg-white/30 hidden md:block" />
-          <div className="absolute bottom-8 right-8 w-16 h-px bg-primary hidden md:block" />
-          <div className="absolute bottom-8 right-8 w-px h-16 bg-primary hidden md:block" />
+          <div className="absolute top-8 left-8 hidden h-px w-16 bg-white/30 md:block" />
+          <div className="absolute top-8 left-8 hidden h-16 w-px bg-white/30 md:block" />
+          <div className="absolute right-8 bottom-8 hidden h-px w-16 bg-primary md:block" />
+          <div className="absolute right-8 bottom-8 hidden h-16 w-px bg-primary md:block" />
           <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex items-center gap-3">
               <MaterialIcon name="videocam" fill className="text-primary" />
-              <span className="text-primary font-bold tracking-widest uppercase text-xs">
+              <span className="text-xs font-bold tracking-widest text-primary uppercase">
                 Capability
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase mb-4 max-w-4xl leading-tight">
+            <h1 className="mb-4 max-w-4xl text-4xl leading-tight font-black tracking-tight text-white uppercase font-stretch-semi-condensed md:text-6xl">
               Facility Overview Films <br />
               <span className="text-white/60">for Industrial Sites</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-8 leading-relaxed font-light">
-              Drone-enabled aerial and ground cinematography that helps industrial teams
-              explain scale, layout, access points and project context to stakeholders.
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed font-light text-white/70 md:text-xl">
+              Drone-enabled aerial and ground cinematography that helps
+              industrial teams explain scale, layout, access points and project
+              context to stakeholders.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <div className="flex flex-col items-start gap-4 sm:flex-row">
               <RequestAccessTrigger
                 defaultVideo="Facility Overview Films Portfolio"
-                className="flex items-center gap-2 bg-primary hover:bg-[#a0181e] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all shadow-[0_0_20px_rgba(209,32,39,0.4)]"
+                className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_20px_rgba(209,32,39,0.4)] transition-all hover:bg-[#a0181e]"
               >
                 <MaterialIcon name="lock" fill />
                 Request Access to Portfolio
@@ -125,28 +129,30 @@ export default function FacilityOverviewFilmsPage() {
       </section>
 
       {/* Context & Application */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="mx-auto mb-24 max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
+            <h2 className="mb-2 border-l-2 border-primary pl-4 text-sm font-bold tracking-widest text-primary uppercase">
               Application
             </h2>
-            <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-6">
+            <h3 className="mb-6 text-2xl font-bold tracking-tight text-surface uppercase">
               Designed For
             </h3>
             <ul className="space-y-4">
               {sectors.map((sector) => (
                 <li
                   key={sector.slug}
-                  className="glass-panel rounded-xl p-4 flex items-start gap-4 border border-surface/5 group cursor-default transition-colors hover:border-surface/20"
+                  className="glass-panel group flex cursor-default items-start gap-4 rounded-xl border border-surface/5 p-4 transition-colors hover:border-surface/20"
                 >
                   <MaterialIcon
                     name={sector.icon}
-                    className="text-surface/50 transition-colors group-hover:text-primary mt-0.5"
+                    className="mt-0.5 text-surface/50 transition-colors group-hover:text-primary"
                   />
                   <div>
-                    <span className="font-bold tracking-tight block">{sector.title}</span>
-                    <p className="text-industrial-grey text-xs leading-relaxed mt-1">
+                    <span className="block font-bold tracking-tight">
+                      {sector.title}
+                    </span>
+                    <p className="mt-1 text-xs leading-relaxed text-industrial-grey">
                       {sector.summary}
                     </p>
                   </div>
@@ -155,21 +161,23 @@ export default function FacilityOverviewFilmsPage() {
             </ul>
           </div>
           <div className="lg:col-span-8">
-            <div className="glass-panel rounded-[24px] p-8 md:p-12 h-full flex flex-col justify-center">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
+            <div className="glass-panel flex h-full flex-col justify-center rounded-[24px] p-8 md:p-12">
+              <h2 className="mb-2 border-l-2 border-primary pl-4 text-sm font-bold tracking-widest text-primary uppercase">
                 Focus Areas
               </h2>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-surface mb-8">
+              <h3 className="mb-8 text-2xl font-bold tracking-tight text-surface uppercase">
                 What Gets Captured
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {focusAreas.map((area) => (
                   <div className="group" key={area.title}>
-                    <div className="flex items-center gap-3 mb-3 text-surface group-hover:text-primary transition-colors">
+                    <div className="mb-3 flex items-center gap-3 text-surface transition-colors group-hover:text-primary">
                       <MaterialIcon name={area.icon} />
-                      <h4 className="font-bold uppercase tracking-wider text-sm">{area.title}</h4>
+                      <h4 className="text-sm font-bold tracking-wider uppercase">
+                        {area.title}
+                      </h4>
                     </div>
-                    <p className="text-industrial-grey text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed text-industrial-grey">
                       {area.description}
                     </p>
                   </div>
@@ -181,33 +189,35 @@ export default function FacilityOverviewFilmsPage() {
       </section>
 
       {/* Use Cases Grid */}
-      <section className="py-24 mb-24 bg-graphite relative border-y border-surface/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <SectionLabel className="mb-2 block">Deployment Scenarios</SectionLabel>
-            <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-surface">
+      <section className="relative mb-24 border-y border-surface/5 bg-graphite py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <SectionLabel className="mb-2 block">
+              Deployment Scenarios
+            </SectionLabel>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-surface md:text-5xl">
               Facility Overviews
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {useCases.map((useCase) => (
               <div
                 key={useCase.title}
-                className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-black border border-white/10"
+                className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-black"
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
+                  className="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-40"
                   style={{ backgroundImage: `url('${useCase.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                    <MaterialIcon name="add" className="text-white text-sm" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="mb-4 flex h-10 w-10 translate-y-4 transform items-center justify-center rounded-full bg-primary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <MaterialIcon name="add" className="text-sm text-white" />
                   </div>
-                  <h3 className="font-headline font-bold text-xl text-white mb-2">
+                  <h3 className="mb-2 font-headline text-xl font-bold text-white">
                     {useCase.title}
                   </h3>
-                  <p className="font-body text-sm text-white/70 group-hover:text-white/90 transition-colors">
+                  <p className="font-body text-sm text-white/70 transition-colors group-hover:text-white/90">
                     {useCase.body}
                   </p>
                 </div>
@@ -218,22 +228,22 @@ export default function FacilityOverviewFilmsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 text-center py-16">
-        <h2 className="text-3xl font-black uppercase tracking-tighter text-surface mb-6">
+      <section className="mx-auto max-w-4xl px-6 py-16 text-center lg:px-8">
+        <h2 className="mb-6 text-3xl font-black tracking-tighter text-surface uppercase">
           Need a clearer view of your facility?
         </h2>
-        <p className="text-industrial-grey mb-8 max-w-xl mx-auto">
-          Discuss your specific project requirements and site constraints with our production
-          team.
+        <p className="mx-auto mb-8 max-w-xl text-industrial-grey">
+          Discuss your specific project requirements and site constraints with
+          our production team.
         </p>
         <Link
-          className="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-surface hover:bg-primary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all group"
+          className="group inline-flex items-center gap-2 rounded-full border-2 border-primary bg-transparent px-8 py-4 text-sm font-bold tracking-widest text-surface uppercase transition-all hover:bg-primary"
           href="/contact"
         >
           Discuss Your Production
           <MaterialIcon
             name="arrow_forward"
-            className="group-hover:translate-x-1 transition-transform"
+            className="transition-transform group-hover:translate-x-1"
           />
         </Link>
       </section>

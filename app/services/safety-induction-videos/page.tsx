@@ -14,7 +14,10 @@ export const metadata = pageMeta({
 const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Safety and Induction Videos", path: "/services/safety-induction-videos" },
+    {
+      name: "Safety and Induction Videos",
+      path: "/services/safety-induction-videos",
+    },
   ]),
   serviceSchema({
     name: "Safety and Induction Videos",
@@ -48,13 +51,17 @@ const typicalContent = [
   { icon: "directions_run", label: "Assembly points and evacuation routes" },
   { icon: "verified_user", label: "Safe work practices" },
   { icon: "block", label: "Restricted and high-risk areas" },
-  { icon: "precision_manufacturing", label: "Equipment and machinery guidelines" },
+  {
+    icon: "precision_manufacturing",
+    label: "Equipment and machinery guidelines",
+  },
   { icon: "recycling", label: "Environmental and housekeeping practices" },
   { icon: "lock", label: "Security procedures" },
   { icon: "groups", label: "Visitor and contractor requirements" },
   {
     icon: "subtitles",
-    label: "On-screen graphics, animations and multilingual subtitles (optional)",
+    label:
+      "On-screen graphics, animations and multilingual subtitles (optional)",
   },
 ]
 
@@ -63,53 +70,58 @@ export default function SafetyInductionVideosPage() {
     <div>
       <JsonLd data={schema} />
       {/* Hero — "Main Panel" from the supplied copy */}
-      <header className="relative min-h-[921px] flex items-center pt-24 pb-16 overflow-hidden bg-black">
+      <header className="relative flex min-h-[921px] items-center overflow-hidden bg-black pt-24 pb-16">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <div
             aria-label="Monochrome industrial oil and gas facility at dusk with red interface overlays"
-            className="w-full h-full bg-cover bg-center opacity-90 dark:opacity-40"
+            className="h-full w-full bg-cover bg-center opacity-90 dark:opacity-40"
             role="img"
             style={{ backgroundImage: "url('/images/stitch/e8622506e9.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col items-start gap-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
-            <MaterialIcon name="health_and_safety" fill className="text-primary text-sm" />
-            <span className="text-xs font-bold uppercase tracking-widest text-white/70">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-start gap-8 px-6 lg:px-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <MaterialIcon
+              name="health_and_safety"
+              fill
+              className="text-sm text-primary"
+            />
+            <span className="text-xs font-bold tracking-widest text-white/70 uppercase">
               Safety &amp; Induction Media
             </span>
           </div>
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tight leading-[1.1] mb-4 text-white">
+            <h1 className="mb-4 text-4xl leading-[1.1] font-black tracking-tight text-white uppercase font-stretch-semi-condensed md:text-7xl">
               Safety &amp; Induction Videos
             </h1>
-            <p className="text-gradient text-xl md:text-3xl font-bold tracking-tight mb-8">
+            <p className="text-gradient mb-8 text-xl font-bold tracking-tight md:text-3xl">
               Safety Starts Before the First Step
             </p>
-            <p className="text-lg md:text-xl text-white/70 max-w-3xl font-light leading-relaxed mb-10">
-              A well-produced safety and induction video does more than fulfil compliance
-              requirements—it sets the standard for your workplace culture. Firstman
-              Productions creates engaging, professional safety and induction videos that
-              clearly communicate site rules, hazards, emergency procedures and operational
-              expectations. Designed to be informative, consistent and easy to understand,
-              our videos help ensure every employee, contractor and visitor starts work with
-              confidence and awareness.
+            <p className="mb-10 max-w-3xl text-lg leading-relaxed font-light text-white/70 md:text-xl">
+              A well-produced safety and induction video does more than fulfil
+              compliance requirements—it sets the standard for your workplace
+              culture. Firstman Productions creates engaging, professional
+              safety and induction videos that clearly communicate site rules,
+              hazards, emergency procedures and operational expectations.
+              Designed to be informative, consistent and easy to understand, our
+              videos help ensure every employee, contractor and visitor starts
+              work with confidence and awareness.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <Link
-                className="bg-primary text-white hover:bg-background hover:shadow-[0_0_15px_rgba(209,32,39,0.5)] transition-all duration-300 rounded-full px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 group"
+                className="group flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 font-bold tracking-wider text-white uppercase transition-all duration-300 hover:bg-background hover:shadow-[0_0_15px_rgba(209,32,39,0.5)]"
                 href="/contact"
               >
                 Discuss Project Scope
                 <MaterialIcon
                   name="arrow_forward"
-                  className="group-hover:translate-x-1 transition-transform"
+                  className="transition-transform group-hover:translate-x-1"
                 />
               </Link>
               <Link
-                className="bg-transparent border border-white/20 text-white hover:border-primary hover:bg-primary/10 transition-all duration-300 rounded-full px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent px-8 py-4 font-bold tracking-wider text-white uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10"
                 href="/our-work"
               >
                 View Sample Deliverables
@@ -118,16 +130,16 @@ export default function SafetyInductionVideosPage() {
           </div>
           {/* Credentials Note — literal black, not `dark-ui`: this sits on the photo hero,
               which stays dark in both themes, so a flipping token washes it out in light mode. */}
-          <div className="mt-8 flex items-start gap-3 p-4 border-l-2 border-primary bg-black/40 backdrop-blur-sm max-w-xl">
+          <div className="mt-8 flex max-w-xl items-start gap-3 border-l-2 border-primary bg-black/40 p-4 backdrop-blur-sm">
             <MaterialIcon name="verified_user" className="text-primary" />
             <div>
-              <p className="text-sm font-bold uppercase tracking-wider mb-1 text-white">
+              <p className="mb-1 text-sm font-bold tracking-wider text-white uppercase">
                 Safety-Conscious Planning
               </p>
               <p className="text-xs text-white/70">
-                Operations executed with strict adherence to site protocols. Full HSSE
-                credentials and operational documentation available upon request prior to
-                deployment.
+                Operations executed with strict adherence to site protocols.
+                Full HSSE credentials and operational documentation available
+                upon request prior to deployment.
               </p>
             </div>
           </div>
@@ -135,33 +147,34 @@ export default function SafetyInductionVideosPage() {
       </header>
 
       {/* Applications — Who It's Designed For */}
-      <section className="py-24 bg-background relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative bg-background py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 max-w-3xl">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
+            <h2 className="mb-2 border-l-2 border-primary pl-4 text-sm font-bold tracking-widest text-primary uppercase">
               Applications
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6 text-surface">
+            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-surface uppercase md:text-4xl">
               Who It&apos;s Designed For
             </h3>
-            <p className="text-industrial-grey leading-relaxed">
-              Our safety and induction videos are tailored for organisations where clear
-              communication and safe work practices are critical. Whether onboarding new
-              employees or preparing contractors before they enter site, our videos deliver
-              consistent messaging that reduces training time and improves understanding.
+            <p className="leading-relaxed text-industrial-grey">
+              Our safety and induction videos are tailored for organisations
+              where clear communication and safe work practices are critical.
+              Whether onboarding new employees or preparing contractors before
+              they enter site, our videos deliver consistent messaging that
+              reduces training time and improves understanding.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {designedFor.map((item) => (
               <div
-                className="glass-panel rounded-xl p-5 flex items-center gap-4 group transition-colors hover:border-primary/50"
+                className="glass-panel group flex items-center gap-4 rounded-xl p-5 transition-colors hover:border-primary/50"
                 key={item.label}
               >
                 <MaterialIcon
                   name={item.icon}
-                  className="text-2xl text-surface/50 shrink-0 transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  className="shrink-0 text-2xl text-surface/50 transition-colors group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                 />
-                <span className="text-sm font-bold tracking-tight text-surface leading-snug">
+                <span className="text-sm leading-snug font-bold tracking-tight text-surface">
                   {item.label}
                 </span>
               </div>
@@ -171,33 +184,35 @@ export default function SafetyInductionVideosPage() {
       </section>
 
       {/* What Gets Captured */}
-      <section className="py-24 bg-dark-ui border-y border-surface/5 relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative border-y border-surface/5 bg-dark-ui py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 max-w-3xl">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-2 border-l-2 border-primary pl-4">
+            <h2 className="mb-2 border-l-2 border-primary pl-4 text-sm font-bold tracking-widest text-primary uppercase">
               Scope
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6 text-surface">
+            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-surface uppercase md:text-4xl">
               What Gets Captured
             </h3>
-            <p className="text-industrial-grey leading-relaxed">
-              Every organisation operates differently, so each video is customised to reflect
-              your procedures, facilities and safety requirements. We work closely with your
-              HSE team to ensure all critical information is presented clearly and
-              professionally.
+            <p className="leading-relaxed text-industrial-grey">
+              Every organisation operates differently, so each video is
+              customised to reflect your procedures, facilities and safety
+              requirements. We work closely with your HSE team to ensure all
+              critical information is presented clearly and professionally.
             </p>
           </div>
-          <p className="text-xs font-bold uppercase tracking-widest text-industrial-grey mb-6">
+          <p className="mb-6 text-xs font-bold tracking-widest text-industrial-grey uppercase">
             Typical content includes
           </p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5">
+          <ul className="grid grid-cols-1 gap-x-8 gap-y-5 md:grid-cols-2 lg:grid-cols-3">
             {typicalContent.map((item) => (
-              <li className="flex items-start gap-3 group" key={item.label}>
+              <li className="group flex items-start gap-3" key={item.label}>
                 <MaterialIcon
                   name={item.icon}
-                  className="text-primary text-lg shrink-0 mt-0.5 transition-all group-hover:[font-variation-settings:'FILL'_1]"
+                  className="mt-0.5 shrink-0 text-lg text-primary transition-all group-hover:[font-variation-settings:'FILL'_1]"
                 />
-                <span className="text-sm text-surface/90 leading-relaxed">{item.label}</span>
+                <span className="text-sm leading-relaxed text-surface/90">
+                  {item.label}
+                </span>
               </li>
             ))}
           </ul>

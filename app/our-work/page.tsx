@@ -19,52 +19,56 @@ const caseStudiesSchema = graph(
   ])
 )
 
-
 export default function CaseStudiesPage() {
   return (
-    <main className="flex-grow flex flex-col relative">
+    <main className="relative flex flex-grow flex-col">
       <JsonLd data={caseStudiesSchema} />
       {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none z-0" />
-      <div className="max-w-[1280px] mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-8 relative z-10">
+      <div className="pointer-events-none absolute top-0 left-0 z-0 h-[600px] w-full bg-gradient-to-b from-primary/10 to-transparent" />
+      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-4 pt-28 pb-8 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <div className="flex items-center text-industrial-grey text-xs tracking-widest uppercase mb-12">
-          <Link className="hover:text-surface transition-colors" href="/">
+        <div className="mb-12 flex items-center text-xs tracking-widest text-industrial-grey uppercase">
+          <Link className="transition-colors hover:text-surface" href="/">
             Home
           </Link>
-          <MaterialIcon name="chevron_right" className="text-[16px] mx-2" />
+          <MaterialIcon name="chevron_right" className="mx-2 text-[16px]" />
           <span className="text-surface">Case Studies</span>
         </div>
 
         {/* Hero Section */}
         <section className="mb-16 max-w-4xl">
-          <h1 className="font-headline font-bold text-4xl md:text-7xl leading-tight mb-6 tracking-tight uppercase">
-            Project Case Studies & <span className="text-primary">Portfolio</span>
+          <h1 className="mb-6 font-headline text-4xl leading-tight font-black tracking-tight uppercase font-stretch-semi-condensed md:text-7xl">
+            Project Case Studies &{" "}
+            <span className="text-primary">Portfolio</span>
           </h1>
-          <p className="font-body text-xl text-industrial-grey max-w-3xl leading-relaxed">
-            Real projects. Real results. Explore how Firstman Videos supports oil & gas and heavy
-            industry teams with industrial cinematography, visual documentation and stakeholder-ready
-            media.
+          <p className="max-w-3xl font-body text-xl leading-relaxed text-industrial-grey">
+            Real projects. Real results. Explore how Firstman Videos supports
+            oil & gas and heavy industry teams with industrial cinematography,
+            visual documentation and stakeholder-ready media.
           </p>
         </section>
 
         <CaseStudiesPortfolio />
 
         {/* Access Explanation Section */}
-        <section className="mb-24 py-16 px-8 border-y border-surface/10 bg-gradient-to-r from-graphite/50 via-transparent to-graphite/50 text-center relative overflow-hidden">
-          <div className="absolute left-0 top-0 w-1 h-full bg-primary" />
-          <div className="max-w-2xl mx-auto flex flex-col items-center">
-            <MaterialIcon name="shield_lock" className="text-4xl text-industrial-grey mb-4" />
-            <h3 className="font-headline font-bold text-2xl uppercase tracking-tight mb-4">
+        <section className="relative mb-24 overflow-hidden border-y border-surface/10 bg-gradient-to-r from-graphite/50 via-transparent to-graphite/50 px-8 py-16 text-center">
+          <div className="absolute top-0 left-0 h-full w-1 bg-primary" />
+          <div className="mx-auto flex max-w-2xl flex-col items-center">
+            <MaterialIcon
+              name="shield_lock"
+              className="mb-4 text-4xl text-industrial-grey"
+            />
+            <h3 className="mb-4 font-headline text-2xl font-bold tracking-tight uppercase">
               Why are some videos locked?
             </h3>
-            <p className="font-body text-industrial-grey leading-relaxed mb-6">
-              Due to the sensitive nature of operations, safety protocols, and proprietary processes
-              within the oil & gas and heavy industry sectors, access to specific case studies is
-              restricted. Approved access requires verification via a company email address and
+            <p className="mb-6 font-body leading-relaxed text-industrial-grey">
+              Due to the sensitive nature of operations, safety protocols, and
+              proprietary processes within the oil & gas and heavy industry
+              sectors, access to specific case studies is restricted. Approved
+              access requires verification via a company email address and
               relevant project context.
             </p>
-            <div className="text-[10px] font-bold uppercase tracking-widest text-industrial-grey/60 border border-surface/10 rounded-full px-4 py-2 inline-block">
+            <div className="inline-block rounded-full border border-surface/10 px-4 py-2 text-[10px] font-bold tracking-widest text-industrial-grey/60 uppercase">
               Client approval required before publication
             </div>
           </div>
@@ -72,18 +76,18 @@ export default function CaseStudiesPage() {
 
         {/* Footer CTA */}
         <section className="mb-24 text-center">
-          <div className="glass-panel rounded-2xl p-8 sm:p-12 md:p-16 border-primary/20 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-primary shadow-[0_0_10px_#d12027]" />
-            <h2 className="font-headline font-bold text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight mb-6">
+          <div className="glass-panel relative overflow-hidden rounded-2xl border-primary/20 p-8 sm:p-12 md:p-16">
+            <div className="absolute top-0 left-1/2 h-[1px] w-32 -translate-x-1/2 bg-primary shadow-[0_0_10px_#d12027]" />
+            <h2 className="mb-6 font-headline text-2xl font-bold tracking-tight uppercase sm:text-3xl md:text-4xl">
               Need a similar project documented?
             </h2>
-            <p className="font-body text-industrial-grey mb-10 max-w-xl mx-auto">
-              Connect with our team to discuss your operational requirements, safety protocols, and
-              visual documentation objectives.
+            <p className="mx-auto mb-10 max-w-xl font-body text-industrial-grey">
+              Connect with our team to discuss your operational requirements,
+              safety protocols, and visual documentation objectives.
             </p>
             <Link
               href="/contact"
-              className="inline-block px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest bg-primary text-white hover:bg-surface hover:text-primary transition-all shadow-[0_0_20px_rgba(209,32,39,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+              className="inline-block rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_20px_rgba(209,32,39,0.3)] transition-all hover:bg-surface hover:text-primary hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
             >
               Request a Similar Project
             </Link>

@@ -15,14 +15,17 @@ export const metadata = pageMeta({
 const pageSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Industrial Photography", path: "/services/industrial-photography" },
+    {
+      name: "Industrial Photography",
+      path: "/services/industrial-photography",
+    },
   ]),
   serviceSchema({
     name: "Industrial Photography",
     description:
       "Ground-based industrial photography documenting structural phases, heavy lift operations, and compliance checkpoints on Oil & Gas and heavy industry sites.",
     path: "/services/industrial-photography",
-  }),
+  })
 )
 
 const iconHover =
@@ -35,67 +38,67 @@ export default function IndustrialPhotographyPage() {
       {/* Ambient UI Accents */}
       <div
         aria-hidden="true"
-        className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+        className="pointer-events-none fixed top-0 left-0 z-0 h-full w-full overflow-hidden"
       >
-        <div className="absolute top-1/4 left-[-10%] w-96 h-96 bg-primary rounded-full mix-blend-screen blur-[150px] opacity-10" />
-        <div className="absolute bottom-1/4 right-[-10%] w-96 h-96 bg-surface rounded-full mix-blend-screen blur-[150px] opacity-5" />
+        <div className="absolute top-1/4 left-[-10%] h-96 w-96 rounded-full bg-primary opacity-10 mix-blend-screen blur-[150px]" />
+        <div className="absolute right-[-10%] bottom-1/4 h-96 w-96 rounded-full bg-surface opacity-5 mix-blend-screen blur-[150px]" />
       </div>
 
       {/* Main Content Canvas */}
       <main className="relative z-10 pt-32 pb-24">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24 relative">
-          <div className="scanner-line absolute top-0 left-0 w-full h-[2px] opacity-30 pointer-events-none z-10" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <section className="relative mx-auto mb-24 max-w-7xl px-6 md:px-8">
+          <div className="scanner-line pointer-events-none absolute top-0 left-0 z-10 h-[2px] w-full opacity-30" />
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
             {/* Typography Column */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="inline-flex items-center gap-2 border border-surface/20 rounded-full px-4 py-1.5 glass-panel">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs uppercase tracking-widest text-surface/80 font-bold">
+            <div className="space-y-8 lg:col-span-5">
+              <div className="glass-panel inline-flex items-center gap-2 rounded-full border border-surface/20 px-4 py-1.5">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+                <span className="text-xs font-bold tracking-widest text-surface/80 uppercase">
                   Capability Specification
                 </span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.1]">
+              <h1 className="text-4xl leading-[1.1] font-black tracking-tight uppercase font-stretch-semi-condensed md:text-6xl">
                 Industrial <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-surface via-surface to-surface/50">
+                <span className="bg-gradient-to-r from-surface via-surface to-surface/50 bg-clip-text text-transparent">
                   Photography
                 </span>
                 <br />
-                <span className="text-2xl tracking-widest text-primary font-bold">
+                <span className="text-2xl font-bold tracking-widest text-primary">
                   For Sites, Teams &amp; Comms
                 </span>
               </h1>
-              <p className="text-industrial-grey text-lg leading-relaxed max-w-md">
+              <p className="max-w-md text-lg leading-relaxed text-industrial-grey">
                 Documenting critical structural phases, heavy lifts, and
                 compliance checks with high-fidelity, ground-based photography.
                 Precise visual assets captured in demanding environments.
               </p>
-              <div className="flex items-center gap-4 pt-4 border-t border-surface/10">
+              <div className="flex items-center gap-4 border-t border-surface/10 pt-4">
                 <MaterialIcon name="verified_user" className="text-primary" />
-                <span className="text-xs uppercase tracking-wider text-surface/60">
+                <span className="text-xs tracking-wider text-surface/60 uppercase">
                   Site permissions &amp; PPE protocols strictly adhered to
                 </span>
               </div>
             </div>
             {/* Cinematic Image Column */}
-            <div className="lg:col-span-7 relative group">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-1000" />
-              <div className="relative h-[600px] w-full rounded-lg overflow-hidden border border-surface/10">
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-ui via-transparent to-transparent z-10" />
+            <div className="group relative lg:col-span-7">
+              <div className="absolute inset-0 rounded-full bg-primary/20 opacity-0 blur-3xl transition-opacity duration-1000 group-hover:opacity-50" />
+              <div className="relative h-[600px] w-full overflow-hidden rounded-lg border border-surface/10">
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-dark-ui via-transparent to-transparent" />
                 <Image
                   src="/images/stitch/878c630036.jpg"
                   alt="Offshore oil rig at twilight lit by dramatic industrial lighting"
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
                   loading="eager"
-                  className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
+                  className="scale-105 object-cover transition-transform duration-1000 group-hover:scale-100"
                 />
                 {/* HUD Elements */}
                 <div className="absolute top-6 left-6 z-20 flex gap-2">
-                  <div className="w-8 h-1 bg-primary" />
-                  <div className="w-2 h-1 bg-primary" />
+                  <div className="h-1 w-8 bg-primary" />
+                  <div className="h-1 w-2 bg-primary" />
                 </div>
-                <div className="absolute bottom-6 right-6 z-20 font-mono text-[10px] text-white/40 uppercase tracking-widest text-right">
+                <div className="absolute right-6 bottom-6 z-20 text-right font-mono text-[10px] tracking-widest text-white/40 uppercase">
                   REC // <br /> ISO-800 // F/2.8
                 </div>
               </div>
@@ -104,10 +107,10 @@ export default function IndustrialPhotographyPage() {
         </section>
 
         {/* Bento Grid: Use Cases & Shot Categories */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24">
-          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <section className="mx-auto mb-24 max-w-7xl px-6 md:px-8">
+          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <h2 className="text-3xl font-bold uppercase tracking-tight mb-2">
+              <h2 className="mb-2 text-3xl font-bold tracking-tight uppercase">
                 Photographic Coverage Parameters
               </h2>
               <p className="text-industrial-grey">
@@ -115,33 +118,33 @@ export default function IndustrialPhotographyPage() {
               </p>
             </div>
             <div className="flex gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full" />
-              <div className="w-2 h-2 bg-surface/20 rounded-full" />
-              <div className="w-2 h-2 bg-surface/20 rounded-full" />
+              <div className="h-2 w-2 rounded-full bg-primary" />
+              <div className="h-2 w-2 rounded-full bg-surface/20" />
+              <div className="h-2 w-2 rounded-full bg-surface/20" />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[240px]">
+          <div className="grid auto-rows-[240px] grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {/* Primary Card: Site Documentation */}
-            <div className="lg:col-span-2 lg:row-span-2 glass-panel rounded-lg p-8 relative overflow-hidden group flex flex-col justify-end">
+            <div className="glass-panel group relative flex flex-col justify-end overflow-hidden rounded-lg p-8 lg:col-span-2 lg:row-span-2">
               <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors z-10" />
+                <div className="absolute inset-0 z-10 bg-black/60 transition-colors group-hover:bg-black/40" />
                 <Image
                   src="/images/stitch/4786c92713.jpg"
                   alt="Wide shot of a refinery facility at dusk under industrial floodlights"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                  className="object-cover opacity-50 grayscale transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0"
                 />
               </div>
               <div className="relative z-20">
                 <MaterialIcon
                   name="domain"
-                  className={`text-4xl mb-4 text-white/50 ${iconHover}`}
+                  className={`mb-4 text-4xl text-white/50 ${iconHover}`}
                 />
-                <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wider mb-2 text-white">
+                <h3 className="mb-2 text-xl font-bold tracking-wider text-white uppercase md:text-2xl">
                   Structural Phase Records
                 </h3>
-                <p className="text-white/70 text-sm max-w-sm">
+                <p className="max-w-sm text-sm text-white/70">
                   Visual records of critical build and installation phases,
                   captured alongside the compliance checkpoints that sign each
                   one off, for internal archives and external reporting.
@@ -149,51 +152,51 @@ export default function IndustrialPhotographyPage() {
               </div>
             </div>
             {/* Exec Presentations */}
-            <div className="glass-panel rounded-lg p-6 group hover:border-primary/50 transition-colors flex flex-col justify-between">
-              <div className="flex justify-between items-start">
+            <div className="glass-panel group flex flex-col justify-between rounded-lg p-6 transition-colors hover:border-primary/50">
+              <div className="flex items-start justify-between">
                 <MaterialIcon
                   name="co_present"
                   className={`text-3xl text-surface/50 ${iconHover}`}
                 />
-                <span className="text-[10px] text-surface/30 uppercase tracking-widest">
+                <span className="text-[10px] tracking-widest text-surface/30 uppercase">
                   USE_CASE
                 </span>
               </div>
               <div>
-                <h4 className="font-bold uppercase tracking-wider text-sm mb-1">
+                <h4 className="mb-1 text-sm font-bold tracking-wider uppercase">
                   Executive Presentations
                 </h4>
-                <p className="text-industrial-grey text-xs">
+                <p className="text-xs text-industrial-grey">
                   High-impact visuals tailored for boardrooms and investor
                   relations.
                 </p>
               </div>
             </div>
             {/* Corporate Comms */}
-            <div className="glass-panel rounded-lg p-6 group hover:border-primary/50 transition-colors flex flex-col justify-between">
-              <div className="flex justify-between items-start">
+            <div className="glass-panel group flex flex-col justify-between rounded-lg p-6 transition-colors hover:border-primary/50">
+              <div className="flex items-start justify-between">
                 <MaterialIcon
                   name="campaign"
                   className={`text-3xl text-surface/50 ${iconHover}`}
                 />
-                <span className="text-[10px] text-surface/30 uppercase tracking-widest">
+                <span className="text-[10px] tracking-widest text-surface/30 uppercase">
                   USE_CASE
                 </span>
               </div>
               <div>
-                <h4 className="font-bold uppercase tracking-wider text-sm mb-1">
+                <h4 className="mb-1 text-sm font-bold tracking-wider uppercase">
                   Corporate Comms
                 </h4>
-                <p className="text-industrial-grey text-xs">
+                <p className="text-xs text-industrial-grey">
                   Engaging human-centric imagery for newsletters, PR, and
                   internal portals.
                 </p>
               </div>
             </div>
             {/* Team Portraits */}
-            <div className="md:col-span-2 glass-panel rounded-lg p-6 relative overflow-hidden group flex items-center gap-6">
-              <div className="w-1/3 h-full absolute right-0 top-0 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent z-10" />
+            <div className="glass-panel group relative flex items-center gap-6 overflow-hidden rounded-lg p-6 md:col-span-2">
+              <div className="absolute top-0 right-0 h-full w-1/3 overflow-hidden">
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent" />
                 <Image
                   src="/images/stitch/43617996bf.jpg"
                   alt="Two engineers in full PPE standing in a dark fabrication yard"
@@ -205,12 +208,12 @@ export default function IndustrialPhotographyPage() {
               <div className="relative z-20 w-2/3">
                 <MaterialIcon
                   name="group"
-                  className={`text-3xl mb-4 text-surface/50 ${iconHover}`}
+                  className={`mb-4 text-3xl text-surface/50 ${iconHover}`}
                 />
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-2">
+                <h3 className="mb-2 text-xl font-bold tracking-wider uppercase">
                   Team Portraits
                 </h3>
-                <p className="text-surface/70 text-sm">
+                <p className="text-sm text-surface/70">
                   Professional environmental portraits captured safely within
                   active operational zones. Highlighting the human element of
                   heavy industry.
@@ -218,21 +221,21 @@ export default function IndustrialPhotographyPage() {
               </div>
             </div>
             {/* Equipment Visuals */}
-            <div className="glass-panel rounded-lg p-6 group hover:border-primary/50 transition-colors flex flex-col justify-between">
-              <div className="flex justify-between items-start">
+            <div className="glass-panel group flex flex-col justify-between rounded-lg p-6 transition-colors hover:border-primary/50">
+              <div className="flex items-start justify-between">
                 <MaterialIcon
                   name="precision_manufacturing"
                   className={`text-3xl text-surface/50 ${iconHover}`}
                 />
-                <span className="text-[10px] text-primary uppercase tracking-widest font-bold">
+                <span className="text-[10px] font-bold tracking-widest text-primary uppercase">
                   CATEGORY
                 </span>
               </div>
               <div>
-                <h4 className="font-bold uppercase tracking-wider text-sm mb-1">
+                <h4 className="mb-1 text-sm font-bold tracking-wider uppercase">
                   Heavy Lift Coverage
                 </h4>
-                <p className="text-industrial-grey text-xs">
+                <p className="text-xs text-industrial-grey">
                   Lift and load-out sequences shot from agreed standoff
                   positions, without unsupported technical measurement claims.
                 </p>
@@ -241,27 +244,26 @@ export default function IndustrialPhotographyPage() {
           </div>
         </section>
 
-
         {/* CTA Section */}
-        <section className="max-w-4xl mx-auto px-6 text-center py-12">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
+        <section className="mx-auto max-w-4xl px-6 py-12 text-center">
+          <h2 className="mb-6 text-3xl font-black tracking-tighter uppercase md:text-5xl">
             Elevate Your Visual Standards
           </h2>
-          <p className="text-industrial-grey mb-10 max-w-2xl mx-auto text-lg">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-industrial-grey">
             Secure high-quality, claim-safe photographic documentation for your
             next industrial project or corporate report.
           </p>
           <Link
             href="/contact"
-            className="bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-surface hover:text-background border-2 border-primary hover:border-surface transition-all scale-100 active:scale-95 flex w-fit items-center justify-center gap-3 mx-auto group shadow-[0_0_20px_rgba(209,32,39,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+            className="group mx-auto flex w-fit scale-100 items-center justify-center gap-3 rounded-full border-2 border-primary bg-primary px-10 py-4 text-sm font-bold tracking-widest text-white uppercase shadow-[0_0_20px_rgba(209,32,39,0.4)] transition-all hover:border-surface hover:bg-surface hover:text-background hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] active:scale-95"
           >
             Build a Stronger Visual Library
             <MaterialIcon
               name="chevron_right"
-              className="group-hover:translate-x-2 transition-transform"
+              className="transition-transform group-hover:translate-x-2"
             />
           </Link>
-          <p className="text-[10px] text-industrial-grey uppercase tracking-widest mt-6">
+          <p className="mt-6 text-[10px] tracking-widest text-industrial-grey uppercase">
             Consultations available for upcoming deployments
           </p>
         </section>
