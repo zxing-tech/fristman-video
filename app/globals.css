@@ -178,18 +178,24 @@ html {
 }
 
 @layer components {
+  /* Prefixed form FIRST, standard LAST — deliberate, not stylistic. Lightning CSS
+     (Turbopack's minifier) drops the standard `backdrop-filter` when it is authored
+     before its `-webkit-` twin, which silently shipped these panels with no blur at
+     all in Chrome and Firefox. `.marquee` and `.text-gradient` below already use this
+     order and survive the build intact. Verify with:
+     grep -o '\.glass-panel{[^}]*}' .next/static/chunks/*.css */
   .glass-panel {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
 
   .glass-modal {
     background-color: var(--glass-modal-bg);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
   }
 
