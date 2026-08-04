@@ -1,3 +1,9 @@
+/**
+ * The six live services. Single source of truth for `app/sitemap.ts`, the
+ * navbar Services dropdown, and the "Our Core Services" grid on the homepage —
+ * the three used to drift apart, so titles and icons are only correct here.
+ * `title` must match the service page's own `pageMeta` title.
+ */
 export type Service = {
   slug: string
   href: string
@@ -21,7 +27,7 @@ export const services: Service[] = [
     title: "Facility Overview Films",
     icon: "domain",
     summary:
-      "Comprehensive aerial and ground coverage of extensive industrial complexes, refineries, and fabrication yards.",
+      "Aerial and ground coverage of industrial complexes, refineries, and fabrication yards.",
   },
   {
     slug: "ai-generated-video",
@@ -45,14 +51,13 @@ export const services: Service[] = [
     title: "Progression & Timelapse Documentation",
     icon: "timelapse",
     summary:
-      "Long-term visual documentation of construction and engineering projects to track progress and milestones.",
+      "Automated interval camera setups tracking multi-year site changes.",
   },
   {
     slug: "safety-induction-videos",
     href: "/services/safety-induction-videos",
     title: "Safety and Induction Videos",
     icon: "health_and_safety",
-    summary:
-      "Onsite protocol tutorials covering PPE rules and hazard zones.",
+    summary: "Onsite protocol tutorials covering PPE rules and hazard zones.",
   },
 ]

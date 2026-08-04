@@ -30,12 +30,16 @@ export function CtaButton({
     <Link
       href={href}
       className={cn(
-        "rounded-full font-label uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center gap-2 group w-fit",
+        "group flex w-fit items-center justify-center gap-2 rounded-full font-label font-bold tracking-wider uppercase transition-all duration-300",
         sizeClasses[size],
         variant === "primary" &&
-          "bg-primary text-white border border-primary hover:bg-background hover:text-primary",
+          "border border-primary bg-primary text-white hover:bg-background hover:text-primary",
+        // The secondary CTA only ever appears alongside a primary one over a
+        // photograph, so it follows the photo exception: literal white, never
+        // `text-surface` (which turns near-black in light mode and disappears
+        // into the picture).
         variant === "secondary" &&
-          "glass-panel text-surface hover:bg-primary/20 hover:border-primary",
+          "border border-white/40 bg-white/10 text-white backdrop-blur-md hover:border-primary hover:bg-primary/25",
         className
       )}
     >
@@ -43,7 +47,7 @@ export function CtaButton({
       {arrow && (
         <MaterialIcon
           name="arrow_forward"
-          className="text-lg group-hover:translate-x-1 transition-transform"
+          className="text-lg transition-transform group-hover:translate-x-1"
         />
       )}
     </Link>
