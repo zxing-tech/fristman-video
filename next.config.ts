@@ -17,6 +17,19 @@ const nextConfig: NextConfig = {
         destination: "/#services",
         permanent: true,
       },
+      {
+        // The case-study hub moved to /our-work; keep the indexed URL alive.
+        source: "/case-studies",
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        // Same move for the six indexed case-study detail pages. Slugs are
+        // unchanged, so a single wildcard covers all of them.
+        source: "/case-studies/:slug",
+        destination: "/our-work/:slug",
+        permanent: true,
+      },
     ]
   },
 }
