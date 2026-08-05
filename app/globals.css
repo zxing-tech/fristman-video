@@ -286,6 +286,20 @@ html {
     box-shadow: 0 0 0 1px #d12027;
   }
 
+  /* A select still showing its placeholder option must not read as a chosen
+     value. The option carries a muted class, but a closed <select> paints its
+     text in the SELECT's own colour, so "Select Sector" rendered at the same
+     full-strength foreground as a real answer like "Malaysia" sitting beside
+     it — a filled-in field that is in fact empty.
+
+     `:has()` rather than `:invalid` because only two of the three selects on
+     /contact are `required`; the optional Sector would keep the bug. Text
+     inputs carry this same class and have no <option> children, so they never
+     match. */
+  .form-input-dark:has(option[value=""]:checked) {
+    color: var(--industrial-grey);
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -341,9 +355,26 @@ html {
   to { transform: translateX(0); }
 }
 
+/* The marquee was the only thing this block covered, which left every looping
+   decorative animation on the site running for a visitor who asked for less
+   motion: the pulsing status dot in the ServiceHero chip (all fourteen detail
+   pages), the ping on the /contact header chip, the dots on both thank-you
+   pages, and the two scan lines in the gated-access dialog. None of them
+   communicate anything a still dot does not.
+
+   All of them degrade cleanly rather than freezing mid-cycle — `animate-ping`
+   and `animate-pulse` rest at scale 1 and full opacity, so what remains is
+   simply a solid dot.
+
+   `animate-spin` is deliberately NOT here. It only ever appears on a submit
+   button mid-request, where the motion IS the status message. */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-left,
-  .animate-marquee-right {
+  .animate-marquee-right,
+  .animate-ping,
+  .animate-pulse,
+  .scanning-line,
+  .scanner-line {
     animation: none;
   }
 }
