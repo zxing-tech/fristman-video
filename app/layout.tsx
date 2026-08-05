@@ -103,7 +103,17 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="overflow-x-hidden bg-background font-body text-surface antialiased selection:bg-primary selection:text-white">
+      {/* `overflow-x-clip`, not `overflow-x-hidden`. They clip identically, but
+          `hidden` on one axis forces the other from `visible` to `auto`, which
+          makes the body a scroll container — and a scroll container between the
+          viewport and an element silently disables `position: sticky` on every
+          descendant. `html` already carries `overflow-x: clip` in globals.css
+          for exactly this reason ("clip, not hidden, so sticky/fixed keep
+          working"); the body contradicted it, so nothing on the site actually
+          stuck. Measured 2026-08-05: the `/our-work` filter bar and the
+          `/privacy-policy` contents rail both computed to `position: sticky`
+          and both scrolled away with the page. */}
+      <body className="overflow-x-clip bg-background font-body text-surface antialiased selection:bg-primary selection:text-white">
         {/* Site-wide business identity + website structured data */}
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
         <ThemeProvider
