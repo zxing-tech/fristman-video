@@ -445,37 +445,51 @@ export default function HomePage() {
                 on hover. One bento where three cards opened and a fourth did
                 not would read as a bug, so the "Rapid Regional Deployment"
                 card gave up its aside glyph and takes the marker position the
-                other three use. Its scrim values were measured against these
-                photographs — see the component. */}
+                other three use.
+
+                The four photographs are licensed Unsplash stock, replacing the
+                512px Google Stitch AI renders that backed these cards — see
+                PRODUCT.md `## Evidence on Hand` for why an AI render must not
+                sit where project documentation is implied. They are stock, and
+                the alt text on each describes only what is in the frame.
+
+                PhotoCard's scrim stops were tuned against a different set, so
+                white-on-photo contrast was re-measured for these rather than
+                inherited: brightest pixel under each text rect, resting and
+                hovered. Everything clears its floor, the tightest at 1.35x on
+                the hovered title over `why-site-awareness.jpg` — much the
+                brightest of the four. Figures and method are in
+                public/images/unsplash/CREDITS.md; swap that image for anything
+                brighter and the measurement has to be run again. */}
             <PhotoCard
-              alt="Aerial view of an industrial facility at dusk"
+              alt="An oil refinery at dusk, distillation columns and a lit flare stack silhouetted above a river"
               body="Every drone operation begins with a documented risk assessment, coordinated with your HSE team and cleared through full Permit to Work (PTW) approval. We arrive prepared for the site — so capture stays safe and your operations keep running."
               className="md:col-span-2"
               icon="shield"
-              image="/images/stitch/ba0390236d.jpg"
+              image="/images/unsplash/why-safety-permit.jpg"
               size="lg"
               title="Safety-First Workflow & Compliance"
             />
             <PhotoCard
-              alt="Industrial plant structures seen from the air"
+              alt="Top-down aerial view of pipework, ducting and cooling fans on an industrial plant roof"
               body="We know the logistics, the safety gates, and the operational realities of heavy industry from the moment we mobilise."
               icon="factory"
-              image="/images/stitch/13ca39f31a.jpg"
+              image="/images/unsplash/why-site-awareness.jpg"
               title="Deep Industrial Site Awareness"
             />
             <PhotoCard
-              alt="Drone flying above an industrial site"
+              alt="A quadcopter drone in flight, silhouetted against an orange dusk sky above distant cranes"
               body="Multi-angle coverage combining aerial perspectives with detailed ground-level cinematography."
               icon="photo_camera"
-              image="/images/stitch/a37924086a.jpg"
+              image="/images/unsplash/why-uav-ground.jpg"
               title="Integrated UAV + Ground Production"
             />
             <PhotoCard
-              alt="Industrial facility spread across a coastal site"
+              alt="Four large cylindrical storage tanks on a coastal terminal, seen across open water"
               body="A major fabrication yard or a short-notice site visit — large-scale or ad-hoc, we mobilise across the region to cover it."
               className="md:col-span-2"
               icon="public"
-              image="/images/stitch/6d4182646b.jpg"
+              image="/images/unsplash/why-regional-deployment.jpg"
               title="Rapid Regional Deployment"
             />
           </div>

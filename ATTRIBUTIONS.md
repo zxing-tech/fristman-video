@@ -32,6 +32,30 @@ for commercial use, no attribution legally required.
 link needs a visible home (footer) before the site ships, per Pexels'
 attribution guidelines.
 
+## Unsplash photos
+
+`public/images/unsplash/` holds 4 real photographs backing the homepage's "Why
+Firstman Videos" bento: a refinery at dusk, a top-down plant roof, a quadcopter
+in silhouette, and a coastal tank terminal. Per-file photographer credit,
+photo-page links, screening notes and the measured white-on-photo contrast
+figures are in
+[`public/images/unsplash/CREDITS.md`](public/images/unsplash/CREDITS.md).
+
+They replaced four Google Stitch AI renders. The renders are still on disk under
+`stitch/` because `lib/data/image-manifest.json` records them as part of the
+conversion history, but nothing renders them any more.
+
+**This set carries a real attribution obligation, unlike the Pexels one.** The
+[Unsplash License](https://unsplash.com/license) alone would make credit
+optional, but these were fetched through the Unsplash API, and its [API Use
+Guidelines](https://help.unsplash.com/en/articles/2511315-guidelines-and-crediting)
+require crediting the photographer and Unsplash with UTM-tagged links wherever
+the photos are used. The four credit lines are written out in CREDITS.md and
+have **no visible home on the site yet.**
+
+So the footer now owes two credits, not one: the optional Pexels line above and
+this required Unsplash set. Neither is in the markup today.
+
 ## Everything else
 
 All other imagery under `public/images/` is either a Google Stitch AI render from
