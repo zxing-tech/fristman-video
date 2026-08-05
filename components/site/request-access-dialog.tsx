@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
@@ -18,6 +18,9 @@ export type RequestAccessDialogProps = {
   defaultVideo?: string
 }
 
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 /**
  * Heavy gated-video request form. Kept in its own module so it can be
  * lazy-loaded (next/dynamic) only when the modal is actually opened —
@@ -29,18 +32,67 @@ export function RequestAccessDialog({
 }: RequestAccessDialogProps) {
   const [state, setState] = useState<"form" | "submitting" | "success">("form")
   const [error, setError] = useState<string | null>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const successRef = useRef<HTMLHeadingElement>(null)
 
+  /**
+   * Focus management. This dialog is the site's only conversion path for a
+   * gated asset, and until 2026-08-05 a keyboard visitor could not use it:
+   * measured on `/our-work`, pressing Enter on "Request Access" opened the
+   * dialog and left focus on the trigger *behind* it, Tab could walk back out
+   * into the page underneath, and closing dropped focus on `<body>` — back to
+   * the top of the document, with the trigger they came from nowhere near.
+   *
+   * `getClientRects().length` rather than `offsetHidden`/`offsetParent`: the
+   * honeypot is `display: none` (no rects, correctly skipped) and every real
+   * control sits inside a `position: fixed` root, where `offsetParent` is not a
+   * reliable visibility test.
+   */
   useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null
+    const focusables = () =>
+      [
+        ...(dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []),
+      ].filter((el) => el.getClientRects().length > 0)
+
+    focusables()[0]?.focus()
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose()
+      if (event.key === "Escape") {
+        onClose()
+        return
+      }
+      if (event.key !== "Tab") return
+      const items = focusables()
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
+
     document.addEventListener("keydown", onKeyDown)
     document.body.style.overflow = "hidden"
     return () => {
       document.removeEventListener("keydown", onKeyDown)
       document.body.style.overflow = ""
+      // Back to the control they opened it from, not to the top of the page.
+      opener?.focus?.()
     }
   }, [onClose])
+
+  // The success panel replaces the form in place, so nothing moves focus and a
+  // screen reader is never told the request went through. Focus lands on the
+  // confirmation heading, and the panel is a live region for anyone whose
+  // focus has wandered.
+  useEffect(() => {
+    if (state === "success") successRef.current?.focus()
+  }, [state])
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -89,16 +141,24 @@ export function RequestAccessDialog({
       <div
         aria-modal="true"
         aria-labelledby="request-access-title"
+        ref={dialogRef}
         role="dialog"
         className="glass-modal relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-[12px] shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="border-b border-surface/5 px-8 pt-10 pb-6 text-center">
           <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-surface/5">
+            {/* `text-3xl!`, with the important modifier. Google's icon
+                stylesheet is an unlayered <link> that pins `font-size: 24px`,
+                and an unlayered declaration beats Tailwind's `@layer
+                utilities` whatever the specificity — so the plain `text-3xl`
+                this replaces was dead code and the glyph rendered at 24px in a
+                64px plate. Measured with getComputedStyle on 2026-08-05, not
+                read off the class list. */}
             <MaterialIcon
               name={state === "success" ? "check_circle" : "lock"}
               className={cn(
-                "text-3xl",
+                "text-3xl!",
                 state === "success" ? "text-primary" : "text-surface"
               )}
             />
@@ -121,17 +181,28 @@ export function RequestAccessDialog({
         </div>
 
         {state === "success" ? (
-          <div className="flex flex-col items-center justify-center px-8 py-12 text-center">
-            <h3 className="mb-2 text-2xl font-bold text-surface">
+          <div
+            className="flex flex-col items-center justify-center px-8 py-12 text-center"
+            role="status"
+          >
+            <h3
+              className="mb-2 text-2xl font-bold text-surface"
+              ref={successRef}
+              tabIndex={-1}
+            >
               Request Received
             </h3>
             <p className="mb-8 text-industrial-grey">
               We typically respond within 24 business hours.
             </p>
             <div className="flex w-full max-w-sm flex-col gap-4 sm:flex-row">
+              {/* Was `hover:bg-red-700` — a second, unrelated red. The system
+                  has exactly one chroma (DESIGN.md, The One Red Rule), and the
+                  primary pill's authored hover is an inversion, not a darker
+                  shade of a different red. */}
               <Link
                 href="/contact"
-                className="flex-1 rounded-full bg-primary px-6 py-3 text-center text-sm font-bold tracking-wider text-white uppercase transition-colors hover:bg-red-700"
+                className="flex-1 rounded-full border border-primary bg-primary px-6 py-3 text-center text-sm font-bold tracking-wider text-white uppercase transition-colors hover:bg-background hover:text-primary"
               >
                 Book Consultation
               </Link>
@@ -312,7 +383,7 @@ export function RequestAccessDialog({
                 >
                   <MaterialIcon
                     name="error"
-                    className="mt-0.5 shrink-0 text-base"
+                    className="mt-0.5 shrink-0 text-base!"
                   />
                   <span>{error}</span>
                 </p>
@@ -351,10 +422,14 @@ export function RequestAccessDialog({
                 </button>
               </div>
               <div className="mt-6 text-center">
-                <p className="flex items-center justify-center gap-1 text-[11px] text-industrial-grey">
-                  <MaterialIcon name="info" className="text-[14px]" />A copy of
-                  the request is sent to you and the Firstman Videos Business
-                  Development team.
+                {/* `text-xs` (12px) is the fine-print step in DESIGN.md; the
+                    literal 11px it replaces was off the ramp. The icon carried
+                    an arbitrary size with no important modifier, so it rendered
+                    at the stylesheet's 24px — twice the line it sits on. */}
+                <p className="flex items-center justify-center gap-1.5 text-xs text-industrial-grey">
+                  <MaterialIcon name="info" className="shrink-0 text-base!" />A
+                  copy of the request is sent to you and the Firstman Videos
+                  Business Development team.
                 </p>
               </div>
             </div>
