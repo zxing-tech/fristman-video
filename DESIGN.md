@@ -248,7 +248,7 @@ report a `font-stretch` **range**, not a single value.
   leaves the normal width. Condensing buys roughly 12% more headline per line,
   which is what lets a long case-study title hold at `text-7xl`.
 - **Headline** (900, width normal, 36px to 48px, line-height 1): Section titles.
-  Often uppercase on interior pages, sentence case on the homepage.
+  Sentence case everywhere. See The Scarce Capitals Rule.
 - **Title** (700, 20px, line-height 1.4): Card and panel headings.
 - **Body** (400, 16px, line-height 1.5): Paragraph copy, in Industrial Grey.
   Supporting text drops to 14px, fine print to 12px.
@@ -272,6 +272,14 @@ flattens the one contrast the display role has.
 **The Wide Label Rule.** Small text earns authority by going uppercase, 700,
 and tracked to `0.1em` — never by getting bigger. A 12px tracked label outranks
 a 14px sentence-case one.
+
+**The Scarce Capitals Rule.** That only works while capitals are rare, so
+uppercase belongs to the Label role and to nothing else. Every heading — the
+page `h1` included — is sentence case. This was measured, not assumed: on
+2026-08-04 the six service pages ran 20 of 20 headings in capitals against the
+homepage's one, and the eyebrow above a heading in the same case had no signal
+left to spend. Setting a heading in capitals does not make it louder; it makes
+the label beneath it quieter.
 
 ## Layout
 
