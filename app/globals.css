@@ -338,11 +338,29 @@ html {
   }
 }
 
-/* Smooth flip between light and dark */
-@media (prefers-reduced-motion: no-preference) {
-  body * {
-    transition-property: background-color, border-color, color, box-shadow, fill;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
+/* Smooth flip between light and dark.
+
+   The `@layer base` wrapper is load-bearing, not tidiness. Authored bare, this
+   block is *unlayered*, and an unlayered declaration beats anything in
+   Tailwind's `@layer utilities` whatever the specificity — the same cascade
+   trap CLAUDE.md documents for Google's Material Symbols stylesheet. Bare, it
+   silently overrode `transition-property` and `transition-duration` on every
+   element on the site: measured 2026-08-05, an element carrying
+   `transition-[opacity,transform] duration-700` computed to
+   `background-color, border-color, color, box-shadow, fill` at `0.3s`. Every
+   hover lift, scale and fade in the codebase was snapping instantly, and only
+   the five colour properties here ever animated.
+
+   In `base` it still reaches every element that has no transition utility of
+   its own — which is what makes the theme flip smooth — while an explicit
+   utility now wins, which is what anyone writing one expects. */
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    body * {
+      transition-property:
+        background-color, border-color, color, box-shadow, fill;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
+    }
   }
 }

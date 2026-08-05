@@ -353,6 +353,23 @@ the navbar carry a diffuse `rgba(209, 32, 39, 0.1–0.4)` bloom that says
 element needs to read as raised, raise it with tone and translucency; if it
 needs to read as active, use Signal Red.
 
+> **Cascade hazard — keep the global transition inside `@layer base`.** The
+> `body *` rule that eases colour changes over 0.3s must stay wrapped in
+> `@layer base` in `app/globals.css`. Authored bare it is *unlayered*, and an
+> unlayered declaration beats anything in Tailwind's `@layer utilities`
+> whatever the specificity — the same trap as the Material Symbols stylesheet
+> one section down. Measured 2026-08-05 while it was bare: an element carrying
+> `transition-[opacity,scale] duration-700` computed to
+> `background-color, border-color, color, box-shadow, fill` at `0.3s`, so every
+> hover lift, scale and fade in the codebase snapped instantly and only those
+> five colour properties ever animated. Verify after any change to that block
+> with `getComputedStyle(el).transitionProperty` on a card that carries its own
+> transition utility — reading the class list proves nothing.
+>
+> Related: Tailwind v4's `scale-*` utilities set the standalone `scale`
+> property, not `transform`. A transition naming `transform` watches a property
+> that never changes.
+
 ## Shapes
 
 Corners are generous and the scale is unusually large: the base radius is
