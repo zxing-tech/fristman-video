@@ -252,6 +252,21 @@ html {
   }
 
   /* Atmospheric hero overlay — softens the background image toward the theme colour */
+  /* Joins the bottom of a footage hero to the band below it. Dark-theme only,
+     which is why an over-long ramp here reads as "the hero is too dark in dark
+     mode" and nowhere else.
+
+     The ramp used to open at 45% and reach 0.75 by 82%, so it spent the bottom
+     half of the hero turning the picture off. Measured on the homepage hero at
+     880px tall, sampling the right of the frame where the subject actually is:
+     the 70-88% band came to 0.0084 relative luminance and the bottom 12% to
+     0.0001 — black, on the BRIGHTEST frame of the clip. A quarter of the hero
+     was carrying no image at all.
+
+     It only has to close the seam, so it now stays clear until 70% and does its
+     work in the last third. At 82% that is 0.30 against the old 0.75. It still
+     lands on a full-opacity page colour at 100%, which is the whole point of
+     the layer — the join is unchanged, only the run-up to it. */
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -260,8 +275,8 @@ html {
     background: linear-gradient(
       to bottom,
       rgb(from var(--background) r g b / 0) 0%,
-      rgb(from var(--background) r g b / 0) 45%,
-      rgb(from var(--background) r g b / 0.75) 82%,
+      rgb(from var(--background) r g b / 0) 70%,
+      rgb(from var(--background) r g b / 0.45) 88%,
       rgb(from var(--background) r g b / 1) 100%
     );
   }

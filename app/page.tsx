@@ -200,7 +200,17 @@ export default function HomePage() {
 
           {/* Even grade — insurance against a blown-out highlight under white text
               if this slot is ever swapped for brighter footage. Barely registers
-              on the current clip. */}
+              on the current clip.
+
+              Tried at 8% on 2026-08-05 to give the picture back some light, and
+              put back: this flat layer is what holds the eyebrow's backdrop
+              down. Signal Red at 12px tops out at 3.95:1 on pure black, so it
+              never clears AA here and the only lever is keeping what sits
+              behind it dark. Measured on the clip's brightest frame, the
+              eyebrow reads 2.55:1 at 15% and drops to 2.42:1 at 8% — already
+              short, and 8% made it shorter. The light was won back in the
+              `.hero-overlay` ramp instead, which is transparent across the top
+              70% of the hero and so cannot touch any of this copy. */}
           <div className="absolute inset-0 bg-black/15" />
 
           {/* Mobile: the copy runs the full width, so protection is a bottom band. */}
