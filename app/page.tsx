@@ -55,6 +55,40 @@ const clienteleLogos = [
   { src: "/images/clients/clientele-14.png", alt: "YouTube" },
   { src: "/images/clients/clientele-15.png", alt: "Visual Retale" },
   { src: "/images/clients/clientele-16.png", alt: "Chow Tai Fook" },
+  // Added 2026-08-05 from the owner's `public/new-logo-client/` drop. These five
+  // are the heavy-industry end of the roster — the names PRODUCT.md's primary
+  // buyer (a project manager in Oil & Gas) would actually recognise.
+  //
+  // They arrived as full-colour brand artwork at 600-2000px, so each was
+  // converted to the wall's convention rather than dropped in raw: greyscaled by
+  // luminance, trimmed to its own bounding box, tone-mapped so the ink lands on
+  // the set's mid-grey (the existing logos measure 129-158; these land 130-138),
+  // then centred on a transparent canvas. Without the tone step Sapura's navy
+  // would have come in at 48 against Transwater's 131 and the row would have
+  // read as a set of mismatched weights.
+  //
+  // Canvas is 360x240 — twice the legacy 180x120, same aspect, so `object-contain`
+  // behaves identically. The originals had the resolution to spare and the row
+  // renders at `h-24` (96px), which the legacy files only cover at 1.25x. The
+  // older 28 are unchanged and stay slightly softer; re-mastering them needs
+  // source artwork this repo does not have.
+  { src: "/images/clients/clientele-17.png", alt: "MMHE" },
+  { src: "/images/clients/clientele-18.png", alt: "Sapura" },
+  { src: "/images/clients/clientele-19.png", alt: "Transwater" },
+  // Heerema shipped as a portrait lock-up: a solid orange square holding the
+  // roundel, with the wordmark on transparency beneath it. Greyscaled, that
+  // square becomes a filled grey block — and `dark:invert` turns it into a
+  // glowing light block in a row of transparent wordmarks. The wordmark alone
+  // is cropped out instead (the orange ends at y=598 in the source; the crop
+  // starts at 605 to clear its edge).
+  { src: "/images/clients/clientele-20.png", alt: "Heerema" },
+  // JPS is a mark with no wordmark, and its five waves are separated by hue
+  // rather than by value — greyscaled they collapse into one near-uniform
+  // ribbon. It is the only logo on this wall that cannot say its own name.
+  // Kept because it is a real client mark and the alt text names it for
+  // assistive tech, but a lock-up version with the lettering would earn its
+  // place here properly. See the note in ATTRIBUTIONS.md.
+  { src: "/images/clients/clientele-21.png", alt: "JPS" },
 ]
 
 // Countries the crew mobilises to. Kept in sync with the Region / Country
