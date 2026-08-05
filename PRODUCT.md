@@ -64,6 +64,13 @@ drone lain di Malaysia tidak bisa tiru sekaligus:
 
 Poin 1 dan 3 adalah yang paling sulit ditiru dan paling murah dibuktikan.
 
+Keempatnya tetap berlaku — pemilik mengonfirmasinya pada 2026-08-04 dan tidak
+ada yang dicabut sejak itu. Tapi jangan membacanya sebagai sesuatu yang
+dibuktikan oleh enam halaman `/our-work`: keenamnya placeholder (lihat
+`## Evidence on Hand`). Rekam jejaknya nyata, tulisan yang menggambarkannya di
+situs ini tidak. Satu-satunya bukti terpublikasi yang berdiri di belakang poin 1
+saat ini adalah 28 logo klien yang izinnya sudah di tangan.
+
 ## Operating Context
 
 Pekerjaannya terjadi di site industri yang sedang beroperasi, bukan di studio.
@@ -111,8 +118,24 @@ Industrial Photography.
 
 **Keputusan yang sengaja terbuka:**
 
-- Apakah enam "case study" yang tayang benar-benar proyek nyata — belum
-  dikonfirmasi ke klien.
+- **Apa yang terjadi pada enam halaman `/our-work`.** Pertanyaan "apakah keenam
+  case study itu nyata" sudah **terjawab** pada 2026-08-05: tidak, semuanya
+  placeholder (lihat `## Evidence on Hand`). Yang belum diputuskan adalah
+  tindakannya — menahan keenam route sampai ada proyek nyata, menggantinya
+  dengan roster klien dari 28 logo yang izinnya sudah di tangan, atau
+  menganonimkan sampai izin rilis per klien datang. Ini keputusan pemilik,
+  bukan keputusan teknis, dan menyentuh `lib/data/our-work.ts`, `app/sitemap.ts`
+  serta JSON-LD di tiap halaman.
+- **Klaim tanpa dokumen yang sengaja dibiarkan tayang.** Pada 2026-08-05 pemilik
+  memilih membiarkannya dan hanya menandainya, jadi ini bukan pekerjaan yang
+  belum dikerjakan melainkan pengecualian sadar terhadap Prinsip 3: "100% HSE
+  Compliance" dan "0 Incident Record" (servishero), "256-bit encryption" dan
+  "Gated Access Required" (mahb), "Limited Onboarding Capacity" dan "Priority
+  site assessment slots available this month" (ecobalance/servishero), "Safety
+  Compliant — captured under strict industrial safety management systems"
+  (ben-line), serta penanda internal `[CONFIRM APPROVED ASSETS]`,
+  `[LOGO PERMISSION]` dan `[CLIENT-APPROVED WORDING PENDING]` (syndel). Jangan
+  dihapus tanpa instruksi, dan jangan pula ditambah saudaranya.
 - Nama asli anggota tim. `/about/team` sekarang hanya menampilkan jabatan.
 
 ## Brand Commitments
@@ -147,7 +170,18 @@ tidak boleh dikarang, disiratkan, atau digambarkan seolah ada.
 **Ada di tangan sekarang:**
 
 - Izin tertulis memakai 28 logo klien & agensi di `public/images/clients/`.
-  Ini satu-satunya aset bukti yang lengkap dan belum dimanfaatkan maksimal.
+  Dikonfirmasi ulang pemilik pada 2026-08-05. Ini satu-satunya aset bukti yang
+  lengkap dan belum dimanfaatkan maksimal. `PENDING-CLIENT-ASSETS.md` item 7
+  ("Written permission to display the 26 client logos") sudah **selesai** dan
+  angkanya keliru — 28, bukan 26. Chip `[LOGO PERMISSION]` yang masih tayang di
+  `/our-work/syndel-asia` adalah sisa penanda internal, bukan pekerjaan terbuka.
+- Satu klip hero, `public/videos/hero.mp4` (4,4 MB) + `hero-poster.jpg`. Stok
+  Pexels 856627, lisensi komersial tanpa atribusi — **bukan** rekaman Firstman.
+  Rinciannya di `lib/hero-media.ts`. Jangan pernah diberi caption sebagai karya
+  sendiri.
+- 11 still Pexels berlisensi di `public/images/pexels/`, kredit lengkap di
+  `CREDITS.md` di direktori yang sama. Dipakai enam halaman `/services` dan satu
+  kartu di `/our-work`. Stok, bukan dokumentasi proyek.
 
 **Klaim benar, dokumen pendukung belum terkumpul:**
 
@@ -156,19 +190,48 @@ tidak boleh dikarang, disiratkan, atau digambarkan seolah ada.
 
 **Tidak ada — jangan dikarang:**
 
-- **Nol video di seluruh repo.** Tidak ada `<video>`, embed YouTube/Vimeo, atau
-  file `.mp4`/`.webm`. Jangan pasang ikon play di tempat yang tidak benar-benar
-  memulai playback.
+- **Enam "case study" di `/our-work` seluruhnya placeholder.** Dikonfirmasi
+  pemilik pada 2026-08-05: Petrofac Kemaman, MAHB Airport Services, EcoBalance,
+  ServisHero, Syndel Asia, dan Ben Line Agencies **bukan** proyek nyata. Ini
+  pagar tertinggi di dokumen ini, karena keenam halaman itu menamai perusahaan
+  yang benar-benar ada dan menyatakan fakta tentang mereka dalam dua lapis:
+  strip spesifikasi yang terbaca manusia (Client / Sector / Service / Region),
+  dan `creativeWorkSchema` di `lib/seo.ts` yang mengemisi JSON-LD
+  `CreativeWork` dengan `creator` = Firstman Videos dan
+  `about: { Organization, name: "<perusahaan>" }` — pernyataan terbaca mesin ke
+  mesin pencari bahwa Firstman mengerjakan proyek untuk klien-klien itu.
+  Halaman hub juga membukanya dengan "Real projects. Real results."
+  Jangan tambah case study, testimonial, angka, atau atribusi klien apa pun di
+  atas fondasi ini. Keputusan apa yang harus terjadi pada keenam halaman itu
+  ada pada pemilik dan **belum diambil** — lihat `## Capabilities and
+  Constraints`.
+- **Nol footage klien.** Yang ada hanya klip stok Pexels di atas. Tidak ada satu
+  detik pun rekaman Firstman di repo ini: tidak ada master film, showreel,
+  embed YouTube/Vimeo, atau `.mp4`/`.webm` selain `hero.mp4`. Jangan pasang ikon
+  play di tempat yang tidak benar-benar memulai playback.
 - **Nol foto proyek asli.** 88 gambar di `public/images/stitch/` adalah render
   AI Google Stitch, maksimal 512px. Jangan diperlakukan sebagai dokumentasi
   proyek saat menulis alt text, caption, atau OG image.
+- **13 dari 88 gambar itu bahkan bukan foto** — melainkan tangkapan layar mockup
+  Stitch dengan catatan karangan terbakar di pikselnya: klaim performa
+  "Achieving 25% faster turnaround times", panel aset berisi
+  `SH_OP_CAMPAIGN_FINAL_SECURE.mp4 / AES-256bit / Oct 24, 2023 by Admin`,
+  spesifikasi kamera `SHOT ON: ARRI ALEXA LF / LENS: 24MM T1.5`, nama proyek
+  `PINDAH OFFSHORE PIPING`, header salah eja `CASE STIUDY DETAIL`, tombol play
+  yang digambar ke dalam still, dan satu screenshot halaman portfolio. Semuanya
+  berhenti dirender pada 2026-08-05; jangan dihidupkan lagi. Satu file yang
+  masih dipakai, `stitch/ab775bb3c7.jpg` di kartu ServisHero, memuat merek pihak
+  ketiga karangan ("AETNA", "24/7 SERVICE") di latarnya.
 - **Nol testimonial.** Tidak ada satu pun kutipan klien bernama.
 - **Arsip footage belum pernah dicek** (YouTube, Vimeo, Facebook, Drive, hard
-  disk lama). Ini item termurah yang bisa membuka seluruh proyek.
+  disk lama). Dikonfirmasi masih belum dicek pada 2026-08-05. Ini item termurah
+  yang bisa membuka seluruh proyek.
 - **Petrofac Kemaman** punya form "Request Access" tanpa file di baliknya.
 
 Daftar tagihan aset lengkap dan rencana bertahapnya ada di
-`PENDING-CLIENT-ASSETS.md`. Redesign `/our-work` ditunda sampai footage datang.
+`PENDING-CLIENT-ASSETS.md`. Redesign `/our-work` ditunda sampai footage datang;
+per 2026-08-05 belum ada satu pun aset baru yang masuk dan daftar itu belum
+dikirim ke klien.
 
 ## Product Principles
 
