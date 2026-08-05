@@ -124,7 +124,13 @@
     --dark-ui: #080808;
     --graphite: #1a1a1a;
     --graphite-light: #2a2a2a;
-    --industrial-grey: #6f7378;
+    /* Lightened from #6f7378 on 2026-08-04. The light value was always chosen
+       to clear AA on white; the dark one had never been given the same
+       treatment and measured 4.40:1 for 16px body copy on the page and 4.08:1
+       for 14px inside a .glass-panel, both under the 4.5:1 floor. Measured
+       again after the change: 5.29:1 on the page, 4.91:1 on a panel, and
+       4.63:1 for 12px fine print. Still plainly a secondary grey. */
+    --industrial-grey: #7c8087;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);

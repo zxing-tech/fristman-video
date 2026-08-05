@@ -8,7 +8,7 @@ colors:
   dark-panel: "#080808"
   dark-graphite: "#1a1a1a"
   dark-graphite-raised: "#2a2a2a"
-  dark-industrial-grey: "#6f7378"
+  dark-industrial-grey: "#7c8087"
   light-background: "#ffffff"
   light-surface: "#0a0a0a"
   light-panel: "#f4f4f5"
@@ -187,9 +187,15 @@ Each pair below is one CSS variable that swaps value at the `.dark` boundary.
 - **Graphite** (`#1a1a1a` dark / `#e5e5e5` light) and **Graphite Raised**
   (`#2a2a2a` dark / `#d4d4d8` light): Section bands one step further from the
   page, and raised chips inside them.
-- **Industrial Grey** (`#6f7378` dark / `#4b4f57` light): All secondary and
-  supporting body copy. The light value is darkened deliberately so it still
-  passes contrast on white.
+- **Industrial Grey** (`#7c8087` dark / `#4b4f57` light): All secondary and
+  supporting body copy. Both values are pushed away from their page colour
+  deliberately, so the role clears AA in either theme: the light one is
+  darkened against white, and the dark one was lightened from `#6f7378` on
+  2026-08-04 after measurement put 16px body copy at 4.40:1 on the page and
+  14px inside a `.glass-panel` at 4.08:1. It now measures 5.29:1 and 4.91:1,
+  with 12px fine print at 4.63:1. A panel's 5% white tint raises the floor
+  under the text, so a value that passes on the page can still fail inside a
+  card — measure both.
 
 ### Named Rules
 
