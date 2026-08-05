@@ -5,7 +5,14 @@ import { MaterialIcon } from "@/components/site/material-icon"
 
 type CtaButtonProps = {
   href: string
-  variant?: "primary" | "secondary"
+  /**
+   * `secondary` is the over-a-photograph companion and only works there.
+   * `outline` is its equivalent on an ordinary band, where the neutrals have to
+   * flip with the theme — the case studies were hand-rolling that shape four
+   * different ways (`border-surface/10 bg-surface/5`, `border-surface/20
+   * bg-transparent`, a bare `.glass-panel` pill, a text link).
+   */
+  variant?: "primary" | "secondary" | "outline"
   size?: "sm" | "md" | "lg"
   arrow?: boolean
   className?: string
@@ -40,6 +47,8 @@ export function ctaClasses({
     // into the picture).
     variant === "secondary" &&
       "border border-white/40 bg-white/10 text-white backdrop-blur-md hover:border-primary hover:bg-primary/25",
+    variant === "outline" &&
+      "border border-surface/25 bg-surface/5 text-surface hover:border-primary hover:bg-primary/10 hover:text-primary",
     className
   )
 }

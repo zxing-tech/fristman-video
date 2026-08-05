@@ -3,19 +3,29 @@ import Link from "next/link"
 
 import { HeroVideo } from "@/components/site/hero-video"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { Readout } from "@/components/site/readout"
 import { HERO_POSTER, HERO_TEXT_SHADOW, HERO_VIDEO } from "@/lib/hero-media"
 import { cn } from "@/lib/utils"
 
 /**
- * The one hero for every `/services/*` detail page.
+ * The one hero for every detail page on the site — the six under `/services/*`
+ * and the six under `/our-work/*`.
  *
- * The six pages were converted from separate Stitch exports and each invented
- * its own entry: heights of 614/716/819/921px, four different content columns,
- * and a breadcrumb on two pages out of six even though all six emit
- * BreadcrumbList JSON-LD. This component is the shared frame — footage, height,
- * column, scrim stack, breadcrumb, chip, display type and action row — so a
- * visitor moving between two services through the navbar dropdown lands in the
- * same place twice.
+ * Both sets were converted from separate Stitch exports and each page invented
+ * its own entry. The services ran heights of 614/716/819/921px, four different
+ * content columns, and a breadcrumb on two pages out of six even though all six
+ * emit BreadcrumbList JSON-LD. The case studies were worse: 819/819/870/870px
+ * plus a `min-h-[716px]` and an inset `aspect-[21/9]` card, three different
+ * content columns, and a breadcrumb on one page out of six. This component is
+ * the shared frame — footage, height, column, scrim stack, breadcrumb, chip,
+ * display type and action row — so a visitor moving between two pages of the
+ * same kind lands in the same place twice.
+ *
+ * Case studies take the same footage rather than their own photograph on
+ * purpose. Every case-study hero image in the repo is a 512x279 Stitch render;
+ * at full bleed on a 1280 column that is a 2.5x upscale, and on a 1920 screen
+ * closer to 3.75x. See PRODUCT.md `## Evidence on Hand` — those renders are not
+ * project documentation, and blowing one up to fill a hero states the opposite.
  *
  * The footage is the homepage clip, from lib/hero-media.ts. It replaced six
  * different Stitch renders, which is a correctness fix as much as a visual one:
@@ -30,8 +40,14 @@ import { cn } from "@/lib/utils"
  */
 
 type ServiceHeroProps = {
-  /** Current page, shown after Home. Matches the BreadcrumbList JSON-LD. */
+  /** Current page, shown last. Matches the BreadcrumbList JSON-LD. */
   breadcrumb: string
+  /**
+   * Crumbs between Home and the current page. Services sit one level down and
+   * pass nothing; case studies pass `/our-work`, which is what keeps the
+   * visible trail identical to the BreadcrumbList each page already emits.
+   */
+  trail?: { name: string; href: string }[]
   /** Status chip above the heading. */
   chip: string
   /** Optional chip glyph; without one the chip shows a pulsing status dot. */
@@ -50,6 +66,7 @@ type ServiceHeroProps = {
 
 export function ServiceHero({
   breadcrumb,
+  trail = [],
   chip,
   chipIcon,
   title,
@@ -118,36 +135,50 @@ export function ServiceHero({
         {/* Breadcrumb and readout share one row and read as a status bar. */}
         <div className="mb-8 flex items-center justify-between gap-6 md:mb-10">
           <nav aria-label="Breadcrumb">
+            {/* Wraps rather than truncates. A three-level case-study trail runs
+                past 326px of usable width on a 390px screen, and a breadcrumb
+                that clips is worse than one on two lines. */}
             <ol
               className={cn(
-                "flex items-center gap-2 font-label text-xs font-bold tracking-widest text-white/70 uppercase",
+                "flex flex-wrap items-center gap-x-2 gap-y-1 font-label text-xs font-bold tracking-widest text-white/70 uppercase",
                 HERO_TEXT_SHADOW
               )}
             >
-              <li>
-                <Link className="transition-colors hover:text-white" href="/">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true" className="flex items-center">
-                <MaterialIcon name="chevron_right" className="text-base!" />
-              </li>
+              {[{ name: "Home", href: "/" }, ...trail].map((crumb) => (
+                <li className="flex items-center gap-x-2" key={crumb.href}>
+                  {/* Measured at 390px, these crumbs were 42x16 and 104x16 —
+                      under the 24x24 floor in WCAG 2.5.8 Target Size (Minimum).
+                      `py-1` takes each link to 24px tall; `-my-1` gives most of
+                      that back to the layout, and the row settles at 24px
+                      rather than the 16px it was. The 8px it costs sits inside
+                      the hero's `mb-8`/`mb-10`, so nothing below it moves. */}
+                  <Link
+                    className="-my-1 py-1 transition-colors hover:text-white"
+                    href={crumb.href}
+                  >
+                    {crumb.name}
+                  </Link>
+                  {/* MaterialIcon is aria-hidden by design, so the ligature
+                      text never reaches the trail's accessible name. */}
+                  <MaterialIcon name="chevron_right" className="text-base!" />
+                </li>
+              ))}
               <li aria-current="page" className="text-primary">
                 {breadcrumb}
               </li>
             </ol>
           </nav>
           {readout && (
-            <span
+            <Readout
               className={cn(
                 // Full strength, not /70: this sits over the brightest part of
                 // the frame, and Signal Red at 10px has no contrast to spare.
-                "hidden shrink-0 font-mono text-[10px] tracking-[0.15em] text-primary uppercase md:block",
+                "hidden shrink-0 text-primary md:block",
                 HERO_TEXT_SHADOW
               )}
             >
               {readout}
-            </span>
+            </Readout>
           )}
         </div>
 
@@ -205,7 +236,11 @@ export function ServiceHero({
             {actions}
           </div>
 
-          {note}
+          {/* The shadow is applied here rather than left to each caller: a note
+              sits below the action row, past the densest part of the radial
+              scrim, and is the copy in this block most likely to land on open
+              picture. */}
+          {note && <div className={HERO_TEXT_SHADOW}>{note}</div>}
         </div>
       </div>
     </header>
