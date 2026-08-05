@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* The two conditions under which it is safe to park content behind a hover:
+   the device actually has a hovering pointer, and the visitor has not asked
+   for reduced motion. Used by PhotoCard to collapse its description. Anything
+   that fails either test never gets the collapsed state at all, so on a phone
+   — or for someone with reduced motion on — the copy simply stays visible.
+   Authored as a variant rather than an inline `[@media...]` because the
+   bracketed form needs underscores for every space and silently emits nothing
+   when you get it wrong. */
+@custom-variant hover-reveal (@media (hover: hover) and (prefers-reduced-motion: no-preference));
+
 @theme inline {
     /* One family (Archivo) for every UI role — hierarchy comes from weight,
        width, size, case and tracking, not from a second face. These are `inline`
