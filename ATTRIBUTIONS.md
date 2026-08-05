@@ -18,6 +18,20 @@ The clip is stock footage of an unrelated facility. It is used as atmosphere onl
 and must never be captioned, described, or implied to be Firstman's own work, or
 to depict a Firstman project or client site. See `PRODUCT.md` → *Evidence on Hand*.
 
+## Pexels photos
+
+`public/images/pexels/` holds 11 real photographs (fabrication yard, offshore
+platform, refinery, firefighter training, night refinery, team portrait, and
+five construction-progress stages) sourced from the Pexels API. Full
+per-file photographer credit, photo-page links, and screening notes are in
+[`public/images/pexels/CREDITS.md`](public/images/pexels/CREDITS.md).
+Licensed under the [Pexels License](https://www.pexels.com/license/): free
+for commercial use, no attribution legally required.
+
+<a href="https://www.pexels.com">Photos provided by Pexels</a> — this credit
+link needs a visible home (footer) before the site ships, per Pexels'
+attribution guidelines.
+
 ## Everything else
 
 All other imagery under `public/images/` is either a Google Stitch AI render from
