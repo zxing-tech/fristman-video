@@ -4,6 +4,7 @@ import { MaterialIcon } from "@/components/site/material-icon"
 import { SectionLabel } from "@/components/site/section-label"
 import { CtaButton } from "@/components/site/cta-button"
 import { HeroVideo } from "@/components/site/hero-video"
+import { PhotoCard } from "@/components/site/photo-card"
 import { ServiceCard } from "@/components/site/service-card"
 import { sectors } from "@/lib/data/sectors"
 import { services } from "@/lib/data/services"
@@ -439,112 +440,44 @@ export default function HomePage() {
               carry their own min-h-[250px]/min-h-[200px], which always won over
               the grid's auto-rows and left two rules fighting over one value. */}
           <div className="grid auto-rows-[minmax(250px,auto)] grid-cols-1 gap-6 md:grid-cols-3">
-            {/* Large Feature */}
-            <div className="glass-panel group relative flex flex-col justify-end overflow-hidden rounded-xl bg-black p-10 md:col-span-2">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-90 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-45 dark:group-hover:opacity-60"
-                style={{
-                  backgroundImage: "url('/images/stitch/ba0390236d.jpg')",
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-              <div className="relative z-10">
-                {/* The trailing `!` is load-bearing. Google's Material Symbols
-                    stylesheet is a plain <link> in <head>, so its
-                    `.material-symbols-outlined` rule is *unlayered* — and
-                    unlayered declarations beat anything in Tailwind's
-                    `@layer utilities`, whatever the specificity or source order.
-                    That rule pins the glyph to 24px. Without `!`, every icon
-                    size class on this page is dead code that ships and does
-                    nothing. Same trap CLAUDE.md flags for `display`, one
-                    property further along. */}
-                <MaterialIcon
-                  name="shield"
-                  className="mb-4 block text-3xl! text-primary"
-                />
-                <h3 className="mb-2 font-headline text-2xl font-bold text-white">
-                  Safety-First Workflow & Compliance
-                </h3>
-                <p className="max-w-lg font-body text-white/90">
-                  Every drone operation begins with a documented risk
-                  assessment, coordinated with your HSE team and cleared through
-                  full Permit to Work (PTW) approval. We arrive prepared for the
-                  site — so capture stays safe and your operations keep running.
-                </p>
-              </div>
-            </div>
-            {/* Small Feature 1 */}
-            <div className="glass-panel group relative flex flex-col justify-end overflow-hidden rounded-xl bg-black p-8">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-90 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-45 dark:group-hover:opacity-60"
-                style={{
-                  backgroundImage: "url('/images/stitch/13ca39f31a.jpg')",
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-              <div className="relative z-10">
-                <MaterialIcon
-                  name="factory"
-                  className="mb-4 block text-3xl! text-primary"
-                />
-                <h3 className="mb-2 font-headline text-xl font-bold text-white">
-                  Deep Industrial Site Awareness
-                </h3>
-                <p className="font-body text-sm text-white/90">
-                  We know the logistics, the safety gates, and the operational
-                  realities of heavy industry from the moment we mobilise.
-                </p>
-              </div>
-            </div>
-            {/* Small Feature 2 */}
-            <div className="glass-panel group relative flex flex-col justify-end overflow-hidden rounded-xl bg-black p-8">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-90 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-45 dark:group-hover:opacity-60"
-                style={{
-                  backgroundImage: "url('/images/stitch/a37924086a.jpg')",
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-              <div className="relative z-10">
-                <MaterialIcon
-                  name="photo_camera"
-                  className="mb-4 block text-3xl! text-primary"
-                />
-                <h3 className="mb-2 font-headline text-xl font-bold text-white">
-                  Integrated UAV + Ground Production
-                </h3>
-                <p className="font-body text-sm text-white/90">
-                  Multi-angle coverage combining aerial perspectives with
-                  detailed ground-level cinematography.
-                </p>
-              </div>
-            </div>
-            {/* Small Feature 3 */}
-            <div className="glass-panel group relative flex flex-col justify-end overflow-hidden rounded-xl bg-black p-8 md:col-span-2">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-90 transition-opacity duration-700 group-hover:opacity-100 dark:opacity-45 dark:group-hover:opacity-60"
-                style={{
-                  backgroundImage: "url('/images/stitch/6d4182646b.jpg')",
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-              <div className="relative z-10 flex w-full flex-col justify-between gap-6 sm:flex-row sm:items-center">
-                <div>
-                  <h3 className="mb-2 font-headline text-xl font-bold text-white">
-                    Rapid Regional Deployment
-                  </h3>
-                  <p className="max-w-md font-body text-sm text-white/90">
-                    A major fabrication yard or a short-notice site visit —
-                    large-scale or ad-hoc, we mobilise across the region to
-                    cover it.
-                  </p>
-                </div>
-                <MaterialIcon
-                  name="public"
-                  className="shrink-0 text-5xl! text-primary opacity-50"
-                />
-              </div>
-            </div>
+            {/* All four run on the shared PhotoCard, the same card the
+                /services pages use: title alone at rest, description revealed
+                on hover. One bento where three cards opened and a fourth did
+                not would read as a bug, so the "Rapid Regional Deployment"
+                card gave up its aside glyph and takes the marker position the
+                other three use. Its scrim values were measured against these
+                photographs — see the component. */}
+            <PhotoCard
+              alt="Aerial view of an industrial facility at dusk"
+              body="Every drone operation begins with a documented risk assessment, coordinated with your HSE team and cleared through full Permit to Work (PTW) approval. We arrive prepared for the site — so capture stays safe and your operations keep running."
+              className="md:col-span-2"
+              icon="shield"
+              image="/images/stitch/ba0390236d.jpg"
+              size="lg"
+              title="Safety-First Workflow & Compliance"
+            />
+            <PhotoCard
+              alt="Industrial plant structures seen from the air"
+              body="We know the logistics, the safety gates, and the operational realities of heavy industry from the moment we mobilise."
+              icon="factory"
+              image="/images/stitch/13ca39f31a.jpg"
+              title="Deep Industrial Site Awareness"
+            />
+            <PhotoCard
+              alt="Drone flying above an industrial site"
+              body="Multi-angle coverage combining aerial perspectives with detailed ground-level cinematography."
+              icon="photo_camera"
+              image="/images/stitch/a37924086a.jpg"
+              title="Integrated UAV + Ground Production"
+            />
+            <PhotoCard
+              alt="Industrial facility spread across a coastal site"
+              body="A major fabrication yard or a short-notice site visit — large-scale or ad-hoc, we mobilise across the region to cover it."
+              className="md:col-span-2"
+              icon="public"
+              image="/images/stitch/6d4182646b.jpg"
+              title="Rapid Regional Deployment"
+            />
           </div>
         </div>
       </section>

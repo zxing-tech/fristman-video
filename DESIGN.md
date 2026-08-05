@@ -501,9 +501,10 @@ hover (`FILL 0` → `FILL 1`) as a state change.
 > `getComputedStyle`, never by reading the class list.
 
 **Sizes.** Card-marker icons — the glyph above a card heading — are one size,
-`text-3xl!` (30px); they mark the card, they do not rank it. The only larger
-icon is an anchor glyph set apart from the heading it belongs to, at
-`text-5xl!` (48px) and `opacity-50`, so it recedes by tone rather than by scale.
+`text-3xl!` (30px); they mark the card, they do not rank it. There is no larger
+size: a `text-5xl!` anchor glyph used to sit beside one homepage heading, and
+went when that card moved onto the shared `PhotoCard` on 2026-08-05. Every
+photo-backed card on the site now marks itself the same way.
 
 ### HUD Accents (signature)
 
