@@ -1,8 +1,13 @@
-import Image from "next/image"
 import Link from "next/link"
 
+import { CaseSpecs } from "@/components/site/case-specs"
+import { CtaButton, ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { RelatedServices } from "@/components/site/related-services"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceHero } from "@/components/site/service-hero"
+import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
 import {
   pageMeta,
@@ -36,251 +41,182 @@ const jsonLd = graph(
   })
 )
 
+const specs = [
+  { label: "Client", value: "Ben Line Agencies" },
+  { label: "Sector", value: "Logistics / Industrial" },
+  { label: "Service", value: "Facility Overview" },
+  { label: "Region", value: "Southeast Asia" },
+  { label: "Access", value: "Public" },
+]
+
+const deliverables = [
+  { icon: "domain", label: "Facility Overview" },
+  { icon: "auto_stories", label: "Site Storytelling" },
+  { icon: "photo_camera", label: "High-Res Stills" },
+  { icon: "assignment_ind", label: "Stakeholder Briefings" },
+]
+
 export default function BenLineAgenciesPage() {
   return (
-    <main className="relative">
+    <main>
       <JsonLd data={jsonLd} />
-      {/* Hero Section */}
-      <section className="relative flex h-[819px] w-full items-end overflow-hidden bg-black pb-24">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+      <ServiceHero
+        breadcrumb="Ben Line Agencies"
+        trail={[{ name: "Case Studies", href: "/our-work" }]}
+        chip="Logistics Reference"
+        title={
+          <>
+            Ben Line Agencies&nbsp;—{" "}
+            <span className="text-primary">Logistics visual reference</span>
+          </>
+        }
+        lede="A comprehensive visual documentation project focusing on drone-enabled cinematography for complex logistics hubs and port operations. Capturing scale and operational flow without site interference."
+        actions={
+          <>
+            <CtaButton href="/contact" arrow className="w-full sm:w-fit">
+              Discuss Your Production
+            </CtaButton>
+            <CtaButton
+              href="/our-work"
+              variant="secondary"
+              className="w-full sm:w-fit"
+            >
+              All Case Studies
+            </CtaButton>
+          </>
+        }
+      />
+
+      <CaseSpecs items={specs} />
+
+      <ServiceSection
+        align="split"
+        eyebrow="Context"
+        title="Logistics / industrial context"
+        lede="The operational environment for this reference project included high-traffic maritime gateways and container terminals. Visual capture required strict adherence to safety exclusion zones and maritime security protocols. We focused on capturing the rhythmic efficiency of shore-to-ship operations, highlighting the infrastructure that supports global supply chains."
+      />
+
+      <ServiceSection
+        align="split"
+        band="panel"
+        eyebrow="Approach"
+        title="Visual approach"
+        lede="Our cinematography strategy prioritized non-intrusive capture techniques. Using high-altitude drone maneuvers and long-lens ground coverage, we maintained industrial safety buffers while delivering cinematic intimacy."
+      >
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
+          <p className="max-w-[62ch] font-body leading-relaxed text-industrial-grey">
+            The color grade follows a technical, high-contrast palette—deep
+            blacks and metallic silvers—punctuated by the natural industrial
+            reds and safety oranges inherent to the site environment.
+          </p>
+          {/* Half a column, not full bleed. The source is 512x279, so at
+              ~596px this is a 1.16x upscale; the `aspect-[21/9]` banner it
+              replaced ran the same file across the whole 1216px column. */}
           <div
-            className="h-full w-full scale-105 transform bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/stitch/a73f0ee0ad.jpg')" }}
+            aria-label="Industrial drone camera gimbal with red status light at a blurred shipping terminal"
+            className="aspect-video w-full rounded-2xl border border-surface/10 bg-black bg-cover bg-center"
+            role="img"
+            style={{ backgroundImage: "url('/images/stitch/11461413dd.jpg')" }}
           />
         </div>
-        <div className="relative z-20 mx-auto w-full max-w-7xl px-6">
-          <div className="mb-4 flex items-center gap-3">
-            <span className="bg-primary px-3 py-1 text-[10px] font-black tracking-[0.2em] text-white uppercase">
-              Logistics Reference
-            </span>
-            <div className="h-px w-24 bg-primary/50" />
-          </div>
-          <h1 className="max-w-4xl text-4xl leading-tight font-black tracking-tight text-white uppercase font-stretch-semi-condensed md:text-7xl">
-            Ben Line Agencies —{" "}
-            <span className="text-primary">Logistics Visual Reference</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed font-light text-white/70">
-            A comprehensive visual documentation project focusing on
-            drone-enabled cinematography for complex logistics hubs and port
-            operations. Capturing scale and operational flow without site
-            interference.
-          </p>
-        </div>
-      </section>
+      </ServiceSection>
 
-      {/* Content Grid */}
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-24 lg:grid-cols-12">
-        {/* Left Column: Narrative */}
-        <div className="space-y-20 lg:col-span-8">
-          {/* Logistics Context */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <MaterialIcon
-                name="precision_manufacturing"
-                className="text-primary"
-              />
-              <h2 className="text-sm font-bold tracking-widest text-primary uppercase">
-                Logistics / Industrial Context
-              </h2>
-            </div>
-            <div className="glass-panel rounded-xl border-l-4 border-l-primary p-8">
-              <p className="leading-relaxed text-surface/80">
-                The operational environment for this reference project included
-                high-traffic maritime gateways and container terminals. Visual
-                capture required strict adherence to safety exclusion zones and
-                maritime security protocols. We focused on capturing the
-                rhythmic efficiency of shore-to-ship operations, highlighting
-                the infrastructure that supports global supply chains.
-              </p>
-            </div>
-          </div>
-
-          {/* Visual Approach */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <MaterialIcon name="videocam" className="text-primary" />
-              <h2 className="text-sm font-bold tracking-widest text-primary uppercase">
-                Visual Approach
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="space-y-4">
-                <p className="leading-relaxed text-surface/80">
-                  Our cinematography strategy prioritized non-intrusive capture
-                  techniques. Using high-altitude drone maneuvers and long-lens
-                  ground coverage, we maintained industrial safety buffers while
-                  delivering cinematic intimacy.
-                </p>
-                <p className="leading-relaxed text-surface/80">
-                  The color grade follows a technical, high-contrast
-                  palette—deep blacks and metallic silvers—punctuated by the
-                  natural industrial reds and safety oranges inherent to the
-                  site environment.
-                </p>
-              </div>
-              <div className="glass-panel relative min-h-64 overflow-hidden rounded-xl">
-                <Image
-                  src="/images/stitch/11461413dd.jpg"
-                  alt="Industrial drone camera gimbal with red status light at a blurred shipping terminal"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 768px) 40vw, 100vw"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Deliverables Grid */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-2">
-              <MaterialIcon name="grid_view" className="text-primary" />
-              <h2 className="text-sm font-bold tracking-widest text-primary uppercase">
-                Deliverables
-              </h2>
-            </div>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <div className="glass-panel group flex cursor-default flex-col items-center rounded-xl p-6 text-center transition-all hover:bg-primary/5">
-                <MaterialIcon
-                  name="domain"
-                  className="mb-4 text-3xl text-primary transition-transform group-hover:scale-110"
-                />
-                <span className="text-[10px] font-bold tracking-wider text-surface uppercase">
-                  Facility Overview
-                </span>
-              </div>
-              <div className="glass-panel group flex cursor-default flex-col items-center rounded-xl p-6 text-center transition-all hover:bg-primary/5">
-                <MaterialIcon
-                  name="auto_stories"
-                  className="mb-4 text-3xl text-primary transition-transform group-hover:scale-110"
-                />
-                <span className="text-[10px] font-bold tracking-wider text-surface uppercase">
-                  Site Storytelling
-                </span>
-              </div>
-              <div className="glass-panel group flex cursor-default flex-col items-center rounded-xl p-6 text-center transition-all hover:bg-primary/5">
-                <MaterialIcon
-                  name="photo_camera"
-                  className="mb-4 text-3xl text-primary transition-transform group-hover:scale-110"
-                />
-                <span className="text-[10px] font-bold tracking-wider text-surface uppercase">
-                  High-Res Stills
-                </span>
-              </div>
-              <div className="glass-panel group flex cursor-default flex-col items-center rounded-xl p-6 text-center transition-all hover:bg-primary/5">
-                <MaterialIcon
-                  name="assignment_ind"
-                  className="mb-4 text-3xl text-primary transition-transform group-hover:scale-110"
-                />
-                <span className="text-[10px] font-bold tracking-wider text-surface uppercase">
-                  Stakeholder Briefings
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Sidebar */}
-        <div className="space-y-12 lg:col-span-4">
-          {/* Gated Content Notice */}
-          <div className="glass-panel group relative overflow-hidden rounded-2xl p-8">
-            <div className="absolute top-0 right-0 p-4 opacity-20 transition-opacity group-hover:opacity-100">
-              <MaterialIcon name="lock" className="text-4xl text-primary" />
-            </div>
-            <h3 className="mb-4 text-xl font-bold tracking-tighter uppercase">
-              Confidentiality Note
-            </h3>
-            <p className="mb-6 text-sm leading-relaxed text-industrial-grey">
-              Full project reels and specific site data are gated to ensure
-              compliance with site-safety and proprietary logistics protocols.
-              Access is restricted to authorized stakeholders.
-            </p>
-            <RequestAccessTrigger
-              defaultVideo="Ben Line Agencies — Logistics Visual Reference"
-              className="w-full rounded-full border border-primary py-3 text-[10px] font-bold tracking-widest text-primary uppercase transition-all hover:bg-primary hover:text-white"
+      <ServiceSection eyebrow="Scope" title="Deliverables">
+        {/* Rows on a hairline, not four identical icon cards. The content is a
+            legend — four labels of equal weight — and a card around each one
+            frames what proximity already groups. */}
+        <ul className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+          {deliverables.map((item) => (
+            <li
+              className="flex items-center gap-3 border-t border-surface/10 py-6"
+              key={item.label}
             >
-              Request Secure Access
-            </RequestAccessTrigger>
-          </div>
+              <MaterialIcon
+                name={item.icon}
+                className="shrink-0 text-primary"
+              />
+              <span className="font-label text-xs font-bold tracking-widest text-surface uppercase">
+                {item.label}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </ServiceSection>
 
-          {/* Related Services */}
-          <div className="space-y-6">
-            <h3 className="border-b border-surface/10 pb-2 text-xs font-bold tracking-widest text-industrial-grey uppercase">
-              Related Services
-            </h3>
-            <div className="space-y-4">
-              <Link
-                className="glass-panel group flex items-center justify-between rounded-xl p-4 transition-colors hover:border-primary/50"
-                href="/services/corporate-videos"
-              >
-                <span className="text-sm font-bold tracking-tight uppercase">
-                  Corporate Videos
-                </span>
-                <MaterialIcon
-                  name="arrow_forward"
-                  className="text-primary opacity-0 transition-opacity group-hover:opacity-100"
-                />
-              </Link>
-              <Link
-                className="glass-panel group flex items-center justify-between rounded-xl p-4 transition-colors hover:border-primary/50"
-                href="/services/facility-overview-films"
-              >
-                <span className="text-sm font-bold tracking-tight uppercase">
-                  Facility Overviews
-                </span>
-                <MaterialIcon
-                  name="arrow_forward"
-                  className="text-primary opacity-0 transition-opacity group-hover:opacity-100"
-                />
-              </Link>
-            </div>
-          </div>
-
-          {/* Site Badge */}
-          <div className="flex items-start gap-4 rounded-xl border border-primary/20 bg-primary/5 p-6">
-            <MaterialIcon name="security" className="text-primary" />
+      <ServiceSection
+        align="split"
+        band="panel"
+        eyebrow="Access"
+        title="Confidentiality note"
+        lede="Full project reels and specific site data are gated to ensure compliance with site-safety and proprietary logistics protocols. Access is restricted to authorized stakeholders."
+      >
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <RequestAccessTrigger
+            defaultVideo="Ben Line Agencies — Logistics Visual Reference"
+            className={ctaClasses({ className: "w-full sm:w-fit" })}
+          >
+            <MaterialIcon name="key" className="text-lg!" />
+            Request Secure Access
+          </RequestAccessTrigger>
+          <div className="flex max-w-md items-start gap-4">
+            <MaterialIcon name="security" className="shrink-0 text-primary" />
             <div>
-              <h4 className="mb-1 text-[10px] font-black text-primary uppercase">
+              <h3 className="font-label text-xs font-bold tracking-widest text-primary uppercase">
                 Safety Compliant
-              </h4>
-              <p className="text-[11px] tracking-wide text-surface/60 uppercase">
+              </h3>
+              <p className="mt-1 font-body text-sm leading-relaxed text-industrial-grey">
                 Documentation captured under strict industrial safety management
                 systems.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </ServiceSection>
 
-      {/* Final CTA Section */}
-      <section className="border-y border-surface/5 bg-dark-ui py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-6 text-4xl font-black tracking-tighter uppercase">
-            Ready to showcase your industrial assets?
-          </h2>
-          <p className="mx-auto mb-12 max-w-xl text-industrial-grey">
-            Discuss a similar visual production for your logistics hub, offshore
-            facility, or industrial site. We prioritize safety and cinematic
-            precision.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
+      <RelatedServices
+        band="page"
+        eyebrow="Capabilities"
+        title="Related services"
+        items={[
+          {
+            href: "/services/corporate-videos",
+            title: "Corporate Videos",
+            body: "Specialized capture for heavy engineering.",
+          },
+          {
+            href: "/services/facility-overview-films",
+            title: "Facility Overviews",
+            body: "Site-aware visual narratives for stakeholders.",
+          },
+        ]}
+      />
+
+      <ServiceCta
+        title="Ready to showcase your industrial assets?"
+        lede="Discuss a similar visual production for your logistics hub, offshore facility, or industrial site. We prioritize safety and cinematic precision."
+        actions={
+          <>
             <RequestAccessTrigger
               defaultVideo="Ben Line Agencies — Logistics Visual Reference"
-              className="flex items-center gap-2 rounded-full bg-primary px-10 py-4 text-xs font-bold tracking-[0.2em] text-white uppercase transition-all hover:shadow-[0_0_20px_rgba(209,32,39,0.4)] active:scale-95"
+              className={ctaClasses({ className: "w-full sm:w-fit" })}
             >
               Request Access / Discuss Production
-              <MaterialIcon name="send" />
+              <MaterialIcon name="send" className="text-lg!" />
             </RequestAccessTrigger>
             <Link
-              className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-surface uppercase transition-colors hover:text-primary"
+              className="group flex items-center gap-2 font-label text-xs font-bold tracking-widest text-surface uppercase transition-colors hover:text-primary"
               href="/our-work"
             >
               View Portfolio
-              <MaterialIcon name="chevron_right" />
+              <MaterialIcon
+                name="chevron_right"
+                className="text-lg! transition-transform group-hover:translate-x-1"
+              />
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
     </main>
   )
 }

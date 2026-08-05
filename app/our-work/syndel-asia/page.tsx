@@ -1,7 +1,12 @@
-import Link from "next/link"
-
+import { CaseSpecs } from "@/components/site/case-specs"
+import { CtaButton, ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { Readout } from "@/components/site/readout"
+import { RelatedServices } from "@/components/site/related-services"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceHero } from "@/components/site/service-hero"
+import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
 import {
   pageMeta,
@@ -35,321 +40,229 @@ const jsonLd = graph(
   })
 )
 
+const specs = [
+  { label: "Client", value: "Syndel Asia" },
+  { label: "Facility", value: "Strategic Fabrication Yard & Marine Terminal" },
+  { label: "Region", value: "Malaysia" },
+  { label: "Service", value: "Facility Overview" },
+  { label: "Access", value: "Restricted", accent: true },
+]
+
+const documentationNeeds = [
+  "High-Altitude Site Awareness Overviews",
+  "Fabrication Workflow Documentation",
+  "Safety Protocol Compliance Visuals",
+  "Marine Terminal Berth Operations",
+]
+
+const techniques = [
+  "4K LOG ACQUISITION",
+  "AERIAL SITE FLIGHTS",
+  "TIME-LAPSE DOCUMENTATION",
+]
+
+/**
+ * These three ran as photographs until 2026-08-05. They are not photographs:
+ * all three are screen captures of the Stitch mock, with an application header
+ * bar across the top and invented production data burned into the pixels —
+ * `REC TC: 01:23:45:10 / SHOT ON: ARRI ALEXA LF / LENS: 24MM T1.5` on one,
+ * `PROJECT: PINDAH OFFSHORE PIPING / LOCATION: KUALA LUMPUR YARD / 24 OCT 2023`
+ * on the second, and a header reading `CASE STIUDY DETAIL` — typo included —
+ * on the third. Two of them carried a play glyph over a site with no video.
+ *
+ * Same call as the six `/services` heroes (see service-hero.tsx): a render with
+ * fabricated telemetry in it states a claim the company cannot support, and no
+ * scrim makes that acceptable. The cards keep their copy and lose the picture
+ * until real stills arrive — PENDING-CLIENT-ASSETS.md item 3.
+ */
+const deliverables = [
+  {
+    icon: "movie",
+    title: "Milestone Reels",
+    body: "Compressed cinematic highlights of key project phases for executive review.",
+  },
+  {
+    icon: "calendar_month",
+    title: "Monthly Update Films",
+    body: "Progressive documentation capture on a fixed 30-day site rotation schedule.",
+  },
+  {
+    icon: "photo_library",
+    title: "High-Res Still Packs",
+    body: "Ultra-high fidelity still imagery for annual reports and technical brochures.",
+  },
+]
+
 export default function SyndelAsiaPage() {
   return (
-    <main className="relative">
+    <main>
       <JsonLd data={jsonLd} />
-      {/* Hero Section */}
-      <section className="relative flex h-[870px] w-full items-end overflow-hidden bg-black pb-24">
-        <div className="absolute inset-0 z-0">
-          <div
-            aria-label="Cinematic wide-angle view of a sprawling industrial refinery facility at dusk"
-            role="img"
-            className="h-full w-full bg-cover bg-center opacity-60"
-            style={{ backgroundImage: "url('/images/stitch/ea3a0c1e8b.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-8">
-          <div className="mb-6 flex flex-wrap gap-3">
-            <span className="glass-panel border-white/20 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
-              [CONFIRM APPROVED ASSETS]
-            </span>
-            <span className="glass-panel border-white/20 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
-              [LOGO PERMISSION]
-            </span>
-          </div>
-          <h2 className="mb-4 text-sm font-bold tracking-[0.3em] text-primary uppercase">
-            CASE STUDY DETAIL — SYNDEL ASIA
-          </h2>
-          <h1 className="max-w-4xl text-4xl leading-none font-black tracking-tight text-white uppercase font-stretch-semi-condensed md:text-7xl">
-            Syndel Asia —{" "}
-            <span className="text-white/60">
-              Industrial Visual Documentation Reference
-            </span>
-          </h1>
-        </div>
-      </section>
 
-      {/* Summary & Context */}
-      <section className="mx-auto max-w-[1280px] px-8 py-24">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
-          {/* Left Column: Summary */}
-          <div className="space-y-12 lg:col-span-7">
-            <div>
-              <h3 className="mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                <span className="h-px w-8 bg-primary" /> Public Summary
-              </h3>
-              <p className="text-xl leading-relaxed font-light text-surface/90 md:text-2xl">
-                A comprehensive visual documentation project for Syndel Asia,
-                focused on capturing the operational scale and safety protocols
-                of their industrial hub. This cinematic reference serves as the
-                primary visual foundation for their stakeholder reporting and
-                site-awareness training modules.
-              </p>
-            </div>
-            <div className="glass-panel relative overflow-hidden rounded-2xl p-10">
-              <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                Project Context
-              </h3>
-              <div className="flex items-start gap-6">
-                <MaterialIcon
-                  name="location_on"
-                  className="text-4xl text-surface/20"
-                />
-                <div>
-                  <p className="mb-2 text-xs tracking-widest text-industrial-grey uppercase">
-                    Facility & Location
-                  </p>
-                  <p className="text-lg font-semibold">
-                    Syndel Asia Strategic Fabrication Yard & Marine Terminal
-                  </p>
-                  <p className="mt-2 text-industrial-grey">
-                    Specialized heavy industry environment requiring rigorous
-                    safety clearances and site-aware capture protocols for all
-                    aerial and ground crews.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Right Column: Details */}
-          <div className="space-y-12 lg:col-span-5">
-            <div className="space-y-8">
-              <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                Documentation Needs
-              </h3>
-              <ul className="space-y-4">
-                <li className="group flex items-center gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary transition-transform group-hover:scale-150" />
-                  <span className="text-sm font-bold tracking-wider text-industrial-grey uppercase">
-                    High-Altitude Site Awareness Overviews
-                  </span>
-                </li>
-                <li className="group flex items-center gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary transition-transform group-hover:scale-150" />
-                  <span className="text-sm font-bold tracking-wider text-industrial-grey uppercase">
-                    Fabrication Workflow Documentation
-                  </span>
-                </li>
-                <li className="group flex items-center gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary transition-transform group-hover:scale-150" />
-                  <span className="text-sm font-bold tracking-wider text-industrial-grey uppercase">
-                    Safety Protocol Compliance Visuals
-                  </span>
-                </li>
-                <li className="group flex items-center gap-4">
-                  <span className="h-2 w-2 rounded-full bg-primary transition-transform group-hover:scale-150" />
-                  <span className="text-sm font-bold tracking-wider text-industrial-grey uppercase">
-                    Marine Terminal Berth Operations
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="border-t border-surface/10 pt-8">
-              <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                Visual Approach
-              </h3>
-              <p className="mb-6 text-sm leading-relaxed text-industrial-grey">
-                Leveraging drone-enabled cinematography and specialized
-                ground-based capture methods, our team deployed a multi-angle
-                strategy to document critical infrastructure without
-                interrupting operational flow. The focus remained on precision
-                framing and lighting to elevate technical site assets into
-                professional cinematic reference material.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full bg-graphite px-3 py-1 text-[10px] font-bold tracking-tighter">
-                  4K LOG ACQUISITION
-                </span>
-                <span className="rounded-full bg-graphite px-3 py-1 text-[10px] font-bold tracking-tighter">
-                  AERIAL SITE FLIGHTS
-                </span>
-                <span className="rounded-full bg-graphite px-3 py-1 text-[10px] font-bold tracking-tighter">
-                  TIME-LAPSE DOCUMENTATION
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Deliverables */}
-      <section className="bg-dark-ui py-24">
-        <div className="mx-auto max-w-[1280px] px-8">
-          <div className="mb-12 flex items-end justify-between">
-            <div>
-              <h3 className="mb-4 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                Project Output
-              </h3>
-              <h2 className="text-3xl font-extrabold tracking-tight uppercase">
-                Sample Deliverables
-              </h2>
-            </div>
-            <span className="glass-panel px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] text-industrial-grey uppercase">
-              [CLIENT-APPROVED WORDING PENDING]
+      <ServiceHero
+        breadcrumb="Syndel Asia Documentation"
+        trail={[{ name: "Case Studies", href: "/our-work" }]}
+        chip="Case Study Detail"
+        title={
+          <>
+            Syndel Asia&nbsp;—{" "}
+            <span className="text-primary">
+              Industrial visual documentation reference
             </span>
+          </>
+        }
+        lede="A comprehensive visual documentation project for Syndel Asia, focused on capturing the operational scale and safety protocols of their industrial hub. This cinematic reference serves as the primary visual foundation for their stakeholder reporting and site-awareness training modules."
+        actions={
+          <>
+            <CtaButton href="/contact" arrow className="w-full sm:w-fit">
+              Discuss Your Production
+            </CtaButton>
+            <CtaButton
+              href="/our-work"
+              variant="secondary"
+              className="w-full sm:w-fit"
+            >
+              All Case Studies
+            </CtaButton>
+          </>
+        }
+        note={
+          // Internal production flags, kept verbatim on the owner's call. They
+          // sit in the note slot rather than above the h1, where they were the
+          // first thing on the page.
+          <div className="flex flex-wrap gap-2">
+            {["[CONFIRM APPROVED ASSETS]", "[LOGO PERMISSION]"].map((flag) => (
+              <Readout
+                className="rounded-full border border-white/20 bg-black/50 px-3 py-1 text-primary backdrop-blur-sm"
+                key={flag}
+              >
+                {flag}
+              </Readout>
+            ))}
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {/* Card 1 */}
-            <div className="group glass-panel relative cursor-pointer overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:bg-graphite">
-              <div className="relative mb-6 aspect-video overflow-hidden rounded-lg">
-                <div
-                  aria-label="Cinematic freeze-frame of a cargo ship being loaded at a marine terminal"
-                  role="img"
-                  className="h-full w-full bg-cover bg-center grayscale transition-all duration-700 group-hover:grayscale-0"
-                  style={{
-                    backgroundImage: "url('/images/stitch/497aa14516.jpg')",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 transition-opacity group-hover:opacity-100">
-                  <MaterialIcon name="play_circle" className="text-4xl" />
-                </div>
-              </div>
-              <h4 className="mb-2 text-lg font-bold uppercase">
-                Milestone Reels
-              </h4>
-              <p className="text-sm text-industrial-grey">
-                Compressed cinematic highlights of key project phases for
-                executive review.
-              </p>
-            </div>
-            {/* Card 2 */}
-            <div className="group glass-panel relative cursor-pointer overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:bg-graphite">
-              <div className="relative mb-6 aspect-video overflow-hidden rounded-lg">
-                <div
-                  aria-label="Split-screen of an industrial fabrication yard from above and a welder at ground level"
-                  role="img"
-                  className="h-full w-full bg-cover bg-center grayscale transition-all duration-700 group-hover:grayscale-0"
-                  style={{
-                    backgroundImage: "url('/images/stitch/a0c6192d31.jpg')",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 transition-opacity group-hover:opacity-100">
-                  <MaterialIcon name="play_circle" className="text-4xl" />
-                </div>
-              </div>
-              <h4 className="mb-2 text-lg font-bold uppercase">
-                Monthly Update Films
-              </h4>
-              <p className="text-sm text-industrial-grey">
-                Progressive documentation capture on a fixed 30-day site
-                rotation schedule.
-              </p>
-            </div>
-            {/* Card 3 */}
-            <div className="group glass-panel relative cursor-pointer overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:bg-graphite">
-              <div className="relative mb-6 aspect-video overflow-hidden rounded-lg">
-                <div
-                  aria-label="High-resolution still of an offshore platform structure with valves and sensors"
-                  role="img"
-                  className="h-full w-full bg-cover bg-center grayscale transition-all duration-700 group-hover:grayscale-0"
-                  style={{
-                    backgroundImage: "url('/images/stitch/a3d9969764.jpg')",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 transition-opacity group-hover:opacity-100">
-                  <MaterialIcon name="photo_library" className="text-4xl" />
-                </div>
-              </div>
-              <h4 className="mb-2 text-lg font-bold uppercase">
-                High-Res Still Packs
-              </h4>
-              <p className="text-sm text-industrial-grey">
-                Ultra-high fidelity still imagery for annual reports and
-                technical brochures.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        }
+      />
 
-      {/* Gated Access Section */}
-      <section className="relative overflow-hidden bg-black py-24">
-        <div className="absolute inset-0 z-0">
-          <div
-            aria-hidden="true"
-            className="h-full w-full bg-cover bg-center opacity-90 dark:opacity-30"
-            style={{ backgroundImage: "url('/images/stitch/fa4a82d5bf.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
+      <CaseSpecs items={specs} />
+
+      <ServiceSection
+        align="split"
+        eyebrow="Context"
+        title="Project context"
+        lede="Specialized heavy industry environment requiring rigorous safety clearances and site-aware capture protocols for all aerial and ground crews."
+      />
+
+      {/* These four are the client's documentation requirements and they need
+          to say so. Folded under "Project context" they sat unlabelled beneath
+          a lede about safety clearances, so a visitor met four uppercase lines
+          with no statement of what they were. */}
+      <ServiceSection
+        band="panel"
+        eyebrow="Requirements"
+        title="Documentation needs"
+      >
+        <ul className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+          {documentationNeeds.map((need) => (
+            <li
+              className="flex items-start gap-3 border-t border-surface/10 py-6"
+              key={need}
+            >
+              <span
+                aria-hidden="true"
+                className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary"
+              />
+              <span className="font-label text-xs font-bold tracking-widest text-surface uppercase">
+                {need}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </ServiceSection>
+
+      <ServiceSection
+        align="split"
+        eyebrow="Approach"
+        title="Visual approach"
+        lede="Leveraging drone-enabled cinematography and specialized ground-based capture methods, our team deployed a multi-angle strategy to document critical infrastructure without interrupting operational flow. The focus remained on precision framing and lighting to elevate technical site assets into professional cinematic reference material."
+      >
+        <div className="flex flex-wrap gap-3">
+          {techniques.map((technique) => (
+            <Readout
+              className="rounded-full border border-surface/10 bg-graphite px-4 py-1.5 text-surface"
+              key={technique}
+            >
+              {technique}
+            </Readout>
+          ))}
         </div>
-        <div className="relative z-10 mx-auto max-w-[800px] px-8 text-center">
-          <div className="mb-8 inline-flex items-center gap-4 rounded-full border border-primary/30 bg-primary/10 px-6 py-2">
-            <MaterialIcon name="lock" fill className="text-primary" />
-            <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">
-              Confidential Asset Portal
-            </span>
-          </div>
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tighter text-white uppercase">
-            RESTRICTED ACCESS ONLY
-          </h2>
-          <p className="mb-10 text-xl leading-relaxed text-white/70">
-            The full high-fidelity visual documentation library for Syndel Asia
-            contains sensitive site-aware assets. Access is restricted to
-            authorized personnel and verified project stakeholders.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      </ServiceSection>
+
+      <ServiceSection
+        band="panel"
+        eyebrow="Project Output"
+        title="Sample deliverables"
+      >
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-3">
+          {deliverables.map((item) => (
+            <div className="border-t border-surface/10 py-8" key={item.title}>
+              <MaterialIcon
+                name={item.icon}
+                className="mb-4 block text-3xl! text-primary"
+              />
+              <h3 className="font-headline text-xl font-bold text-surface">
+                {item.title}
+              </h3>
+              <p className="mt-2 max-w-[46ch] font-body text-sm leading-relaxed text-industrial-grey">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+        <Readout as="p" className="mt-6 block text-industrial-grey">
+          [CLIENT-APPROVED WORDING PENDING]
+        </Readout>
+      </ServiceSection>
+
+      <RelatedServices
+        band="page"
+        eyebrow="Ecosystem"
+        title="Related capability reference"
+        items={[
+          {
+            href: "/services/corporate-videos",
+            title: "Corporate Videos",
+            body: "Specialized capture for heavy engineering.",
+          },
+          {
+            href: "/services/facility-overview-films",
+            title: "Facility Overviews",
+            body: "Site-aware visual narratives for stakeholders.",
+          },
+        ]}
+      />
+
+      <ServiceCta
+        eyebrow="Confidential Asset Portal"
+        title="Restricted access only"
+        lede="The full high-fidelity visual documentation library for Syndel Asia contains sensitive site-aware assets. Access is restricted to authorized personnel and verified project stakeholders."
+        actions={
+          <>
             <RequestAccessTrigger
               defaultVideo="Syndel Asia — Industrial Visual Documentation Reference"
-              className="w-full rounded-full bg-primary px-10 py-4 text-sm font-bold tracking-widest text-white uppercase transition-all hover:bg-white hover:text-primary hover:shadow-[0_0_20px_rgba(209,32,39,0.3)] sm:w-auto"
+              className={ctaClasses({ className: "w-full sm:w-fit" })}
             >
-              REQUEST ACCESS CLEARANCE
+              <MaterialIcon name="key" className="text-lg!" />
+              Request Access Clearance
             </RequestAccessTrigger>
-            <Link
+            <CtaButton
               href="/contact"
-              className="glass-panel w-full rounded-full px-10 py-4 text-center text-sm font-bold tracking-widest text-white uppercase transition-all hover:border-primary sm:w-auto"
+              variant="outline"
+              className="w-full sm:w-fit"
             >
-              DISCUSS YOUR PRODUCTION
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Services */}
-      <section className="border-t border-surface/5 py-24">
-        <div className="mx-auto max-w-[1280px] px-8">
-          <h3 className="mb-12 text-xs font-bold tracking-[0.2em] text-primary uppercase">
-            Related Capability Reference
-          </h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Link
-              href="/services/corporate-videos"
-              className="group flex items-center justify-between rounded-2xl border border-surface/10 p-8 transition-all hover:border-primary/50"
-            >
-              <div>
-                <h4 className="text-xl font-bold uppercase transition-colors group-hover:text-primary">
-                  Corporate Videos
-                </h4>
-                <p className="mt-2 text-sm text-industrial-grey">
-                  Specialized capture for heavy engineering.
-                </p>
-              </div>
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-industrial-grey transition-transform group-hover:translate-x-2"
-              />
-            </Link>
-            <Link
-              href="/services/facility-overview-films"
-              className="group flex items-center justify-between rounded-2xl border border-surface/10 p-8 transition-all hover:border-primary/50"
-            >
-              <div>
-                <h4 className="text-xl font-bold uppercase transition-colors group-hover:text-primary">
-                  Facility Overviews
-                </h4>
-                <p className="mt-2 text-sm text-industrial-grey">
-                  Site-aware visual narratives for stakeholders.
-                </p>
-              </div>
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-industrial-grey transition-transform group-hover:translate-x-2"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
+              Discuss Your Production
+            </CtaButton>
+          </>
+        }
+      />
     </main>
   )
 }

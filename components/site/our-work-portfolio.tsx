@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 
+import { ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
 
@@ -16,7 +17,7 @@ type PortfolioCardData = {
 }
 
 const cardHoverLift =
-  "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(209,32,39,0.2)] hover:border-primary/50"
+  "transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_25px_-5px_rgba(209,32,39,0.2)]"
 
 const publicCards: PortfolioCardData[] = [
   {
@@ -52,7 +53,17 @@ const publicCards: PortfolioCardData[] = [
     title: "Industrial Documentation",
     summary:
       "Detailed visual capture of specialized manufacturing processes for quality assurance and stakeholder reporting.",
-    image: "/images/stitch/e6ffaa4058.jpg",
+    // Was `stitch/e6ffaa4058.jpg`, which is not a photograph: it is a screen
+    // capture of the Stitch mock, with a "Case Studies / Portfolio" header bar
+    // across the top and an invented camera caption burned into the bottom
+    // ("Sony A6, 24mm f/2.8, f/8.0, 1/250s, ISO 3200"). Rendered inside the
+    // real portfolio grid it showed a picture of a portfolio grid.
+    //
+    // Replaced with the licensed Pexels still already in the repo for
+    // `/services` (public/images/pexels/CREDITS.md). It is stock, so it is not
+    // captioned as Firstman's work anywhere — it matches this project's stated
+    // facility type and is 1800px rather than 512px.
+    image: "/images/pexels/facility-fabrication-yard.jpg",
     tags: ["Facility Overview", "Photography", "Public"],
   },
   {
@@ -91,32 +102,36 @@ function PortfolioCard({
   return (
     <Link
       href={href}
-      className={`glass-panel group flex h-full cursor-pointer flex-col overflow-hidden rounded-xl ${cardHoverLift}`}
+      className={`glass-panel group flex h-full flex-col overflow-hidden rounded-2xl ${cardHoverLift}`}
     >
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-56 overflow-hidden bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
           style={{ backgroundImage: `url('${image}')` }}
         />
-        <div className="absolute top-4 right-4 rounded-full border border-white/20 bg-black/80 px-3 py-1 text-[10px] font-bold tracking-wider text-white uppercase backdrop-blur">
+        <span className="absolute top-4 right-4 rounded-full border border-white/20 bg-black/80 px-3 py-1 font-label text-xs font-bold tracking-widest text-white uppercase backdrop-blur">
           Public
-        </div>
+        </span>
       </div>
       <div className="flex flex-grow flex-col p-6">
-        <div className="mb-2 text-xs font-bold tracking-widest text-primary uppercase">
+        <div className="font-label text-xs font-bold tracking-widest text-primary uppercase">
           {client}
         </div>
-        <h3 className="mb-4 font-headline text-xl font-bold tracking-tight uppercase transition-colors group-hover:text-primary">
+        {/* Title role per DESIGN.md: 700 at 20px, sentence-cased. It ran
+            uppercase here, which put the card heading in the same case as the
+            client label above it and the action below it — three capitals
+            stacked, and the label lost the authority it is tracked for. */}
+        <h3 className="mt-2 font-headline text-xl font-bold text-surface transition-colors group-hover:text-primary">
           {title}
         </h3>
-        <p className="mb-6 flex-grow font-body text-sm text-industrial-grey">
+        <p className="mt-3 flex-grow font-body text-sm leading-relaxed text-industrial-grey">
           {summary}
         </p>
-        <div className="mt-auto flex items-center gap-2 text-xs font-bold tracking-widest text-surface uppercase">
-          View Project{" "}
+        <div className="mt-6 flex items-center gap-2 font-label text-xs font-bold tracking-widest text-surface uppercase">
+          View Project
           <MaterialIcon
             name="arrow_forward"
-            className="text-[16px] text-primary transition-transform group-hover:translate-x-1"
+            className="text-base! text-primary transition-transform group-hover:translate-x-1"
           />
         </div>
       </div>
@@ -136,107 +151,153 @@ export function CaseStudiesPortfolio() {
     !showFeatured && !showInlineGated && visiblePublic.length === 0
 
   return (
-    <>
-      {/* Filter Bar */}
-      <div className="sticky top-24 z-40 -mx-4 mb-12 no-scrollbar flex gap-3 overflow-x-auto border-y border-surface/5 bg-background/90 px-4 py-4 whitespace-nowrap shadow-lg backdrop-blur-md">
-        {categories.map((cat) => {
-          const active = selected === cat
-          return (
-            <button
-              key={cat}
-              type="button"
-              aria-pressed={active}
-              onClick={() => setSelected(cat)}
-              className={`rounded-full border px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors ${
-                active
-                  ? "border-primary bg-primary text-white"
-                  : "border-surface/10 bg-graphite text-surface hover:border-primary/50 hover:bg-primary/10"
-              }`}
-            >
-              {cat}
-            </button>
-          )
-        })}
-        <RequestAccessTrigger className="flex items-center gap-2 rounded-full border border-primary bg-transparent px-5 py-2 text-sm font-bold tracking-widest text-primary uppercase transition-colors hover:bg-primary hover:text-white">
-          <MaterialIcon name="lock" className="text-[16px]" /> Request Access
-        </RequestAccessTrigger>
-      </div>
+    <section className="w-full bg-background pb-24">
+      <div className="mx-auto w-full max-w-[1280px] px-8">
+        {/* The bar's negative margin has to equal the column's gutter or its
+            background stops short of the content edge. It was `-mx-4` against a
+            `px-4 sm:px-6 lg:px-8` wrapper, so it only lined up on phones and
+            inset itself by 8px at `sm` and 16px at `lg`. One gutter now, one
+            offset. */}
+        <div className="sticky top-24 z-40 -mx-8 mb-12 flex flex-col gap-4 border-y border-surface/10 bg-background/90 px-8 py-4 shadow-lg backdrop-blur-md lg:flex-row lg:items-center lg:justify-between">
+          {/* Filters scroll on a phone and wrap on a laptop. A horizontal
+              scroller is the right control at 390px and the wrong one at
+              1280px, where all six chips fit and scrolling hides three of
+              them behind a gesture nobody has a reason to try. */}
+          <div
+            className="-mx-8 no-scrollbar flex gap-3 overflow-x-auto px-8 whitespace-nowrap lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0"
+            role="group"
+            aria-label="Filter case studies by category"
+          >
+            {categories.map((cat) => {
+              const active = selected === cat
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setSelected(cat)}
+                  className={`rounded-full border px-5 py-2 font-label text-xs font-bold tracking-widest uppercase transition-colors duration-300 ${
+                    active
+                      ? "border-primary bg-primary text-white"
+                      : "border-surface/10 bg-graphite text-surface hover:border-primary/50 hover:bg-primary/10"
+                  }`}
+                >
+                  {cat}
+                </button>
+              )
+            })}
+          </div>
+          {/* Not a filter, so it does not sit in the filter group. It used to
+              be the seventh item in that row, one pill among six, where the
+              only thing separating an action from a state toggle was its
+              border colour. */}
+          <RequestAccessTrigger
+            className={ctaClasses({
+              size: "sm",
+              variant: "outline",
+              className: "shrink-0",
+            })}
+          >
+            <MaterialIcon name="lock" className="text-base!" />
+            Request Access
+          </RequestAccessTrigger>
+        </div>
 
-      {/* Featured Gated Case Study */}
-      {showFeatured && (
-        <section className="mb-24">
-          <div className="glass-panel group relative flex flex-col overflow-hidden rounded-2xl border-primary/30 shadow-[0_0_30px_rgba(209,32,39,0.15)] lg:flex-row">
-            <div className="absolute top-0 left-0 h-[2px] w-full bg-primary opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="relative min-h-[400px] lg:w-3/5">
+        {showFeatured && (
+          <div className="glass-panel group relative mb-12 flex flex-col overflow-hidden rounded-3xl border-primary/30 lg:flex-row">
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-px bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+            {/* Half, not three fifths. The photograph behind this panel is
+                512px wide and sits under a 70% black wash anyway, so the
+                narrower half both upscales less and gives the copy beside it a
+                column wide enough to hold a two-line heading. */}
+            <div className="relative min-h-[22rem] bg-black lg:w-1/2">
               <div
+                aria-hidden="true"
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage: "url('/images/stitch/571d2d6c4f.jpg')",
                 }}
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center border-r border-white/5 bg-black/70 p-8 text-center backdrop-blur-sm">
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-primary bg-graphite shadow-[0_0_20px_rgba(209,32,39,0.4)]">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 p-8 text-center backdrop-blur-sm">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-primary bg-black/60 shadow-[0_0_20px_rgba(209,32,39,0.4)]">
                   <MaterialIcon
                     name="lock"
                     fill
-                    className="text-4xl text-primary"
+                    className="text-4xl! text-primary"
                   />
                 </div>
-                <h3 className="mb-2 font-headline text-2xl font-bold tracking-wider text-white uppercase">
-                  Restricted Access
-                </h3>
-                <p className="max-w-md font-body text-sm text-white/70">
+                {/* A `<p>`, not a heading. This labels the locked state of the
+                    picture beside the case study; the case study's own title is
+                    the `<h2>` in the next column. As an `<h3>` it came first in
+                    the DOM and put an H3 straight after the page H1, so the
+                    outline read H1 → H3 → H2. */}
+                {/* Title role (20/700), not the 24/900 subhead beside it. This
+                    labels the locked state; the case study's own title is the
+                    `<h2>` in the next column, and at the same size the two read
+                    as peers when one plainly outranks the other. The lock plate
+                    above carries the weight here, not the type. */}
+                <p className="font-headline text-xl font-bold text-white">
+                  Restricted access
+                </p>
+                <p className="mt-3 max-w-md font-body text-sm leading-relaxed text-white/70">
                   This project contains sensitive industrial protocols and is
                   gated for approved industry stakeholders only.
                 </p>
               </div>
             </div>
-            <div className="flex flex-col justify-center p-10 lg:w-2/5">
-              <div className="mb-6 flex flex-wrap gap-2">
-                <span className="rounded-full border border-surface/10 bg-graphite px-3 py-1 text-xs font-bold tracking-wider text-surface uppercase">
+            <div className="flex flex-col justify-center p-8 md:p-10 lg:w-1/2">
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full border border-surface/10 bg-graphite px-3 py-1 font-label text-xs font-bold tracking-widest text-surface uppercase">
                   Petrofac
                 </span>
-                <span className="flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold tracking-wider text-primary uppercase">
-                  <MaterialIcon name="lock" className="text-[14px]" /> Gated
-                  Video
+                <span className="flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-label text-xs font-bold tracking-widest text-primary uppercase">
+                  <MaterialIcon name="lock" className="text-sm!" />
+                  Gated Video
                 </span>
               </div>
-              <h2 className="mb-4 font-headline text-3xl font-bold tracking-tight uppercase">
-                Safety Induction Video — Kemaman Supply Base
+              <h2 className="mt-6 font-headline text-2xl leading-tight font-black tracking-tight text-balance text-surface">
+                Safety induction video — Kemaman Supply Base
               </h2>
-              <div className="mb-6 flex gap-4 text-xs font-bold tracking-widest text-industrial-grey uppercase">
-                <span>Safety Induction</span> • <span>Oil &amp; Gas</span>
-              </div>
-              <p className="mb-10 font-body leading-relaxed text-industrial-grey">
+              <p className="mt-4 font-label text-xs font-bold tracking-widest text-industrial-grey uppercase">
+                Safety Induction · Oil &amp; Gas
+              </p>
+              <p className="mt-6 font-body leading-relaxed text-industrial-grey">
                 Comprehensive safety induction documentation for Petrofac&apos;s
                 operations at the Kemaman Supply Base. Filmed under strict
                 safety protocols focusing on heavy lifting procedures, PPE
                 compliance, and emergency response protocols in high-risk zones.
               </p>
-              <div className="mt-auto flex flex-col gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <RequestAccessTrigger
                   defaultVideo="Safety Induction Video — Kemaman Supply Base"
-                  className="group/btn flex items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-6 py-3 text-sm font-bold tracking-widest text-white uppercase transition-all hover:border-primary hover:bg-background hover:text-primary"
+                  className={ctaClasses({
+                    size: "md",
+                    className: "w-full sm:w-fit",
+                  })}
                 >
-                  <MaterialIcon name="key" className="text-[18px]" /> Request
-                  Access
+                  <MaterialIcon name="key" className="text-lg!" />
+                  Request Access
                 </RequestAccessTrigger>
                 <Link
+                  className={ctaClasses({
+                    size: "md",
+                    variant: "outline",
+                    className: "w-full sm:w-fit",
+                  })}
                   href="/our-work/petrofac-kemaman"
-                  className="flex items-center justify-center gap-2 rounded-full border border-surface/20 bg-transparent px-6 py-3 text-sm font-bold tracking-widest text-surface uppercase transition-colors hover:border-primary hover:bg-primary/10"
                 >
                   Read Public Summary
                 </Link>
               </div>
             </div>
           </div>
-        </section>
-      )}
+        )}
 
-      {/* Portfolio Grid */}
-      <section className="mb-24">
         {nothingVisible ? (
-          <p className="py-16 text-center text-industrial-grey">
+          <p className="py-16 text-center font-body text-industrial-grey">
             No case studies in this category yet.
           </p>
         ) : (
@@ -245,14 +306,13 @@ export function CaseStudiesPortfolio() {
               <PortfolioCard key={card.href} {...card} />
             ))}
 
-            {/* Gated Card */}
             {showInlineGated && (
               <div
-                className={`glass-panel group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-xl border-primary/20 ${cardHoverLift}`}
+                className={`glass-panel group flex h-full flex-col overflow-hidden rounded-2xl border-primary/20 ${cardHoverLift}`}
               >
-                <div className="relative h-56 overflow-hidden bg-graphite">
-                  <div className="absolute inset-0 bg-black" />
+                <div className="relative h-56 overflow-hidden bg-black">
                   <div
+                    aria-hidden="true"
                     className="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-700 group-hover:scale-105"
                     style={{
                       backgroundImage: "url('/images/stitch/c5510b9322.jpg')",
@@ -261,35 +321,34 @@ export function CaseStudiesPortfolio() {
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-[2px]">
                     <MaterialIcon
                       name="lock"
-                      className="text-4xl text-white opacity-80"
+                      className="text-4xl! text-white/80"
                     />
                   </div>
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    <span className="flex items-center gap-1 rounded-full border border-primary/50 bg-primary/20 px-3 py-1 text-[10px] font-bold tracking-wider text-primary uppercase backdrop-blur">
-                      <MaterialIcon name="lock" className="text-[12px]" /> Gated
-                    </span>
-                  </div>
+                  <span className="absolute top-4 right-4 flex items-center gap-1 rounded-full border border-primary/50 bg-primary/20 px-3 py-1 font-label text-xs font-bold tracking-widest text-primary uppercase backdrop-blur">
+                    <MaterialIcon name="lock" className="text-xs!" />
+                    Gated
+                  </span>
                 </div>
                 <div className="flex flex-grow flex-col p-6">
-                  <div className="mb-2 text-xs font-bold tracking-widest text-industrial-grey uppercase">
+                  <div className="font-label text-xs font-bold tracking-widest text-industrial-grey uppercase">
                     Confidential Client
                   </div>
-                  <h3 className="mb-4 font-headline text-xl font-bold tracking-tight uppercase transition-colors group-hover:text-primary">
-                    Future O&amp;G Drone Documentation
+                  <h3 className="mt-2 font-headline text-xl font-bold text-surface">
+                    Future O&amp;G drone documentation
                   </h3>
-                  <p className="mb-6 flex-grow font-body text-sm text-industrial-grey">
+                  <p className="mt-3 flex-grow font-body text-sm leading-relaxed text-industrial-grey">
                     Advanced aerial surveying and visual asset mapping for a
                     major offshore installation utilizing aerial and heavy-lift
                     drones.
                   </p>
                   <RequestAccessTrigger
                     defaultVideo="Future O&G Drone Documentation"
-                    className="mt-auto flex items-center gap-2 text-xs font-bold tracking-widest text-primary uppercase"
+                    className="mt-6 flex items-center gap-2 font-label text-xs font-bold tracking-widest text-primary uppercase"
                   >
-                    Request Access{" "}
+                    Request Access
                     <MaterialIcon
                       name="arrow_forward"
-                      className="text-[16px] transition-transform group-hover:translate-x-1"
+                      className="text-base! transition-transform group-hover:translate-x-1"
                     />
                   </RequestAccessTrigger>
                 </div>
@@ -297,7 +356,7 @@ export function CaseStudiesPortfolio() {
             )}
           </div>
         )}
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
