@@ -8,10 +8,14 @@ import { MaterialIcon } from "@/components/site/material-icon"
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
 
+// `text-base` and `tracking-widest` for the same two reasons as the contact
+// form: an input under 16px makes iOS Safari zoom the viewport on focus, and
+// DESIGN.md's Label role is 0.1em — the 0.05em `tracking-wider` is its
+// button-text exception, which a field label is not.
 const inputClass =
-  "form-input-dark w-full rounded-[6px] px-4 py-3 text-sm transition-all focus:bg-surface/5"
+  "form-input-dark w-full rounded-[6px] px-4 py-3 text-base transition-all focus:bg-surface/5"
 const labelClass =
-  "block text-xs font-bold uppercase tracking-wider text-surface/70 mb-2"
+  "block font-label text-xs font-bold uppercase tracking-widest text-surface/70 mb-2"
 
 export type RequestAccessDialogProps = {
   onClose: () => void
