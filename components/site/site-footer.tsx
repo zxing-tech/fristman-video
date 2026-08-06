@@ -1,15 +1,7 @@
 import Link from "next/link"
 
 import { MaterialIcon } from "@/components/site/material-icon"
-
-const exploreLinks = [
-  // No /services or /industries hub any more — both land on homepage sections.
-  { href: "/#services", label: "Services" },
-  { href: "/#industries", label: "Sectors" },
-  { href: "/our-work", label: "Our Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-]
+import { primaryNav } from "@/lib/data/nav"
 
 export function SiteFooter() {
   return (
@@ -30,7 +22,11 @@ export function SiteFooter() {
           <span className="mb-2 font-label text-xs font-bold tracking-widest text-surface uppercase">
             Explore
           </span>
-          {exploreLinks.map((link) => (
+          {/* The navbar's own list, in the navbar's own order — including the
+              Services entry, which is a dropdown trigger up there and a link to
+              the homepage section down here. A footer that renames or reorders
+              the primary nav makes the site look like two sites. */}
+          {primaryNav.map((link) => (
             <Link
               key={link.href}
               href={link.href}

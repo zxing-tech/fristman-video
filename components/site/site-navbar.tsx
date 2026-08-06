@@ -5,21 +5,18 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
+import { navAfterServices, navBeforeServices } from "@/lib/data/nav"
 import { services } from "@/lib/data/services"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { ThemeToggle } from "@/components/site/theme-toggle"
 
-type NavLink = { href: string; label: string }
-
 // "Services" sits between these two groups as a dropdown — there is no /services
 // hub page any more, so the parent item is a menu trigger rather than a link.
-const linksBeforeServices: NavLink[] = [{ href: "/", label: "Home" }]
-
-const linksAfterServices: NavLink[] = [
-  { href: "/our-work", label: "Our Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-]
+// Both halves are sliced from `primaryNav`, which the footer reads whole: the
+// order and labels live in one file so the two ends of the page cannot describe
+// the site differently.
+const linksBeforeServices = navBeforeServices
+const linksAfterServices = navAfterServices
 
 const navItemClass =
   "font-label uppercase tracking-widest text-xs font-bold transition-all duration-300"
