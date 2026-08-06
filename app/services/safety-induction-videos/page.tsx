@@ -77,7 +77,6 @@ export default function SafetyInductionVideosPage() {
         chip="Safety & Induction Media"
         chipIcon="health_and_safety"
         lede="A well-produced safety and induction video does more than fulfil compliance requirements—it sets the standard for your workplace culture. Firstman Productions creates engaging, professional safety and induction videos that clearly communicate site rules, hazards, emergency procedures and operational expectations."
-        readout="INDUCTION // MULTILINGUAL"
         tagline="Safety Starts Before the First Step"
         title="Safety & Induction Videos"
         actions={

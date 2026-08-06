@@ -8,27 +8,18 @@ import { HERO_POSTER, HERO_TEXT_SHADOW, HERO_VIDEO } from "@/lib/hero-media"
 import { cn } from "@/lib/utils"
 
 /**
- * The one hero for every detail page on the site — the six under `/services/*`
- * and the six under `/our-work/*`.
+ * The one hero for every detail page on the site — the six under `/services/*`,
+ * plus `/about` and `/contact`.
  *
- * Both sets were converted from separate Stitch exports and each page invented
- * its own entry. The services ran heights of 614/716/819/921px, four different
- * content columns, and a breadcrumb on two pages out of six even though all six
- * emit BreadcrumbList JSON-LD. The case studies were worse: 819/819/870/870px
- * plus a `min-h-[716px]` and an inset `aspect-[21/9]` card, three different
- * content columns, and a breadcrumb on one page out of six. This component is
- * the shared frame — footage, height, column, scrim stack, breadcrumb, chip,
- * display type and action row — so a visitor moving between two pages of the
- * same kind lands in the same place twice.
+ * Each page was converted from a separate Stitch export and invented its own
+ * entry: heights of 614/716/819/921px, four different content columns, and a
+ * breadcrumb on two pages out of six even though all six emit BreadcrumbList
+ * JSON-LD. This component is the shared frame — footage, height, column, scrim
+ * stack, breadcrumb, chip, display type and action row — so a visitor moving
+ * between two pages of the same kind lands in the same place twice.
  *
- * Case studies take the same footage rather than their own photograph on
- * purpose. Every case-study hero image in the repo is a 512x279 Stitch render;
- * at full bleed on a 1280 column that is a 2.5x upscale, and on a 1920 screen
- * closer to 3.75x. See PRODUCT.md `## Evidence on Hand` — those renders are not
- * project documentation, and blowing one up to fill a hero states the opposite.
- *
- * The footage is the homepage clip, from lib/hero-media.ts. It replaced six
- * different Stitch renders, which is a correctness fix as much as a visual one:
+ * The footage is the homepage clip, from lib/hero-media.ts. It replaced twelve
+ * different Stitch renders, which is a correctness fix as much as a Video one:
  * several of those renders have fake HUD telemetry burned into the pixels
  * ("LOCATION: NORTH SEA 61°N", "ALTITUDE: 45M"), invented data for a company
  * that works Malaysia and Southeast Asia. It was only ever hidden by scrims
@@ -43,9 +34,10 @@ type ServiceHeroProps = {
   /** Current page, shown last. Matches the BreadcrumbList JSON-LD. */
   breadcrumb: string
   /**
-   * Crumbs between Home and the current page. Services sit one level down and
-   * pass nothing; case studies pass `/our-work`, which is what keeps the
-   * visible trail identical to the BreadcrumbList each page already emits.
+   * Crumbs between Home and the current page. Every page using this hero
+   * currently sits one level down and passes nothing; the prop stays because
+   * the visible trail has to keep matching the BreadcrumbList each page emits,
+   * and a two-level page would silently disagree without it.
    */
   trail?: { name: string; href: string }[]
   /** Status chip above the heading. */
@@ -129,10 +121,16 @@ export function ServiceHero({
           viewport they read as stray marks in the window corners, and anchored
           to the content column they land on the breadcrumb and under the
           primary button. The homepage keeps its footage unmarked for the same
-          reason, and the breadcrumb, chip and readout already say "service
-          detail" without drawing on the picture. */}
+          reason, and the breadcrumb and chip already say "service detail"
+          without drawing on the picture. */}
       <div className="relative z-20 mx-auto w-full max-w-[1280px] px-6 md:px-8">
-        {/* Breadcrumb and readout share one row and read as a status bar. */}
+        {/* Breadcrumb, and a readout beside it on the one page that has real
+            content for one. The six `/services/*` pages passed invented
+            telemetry here — "UAV + GROUND // CORPORATE", "CINEMATIC PIPELINE //
+            SEED LOCKED" — which is the costume DESIGN.md names: a mono face
+            worn for "technical" spends the readout's meaning without measuring
+            or identifying anything. They came off on 2026-08-06. `/about`
+            keeps its `OFFICE_READOUT`, which is the real office location. */}
         <div className="mb-8 flex items-center justify-between gap-6 md:mb-10">
           <nav aria-label="Breadcrumb">
             {/* Wraps rather than truncates. A three-level case-study trail runs

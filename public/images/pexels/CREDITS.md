@@ -36,7 +36,7 @@ internal record.
   branded shipping container and a crane-jib logo respectively that sat in
   the original frame.
 - `progress-capture-approach.jpg`'s source photo is titled "closed market
-  hall" by the photographer; it is used here purely for its visual
+  hall" by the photographer; it is used here purely for its Video
   resemblance to a dim industrial corridor, not as a real plant photo — the
   description above states only what is visible.
 - `facility-fabrication-yard.jpg` is the weakest fit against the original

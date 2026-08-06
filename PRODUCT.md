@@ -3,7 +3,7 @@
 <!-- impeccable:product-schema 1 -->
 
 Kebenaran produk Firstman Videos. Hanya fakta terkonfirmasi dan keputusan yang
-sengaja dibiarkan terbuka. Tidak ada arah visual di sini — itu milik DESIGN.md.
+sengaja dibiarkan terbuka. Tidak ada arah Video di sini — itu milik DESIGN.md.
 
 Diwawancarakan dengan pemilik proyek pada **2026-08-04**.
 
@@ -33,7 +33,7 @@ Manager yang menang.**
 
 ## Product Purpose
 
-Firstman Videos memproduksi sinematografi industri dan dokumentasi visual —
+Firstman Videos memproduksi sinematografi industri dan dokumentasi Video —
 drone dan ground-based — untuk site Oil & Gas dan industri berat di Asia
 Tenggara.
 

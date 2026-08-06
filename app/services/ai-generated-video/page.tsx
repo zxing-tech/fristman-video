@@ -22,7 +22,7 @@ const pageSchema = graph(
   serviceSchema({
     name: "AI-Generated Video",
     description:
-      "AI-generated recreations of hazardous or inaccessible industrial scenes for safety training, concept visualization, and corporate communications.",
+      "AI-generated recreations of hazardous or inaccessible industrial scenes for safety training, concept Videoization, and corporate communications.",
     path: "/services/ai-generated-video",
   })
 )
@@ -32,11 +32,11 @@ const supportingCards = [
     icon: "health_and_safety",
     title: "Safety & HSE Training",
     description:
-      "Visualise worst-case scenarios (blowouts, gas releases, evacuations) so crews train against realistic footage without any real-world risk.",
+      "Videoise worst-case scenarios (blowouts, gas releases, evacuations) so crews train against realistic footage without any real-world risk.",
   },
   {
     icon: "lightbulb",
-    title: "Concept & Pitch Visualization",
+    title: "Concept & Pitch Videoization",
     description:
       "Render proposed facilities, future project phases, or planned events before they exist, giving investors and stakeholders a cinematic preview.",
   },
@@ -52,7 +52,6 @@ export default function AiGeneratedVideoPage() {
         chip="Impossible-to-Film Scenes"
         chipIcon="auto_awesome"
         lede="AI-generated recreations of scenes too hazardous or impossible to film live — from an offshore rig explosion to a full crew evacuation. We render these moments with cinematic realism, backed by copywriting that frames each sequence for training and communications."
-        readout="CINEMATIC PIPELINE // SEED LOCKED"
         title={
           <>
             AI-Generated Video
@@ -85,12 +84,6 @@ export default function AiGeneratedVideoPage() {
       >
         {/* Neutral chip, not a second hue. This ran in yellow, which spent a
             colour the system does not have — Signal Red is the only chroma. */}
-        <div className="mb-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-surface/15 bg-surface/5 px-4 py-1.5 font-label text-xs font-bold tracking-widest text-industrial-grey uppercase">
-            <MaterialIcon name="location_off" className="text-base!" />
-            No Site Access Required
-          </span>
-        </div>
 
         {/* Three columns wait for `lg`, the same call the homepage bento makes.
             With two of three tracks spanned by the photo card and the heritage

@@ -4,9 +4,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        // The "Visual Documentation" service was renamed to "Safety and Induction
+        // The "Video Documentation" service was renamed to "Safety and Induction
         // Videos"; keep the indexed URL alive so its link equity moves to the new one.
-        source: "/services/visual-documentation",
+        source: "/services/Video-documentation",
         destination: "/services/safety-induction-videos",
         permanent: true,
       },
@@ -38,10 +38,20 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        // Same move for the six indexed case-study detail pages. Slugs are
-        // unchanged, so a single wildcard covers all of them.
+        // The six case-study detail pages were removed on 2026-08-06: a card on
+        // the hub now opens the film in a lightbox instead of navigating to a
+        // page about it. Straight to the hub rather than through
+        // /our-work/:slug, so an old /case-studies/* URL resolves in one hop
+        // instead of chaining into a second redirect.
         source: "/case-studies/:slug",
-        destination: "/our-work/:slug",
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        // The same six URLs under their newer prefix. Both generations were
+        // indexed, so both have to keep resolving.
+        source: "/our-work/:slug",
+        destination: "/our-work",
         permanent: true,
       },
     ]

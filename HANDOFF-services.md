@@ -19,7 +19,7 @@ Sama halnya dengan `/our-work/petrofac-kemaman`.
 Dua judul deliverable jelas kacau susunannya dan perlu ditulis ulang oleh
 pemilik, bukan ditebak:
 
-- "Milestone Reels To Reports"
+- "Milestone Reports"
 - "Drone Aerial Photographs "
 
 ## 3. Navbar pecah di sekitar 834px

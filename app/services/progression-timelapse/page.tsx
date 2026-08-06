@@ -35,7 +35,7 @@ const stakeholderCards = [
     icon: "timeline",
     title: "Project Managers",
     description:
-      "Visual timeline tracking to observe progress phases, site establishment, and long-term structural milestones across the project lifecycle.",
+      "Video timeline tracking to observe progress phases, site establishment, and long-term structural milestones across the project lifecycle.",
   },
   {
     icon: "campaign",
@@ -66,7 +66,7 @@ const deliverables = [
   },
   {
     icon: "video_library",
-    title: "Milestone Reels To Reports",
+    title: "Milestone Reports",
     description:
       "Focused compilation videos highlighting significant structural achievements.",
   },
@@ -132,7 +132,6 @@ export default function ProgressionTimelapsePage() {
         breadcrumb="Progression & Timelapse"
         chip="Long-Term Documentation"
         lede="Video documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones."
-        readout="INTERVAL CAPTURE // MULTI-YEAR"
         title={
           <>
             Construction Progress &amp;

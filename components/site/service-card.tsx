@@ -24,7 +24,7 @@ export function ServiceCard({ icon, title, summary, href }: ServiceCardProps) {
           arrangement talking, not the width. On its own line 56px is a card
           marker with nothing to be measured against. Beside the title it is
           measured against the title, and 56px is exactly twice that line box —
-          a marker the same visual weight as the thing it marks. 44px reads as
+          a marker the same Video weight as the thing it marks. 44px reads as
           1.5x, which is the ratio the sector cards already run. */}
       <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-primary transition-colors duration-300 group-hover:bg-primary md:mb-6 md:h-14 md:w-14">

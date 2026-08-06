@@ -22,7 +22,7 @@ Perhatikan frasa **"it doesn't just go to the video"** — klien mengira videony
 | ~~7~~ **4** ikon play yang tidak memutar apa pun | `app/our-work/syndel-asia/page.tsx` (×2), `app/our-work/servishero-campaign/page.tsx`, `app/services/ai-generated-video/page.tsx`. Tiga sisanya ikut hilang saat `app/industries/*` dihapus (2026-08-04) |
 | Semua 88 gambar = render AI, bukan foto proyek | `public/images/stitch/` — asalnya `lh3.googleusercontent.com/aida-public/` (Google Stitch), lihat `lib/data/image-manifest.json`. Maks **512px** sisi terpanjang, direntangkan jadi hero 819px |
 | Teks placeholder internal tayang di production | `app/our-work/ecobalance/page.tsx:124-148` → `[CONFIRM CLIENT APPROVAL]`, `[REPLACE PLACEHOLDER TEXT]`, `[APPROVED IMAGERY ONLY]`. Juga di `app/our-work/syndel-asia/page.tsx` |
-| Portofolio berisi tebakan, bukan pekerjaan | Judul section **"Likely Deliverables"** (`ecobalance:200`), "Standard Visual Deliverables" (`mahb-airport-services`) |
+| Portofolio berisi tebakan, bukan pekerjaan | Judul section **"Likely Deliverables"** (`ecobalance:200`), "Standard Video Deliverables" (`mahb-airport-services`) |
 | Angka & prop karangan | `Ref: 2024-EB-CS`, `256-bit encryption`, `Operational Reference 04`, progress bar "Protocol Status" dengan `scale-x-75` hardcoded |
 | ~~Klaim tak terbukti~~ → **klaimnya benar, buktinya yang tidak ada** | `app/page.tsx:366` → "500+ Projects" tepat di atas portofolio berisi 6 item. **Update 2026-08-04:** pemilik mengonfirmasi 25+ thn, 15+ thn, dan 500+ proyek semuanya akurat dan bisa dibuktikan. Angkanya boleh tayang. Masalahnya bukan kejujuran angka itu, tapi tidak adanya satu pun proyek yang bisa ditonton di bawahnya |
 | Nol testimonial | Tidak ada satu pun kutipan klien di `app/our-work/` |
@@ -82,7 +82,7 @@ Ini **triase kejujuran**, bukan perbaikan. Situs akan terasa lebih kosong setela
 - [ ] Hapus 7 ikon play mati. **Aturan baru: ikon play hanya muncul di tempat playback benar-benar dimulai**
 - [ ] Hapus 6 chip placeholder di `ecobalance` + `syndel-asia`
 - [ ] Hapus semua prop karangan (`Ref: 2024-EB-CS`, `256-bit encryption`, `Operational Reference 04`, progress bar palsu)
-- [ ] Ganti judul hedged "Likely Deliverables" / "Standard Visual Deliverables"
+- [ ] Ganti judul hedged "Likely Deliverables" / "Standard Video Deliverables"
 - [x] ~~Pangkas prosa halaman `app/industries/*` sekitar 50%~~ — **selesai secara radikal (2026-08-04)**: hub `/industries` + 4 halaman sektor dihapus seluruhnya. Yang bersubstansi dipindah (taksonomi sektor → grid `/#industries` via `lib/data/sectors.ts` + `/services/facility-overview-films`, cakupan regional → homepage, PTW/HSE/weather window + NDA/enkripsi/portal gated → 2 section baru di `/about`, fase load-out → Phase 04 di `/services/progression-timelapse`, taksonomi sektor juga jadi field Sector di form kontak). Sisanya prosa kosong dan ikut terbuang. Semua URL lama 308 → `/#industries`
 - [x] ~~Selesaikan klaim `500+ Projects` — buktikan atau hapus~~ — **terkonfirmasi akurat oleh pemilik (2026-08-04)**, biarkan tayang. Lihat `PRODUCT.md` → `## Evidence on Hand`
 - [ ] Tambah grid "Recent Work" di homepage

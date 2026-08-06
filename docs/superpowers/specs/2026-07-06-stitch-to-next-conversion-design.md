@@ -29,7 +29,7 @@ Mengonversi 22 screen terpilih dari `../stitch_first_man_videos_website_redesign
 | `/services/fpv-fly-throughs` | service_detail_fpv_fly_throughs |
 | `/services/industrial-photography` | service_detail_industrial_photography |
 | `/services/progression-timelapse` | service_detail_progression_timelapse_documentation_2 |
-| `/services/visual-documentation` | service_detail_visual_documentation |
+| `/services/Video-documentation` | service_detail_Video_documentation |
 | `/industries` | industries_page |
 | `/industries/oil-gas` | industry_oil_gas_2 |
 | `/industries/energy-utilities` | industry_energy_utilities |
@@ -57,7 +57,7 @@ Mengonversi 22 screen terpilih dari `../stitch_first_man_videos_website_redesign
 
 ## Verifikasi
 
-`npm run build` + `typecheck` + `lint` hijau; semua link nav resolve ke route yang ada; pemeriksaan visual tiap halaman berjalan dibandingkan `screen.png` acuannya.
+`npm run build` + `typecheck` + `lint` hijau; semua link nav resolve ke route yang ada; pemeriksaan Video tiap halaman berjalan dibandingkan `screen.png` acuannya.
 
 ## Catatan implementasi
 

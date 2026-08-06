@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next"
 
-import { caseStudies } from "@/lib/data/our-work"
 import { services } from "@/lib/data/services"
 import { SITE } from "@/lib/seo"
 
@@ -23,10 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privacy-policy", priority: 0.3, freq: "yearly" },
   ]
 
-  const detail = [
-    ...services.map((s) => s.href),
-    ...caseStudies.map((c) => c.href),
-  ].map((path) => ({ path, priority: 0.8, freq: "monthly" as const }))
+  // Services only. The six `/our-work/:slug` case-study pages were removed on
+  // 2026-08-06 — the hub plays each film in a lightbox instead of linking out
+  // to a page — and every one of those URLs now 308s back to `/our-work`, which
+  // is already in `core` above. `lib/data/our-work.ts` went with them; this was
+  // its only reader.
+  const detail = services
+    .map((s) => s.href)
+    .map((path) => ({ path, priority: 0.8, freq: "monthly" as const }))
 
   return [...core, ...detail].map(({ path, priority, freq }) => ({
     url: `${SITE.url}${path}`,

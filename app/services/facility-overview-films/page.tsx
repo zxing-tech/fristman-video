@@ -52,7 +52,7 @@ const focusAreas = [
     icon: "hub",
     title: "Process Context",
     description:
-      "Visualizing the flow of materials or operations across complex industrial environments.",
+      "Videoizing the flow of materials or operations across complex industrial environments.",
   },
   {
     icon: "verified_user",
@@ -97,7 +97,6 @@ export default function FacilityOverviewFilmsPage() {
         chip="Capability"
         chipIcon="videocam"
         lede="Drone-enabled aerial and ground cinematography that helps industrial teams explain scale, layout, access points and project context to stakeholders."
-        readout="AERIAL + GROUND // FACILITY"
         title={
           <>
             Facility Overview Films

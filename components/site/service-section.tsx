@@ -2,7 +2,8 @@ import { SectionLabel } from "@/components/site/section-label"
 import { cn } from "@/lib/utils"
 
 /**
- * The banded section every `/services/*` and `/our-work/*` page is built from.
+ * The banded section every `/services/*` page is built from, plus `/our-work`
+ * and `/about`.
  *
  * Three things live here rather than in twelve page files: the 1280 column with
  * its 32px gutter, the 96px section rhythm, and the heading block. The pages

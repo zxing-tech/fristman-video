@@ -38,7 +38,7 @@ const coreValues = [
     icon: "lightbulb",
     title: "Creativity",
     description:
-      "Elevating technical documentation into compelling, cinematic visual narratives.",
+      "Elevating technical documentation into compelling, cinematic Video narratives.",
   },
   {
     icon: "high_quality",
@@ -106,8 +106,8 @@ const capabilities = [
 ]
 
 /**
- * `/about` runs the same frame as the twelve detail pages under `/services/*`
- * and `/our-work/*`: `ServiceHero`, banded `ServiceSection`s, `ServiceCta`.
+ * `/about` runs the same frame as the six detail pages under `/services/*`:
+ * `ServiceHero`, banded `ServiceSection`s, `ServiceCta`.
  *
  * It was the last page still carrying its own: a `max-w-7xl px-6` column against
  * the shared `max-w-[1280px] px-8`, so its content edge missed both the navbar
@@ -199,7 +199,7 @@ export default function AboutPage() {
               Mission
             </h3>
             <p className="font-body leading-relaxed text-industrial-grey">
-              Deliver safe, precise and cost-effective high-definition visual
+              Deliver safe, precise and cost-effective high-definition Video
               documentation and cinematic production for industrial teams,
               ensuring flawless execution from initial site assessment to final
               stakeholder presentation.
@@ -285,7 +285,7 @@ export default function AboutPage() {
         align="lead"
         eyebrow="Capability"
         title="Operational capabilities"
-        lede="Comprehensive visual deployment services engineered for demanding industrial environments."
+        lede="Comprehensive Video deployment services engineered for demanding industrial environments."
       >
         {/* Seven items across two columns fill four rows exactly, so the sheet
             lands level with the heading block instead of running 400px past it.

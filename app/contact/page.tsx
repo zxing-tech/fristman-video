@@ -185,13 +185,13 @@ export default function ContactPage() {
                 36px to 72px and every one of the twelve detail heroes runs the
                 full ramp; this h1 stopped at `md:text-6xl`, so it measured 60px
                 on a 1440 screen where its siblings measure 72. Condensed to
-                87.5%, "Get in touch" still sets on one line inside the 672px
+                87.5%, "Get In Touch" still sets on one line inside the 672px
                 lead column. */}
             {/* The `sm` step closes a jump from 36px straight to 60px at 768px,
                 matching the 36/48/60/72 ramp the homepage, ServiceHero and both
                 hub h1s now run. */}
             <h1 className="mt-6 font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl">
-              Get in touch
+              Get In Touch
             </h1>
 
             <div className="mt-6 h-1 w-24 bg-primary" />

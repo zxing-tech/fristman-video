@@ -1,19 +1,32 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
+import { useCallback, useState } from "react"
 
 import { ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
+import { VideoLightbox } from "@/components/site/video-lightbox"
+import { HERO_POSTER, HERO_VIDEO } from "@/lib/hero-media"
 
 type PortfolioCardData = {
-  href: string
+  /** Stable list key. These cards no longer navigate anywhere — the six detail
+      routes under `/our-work/*` were removed on 2026-08-06 and 308-redirect to
+      this hub — so nothing here is a URL. */
+  id: string
   client: string
   title: string
   summary: string
   image: string
   tags: string[]
+  /**
+   * The film this card plays. Every card falls back to the shared hero clip
+   * because that is the only footage in the repo: `public/videos/hero.mp4` is
+   * stock (Pexels 856627), not Firstman's own work — see `lib/hero-media.ts`
+   * and PRODUCT.md `## Evidence on Hand`. Giving a card a real film is a
+   * one-line change here, and that is the point of the field existing.
+   */
+  video?: string
+  poster?: string
 }
 
 const cardHoverLift =
@@ -21,7 +34,7 @@ const cardHoverLift =
 
 const publicCards: PortfolioCardData[] = [
   {
-    href: "/our-work/mahb-airport-services",
+    id: "mahb-airport-services",
     client: "MAHB",
     title: "Airport Services Campaign",
     summary:
@@ -30,7 +43,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Facility Overview", "Public"],
   },
   {
-    href: "/our-work/ecobalance",
+    id: "ecobalance",
     client: "EcoBalance",
     title: "Corporate Short Story",
     summary:
@@ -39,7 +52,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Public"],
   },
   {
-    href: "/our-work/servishero-campaign",
+    id: "servishero-campaign",
     client: "ServisHero",
     title: "Google Adwords Campaign",
     summary:
@@ -48,11 +61,11 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Public"],
   },
   {
-    href: "/our-work/syndel-asia",
+    id: "syndel-asia",
     client: "Syndel Asia",
     title: "Industrial Documentation",
     summary:
-      "Detailed visual capture of specialized manufacturing processes for quality assurance and stakeholder reporting.",
+      "Detailed Video capture of specialized manufacturing processes for quality assurance and stakeholder reporting.",
     // Was `stitch/e6ffaa4058.jpg`, which is not a photograph: it is a screen
     // capture of the Stitch mock, with a "Case Studies / Portfolio" header bar
     // across the top and an invented camera caption burned into the bottom
@@ -67,7 +80,7 @@ const publicCards: PortfolioCardData[] = [
     tags: ["Facility Overview", "Photography", "Public"],
   },
   {
-    href: "/our-work/ben-line-agencies",
+    id: "ben-line-agencies",
     client: "Ben Line Agencies",
     title: "Logistics / Industrial Media",
     summary:
@@ -92,23 +105,61 @@ const categories = [
   "Public",
 ]
 
+/**
+ * A card that opens the film rather than a page.
+ *
+ * The click target is a stretched `<button>` over the whole card, not a button
+ * wrapping it: `<button>` takes phrasing content only, so the `<h3>` and `<p>`
+ * this card is built from cannot legally live inside one. The `<a>` it replaces
+ * could hold them because anchors are transparent.
+ *
+ * That overlay is also why the card itself no longer clips: its focus ring is
+ * drawn on a child at `inset-0`, and an `overflow-hidden` on the card would
+ * clip the outline right off. The photo block keeps its own clip and rounds its
+ * own top corners instead.
+ */
 function PortfolioCard({
-  href,
   client,
   title,
   summary,
   image,
-}: Omit<PortfolioCardData, "tags">) {
+  onPlay,
+}: Omit<PortfolioCardData, "tags" | "id" | "video" | "poster"> & {
+  onPlay: () => void
+}) {
   return (
-    <Link
-      href={href}
-      className={`glass-panel group flex h-full flex-col overflow-hidden rounded-2xl ${cardHoverLift}`}
+    <div
+      className={`glass-panel group relative flex h-full flex-col rounded-2xl ${cardHoverLift}`}
     >
-      <div className="relative h-56 overflow-hidden bg-black">
+      <div className="relative h-56 overflow-hidden rounded-t-2xl bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
           style={{ backgroundImage: `url('${image}')` }}
         />
+        {/* A flat wash, not a gradient: the play plate sits dead centre, where a
+            top-or-bottom scrim does nothing. It also gives the hover somewhere
+            to land — the picture steps back as the plate steps forward. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/45"
+        />
+        {/* Deliberately the peer of the lock plate on the gated cards below:
+            same 64px disc, same weight. One says this plays, the other says
+            this is closed, and the visitor reads which is which at a glance.
+            It is also the only play affordance DESIGN.md permits on this site,
+            because it is the only one that actually starts playback. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-primary group-hover:bg-primary group-hover:shadow-[0_0_20px_rgba(209,32,39,0.4)]">
+            <MaterialIcon
+              name="play_arrow"
+              fill
+              className="text-4xl! text-white"
+            />
+          </span>
+        </div>
         <span className="absolute top-4 right-4 rounded-full border border-white/20 bg-black/80 px-3 py-1 font-label text-xs font-bold tracking-widest text-white uppercase backdrop-blur">
           Public
         </span>
@@ -127,20 +178,36 @@ function PortfolioCard({
         <p className="mt-3 flex-grow font-body text-sm leading-relaxed text-industrial-grey">
           {summary}
         </p>
-        <div className="mt-6 flex items-center gap-2 font-label text-xs font-bold tracking-widest text-surface uppercase">
-          View Project
+        {/* Names what the click does now. "View Project" pointed at a page, and
+            its `arrow_forward` slid right on hover to say so; nothing here goes
+            forward any more. The motion moved to the plate above, which is the
+            one hover this card authors. */}
+        <span className="mt-6 flex items-center gap-2 font-label text-xs font-bold tracking-widest text-surface uppercase">
+          Watch film
           <MaterialIcon
-            name="arrow_forward"
-            className="text-base! text-primary transition-transform group-hover:translate-x-1"
+            name="play_arrow"
+            fill
+            className="text-base! text-primary"
           />
-        </div>
+        </span>
       </div>
-    </Link>
+      <button
+        aria-label={`Play the ${client} film — ${title}`}
+        className="absolute inset-0 z-10 rounded-2xl"
+        onClick={onPlay}
+        type="button"
+      />
+    </div>
   )
 }
 
 export function CaseStudiesPortfolio() {
   const [selected, setSelected] = useState(ALL)
+  const [playing, setPlaying] = useState<PortfolioCardData | null>(null)
+  // Stable, so the lightbox's mount effect cannot re-run and restart the film
+  // when this component re-renders behind it.
+  const closePlayer = useCallback(() => setPlaying(null), [])
+
   const matches = (tags: string[]) =>
     selected === ALL || tags.includes(selected)
 
@@ -279,7 +346,11 @@ export function CaseStudiesPortfolio() {
                 safety protocols focusing on heavy lifting procedures, PPE
                 compliance, and emergency response protocols in high-risk zones.
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              {/* One action, not two. The "Read Public Summary" link beside it
+                  pointed at `/our-work/petrofac-kemaman`, which no longer
+                  exists — and a gated panel offering a way around its own gate
+                  was always the weaker of the two reads. */}
+              <div className="mt-8">
                 <RequestAccessTrigger
                   defaultVideo="Safety Induction Video — Kemaman Supply Base"
                   className={ctaClasses({
@@ -290,16 +361,6 @@ export function CaseStudiesPortfolio() {
                   <MaterialIcon name="key" className="text-lg!" />
                   Request Access
                 </RequestAccessTrigger>
-                <Link
-                  className={ctaClasses({
-                    size: "md",
-                    variant: "outline",
-                    className: "w-full sm:w-fit",
-                  })}
-                  href="/our-work/petrofac-kemaman"
-                >
-                  Read Public Summary
-                </Link>
               </div>
             </div>
           </div>
@@ -312,7 +373,11 @@ export function CaseStudiesPortfolio() {
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {visiblePublic.map((card) => (
-              <PortfolioCard key={card.href} {...card} />
+              <PortfolioCard
+                key={card.id}
+                {...card}
+                onPlay={() => setPlaying(card)}
+              />
             ))}
 
             {showInlineGated && (
@@ -327,11 +392,19 @@ export function CaseStudiesPortfolio() {
                       backgroundImage: "url('/images/stitch/c5510b9322.jpg')",
                     }}
                   />
+                  {/* The same 64px disc the public cards now put a play glyph
+                      in, so a row that mixes the two reads as one sentence:
+                      these play, this one is closed. It stays neutral and does
+                      not respond to hover — the disc is a state here, not the
+                      click target, which lives on the action below. */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-[2px]">
-                    <MaterialIcon
-                      name="lock"
-                      className="text-4xl! text-white/80"
-                    />
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/40 backdrop-blur-sm">
+                      <MaterialIcon
+                        name="lock"
+                        fill
+                        className="text-4xl! text-white/80"
+                      />
+                    </span>
                   </div>
                   <span className="absolute top-4 right-4 flex items-center gap-1 rounded-full border border-primary/50 bg-primary/20 px-3 py-1 font-label text-xs font-bold tracking-widest text-primary uppercase backdrop-blur">
                     <MaterialIcon name="lock" className="text-xs!" />
@@ -346,7 +419,7 @@ export function CaseStudiesPortfolio() {
                     Future O&amp;G drone documentation
                   </h3>
                   <p className="mt-3 flex-grow font-body text-sm leading-relaxed text-industrial-grey">
-                    Advanced aerial surveying and visual asset mapping for a
+                    Advanced aerial surveying and Video asset mapping for a
                     major offshore installation utilizing aerial and heavy-lift
                     drones.
                   </p>
@@ -366,6 +439,15 @@ export function CaseStudiesPortfolio() {
           </div>
         )}
       </div>
+
+      {playing && (
+        <VideoLightbox
+          label={`${playing.client} — ${playing.title}`}
+          onClose={closePlayer}
+          poster={playing.poster ?? HERO_POSTER}
+          src={playing.video ?? HERO_VIDEO}
+        />
+      )}
     </section>
   )
 }

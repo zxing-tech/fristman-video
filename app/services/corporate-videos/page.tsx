@@ -31,12 +31,12 @@ const audiences = [
   {
     icon: "engineering",
     title: "Project Managers",
-    body: "Document critical milestones, verify structural integrity, and provide high-fidelity visual reports for engineering review.",
+    body: "Document critical milestones, verify structural integrity, and provide high-fidelity Video reports for engineering review.",
   },
   {
     icon: "campaign",
     title: "Corporate Comms",
-    body: "Elevate brand perception with premium visual assets that communicate scale, safety, and operational excellence to the market.",
+    body: "Elevate brand perception with premium Video assets that communicate scale, safety, and operational excellence to the market.",
   },
   {
     icon: "groups",
@@ -46,7 +46,7 @@ const audiences = [
   {
     icon: "handshake",
     title: "JV Stakeholders",
-    body: "Provide transparent, high-impact visual updates on joint venture progress and capital expenditure utilization.",
+    body: "Provide transparent, high-impact Video updates on joint venture progress and capital expenditure utilization.",
   },
 ]
 
@@ -66,7 +66,7 @@ const workflowSteps = [
     number: "01",
     title: "Brief & Objectives",
     description:
-      "Aligning on required assets, target audience, and key visual messaging priorities.",
+      "Aligning on required assets, target audience, and key Video messaging priorities.",
   },
   {
     number: "02",
@@ -104,7 +104,6 @@ export default function CorporateVideosPage() {
         breadcrumb="Corporate Videos"
         chip="Corporate Production"
         lede="Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based production."
-        readout="UAV + GROUND // CORPORATE"
         title="Corporate Videos"
         actions={
           <>

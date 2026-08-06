@@ -53,7 +53,7 @@ const clienteleLogos = [
   { src: "/images/clients/clientele-12.png", alt: "BTL" },
   { src: "/images/clients/clientele-13.png", alt: "Eco Balance" },
   { src: "/images/clients/clientele-14.png", alt: "YouTube" },
-  { src: "/images/clients/clientele-15.png", alt: "Visual Retale" },
+  { src: "/images/clients/clientele-15.png", alt: "Video Retale" },
   { src: "/images/clients/clientele-16.png", alt: "Chow Tai Fook" },
   // Added 2026-08-05 from the owner's `public/new-logo-client/` drop. These five
   // are the heavy-industry end of the roster — the names PRODUCT.md's primary
@@ -304,7 +304,7 @@ export default function HomePage() {
         <div className="relative z-20 mx-auto w-full max-w-[1280px] px-6 md:px-8">
           <div className="max-w-3xl space-y-6 md:space-y-8">
             <SectionLabel withLine className={HERO_TEXT_SHADOW}>
-              Industrial Visual Data
+              Industrial Video Data
             </SectionLabel>
             {/* Four steps, not two. `text-4xl md:text-7xl` jumped 36px straight
                 to 72px at the md boundary, so a 768px tablet was handed the
@@ -391,7 +391,7 @@ export default function HomePage() {
               Our Core Services
             </SectionLabel>
             <h2 className="font-headline text-4xl font-black md:text-5xl">
-              Aerial and Ground Visual Solutions
+              Aerial and Ground Video Solutions
             </h2>
             <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           </div>

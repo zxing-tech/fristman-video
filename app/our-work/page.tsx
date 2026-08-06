@@ -68,8 +68,8 @@ export default function CaseStudiesPage() {
           {/* Same 36/48/60/72 ramp as the homepage and the ServiceHero h1 — the
               `sm` step closes a jump from 36px straight to 60px at 768px. */}
           <h1 className="max-w-4xl font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl">
-            Project case studies &{" "}
-            <span className="text-primary">portfolio</span>
+            Project Case Studies &{" "}
+            <span className="text-primary">Portfolio</span>
           </h1>
           <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-industrial-grey">
             Real projects. Real results. Explore how Firstman Videos supports

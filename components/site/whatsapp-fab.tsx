@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils"
  * spaces, no leading zero. The mobile already published in `lib/seo.ts`
  * (+6017 356 3598) would be written `"60173563598"`.
  */
-const WHATSAPP_NUMBER = "600000000000"
+const WHATSAPP_NUMBER = "+60173563598"
 
 /**
  * Opens the thread with the first line already typed, so what lands on the

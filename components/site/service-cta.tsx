@@ -2,7 +2,7 @@ import { CtaButton } from "@/components/site/cta-button"
 import { SectionLabel } from "@/components/site/section-label"
 
 /**
- * The closing band on every `/services/*` and `/our-work/*` page.
+ * The closing band on every `/services/*` page, plus `/our-work` and `/about`.
  *
  * Three of the six pages used to end on a card grid with no route to the
  * enquiry form at all — on a site whose only measure of success is a contact

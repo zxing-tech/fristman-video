@@ -315,6 +315,34 @@ html {
     color: var(--industrial-grey);
   }
 
+  .lightbox-scrim {
+    animation: lightbox-scrim 240ms ease-out both;
+  }
+
+  /* The 16:9 plate in the film viewer. It fills the width it is given but must
+     never grow taller than the viewport around it, and capping the WIDTH by the
+     available height is what keeps that true: an `aspect-video` box with a
+     `max-height` keeps its width and simply stops being 16:9, which letterboxes
+     the film inside its own frame. `svh` rather than `vh`, so a phone with a
+     retracting URL bar cannot push the close control off screen.
+
+     5rem is the vertical chrome this leaves room for: the root's own padding on
+     both sides, at its widest (40px at `md`). It was 9rem while the close
+     control sat 56px ABOVE the frame and needed clearance; the control moved
+     inside the picture on 2026-08-06, and the frame got that height back.
+
+     The entrance is the one authored moment in this dialog — the frame pulls
+     into focus rather than fading, which is the gesture a projector makes. Blur
+     is the expensive property in that list, so it runs on this single
+     composited element and nothing else in the panel animates. The keyframe
+     lands on `filter: none`, not `blur(0)`, so no compositing layer is left
+     behind once the film is playing. */
+  .lightbox-frame {
+    width: 100%;
+    max-width: min(72rem, calc((100svh - 5rem) * 16 / 9));
+    animation: lightbox-frame 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -401,6 +429,24 @@ html {
   to { transform: translateX(0); }
 }
 
+@keyframes lightbox-scrim {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-frame {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(14px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
 /* The marquee was the only thing this block covered, which left every looping
    decorative animation on the site running for a visitor who asked for less
    motion: the pulsing status dot in the ServiceHero chip (all fourteen detail
@@ -420,7 +466,9 @@ html {
   .animate-ping,
   .animate-pulse,
   .scanning-line,
-  .scanner-line {
+  .scanner-line,
+  .lightbox-scrim,
+  .lightbox-frame {
     animation: none;
   }
 }

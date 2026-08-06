@@ -45,8 +45,7 @@ export default function IndustrialPhotographyPage() {
       <ServiceHero
         breadcrumb="Industrial Photography"
         chip="Capability Specification"
-        lede="Documenting critical structural phases, heavy lifts, and compliance checks with high-fidelity, ground-based photography. Precise visual assets captured in demanding environments."
-        readout="GROUND CAPTURE // STILLS"
+        lede="Documenting critical structural phases, heavy lifts, and compliance checks with high-fidelity, ground-based photography. Precise Video assets captured in demanding environments."
         tagline="For Sites, Teams & Comms"
         title="Industrial Photography"
         actions={
@@ -100,7 +99,7 @@ export default function IndustrialPhotographyPage() {
           {/* Anchor: structural phase records */}
           <PhotoCard
             alt="Aerial view of an oil refinery lit at night, distillation towers and pipework under a dusk sky"
-            body="Visual records of critical build and installation phases, captured alongside the compliance checkpoints that sign each one off, for internal archives and external reporting."
+            body="Video records of critical build and installation phases, captured alongside the compliance checkpoints that sign each one off, for internal archives and external reporting."
             className="md:col-span-2 lg:row-span-2"
             icon="domain"
             image="/images/pexels/photo-structural-phase.jpg"
@@ -118,7 +117,7 @@ export default function IndustrialPhotographyPage() {
                 Executive Presentations
               </h3>
               <p className="font-body text-xs leading-relaxed text-industrial-grey">
-                High-impact visuals tailored for boardrooms and investor
+                High-impact Videos tailored for boardrooms and investor
                 relations.
               </p>
             </div>
@@ -168,9 +167,9 @@ export default function IndustrialPhotographyPage() {
       </ServiceSection>
 
       <ServiceCta
-        title="Elevate Your Visual Standards"
+        title="Elevate Your Video Standards"
         lede="Secure high-quality, claim-safe photographic documentation for your next industrial project or corporate report."
-        action="Build a Stronger Visual Library"
+        action="Build a Stronger Video Library"
         footnote="Consultations available for upcoming deployments"
       />
     </main>
