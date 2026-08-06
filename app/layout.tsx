@@ -5,6 +5,7 @@ import "./globals.css"
 import { JsonLd } from "@/components/seo/json-ld"
 import { SiteFooter } from "@/components/site/site-footer"
 import { SiteNavbar } from "@/components/site/site-navbar"
+import { WhatsAppFab } from "@/components/site/whatsapp-fab"
 import { ThemeProvider } from "@/components/theme-provider"
 import { graph, organizationSchema, SITE, websiteSchema } from "@/lib/seo"
 import { cn } from "@/lib/utils"
@@ -124,6 +125,12 @@ export default function RootLayout({
           <SiteNavbar />
           {children}
           <SiteFooter />
+          {/* Last in the DOM on purpose: it is a floating convenience, so it
+              should be the last thing a keyboard visitor reaches rather than an
+              interruption between the nav and the page. Its z-30 sits under the
+              cookie banner (z-40), the navbar (z-50) and the gated-access dialog
+              (z-100), so nothing it can overlap ends up behind it. */}
+          <WhatsAppFab />
         </ThemeProvider>
       </body>
     </html>
