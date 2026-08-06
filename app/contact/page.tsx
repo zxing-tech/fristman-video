@@ -114,7 +114,13 @@ export default function ContactPage() {
           className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-primary/10 to-transparent"
         />
 
-        <div className="relative mx-auto w-full max-w-[1280px] px-8">
+        {/* 24px opening to 32px at `md`, per DESIGN.md's Layout note. This page
+            was the last one still pinned at 32px on a phone, and it is the one
+            that could least afford it: the form panel sits inside this column
+            and then adds its own padding, so every pixel of gutter comes off
+            the field width twice over. At 360px the panel measured 281px and a
+            select had 171px of room for a 26-character option. */}
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 md:px-8">
           {/* Breadcrumb and readout share a row and read as a status bar — the
               same pattern as `ServiceHero`, in the flipping tokens this band
               needs. It was a hand-rolled `<nav>` of spans with a "/" divider,
@@ -175,7 +181,10 @@ export default function ContactPage() {
                 on a 1440 screen where its siblings measure 72. Condensed to
                 87.5%, "Get in touch" still sets on one line inside the 672px
                 lead column. */}
-            <h1 className="mt-6 font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed md:text-6xl lg:text-7xl">
+            {/* The `sm` step closes a jump from 36px straight to 60px at 768px,
+                matching the 36/48/60/72 ramp the homepage, ServiceHero and both
+                hub h1s now run. */}
+            <h1 className="mt-6 font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl">
               Get in touch
             </h1>
 
@@ -221,7 +230,7 @@ export default function ContactPage() {
           rhythm `ServiceCta` documents, and it was rendering 192px of void
           under the form before. */}
       <section className="relative w-full bg-background">
-        <div className="mx-auto w-full max-w-[1280px] px-8">
+        <div className="mx-auto w-full max-w-[1280px] px-6 md:px-8">
           <div className="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
             {/* The one panel on the page. The form is the object you act on;
                 everything beside it is reference, so only this carries a fill,

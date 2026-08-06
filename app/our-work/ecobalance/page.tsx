@@ -132,7 +132,12 @@ export default function EcoBalanceCaseStudyPage() {
         title="Project context"
         lede="The industrial setting (EcoBalance) required a meticulous approach to visual storytelling. By leveraging stabilized ground units and aerial platforms, we maintained a comprehensive perspective of the facility's complex infrastructure. The focus remained on the technical sophistication of the site, translating industrial scale into cinematic narrative assets suitable for global stakeholders."
       >
-        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-3">
+        {/* Three across waits for `lg`. At 768px a third of this column minus
+            the 40px gaps is 203px, and these rows carry a 30px glyph over a
+            20px heading — "Ground-Based Capture" and "Scale Documentation" both
+            broke in two there. The rules are drawn per item, so a ragged last
+            row reads as the list it is rather than as a gap in a card grid. */}
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           {approach.map((item) => (
             <div className="border-t border-surface/10 py-8" key={item.title}>
               <MaterialIcon
@@ -162,7 +167,7 @@ export default function EcoBalanceCaseStudyPage() {
       />
 
       <ServiceSection eyebrow="Project Outputs" title="Likely deliverables">
-        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           {deliverables.map((item) => (
             <div className="border-t border-surface/10 py-8" key={item.title}>
               <MaterialIcon

@@ -131,17 +131,19 @@ export default function CorporateVideosPage() {
           {audiences.map((audience) => (
             <div
               key={audience.title}
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary">
-                <MaterialIcon
-                  name={audience.icon}
-                  className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-                />
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                  <MaterialIcon
+                    name={audience.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {audience.title}
+                </h3>
               </div>
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {audience.title}
-              </h3>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {audience.body}
               </p>
@@ -151,8 +153,14 @@ export default function CorporateVideosPage() {
       </ServiceSection>
 
       <ServiceSection band="panel" eyebrow="Scope" title="Output & Execution">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="glass-panel flex flex-col rounded-3xl p-8 md:col-span-1 md:p-10">
+        {/* The 1:2 split waits for `lg`. At 768px the narrow panel took a third
+            of the column — 218px, or 138px of content once its own 40px padding
+            was off both sides — and it holds a five-row list of labels like
+            "Hero Cinematic Film", every one of which wrapped. The wide panel
+            beside it was carrying a four-step workflow at 460px. Below `lg`
+            both simply run full width, in the order they are read. */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="glass-panel flex flex-col rounded-3xl p-6 md:p-8 lg:col-span-1 lg:p-10">
             {/* mb-2, not the mb-8 its neighbour uses. The rows below carry
                 their own vertical padding, so an mb-8 here stacked on top of
                 that and put the heading 69px from the first label against a
@@ -200,7 +208,7 @@ export default function CorporateVideosPage() {
             </ul>
           </div>
 
-          <div className="glass-panel group relative overflow-hidden rounded-3xl p-8 md:col-span-2 md:p-10">
+          <div className="glass-panel group relative overflow-hidden rounded-3xl p-6 md:p-8 lg:col-span-2 lg:p-10">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl"

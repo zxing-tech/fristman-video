@@ -130,18 +130,20 @@ export default function FacilityOverviewFilmsPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {focusAreas.map((area) => (
             <div
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               key={area.title}
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary">
-                <MaterialIcon
-                  name={area.icon}
-                  className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-                />
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                  <MaterialIcon
+                    name={area.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {area.title}
+                </h3>
               </div>
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {area.title}
-              </h3>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {area.description}
               </p>
@@ -154,16 +156,18 @@ export default function FacilityOverviewFilmsPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {sectors.map((sector) => (
             <div
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               key={sector.slug}
             >
-              <MaterialIcon
-                name={sector.icon}
-                className="mb-6 block text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-              />
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {sector.title}
-              </h3>
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <MaterialIcon
+                  name={sector.icon}
+                  className="block shrink-0 text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1] md:mb-6"
+                />
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {sector.title}
+                </h3>
+              </div>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {sector.summary}
               </p>

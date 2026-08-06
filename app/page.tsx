@@ -91,6 +91,14 @@ const clienteleLogos = [
   { src: "/images/clients/clientele-21.png", alt: "JPS" },
 ]
 
+// The three track-record figures. Owner-confirmed 2026-08-04 and cleared to
+// publish — see PRODUCT.md `## Evidence on Hand`.
+const metrics = [
+  { value: "25+ Years", label: "Corporate Video" },
+  { value: "15+ Years", label: "Oil & Gas Sector" },
+  { value: "500+ Projects", label: "Across Diverse Industries" },
+]
+
 // Countries the crew mobilises to. Kept in sync with the Region / Country
 // options in app/contact/consultation-form.tsx.
 const regionalCoverage = [
@@ -121,13 +129,25 @@ function LogoRow({
     // logo at a time — a peephole onto the page's only real proof. Below `md`
     // the logos get the full column and the chip becomes a heading for them.
     <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-8">
-      <span className="w-[104px] shrink-0 rounded-full bg-primary px-5 py-2.5 text-center font-label text-[11px] font-bold tracking-wider text-white uppercase md:w-[150px] md:px-8 md:text-xs">
+      {/* Stays the Label role's 12px at every size. It ran at 11px to fit a
+          104px pill; the pill is the thing that should give, not the type — a
+          role defined as "12px, 700, 0.1em" has nowhere below it to go. */}
+      <span className="w-[124px] shrink-0 rounded-full bg-primary px-5 py-2.5 text-center font-label text-xs font-bold tracking-wider text-white uppercase md:w-[150px] md:px-8">
         {label}
       </span>
       {/* `w-full` is required, not belt-and-braces: the wrapper is `items-start`
           on mobile, so a flex child would otherwise shrink to its content width
-          and the track would have nothing to scroll across. */}
-      <div className="marquee w-full md:flex-1">
+          and the track would have nothing to scroll across.
+
+          Below `md` the row is the one thing on this page that breaks the 1280
+          column, and it earns it: giving the gutter back buys 48px of window on
+          a 390px screen, which is half a logo. Nothing is lost at the edge
+          either — `.marquee`'s own mask already fades the track to transparent
+          at 8%, so the row still ends softly rather than being cut by the
+          viewport. The negative margin has to be paired with an explicit width:
+          `w-full` resolves against the padded content box and would pin the row
+          back to 342px whatever the margins do. */}
+      <div className="marquee -mx-6 w-[calc(100%+3rem)] md:mx-0 md:w-full md:flex-1">
         <div
           className={cn(
             "marquee-track hover:[animation-play-state:paused]",
@@ -237,14 +257,21 @@ export default function HomePage() {
               into white, and a footage-backed hero has to stay dark in both themes. */}
           <div className="hero-overlay hidden dark:block" />
         </div>
-        <div className="relative z-20 mx-auto w-full max-w-[1280px] px-8">
-          <div className="max-w-3xl space-y-8">
+        <div className="relative z-20 mx-auto w-full max-w-[1280px] px-6 md:px-8">
+          <div className="max-w-3xl space-y-6 md:space-y-8">
             <SectionLabel withLine className={HERO_TEXT_SHADOW}>
               Industrial Visual Data
             </SectionLabel>
+            {/* Four steps, not two. `text-4xl md:text-7xl` jumped 36px straight
+                to 72px at the md boundary, so a 768px tablet was handed the
+                1440px display size: measured 317px of headline over four lines,
+                a third of a 1024px-tall viewport spent on one sentence before
+                the paragraph or either button. The intermediate steps put 768px
+                at 60px and 640px at 48px, which is the ramp the Display role's
+                own clamp implies. */}
             <h1
               className={cn(
-                "font-headline text-4xl leading-[1.1] font-black tracking-tight text-white font-stretch-semi-condensed md:text-7xl",
+                "font-headline text-4xl leading-[1.1] font-black tracking-tight text-white font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl",
                 HERO_TEXT_SHADOW
               )}
             >
@@ -283,8 +310,8 @@ export default function HomePage() {
           piece of evidence its smallest band: 8% of page height against 61% for
           the three card-and-copy sections. Matching the standard section rhythm
           is the point, not a stylistic preference. */}
-      <section className="relative w-full overflow-hidden border-y border-surface/10 bg-dark-ui py-24">
-        <div className="mx-auto mb-12 max-w-[1280px] px-8 text-center">
+      <section className="relative w-full overflow-hidden border-y border-surface/10 bg-dark-ui py-16 md:py-24">
+        <div className="mx-auto mb-10 max-w-[1280px] px-6 text-center md:mb-12 md:px-8">
           <SectionLabel className="mb-3 block">Our Clientele</SectionLabel>
           <h2 className="font-headline text-2xl font-bold md:text-3xl">
             We&apos;ve produced corporate video for these companies
@@ -295,7 +322,10 @@ export default function HomePage() {
             DESIGN.md's 1280 Rule draws the line at content vs background, and
             logos are content. The marquee's own edge mask fades at the column
             edge instead of the window edge. */}
-        <div className="mx-auto flex max-w-[1280px] flex-col gap-8 px-8">
+        {/* The rows separate more on phone than on desktop, not less: the chip
+            sits above its row there instead of beside it, so 32px between
+            groups would be barely more than the 12px inside one. */}
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-6 md:gap-8 md:px-8">
           <LogoRow label="Agencies" logos={agencyLogos} direction="left" />
           <LogoRow label="Clientele" logos={clienteleLogos} direction="right" />
         </div>
@@ -305,21 +335,21 @@ export default function HomePage() {
           scroll-mt clears the fixed navbar when arriving via the #services anchor. */}
       <section
         id="services"
-        className="relative w-full scroll-mt-28 bg-background py-24"
+        className="relative w-full scroll-mt-28 bg-background py-16 md:py-24"
       >
-        <div className="mx-auto max-w-[1280px] px-8">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-8">
           {/* Every section header on this page is centred, the closing CTA
               included. Owner's call, and it is applied uniformly — the section
               that used to sit flush left while its three neighbours centred was
               the one thing here that read as an accident. */}
-          <div className="mb-16 flex flex-col items-center text-center">
+          <div className="mb-12 flex flex-col items-center text-center md:mb-16">
             <SectionLabel className="mb-4 block">
               Core Capabilities
             </SectionLabel>
             <h2 className="font-headline text-4xl font-black md:text-5xl">
               Our Core Services
             </h2>
-            <div className="mt-8 h-1 w-24 bg-primary" />
+            <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           </div>
           {/* Straight from lib/data/services.ts — the same array the navbar
               dropdown maps over, so the two can no longer disagree on a label. */}
@@ -341,10 +371,10 @@ export default function HomePage() {
           scroll-mt clears the fixed navbar when arriving via the #industries anchor. */}
       <section
         id="industries"
-        className="w-full scroll-mt-28 border-y border-surface/10 bg-graphite py-24"
+        className="w-full scroll-mt-28 border-y border-surface/10 bg-graphite py-16 md:py-24"
       >
-        <div className="mx-auto max-w-[1280px] px-8">
-          <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-8">
+          <div className="mb-12 flex flex-col items-center text-center md:mb-16">
             <SectionLabel className="mb-4 block">Where We Operate</SectionLabel>
             <h2 className="font-headline text-4xl font-black md:text-5xl">
               Sectors We Serve
@@ -354,27 +384,46 @@ export default function HomePage() {
               deployment is planned around live operations rather than dropped
               on top of them.
             </p>
-            <div className="mt-8 h-1 w-24 bg-primary" />
+            <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector) => (
               <div
                 key={sector.slug}
-                className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+                className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary">
-                  <MaterialIcon
-                    name={sector.icon}
-                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-                  />
+                {/* On phone the glyph and the sector name share a line; from
+                    `md` the glyph goes back above the name.
+
+                    In one column the stacked form spent 72px per card on a
+                    48px ring and the air under it, and four cards ran the
+                    section to 2902px — 3.4 viewports for a taxonomy the
+                    visitor scans rather than reads. Side by side the ring
+                    becomes what it actually is at that width: the marker on a
+                    labelled row. In a narrow multi-column grid it has to go
+                    back on top, because the name alone needs the full column.
+
+                    `md:block` rather than a second flex: the children carry
+                    their own bottom margins from `md` up, and `display: block`
+                    is what lets those margins do the stacking. */}
+                <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                  {/* 44px inline, 48px stacked — same reasoning as the service
+                      cards, and the same value, so the two inline rows on this
+                      page mark themselves identically. */}
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                    <MaterialIcon
+                      name={sector.icon}
+                      className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                    />
+                  </div>
+                  <h3 className="font-headline text-xl font-bold tracking-wide text-surface uppercase md:mb-3">
+                    {sector.title}
+                  </h3>
                 </div>
-                <h3 className="mb-3 font-headline text-xl font-bold tracking-wide text-surface uppercase">
-                  {sector.title}
-                </h3>
-                <p className="mb-6 font-body text-sm leading-relaxed text-industrial-grey">
+                <p className="mb-5 font-body text-sm leading-relaxed text-industrial-grey md:mb-6">
                   {sector.summary}
                 </p>
-                <ul className="mt-auto space-y-2 border-t border-surface/10 pt-6">
+                <ul className="mt-auto space-y-2 border-t border-surface/10 pt-5 md:pt-6">
                   {sector.focus.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <MaterialIcon
@@ -396,7 +445,7 @@ export default function HomePage() {
               It sat at mt-6: exactly the 24px gap running *between* the sector
               cards, which made it parse as a fifth, wider sector. Separation
               between groups now clears the spacing inside them by a wide margin. */}
-          <div className="glass-panel mt-16 flex flex-col gap-10 rounded-2xl p-8 md:p-10 lg:flex-row lg:items-center">
+          <div className="glass-panel mt-12 flex flex-col gap-8 rounded-2xl p-6 md:mt-16 md:gap-10 md:p-10 lg:flex-row lg:items-center">
             <div className="lg:w-2/5">
               <div className="mb-4 inline-flex items-center gap-2 text-primary">
                 <MaterialIcon name="map" />
@@ -437,53 +486,76 @@ export default function HomePage() {
       </section>
 
       {/* Why Firstman Videos (Bento Grid Style) */}
-      <section className="relative w-full border-y border-surface/10 bg-dark-ui py-24">
+      <section className="relative w-full border-y border-surface/10 bg-dark-ui py-16 md:py-24">
         {/* Abstract background accent */}
         <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-primary/5 to-transparent" />
-        <div className="mx-auto max-w-[1280px] px-8">
-          <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-8">
+          <div className="mb-12 flex flex-col items-center text-center md:mb-16">
             <SectionLabel className="mb-4 block">The Advantage</SectionLabel>
             <h2 className="font-headline text-4xl font-black md:text-5xl">
               Why Firstman Videos
             </h2>
-            <div className="mt-8 h-1 w-24 bg-primary" />
+            <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           </div>
-          {/* Metrics Bar */}
-          <div className="glass-panel mb-12 flex w-full flex-col items-center justify-around gap-10 rounded-xl px-8 py-10 md:flex-row">
-            <div className="flex flex-col items-center md:items-start">
-              <span className="font-headline text-3xl font-black text-primary md:text-4xl">
-                25+ Years
-              </span>
-              {/* Label role per DESIGN.md: 12px, 0.1em. These ran at 10px/0.2em,
-                  which paired a 36px value with a caption 3.6x smaller and pushed
-                  the tracking past the point where the words read as words. */}
-              <span className="mt-1 font-label text-xs font-bold tracking-widest text-surface/60 uppercase">
-                Corporate Video
-              </span>
-            </div>
-            <div className="hidden h-12 w-px bg-surface/10 md:block" />
-            <div className="flex flex-col items-center md:items-start">
-              <span className="font-headline text-3xl font-black text-primary md:text-4xl">
-                15+ Years
-              </span>
-              <span className="mt-1 font-label text-xs font-bold tracking-widest text-surface/60 uppercase">
-                Oil & Gas Sector
-              </span>
-            </div>
-            <div className="hidden h-12 w-px bg-surface/10 md:block" />
-            <div className="flex flex-col items-center md:items-start">
-              <span className="font-headline text-3xl font-black text-primary md:text-4xl">
-                500+ Projects
-              </span>
-              <span className="mt-1 font-label text-xs font-bold tracking-widest text-surface/60 uppercase">
-                Across Diverse Industries
-              </span>
-            </div>
+          {/* Metrics Bar.
+
+              A grid rather than `flex justify-around` with hand-placed 1px
+              divider divs. `justify-around` distributes leftover space, so the
+              three columns were never equal and the dividers landed wherever
+              the copy left room; a grid guarantees thirds and `divide-x` draws
+              the rules between real cells. That also lets the phone rendition
+              be the same markup rotated — `divide-y` instead of `divide-x` —
+              rather than three centred blocks floating in 40px of gap with no
+              separation between them at all.
+
+              The size ramp is set by the longest value, not by taste. Equal
+              thirds mean the cell width is known at every step, and
+              "500+ Projects" in Archivo 900 measures 265px at 36px, 221px at
+              30px, 177px at 24px. Against the cell's own inner width — 181px at
+              768, 266px at 1024, 341px at 1280 — only one size fits each band,
+              which is why the ramp dips at `md` rather than climbing evenly.
+
+              Before this change all THREE values broke to two lines the moment
+              `md:flex-row` fired at 768px, so a tablet was handed "25+ /
+              Years". 36px does not return until `xl`; at `lg` it left exactly
+              1px of headroom, which is not headroom. */}
+          <div className="glass-panel mb-10 grid w-full grid-cols-1 divide-y divide-surface/10 rounded-xl md:mb-12 md:grid-cols-3 md:divide-x md:divide-y-0">
+            {metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="flex flex-col items-center px-4 py-5 text-center md:py-8 lg:items-start lg:px-6 lg:text-left xl:px-8"
+              >
+                <span className="font-headline text-3xl font-black text-primary md:text-2xl lg:text-3xl xl:text-4xl">
+                  {metric.value}
+                </span>
+                {/* Label role per DESIGN.md: 12px, 0.1em. These ran at 10px/0.2em,
+                    which paired a 36px value with a caption 3.6x smaller and pushed
+                    the tracking past the point where the words read as words. */}
+                <span className="mt-1 font-label text-xs font-bold tracking-widest text-surface/60 uppercase">
+                  {metric.label}
+                </span>
+              </div>
+            ))}
           </div>
           {/* Row height is governed here and nowhere else. The children used to
               carry their own min-h-[250px]/min-h-[200px], which always won over
-              the grid's auto-rows and left two rules fighting over one value. */}
-          <div className="grid auto-rows-[minmax(250px,auto)] grid-cols-1 gap-6 md:grid-cols-3">
+              the grid's auto-rows and left two rules fighting over one value.
+
+              Three columns wait for `lg`. At `md` the bento went straight from
+              one column to three, and with two cards spanning two of them the
+              other two were left a third of a tablet: measured 214px wide at
+              768px, where a 20px two-line title and its icon covered most of
+              the frame and the photograph showed as a strip above the scrim.
+              These are photo cards — a card whose picture is not legible has
+              stopped being one.
+
+              At two columns the spanning cards go full-bleed across the row and
+              the pair between them splits it, which is the same alternating
+              rhythm the three-column version has, at a width that still holds a
+              picture: 308px at 768px, 380px at 1024px-minus. The `md:col-span-2`
+              on the two wide cards needs no change — two of two is a full row,
+              two of three is the desktop bento. */}
+          <div className="grid auto-rows-[minmax(250px,auto)] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* All four run on the shared PhotoCard, the same card the
                 /services pages use: title alone at rest, description revealed
                 on hover. One bento where three cards opened and a fourth did
@@ -544,18 +616,18 @@ export default function HomePage() {
           hero, so anyone who read to the end had to scroll back up. pt-32 is the
           system's closing-section rhythm; the bottom spacing comes from the
           footer's own mt-24, so adding pb here would double it. */}
-      <section className="w-full bg-background pt-32">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center px-8 text-center">
+      <section className="w-full bg-background pt-24 md:pt-32">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center px-6 text-center md:px-8">
           <SectionLabel className="mb-4 block">Next Step</SectionLabel>
           <h2 className="max-w-3xl font-headline text-4xl font-black md:text-5xl">
             Tell us about the site.
           </h2>
-          <div className="mt-8 h-1 w-24 bg-primary" />
+          <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           <CtaButton
             href="/contact"
             arrow
             size="lg"
-            className="mt-12 w-full sm:w-fit"
+            className="mt-10 w-full sm:w-fit md:mt-12"
           >
             Get an Estimate
           </CtaButton>

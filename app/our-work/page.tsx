@@ -36,13 +36,13 @@ export default function CaseStudiesPage() {
     <main className="relative flex flex-grow flex-col">
       <JsonLd data={caseStudiesSchema} />
 
-      <header className="relative w-full overflow-hidden bg-background pt-32 pb-16">
+      <header className="relative w-full overflow-hidden bg-background pt-28 pb-12 md:pt-32 md:pb-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-primary/10 to-transparent"
         />
-        <div className="relative mx-auto w-full max-w-[1280px] px-8">
-          <nav aria-label="Breadcrumb" className="mb-10">
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 md:px-8">
+          <nav aria-label="Breadcrumb" className="mb-8 md:mb-10">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-label text-xs font-bold tracking-widest text-industrial-grey uppercase">
               <li className="flex items-center gap-x-2">
                 {/* Same 24px hit area as the detail-page crumbs — see
@@ -65,7 +65,9 @@ export default function CaseStudiesPage() {
           {/* Display role: the only h1 on the page, and the only place the
               system leaves `font-stretch: 100%`. Sentence case, like every
               other h1 on the site — see The Scarce Capitals Rule. */}
-          <h1 className="max-w-4xl font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed md:text-6xl lg:text-7xl">
+          {/* Same 36/48/60/72 ramp as the homepage and the ServiceHero h1 — the
+              `sm` step closes a jump from 36px straight to 60px at 768px. */}
+          <h1 className="max-w-4xl font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-surface font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl">
             Project case studies &{" "}
             <span className="text-primary">portfolio</span>
           </h1>

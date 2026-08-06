@@ -92,7 +92,13 @@ export default function AiGeneratedVideoPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {/* Three columns wait for `lg`, the same call the homepage bento makes.
+            With two of three tracks spanned by the photo card and the heritage
+            panel, the two supporting cards were left 218px at 768px — and one
+            of them is a photo card, which stops being one when the picture is a
+            strip above the scrim. At two columns the spanning cards run the
+            full row and the supporting pair splits it at 340px. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* The photograph belongs to the flagship capability. It used to back
               the heritage card at the bottom of the grid, which made the least
               important panel the heaviest thing on the page. */}
@@ -108,30 +114,34 @@ export default function AiGeneratedVideoPage() {
 
           {supportingCards.map((card) => (
             <article
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               key={card.title}
             >
-              <MaterialIcon
-                name={card.icon}
-                className="mb-6 block text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-              />
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {card.title}
-              </h3>
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <MaterialIcon
+                  name={card.icon}
+                  className="block shrink-0 text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1] md:mb-6"
+                />
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {card.title}
+                </h3>
+              </div>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {card.description}
               </p>
             </article>
           ))}
 
-          <article className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:col-span-2 md:p-10">
-            <MaterialIcon
-              name="history"
-              className="mb-6 block text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-            />
-            <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-              Historical & Inaccessible Events
-            </h3>
+          <article className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:col-span-2 md:p-8 lg:p-10">
+            <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+              <MaterialIcon
+                name="history"
+                className="block shrink-0 text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1] md:mb-6"
+              />
+              <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                Historical &amp; Inaccessible Events
+              </h3>
+            </div>
             <p className="max-w-[62ch] font-body text-sm leading-relaxed text-industrial-grey">
               Reconstruct past milestones or restricted-access operations that
               were never filmed — rebuilt from archival references into

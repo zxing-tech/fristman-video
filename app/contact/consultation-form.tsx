@@ -46,6 +46,17 @@ const labelClass =
  */
 const inputClass =
   "w-full form-input-dark bg-background/40 rounded-lg px-4 py-3 text-base block placeholder:text-industrial-grey"
+/**
+ * The selects reserve `pr-10` (40px) on the right, not the 44px they carried.
+ *
+ * The chevron overlay is `right-0` with `px-4` around a 20px glyph, so the icon
+ * occupies 16–36px in from the right edge. 44px of padding left 8px of dead gap
+ * between where the text stops and where the glyph starts; 40px leaves 4px,
+ * which still clears it, and hands the 4px back to the one thing on this form
+ * that cannot scroll its own content — a closed `<select>` rendering the option
+ * the visitor already chose.
+ */
+const selectClass = `${inputClass} appearance-none pr-10`
 const optionClass = "bg-graphite text-surface"
 
 /**
@@ -237,15 +248,31 @@ export function ConsultationForm() {
                 rendered ~193px wide each, and their longest options —
                 "Fabrication & Construction", "Safety and Induction Videos" —
                 have nowhere to go at that width. Region and Sector are short
-                enough to pair; Primary Interest takes the full row. */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                enough to pair; Primary Interest takes the full row.
+
+                The pair waits for `xl`, not `sm`, and that is a select-specific
+                rule rather than a spacing preference. A text input can be
+                narrow — the visitor's own typing scrolls inside it. A closed
+                `<select>` cannot: it has to render the option the visitor
+                already chose, and there is no way to scroll it.
+
+                "Fabrication & Construction" needs ~216px at the 16px these
+                fields are pinned to, plus 60px of the field's own padding and
+                chevron inset — 276px per select, 572px for the pair. Measured
+                panel content: 609px at 768, but only 445px at 1024, because the
+                panel becomes 7 of 12 columns there and gets NARROWER than it
+                was on a tablet. Pairing at `sm` truncated the sector value at
+                360, 390 and 1024 while looking fine at 768, which is the kind
+                of non-monotonic gap a single breakpoint check never catches.
+                `xl` is the first width where the pair genuinely fits. */}
+            <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
               <div className="space-y-2">
                 <label className={labelClass} htmlFor="country">
                   Region / Country <span className="text-primary">*</span>
                 </label>
                 <div className="relative">
                   <select
-                    className={`${inputClass} appearance-none pr-11`}
+                    className={selectClass}
                     id="country"
                     name="country"
                     required
@@ -288,7 +315,7 @@ export function ConsultationForm() {
                 </label>
                 <div className="relative">
                   <select
-                    className={`${inputClass} appearance-none pr-11`}
+                    className={selectClass}
                     id="sector"
                     name="sector"
                     defaultValue=""
@@ -328,7 +355,7 @@ export function ConsultationForm() {
               </label>
               <div className="relative">
                 <select
-                  className={`${inputClass} appearance-none pr-11`}
+                  className={selectClass}
                   id="service"
                   name="service"
                   required

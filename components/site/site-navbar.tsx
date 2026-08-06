@@ -67,7 +67,15 @@ export function SiteNavbar() {
         >
           Firstman Videos
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
+        {/* The full row waits for `lg`, not `md`. Five nav items, a dropdown
+            trigger, the brand, the theme toggle and the CTA do not fit a 768px
+            pill: measured at that width the brand broke to two lines, so did
+            "Our Work" and "Get an Estimate", and the pill grew from 62px tall
+            to 82px. A tablet was being shown a desktop navbar that had run out
+            of room rather than a navbar built for its width. Below `lg` the
+            burger sheet — which already carries every one of these links and
+            the Services accordion — is the better answer. */}
+        <div className="hidden items-center gap-6 lg:flex">
           {linksBeforeServices.map((link) => (
             <Link
               key={link.href}
@@ -185,7 +193,7 @@ export function SiteNavbar() {
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-surface/10 text-surface transition-colors hover:border-primary hover:text-primary md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-surface/10 text-surface transition-colors hover:border-primary hover:text-primary lg:hidden"
             onClick={() => setMenuOpen((open) => !open)}
           >
             <MaterialIcon
@@ -196,7 +204,7 @@ export function SiteNavbar() {
         </div>
       </div>
       {menuOpen && (
-        <div className="mt-2 flex max-h-[calc(100vh-8rem)] flex-col gap-4 overflow-y-auto rounded-2xl border border-surface/10 bg-background/97 p-6 backdrop-blur-xl md:hidden">
+        <div className="mt-2 flex max-h-[calc(100vh-8rem)] flex-col gap-4 overflow-y-auto rounded-2xl border border-surface/10 bg-background/97 p-6 backdrop-blur-xl lg:hidden">
           {linksBeforeServices.map((link) => (
             <Link
               key={link.href}

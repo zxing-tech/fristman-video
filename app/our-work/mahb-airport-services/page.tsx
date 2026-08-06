@@ -165,7 +165,11 @@ export default function MahbAirportServicesPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {execution.map((item) => (
             <div
-              className="glass-panel rounded-3xl p-8 md:p-10"
+              // `md:p-10` fired at exactly the width that could least afford
+              // it: two columns of 340px, minus 80px of padding, left 260px for
+              // 16px body copy. The 40px inset is a 1280-column value; it
+              // returns at `lg`.
+              className="glass-panel rounded-3xl p-6 md:p-8 lg:p-10"
               key={item.title}
             >
               <h3 className="flex items-center gap-3 font-headline text-xl font-bold text-surface">
@@ -184,13 +188,18 @@ export default function MahbAirportServicesPage() {
         eyebrow="Project Outputs"
         title="Standard visual deliverables"
       >
-        {/* The feature card spans two rows from `sm`, where there is a second
+        {/* The feature card spans two rows from `md`, where there is a second
             column for it to sit beside. The grid drops to one column below
             that, and `aspect-square` is gone: at the old `md:grid-cols-3`
             breakpoint each square was 218px, which could not hold a 20px
-            heading, three lines of body copy and a 64px icon plate. */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="glass-panel group flex min-h-[16rem] flex-col justify-between rounded-3xl p-8 transition-colors duration-300 hover:border-primary/50 sm:row-span-2">
+            heading, three lines of body copy and a 64px icon plate.
+
+            The second column used to arrive at `sm`, which put two 220px cards
+            side by side at 640px — narrower than the 218px this comment already
+            calls too small. Every card grid on the site now leaves one column
+            at `md`, and this one follows. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="glass-panel group flex min-h-[16rem] flex-col justify-between rounded-3xl p-6 transition-colors duration-300 hover:border-primary/50 md:row-span-2 md:p-8">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-surface/10 bg-primary/5 transition-colors group-hover:border-primary">
               <MaterialIcon
                 name="video_camera_back"
@@ -225,7 +234,7 @@ export default function MahbAirportServicesPage() {
 
           {outputs.map((item) => (
             <div
-              className="glass-panel group flex min-h-[16rem] flex-col justify-between rounded-3xl p-8 transition-colors duration-300 hover:border-primary/50"
+              className="glass-panel group flex min-h-[16rem] flex-col justify-between rounded-3xl p-6 transition-colors duration-300 hover:border-primary/50 md:p-8"
               key={item.title}
             >
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-surface/10 transition-colors group-hover:border-primary">

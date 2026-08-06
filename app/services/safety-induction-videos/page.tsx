@@ -152,7 +152,7 @@ export default function SafetyInductionVideosPage() {
 
         {/* Trust signal, moved off the hero. It sat under the hero CTAs as a
             fourth block of fine print in a band that was already 921px tall. */}
-        <div className="glass-panel mt-16 flex items-start gap-4 rounded-2xl p-6 md:p-8">
+        <div className="glass-panel mt-12 flex items-start gap-4 rounded-2xl p-6 md:mt-16 md:p-8">
           <MaterialIcon
             name="verified_user"
             className="shrink-0 text-primary"

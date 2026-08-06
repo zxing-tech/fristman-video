@@ -151,20 +151,24 @@ export function CaseStudiesPortfolio() {
     !showFeatured && !showInlineGated && visiblePublic.length === 0
 
   return (
-    <section className="w-full bg-background pb-24">
-      <div className="mx-auto w-full max-w-[1280px] px-8">
+    <section className="w-full bg-background pb-16 md:pb-24">
+      {/* This hub does not go through ServiceSection, so it was the one page
+          under /our-work still pinned to a 32px gutter on a phone while its six
+          detail pages had already moved to 24px. */}
+      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-8">
         {/* The bar's negative margin has to equal the column's gutter or its
             background stops short of the content edge. It was `-mx-4` against a
             `px-4 sm:px-6 lg:px-8` wrapper, so it only lined up on phones and
             inset itself by 8px at `sm` and 16px at `lg`. One gutter now, one
-            offset. */}
-        <div className="sticky top-24 z-40 -mx-8 mb-12 flex flex-col gap-4 border-y border-surface/10 bg-background/90 px-8 py-4 shadow-lg backdrop-blur-md lg:flex-row lg:items-center lg:justify-between">
+            offset — and now that the gutter is responsive, the offset has to
+            step with it or the same bug returns at a different width. */}
+        <div className="sticky top-24 z-40 -mx-6 mb-10 flex flex-col gap-4 border-y border-surface/10 bg-background/90 px-6 py-4 shadow-lg backdrop-blur-md md:-mx-8 md:mb-12 md:px-8 lg:flex-row lg:items-center lg:justify-between">
           {/* Filters scroll on a phone and wrap on a laptop. A horizontal
               scroller is the right control at 390px and the wrong one at
               1280px, where all six chips fit and scrolling hides three of
               them behind a gesture nobody has a reason to try. */}
           <div
-            className="-mx-8 no-scrollbar flex gap-3 overflow-x-auto px-8 whitespace-nowrap lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0"
+            className="-mx-6 no-scrollbar flex gap-3 overflow-x-auto px-6 whitespace-nowrap md:-mx-8 md:px-8 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0"
             role="group"
             aria-label="Filter case studies by category"
           >
@@ -204,7 +208,7 @@ export function CaseStudiesPortfolio() {
         </div>
 
         {showFeatured && (
-          <div className="glass-panel group relative mb-12 flex flex-col overflow-hidden rounded-3xl border-primary/30 lg:flex-row">
+          <div className="glass-panel group relative mb-10 flex flex-col overflow-hidden rounded-3xl border-primary/30 md:mb-12 lg:flex-row">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-px bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -213,7 +217,12 @@ export function CaseStudiesPortfolio() {
                 512px wide and sits under a 70% black wash anyway, so the
                 narrower half both upscales less and gives the copy beside it a
                 column wide enough to hold a two-line heading. */}
-            <div className="relative min-h-[22rem] bg-black lg:w-1/2">
+            {/* 16rem on a phone, 22rem from `md`. This is a locked plate, not a
+                photograph anyone reads: 352px of it above the case study's own
+                title pushed the heading and both actions off a 390px screen
+                entirely, so the panel opened on a padlock and the visitor had
+                to scroll to find out what was locked. */}
+            <div className="relative min-h-[16rem] bg-black md:min-h-[22rem] lg:w-1/2">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-cover bg-center"
@@ -221,8 +230,8 @@ export function CaseStudiesPortfolio() {
                   backgroundImage: "url('/images/stitch/571d2d6c4f.jpg')",
                 }}
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 p-8 text-center backdrop-blur-sm">
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-primary bg-black/60 shadow-[0_0_20px_rgba(209,32,39,0.4)]">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 p-6 text-center backdrop-blur-sm md:p-8">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-primary bg-black/60 shadow-[0_0_20px_rgba(209,32,39,0.4)] md:mb-6 md:h-20 md:w-20">
                   <MaterialIcon
                     name="lock"
                     fill
@@ -248,7 +257,7 @@ export function CaseStudiesPortfolio() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col justify-center p-8 md:p-10 lg:w-1/2">
+            <div className="flex flex-col justify-center p-6 md:p-8 lg:w-1/2 lg:p-10">
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full border border-surface/10 bg-graphite px-3 py-1 font-label text-xs font-bold tracking-widest text-surface uppercase">
                   Petrofac

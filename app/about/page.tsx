@@ -186,7 +186,7 @@ export default function AboutPage() {
             marks a section heading, and it keeps the Signal Red on a mark rather
             than spending it on text that is neither active nor clickable. */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <div className="glass-panel rounded-3xl p-8 md:p-10 lg:col-span-5">
+          <div className="glass-panel rounded-3xl p-6 md:p-8 lg:col-span-5 lg:p-10">
             <h3 className="mb-5 flex items-center gap-3 font-headline text-xl font-bold text-surface">
               <span aria-hidden="true" className="block h-px w-8 bg-primary" />
               Mission
@@ -199,7 +199,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="glass-panel rounded-3xl p-8 md:p-10 lg:col-span-7">
+          <div className="glass-panel rounded-3xl p-6 md:p-8 lg:col-span-7 lg:p-10">
             <h3 className="mb-5 flex items-center gap-3 font-headline text-xl font-bold text-surface">
               <span aria-hidden="true" className="block h-px w-8 bg-primary" />
               Core Values
@@ -248,18 +248,24 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
           {deployment.map((item) => (
             <div
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               key={item.title}
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary">
-                <MaterialIcon
-                  name={item.icon}
-                  className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-                />
+              {/* Marker beside the title while the card is the full width of
+                  the column, above it once the grid splits — the same rule the
+                  homepage and the twelve detail pages follow, at the same 44px
+                  inline size. */}
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                  <MaterialIcon
+                    name={item.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {item.title}
+                </h3>
               </div>
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {item.title}
-              </h3>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {item.description}
               </p>

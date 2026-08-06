@@ -66,15 +66,22 @@ export function ServiceSection({
 }: ServiceSectionProps) {
   return (
     <section
+      // 64px of band padding on a phone, 96px from `md`. The 96px rhythm is a
+      // desktop measure: a service page stacks four or five of these bands, so
+      // at one column it was spending ~200px of pure air per band on the screen
+      // with the least of it to spare.
       className={cn(
-        "relative w-full py-24",
+        "relative w-full py-16 md:py-24",
         bandClasses[band],
         id && "scroll-mt-28",
         className
       )}
       id={id}
     >
-      <div className="mx-auto max-w-[1280px] px-8">
+      {/* 24px gutter opening to 32px at `md` — DESIGN.md's own Layout note,
+          which this component was pinning at 32px on every screen. On a 360px
+          phone that is 16px of content width per side handed back. */}
+      <div className="mx-auto max-w-[1280px] px-6 md:px-8">
         {align === "lead" ? (
           // One grid holds the header AND the children, which is what separates
           // this from `split`: the children are direct grid items, so the
@@ -119,7 +126,7 @@ export function ServiceSection({
                 // on a heading-and-lede band it was 64px of dead space against
                 // the section's own 96px padding, so the band read
                 // bottom-heavy and broke the rhythm this component enforces.
-                <div className={cn(children && "mb-16")}>
+                <div className={cn(children && "mb-12 md:mb-16")}>
                   {eyebrow && (
                     <SectionLabel className="mb-4 block">
                       {eyebrow}
@@ -151,7 +158,7 @@ export function ServiceSection({
                 <div
                   className={cn(
                     "flex flex-col items-center text-center",
-                    children && "mb-16"
+                    children && "mb-12 md:mb-16"
                   )}
                 >
                   {eyebrow && (

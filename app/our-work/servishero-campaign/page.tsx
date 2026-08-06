@@ -164,7 +164,7 @@ export default function ServisHeroCampaignPage() {
             size="lg"
           />
           <div className="grid grid-cols-1 gap-6">
-            <div className="glass-panel flex flex-col justify-center rounded-2xl border-primary/20 p-8">
+            <div className="glass-panel flex flex-col justify-center rounded-2xl border-primary/20 p-6 md:p-8">
               <MaterialIcon
                 name="movie_filter"
                 fill
@@ -178,7 +178,7 @@ export default function ServisHeroCampaignPage() {
                 while maximizing the cinematic scale of the facility.
               </p>
             </div>
-            <div className="glass-panel flex flex-col justify-center rounded-2xl p-8">
+            <div className="glass-panel flex flex-col justify-center rounded-2xl p-6 md:p-8">
               <h3 className="font-headline text-xl font-bold text-surface">
                 Color Grading
               </h3>
@@ -190,7 +190,7 @@ export default function ServisHeroCampaignPage() {
                   showed no colour the grade actually uses, and a decorative bar
                   in Signal Red spends the one signal the system has. */}
             </div>
-            <div className="glass-panel flex flex-col justify-center rounded-2xl p-8">
+            <div className="glass-panel flex flex-col justify-center rounded-2xl p-6 md:p-8">
               <h3 className="font-headline text-xl font-bold text-surface">
                 Technical Storyboarding
               </h3>
@@ -212,7 +212,7 @@ export default function ServisHeroCampaignPage() {
         <Readout as="p" className="mb-2 block text-primary">
           Phase 04: Completion
         </Readout>
-        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           {deliverables.map((item) => (
             <div className="border-t border-surface/10 py-8" key={item.title}>
               <MaterialIcon

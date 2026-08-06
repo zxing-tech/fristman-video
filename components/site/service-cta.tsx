@@ -48,8 +48,8 @@ export function ServiceCta({
   footnote,
 }: ServiceCtaProps) {
   return (
-    <section className="w-full bg-background pt-32">
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center px-8 text-center">
+    <section className="w-full bg-background pt-24 md:pt-32">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center px-6 text-center md:px-8">
         <SectionLabel className="mb-4 block">{eyebrow}</SectionLabel>
         <h2 className="max-w-3xl font-headline text-4xl leading-none font-black tracking-tight text-balance text-surface md:text-5xl">
           {title}
@@ -59,13 +59,17 @@ export function ServiceCta({
             {lede}
           </p>
         )}
-        <div className="mt-8 h-1 w-24 bg-primary" />
+        <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
         {actions ? (
-          <div className="mt-12 flex w-full flex-col items-center gap-4 sm:w-fit sm:flex-row">
+          <div className="mt-10 flex w-full flex-col items-center gap-4 sm:w-fit sm:flex-row md:mt-12">
             {actions}
           </div>
         ) : (
-          <CtaButton href={href} arrow className="mt-12 w-full sm:w-fit">
+          <CtaButton
+            href={href}
+            arrow
+            className="mt-10 w-full sm:w-fit md:mt-12"
+          >
             {action}
           </CtaButton>
         )}

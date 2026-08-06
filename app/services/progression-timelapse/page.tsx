@@ -157,21 +157,34 @@ export default function ProgressionTimelapsePage() {
       />
 
       <ServiceSection eyebrow="Who It Serves" title="Value for Stakeholders">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {/* Three across waits for `lg`. At 768px a third of this column is
+            218px, and after 32px of card padding each side that leaves 154px
+            of text — about 22 characters a line, where "Corporate Comms" breaks
+            in two and the body runs to nine lines. Two across in the tablet
+            band gives 276px and the last card sits alone, which is the honest
+            trade: a ragged row reads as a list of three, a 154px card reads as
+            a mistake. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {stakeholderCards.map((card) => (
             <div
-              className="glass-panel group flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
               key={card.title}
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary">
-                <MaterialIcon
-                  name={card.icon}
-                  className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-                />
+              {/* Marker beside the title below `md`, above it from `md` — the
+                  same inline rule the homepage cards follow, and 44px inline
+                  for the same reason: next to a 28px line box, 48px stops
+                  reading as a marker. */}
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                  <MaterialIcon
+                    name={card.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {card.title}
+                </h3>
               </div>
-              <h3 className="mb-3 font-headline text-xl font-bold text-surface">
-                {card.title}
-              </h3>
               <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {card.description}
               </p>
@@ -234,19 +247,31 @@ export default function ProgressionTimelapsePage() {
       </ServiceSection>
 
       <ServiceSection eyebrow="Output" title="Deliverables">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Two at `md`, not `sm`. Every card grid on the site now leaves one
+            column at the same breakpoint, which is what lets the inline-marker
+            rule below be one rule instead of a per-grid judgement: the marker
+            sits beside the title exactly while the card is the full width of
+            the column. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {deliverables.map((item) => (
             <div
               className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
               key={item.title}
             >
-              <MaterialIcon
-                name={item.icon}
-                className="mb-6 block text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
-              />
-              <h3 className="mb-2 font-headline text-base font-bold text-surface">
-                {item.title}
-              </h3>
+              {/* Glyph markers go inline on phone too, so the two card
+                  patterns on this page behave the same way at the same width.
+                  `shrink-0` matters here in a way it does not when stacked:
+                  a bare glyph in a flex row will otherwise compress against a
+                  long title like "Drone Aerial Photographs And Maintenance". */}
+              <div className="mb-3 flex items-center gap-4 md:mb-0 md:block">
+                <MaterialIcon
+                  name={item.icon}
+                  className="block shrink-0 text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1] md:mb-6"
+                />
+                <h3 className="font-headline text-base font-bold text-surface md:mb-2">
+                  {item.title}
+                </h3>
+              </div>
               <p className="font-body text-xs leading-relaxed text-industrial-grey">
                 {item.description}
               </p>
@@ -263,31 +288,38 @@ export default function ProgressionTimelapsePage() {
         {/* The timeline keeps a narrower measure than the section column: an
             alternating two-column layout stretched to 1280px puts the two
             halves too far apart to read as one sequence. */}
+        {/* The alternating two-column form waits for `lg`, not `md`.
+            Halving a 704px tablet column and taking 48px of inner gutter off
+            each side leaves 304px a side, so the phase description ran seven
+            lines against a 304x171 frame and the eye had to cross the spine on
+            every step to keep the pair together. Below `lg` the same content is
+            already a proper timeline — one spine down the left, marker, label,
+            frame — which is the form that actually suits a narrow column. */}
         <div className="relative mx-auto max-w-[64rem]">
           <div
             aria-hidden="true"
-            className="absolute top-0 bottom-0 left-6 w-px bg-surface/15 md:left-1/2 md:-translate-x-1/2"
+            className="absolute top-0 bottom-0 left-6 w-px bg-surface/15 lg:left-1/2 lg:-translate-x-1/2"
           />
-          <ol className="space-y-16 md:space-y-24">
+          <ol className="space-y-16 lg:space-y-24">
             {timelinePhases.map((item) => (
               <li
                 // items-start, not items-center: centring each half made the
                 // shorter one drift down the row, so the marker on the spine
                 // no longer lined up with the phase label it belongs to.
                 className={cn(
-                  "relative flex w-full flex-col items-start md:flex-row",
-                  item.reversed && "md:flex-row-reverse"
+                  "relative flex w-full flex-col items-start lg:flex-row",
+                  item.reversed && "lg:flex-row-reverse"
                 )}
                 key={item.phase}
               >
                 <span
                   aria-hidden="true"
-                  className="absolute top-1 left-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-primary bg-background md:left-1/2"
+                  className="absolute top-1 left-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-primary bg-background lg:left-1/2"
                 />
                 <div
                   className={cn(
-                    "mb-6 w-full pl-14 md:mb-0 md:w-1/2 md:pl-0",
-                    item.reversed ? "md:pl-12" : "md:pr-12 md:text-right"
+                    "mb-6 w-full pl-14 lg:mb-0 lg:w-1/2 lg:pl-0",
+                    item.reversed ? "lg:pl-12" : "lg:pr-12 lg:text-right"
                   )}
                 >
                   <span className="font-mono text-[10px] font-medium tracking-[0.15em] text-primary uppercase">
@@ -302,8 +334,8 @@ export default function ProgressionTimelapsePage() {
                 </div>
                 <div
                   className={cn(
-                    "w-full pl-14 md:w-1/2 md:pl-0",
-                    item.reversed ? "md:pr-12" : "md:pl-12"
+                    "w-full pl-14 lg:w-1/2 lg:pl-0",
+                    item.reversed ? "lg:pr-12" : "lg:pl-12"
                   )}
                 >
                   <div className="aspect-video w-full overflow-hidden rounded-2xl border border-surface/10 bg-black">

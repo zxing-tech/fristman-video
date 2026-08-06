@@ -201,7 +201,7 @@ export default function SyndelAsiaPage() {
         eyebrow="Project Output"
         title="Sample deliverables"
       >
-        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           {deliverables.map((item) => (
             <div className="border-t border-surface/10 py-8" key={item.title}>
               <MaterialIcon

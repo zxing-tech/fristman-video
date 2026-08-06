@@ -19,8 +19,10 @@ import { cn } from "@/lib/utils"
  * `auto-fit` collapses the empty tracks instead, so the last row always fills.
  *
  * The floor is deliberately wide enough that a phone gets ONE column, not two.
- * At 390px the column is 326px, and two 10rem tracks plus the 2.5rem gap need
- * 360px, so the strip stacks. That is the intent: the longest values here are
+ * At 390px the column is 342px — it was 326px until the gutter dropped to 24px
+ * below `md`, and the margin here was checked again after that — while two 10rem
+ * tracks plus the 2.5rem gap need 360px, so the strip still stacks. That is the
+ * intent: the longest values here are
  * "Safety and Induction Videos", "UAV / Site-Aware Systems" and "Strategic
  * Fabrication Yard & Marine Terminal", and at 147px a column they break to
  * three, four and six lines. A stacked spec sheet is taller but scans; a 2-up
@@ -42,7 +44,7 @@ export type CaseSpec = {
 export function CaseSpecs({ items }: { items: CaseSpec[] }) {
   return (
     <section className="w-full border-b border-surface/10 bg-dark-ui py-8">
-      <div className="mx-auto max-w-[1280px] px-8">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-8">
         <dl className="grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-x-10 gap-y-8">
           {items.map((item) => (
             <div key={item.label}>

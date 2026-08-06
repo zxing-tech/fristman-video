@@ -45,7 +45,17 @@ export function RelatedServices({
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {items.map((item) => (
           <Link
-            className="group flex items-center justify-between gap-6 rounded-2xl border border-surface/10 bg-background/40 p-8 transition-colors duration-300 hover:border-primary/50"
+            // 32px of padding each side, a 24px arrow and a 24px gap left the
+            // text column far narrower than the card looks: three separate
+            // things ate the row before the copy got any. Measured at 213px on
+            // a 326px phone card, and 218px at 768px, where this grid goes to
+            // two columns and each card is only 340px — the tablet was no
+            // better off than the phone.
+            //
+            // The 32px inset is a 1280-column value, so it waits for `lg`,
+            // where the card is 596px. Below that the same column measures
+            // 238px and 252px, and the title stops breaking after two words.
+            className="group flex items-center justify-between gap-4 rounded-2xl border border-surface/10 bg-background/40 p-6 transition-colors duration-300 hover:border-primary/50 lg:gap-6 lg:p-8"
             href={item.href}
             key={item.href}
           >

@@ -131,7 +131,7 @@ export function ServiceHero({
           primary button. The homepage keeps its footage unmarked for the same
           reason, and the breadcrumb, chip and readout already say "service
           detail" without drawing on the picture. */}
-      <div className="relative z-20 mx-auto w-full max-w-[1280px] px-8">
+      <div className="relative z-20 mx-auto w-full max-w-[1280px] px-6 md:px-8">
         {/* Breadcrumb and readout share one row and read as a status bar. */}
         <div className="mb-8 flex items-center justify-between gap-6 md:mb-10">
           <nav aria-label="Breadcrumb">
@@ -202,10 +202,15 @@ export function ServiceHero({
               font-stretch 100%, capped at the documented 72px. Sentence case,
               like the homepage h1 — capitals below this point belong to the
               12px Label role alone, and leading-[1.1] is the homepage's value,
-              which gives descenders the room all-caps did not need. */}
+              which gives descenders the room all-caps did not need.
+
+              The `sm` step closes a 36px-to-60px jump at 768px, and matches the
+              homepage h1's 36/48/60/72 ramp so a visitor arriving here from the
+              home hero does not meet a different display scale at the same
+              width. */}
           <h1
             className={cn(
-              "font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-white font-stretch-semi-condensed md:text-6xl lg:text-7xl",
+              "font-headline text-4xl leading-[1.1] font-black tracking-tight text-balance text-white font-stretch-semi-condensed sm:text-5xl md:text-6xl lg:text-7xl",
               HERO_TEXT_SHADOW
             )}
           >

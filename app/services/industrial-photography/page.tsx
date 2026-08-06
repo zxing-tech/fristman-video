@@ -81,13 +81,27 @@ export default function IndustrialPhotographyPage() {
       >
         {/* Four columns at lg, two at md, so the 2x2 anchor always lands on a
             whole number of tracks and the grid never ends ragged. Rows grow
-            with their content instead of clipping at a fixed 240px. */}
-        <div className="grid auto-rows-[minmax(15rem,auto)] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            with their content instead of clipping at a fixed 240px.
+
+            The row span is `lg` only. At four columns the anchor is a 2x2 block
+            with the other four cards filling the two tracks beside it — the
+            shape the layout is built around. At two columns that same span
+            claims BOTH tracks for two whole rows, so the anchor became a
+            full-width 504px slab and everything else was pushed below it. Full
+            width for one row is the tablet form; the span is what makes it an
+            anchor, and there is nothing left to anchor against. */}
+        {/* The 15rem row floor is a multi-column device: it keeps the tracks
+            even so the 2x2 anchor and the cards beside it line up. At one
+            column there is nothing to line up with, and it became a 240px
+            minimum on cards holding a glyph, a 16px title and two lines — which
+            `justify-between` then spread to the corners. Below `md` the rows
+            size to their content and the cards close up on their own. */}
+        <div className="grid grid-cols-1 gap-6 md:auto-rows-[minmax(15rem,auto)] md:grid-cols-2 lg:grid-cols-4">
           {/* Anchor: structural phase records */}
           <PhotoCard
             alt="Aerial view of an oil refinery lit at night, distillation towers and pipework under a dusk sky"
             body="Visual records of critical build and installation phases, captured alongside the compliance checkpoints that sign each one off, for internal archives and external reporting."
-            className="md:col-span-2 md:row-span-2"
+            className="md:col-span-2 lg:row-span-2"
             icon="domain"
             image="/images/pexels/photo-structural-phase.jpg"
             size="lg"
