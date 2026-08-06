@@ -332,23 +332,25 @@ html {
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
 
-  /* The 4rem gap is a desktop value. Measured on a 390px viewport: with the
-     row inset by the page gutter it left a 326px window, and at 96px per logo
-     plus a 64px gap exactly TWO logos were ever on screen — a peephole onto the
-     one complete piece of proof the site has (28 client marks, permission on
-     file). Halving the gap below `md`, together with the row going full-bleed
-     there, puts four in view instead. The cycle time is unchanged; what changes
-     is how much of the roster a phone visitor reads per glance. */
+  /* The gap is the space BETWEEN cells, and the cell now carries its own: since
+     2026-08-06 each logo scrolls inside a fixed 128/160px column with its client
+     name captioned beneath it, so the mark no longer sits flush against the gap.
+     The values came down with it — 4rem to 2.5rem on desktop, 2rem to 1.5rem
+     below `md` — which keeps the pitch per client close to what it was before
+     the captions (208px to 200px on desktop) rather than paying for the column
+     twice. The earlier note still holds: on a 390px viewport this row is the one
+     thing that goes full-bleed, and the gap is what decides how much of the
+     roster a phone visitor reads per glance. */
   .marquee-track {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     width: max-content;
   }
 
   @media (width >= 48rem) {
     .marquee-track {
-      gap: 4rem;
+      gap: 2.5rem;
     }
   }
 
@@ -358,6 +360,22 @@ html {
 
   .animate-marquee-right {
     animation: marquee-right 55s linear infinite;
+  }
+
+  /* Duration is a proxy for reading speed, not a style: the animation always
+     travels exactly half the track, so a wider track at a fixed duration scrolls
+     faster. The captioned cells took the mobile pitch from 128px to 152px per
+     client (1.19x), and these durations give that back so a phone reads the
+     roster at the same px/s it did before — which is the only speed anyone
+     measured. Desktop is untouched; there the pitch got slightly tighter. */
+  @media (width < 48rem) {
+    .animate-marquee-left {
+      animation-duration: 54s;
+    }
+
+    .animate-marquee-right {
+      animation-duration: 66s;
+    }
   }
 }
 

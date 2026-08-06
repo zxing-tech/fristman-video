@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 
 export const metadata = pageMeta({
   description:
-    "Industrial drone cinematography for Oil & Gas and heavy industry. Cinematic UAV, timelapse and ground-based visual documentation across Malaysia & Southeast Asia.",
+    "Industrial drone cinematography for Oil & Gas and heavy industry. Cinematic UAV, timelapse and ground-based video documentation across Malaysia & Southeast Asia.",
   path: "/",
 })
 
@@ -84,10 +84,9 @@ const clienteleLogos = [
   { src: "/images/clients/clientele-20.png", alt: "Heerema" },
   // JPS is a mark with no wordmark, and its five waves are separated by hue
   // rather than by value — greyscaled they collapse into one near-uniform
-  // ribbon. It is the only logo on this wall that cannot say its own name.
-  // Kept because it is a real client mark and the alt text names it for
-  // assistive tech, but a lock-up version with the lettering would earn its
-  // place here properly. See the note in ATTRIBUTIONS.md.
+  // ribbon. It was the only logo on this wall that could not say its own name;
+  // the caption under every mark now says it for all of them. A lock-up version
+  // with the lettering would still read better. See the note in ATTRIBUTIONS.md.
   { src: "/images/clients/clientele-21.png", alt: "JPS" },
 ]
 
@@ -111,6 +110,13 @@ const regionalCoverage = [
 // The logo wall is the one complete piece of proof on the site, so the marquee
 // stays a plain <img> (next/image would fight the duplicated loop track). Explicit
 // intrinsic dimensions keep the row from collapsing before the logos decode.
+//
+// Every mark is captioned with its client's name. Greyscaling is what forces it:
+// JPS is a wordmark-less roundel whose five waves separate by hue and collapse
+// into one grey ribbon, arc and BTL are initials, and Sapura, MMHE and Heerema
+// are names a visitor outside Oil & Gas cannot read off a monochrome lock-up. A
+// roster only counts as evidence if the reader can name who is on it, and the
+// primary buyer in PRODUCT.md is scanning for names they recognise, not shapes.
 function LogoRow({
   label,
   logos,
@@ -120,24 +126,53 @@ function LogoRow({
   logos: { src: string; alt: string }[]
   direction: "left" | "right"
 }) {
+  // The cell is what the track now scrolls, not the bare image: a fixed-width
+  // column holding the mark above its name. Fixed width because the logos all
+  // share one canvas ratio and so render at one width (96px at h-16, 144px at
+  // h-24) — the name is the only thing with a variable measure, and a column
+  // that resizes per client would make the row read as debris. 128/160px holds
+  // the longest single word on the roster ("COMMUNICATIONS", ~112px at 12px)
+  // without hyphenating it.
+  //
+  // `self-start` overrides the track's `align-items: center`. Without it a
+  // two-line caption re-centres its whole cell and drops that logo a few pixels
+  // below its neighbours; top-aligned, the marks stay on one line whatever the
+  // captions below them do.
+  const cellClass =
+    "group flex w-32 shrink-0 flex-col items-center gap-3 self-start md:w-40 md:gap-4"
+
   const logoClass =
-    "h-16 md:h-24 w-auto object-contain shrink-0 opacity-90 hover:opacity-100 dark:invert dark:opacity-75 dark:hover:opacity-100 transition-opacity duration-300"
+    "h-16 md:h-24 w-auto object-contain opacity-90 group-hover:opacity-100 dark:invert dark:opacity-75 dark:group-hover:opacity-100 transition-opacity duration-300"
+
+  // Label role at its documented 12px. Tracking drops to 0.05em rather than the
+  // role's 0.1em for the same reason button text does: these hold up to three
+  // words, and 0.1em pushes "Toastmasters International" onto a third line.
+  const nameClass =
+    "text-center font-label text-xs leading-tight font-bold tracking-wider text-balance text-industrial-grey uppercase transition-colors duration-300 group-hover:text-surface"
 
   return (
     // The category chip stacks above the row on narrow screens. Inline, it ate
     // 104px of a 375px viewport and left the marquee a ~190px window showing one
     // logo at a time — a peephole onto the page's only real proof. Below `md`
     // the logos get the full column and the chip becomes a heading for them.
-    <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-8">
+    //
+    // Centred rather than left-aligned there, because the row it heads has no
+    // left edge to align to: the marquee runs full-bleed under a mask that fades
+    // both ends, so a flush-left chip pointed at a logo half-dissolved by the
+    // mask. Centred, it reads as the row's title — matching the section heading
+    // above it, which is centred too. `items-center` covers the desktop row as
+    // well, where the cross axis is vertical.
+    <div className="flex flex-col items-center gap-3 md:flex-row md:gap-8">
       {/* Stays the Label role's 12px at every size. It ran at 11px to fit a
           104px pill; the pill is the thing that should give, not the type — a
           role defined as "12px, 700, 0.1em" has nowhere below it to go. */}
       <span className="w-[124px] shrink-0 rounded-full bg-primary px-5 py-2.5 text-center font-label text-xs font-bold tracking-wider text-white uppercase md:w-[150px] md:px-8">
         {label}
       </span>
-      {/* `w-full` is required, not belt-and-braces: the wrapper is `items-start`
-          on mobile, so a flex child would otherwise shrink to its content width
-          and the track would have nothing to scroll across.
+      {/* The explicit width is required, not belt-and-braces: the wrapper aligns
+          its children on the cross axis rather than stretching them, so a flex
+          child left to itself would shrink to its content width and the track
+          would have nothing to scroll across.
 
           Below `md` the row is the one thing on this page that breaks the 1280
           column, and it earns it: giving the gutter back buys 48px of window on
@@ -157,33 +192,42 @@ function LogoRow({
           )}
         >
           {logos.map((logo) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={logo.src}
-              src={logo.src}
-              alt={logo.alt}
-              width={180}
-              height={120}
-              loading="lazy"
-              decoding="async"
-              className={logoClass}
-            />
+            <figure key={logo.src} className={cellClass}>
+              {/* The caption is the accessible name now, so the mark itself is
+                  decorative — alt text here would announce every client twice. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.src}
+                alt=""
+                width={180}
+                height={120}
+                loading="lazy"
+                decoding="async"
+                className={logoClass}
+              />
+              <figcaption className={nameClass}>{logo.alt}</figcaption>
+            </figure>
           ))}
           {/* Second pass exists only so the track can loop seamlessly at -50%.
-              Hidden from assistive tech so the names are not announced twice. */}
+              Hidden from assistive tech so the roster is not read out twice. */}
           {logos.map((logo) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <figure
               key={`${logo.src}-loop`}
-              src={logo.src}
-              alt=""
               aria-hidden="true"
-              width={180}
-              height={120}
-              loading="lazy"
-              decoding="async"
-              className={logoClass}
-            />
+              className={cellClass}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.src}
+                alt=""
+                width={180}
+                height={120}
+                loading="lazy"
+                decoding="async"
+                className={logoClass}
+              />
+              <figcaption className={nameClass}>{logo.alt}</figcaption>
+            </figure>
           ))}
         </div>
       </div>
@@ -344,10 +388,10 @@ export default function HomePage() {
               the one thing here that read as an accident. */}
           <div className="mb-12 flex flex-col items-center text-center md:mb-16">
             <SectionLabel className="mb-4 block">
-              Core Capabilities
+              Our Core Services
             </SectionLabel>
             <h2 className="font-headline text-4xl font-black md:text-5xl">
-              Our Core Services
+              Aerial and Ground Visual Solutions
             </h2>
             <div className="mt-6 h-1 w-24 bg-primary md:mt-8" />
           </div>
