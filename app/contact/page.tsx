@@ -3,7 +3,14 @@ import Link from "next/link"
 import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { Readout } from "@/components/site/readout"
-import { SITE, breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import {
+  OFFICE_READOUT,
+  REGISTRATION,
+  SITE,
+  breadcrumbSchema,
+  graph,
+  pageMeta,
+} from "@/lib/seo"
 
 import { ConsultationForm } from "./consultation-form"
 
@@ -23,28 +30,27 @@ const schema = graph(
 
 /**
  * The fallback routes, for the visitor who will not fill a form. One list, not
- * five cards: these are four short strings each, and a card apiece spent 616px
- * of column on them while nesting a box inside the box beside the form.
+ * a card apiece: these are four short strings each, and cards spent 616px of
+ * column on them while nesting a box inside the box beside the form.
  *
- * Every number here is a `tel:` link now, the two mobiles included. They were
- * plain text on a `cursor-pointer` div — a card that looked clickable, was not,
- * and sat next to three that were.
+ * Every number here is a `tel:` link. They were plain text on a
+ * `cursor-pointer` div — a card that looked clickable, was not, and sat next to
+ * others that were.
  */
 const channels: {
   icon: string
   label: string
   values: { text: string; href?: string; external?: boolean }[]
 }[] = [
-  {
-    icon: "deskphone",
-    label: "Office",
-    values: [{ text: "+603 7968 6737", href: "tel:+60379686737" }],
-  },
+  // The office landline went on 2026-08-06 at the owner's instruction. The
+  // first mobile below is the one JSON-LD publishes, so it reads from `SITE`
+  // rather than being typed again — the number a search engine serves and the
+  // number on this page cannot drift apart.
   {
     icon: "smartphone",
     label: "Mobile",
     values: [
-      { text: "+6017 356 3598", href: "tel:+60173563598" },
+      { text: SITE.telephoneDisplay, href: `tel:${SITE.telephone}` },
       { text: "+6012 327 6737", href: "tel:+60123276737" },
     ],
   },
@@ -149,7 +155,7 @@ export default function ContactPage() {
                 3.95:1 on the dark page — under AA, for a string that is neither
                 active nor clickable. Industrial Grey measures 5.29:1. */}
             <Readout className="hidden shrink-0 text-industrial-grey md:block">
-              KELANA JAYA // SELANGOR, MY
+              {OFFICE_READOUT}
             </Readout>
           </div>
 
@@ -207,10 +213,10 @@ export default function ContactPage() {
             <div className="mt-8 flex flex-wrap gap-3 lg:hidden">
               <a
                 className="group flex items-center gap-2 rounded-full border border-surface/25 bg-surface/5 px-5 py-2.5 font-label text-xs font-bold tracking-wider text-surface uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
-                href="tel:+60379686737"
+                href={`tel:${SITE.telephone}`}
               >
                 <MaterialIcon name="call" fill className="text-base!" />
-                Call the office
+                Call us
               </a>
               <a
                 className="group flex items-center gap-2 rounded-full border border-surface/25 bg-surface/5 px-5 py-2.5 font-label text-xs font-bold tracking-wider text-surface uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
@@ -318,13 +324,20 @@ export default function ContactPage() {
                     <p className="font-body text-sm font-bold text-surface">
                       {SITE.legalName}{" "}
                       <span className="font-medium text-industrial-grey tabular-nums">
-                        ({SITE.registration})
+                        Co Reg: {REGISTRATION}
                       </span>
                     </p>
+                    {/* Broken where the owner breaks it, not where the measure
+                        runs out: the unit holds its own line, the street and
+                        neighbourhood share one, and the postcode leads the city
+                        the way a Malaysian address is written. An address is
+                        read as a block to be copied, not as prose. */}
                     <p className="mt-1 font-body text-sm leading-relaxed text-pretty text-industrial-grey">
-                      {SITE.address.street},
+                      {SITE.address.unit},
                       <br />
-                      {SITE.address.locality}, {SITE.address.postalCode}{" "}
+                      {SITE.address.street}, {SITE.address.district},
+                      <br />
+                      {SITE.address.postalCode} {SITE.address.locality},{" "}
                       {SITE.address.region}, Malaysia
                     </p>
                   </div>

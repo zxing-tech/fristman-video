@@ -140,13 +140,21 @@ Industrial Photography.
 
 ## Brand Commitments
 
-- **Nama dagang:** Firstman Videos. **Badan hukum:** Firstman Productions
-  (001335693-M). Keduanya harus muncul benar; jangan disamakan.
+- **Nama dagang:** Firstman Videos. **Badan hukum:** Firstman Productions,
+  Co Reg 200203019239 (001335693-M). Keduanya harus muncul benar; jangan
+  disamakan. Dua nomor itu satu perusahaan yang sama: 200203019239 adalah nomor
+  di bawah Companies Act 2016, 001335693-M nomor SSM lama yang digantikannya dan
+  yang masih tercetak di kontrak serta dokumen tender lama — keduanya tayang
+  berdampingan, jangan salah satunya dibuang.
 - **Tagline:** "Industrial Cinematography for Oil & Gas and Heavy Industry."
 - **Kontak resmi** (`lib/seo.ts` → `SITE`): info@firstmanvideos.com,
-  +603 7968 6737, +6017 356 3598, +6012 327 6737,
-  facebook.com/firstmanvideos, No. 39-G, Block D, No. 1, Jalan SS7/26,
-  Kelana Jaya, 47301 Selangor, Malaysia.
+  +6017 356 3598 (nomor utama, ini yang diterbitkan JSON-LD),
+  +6012 327 6737, facebook.com/firstmanvideos, S-025, 2nd Floor, Seasons Square,
+  Jalan PJU 10/3C, Damansara Damai, 47830 Petaling Jaya, Selangor, Malaysia.
+  Alamat dan nomor registrasi diperbarui pemilik pada **2026-08-06** —
+  menggantikan alamat Kelana Jaya yang lama, yang tidak boleh muncul lagi di
+  mana pun. Pada tanggal yang sama pemilik **mencabut nomor kantor
+  +603 7968 6737**; nomor itu jangan dihidupkan lagi, termasuk di JSON-LD.
 - **Batasan suara — mengikat, dari klien sendiri (2026-08-04, verbatim):**
 
   > "Our clients will want to see the actual work we've done and not just read

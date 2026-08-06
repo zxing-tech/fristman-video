@@ -4,7 +4,14 @@ import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
-import { SITE, breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import {
+  OFFICE_READOUT,
+  REGISTRATION,
+  SITE,
+  breadcrumbSchema,
+  graph,
+  pageMeta,
+} from "@/lib/seo"
 
 export const metadata = pageMeta({
   title: "About Us — Industrial Video Production",
@@ -123,8 +130,8 @@ export default function AboutPage() {
         breadcrumb="About Us"
         chip="Verified Operator"
         chipIcon="verified_user"
-        lede="We are an industrial cinematography and visual documentation team built for oil & gas operators, heavy industry projects and large-scale stakeholder communication across Southeast Asia."
-        readout="KELANA JAYA // SELANGOR, MY"
+        lede="We are an industrial cinematography and video documentation team built for oil & gas operators, heavy industry projects and large-scale stakeholder communication across Southeast Asia."
+        readout={OFFICE_READOUT}
         title="About Firstman Videos"
         actions={
           <>
@@ -153,8 +160,8 @@ export default function AboutPage() {
           // noindex thank-you pages.
           <p className="max-w-[64ch] border-t border-white/15 pt-6 font-body text-sm leading-relaxed text-white/70">
             Firstman Videos is the industrial video production brand of{" "}
-            <span className="font-bold text-white">{SITE.legalName}</span> (
-            {SITE.registration}).
+            <span className="font-bold text-white">{SITE.legalName}</span>, Co
+            Reg: {REGISTRATION}.
           </p>
         }
       />
@@ -163,7 +170,7 @@ export default function AboutPage() {
         align="split"
         eyebrow="Background"
         title="Our story"
-        lede="Founded as First Man Productions, we evolved from video production excellence into specialized industrial cinematography and visual documentation designed explicitly for complex, high-risk operational sites. We bridge the gap between creative storytelling and rigorous technical documentation."
+        lede="Founded as First Man Productions, we evolved from video production excellence into specialized industrial cinematography and video documentation designed explicitly for complex, high-risk operational sites. We bridge the gap between creative storytelling and rigorous technical documentation."
       >
         {/* Mission and the four values were two separate full-width sections —
             two `p-16` panels holding four lines each, then four `p-8` cards
