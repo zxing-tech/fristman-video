@@ -34,7 +34,7 @@ const jsonLd = graph(
   creativeWorkSchema({
     name: "Ben Line Agencies",
     description:
-      "Drone-enabled cinematography and visual documentation of Ben Line Agencies' logistics hubs and port operations in Southeast Asia.",
+      "Drone-enabled cinematography and video documentation of Ben Line Agencies' logistics hubs and port operations in Southeast Asia.",
     path: "/our-work/ben-line-agencies",
     client: "Ben Line Agencies",
     image: "/images/stitch/a73f0ee0ad.jpg",
@@ -71,7 +71,7 @@ export default function BenLineAgenciesPage() {
             <span className="text-primary">Logistics visual reference</span>
           </>
         }
-        lede="A comprehensive visual documentation project focusing on drone-enabled cinematography for complex logistics hubs and port operations. Capturing scale and operational flow without site interference."
+        lede="A comprehensive video documentation project focusing on drone-enabled cinematography for complex logistics hubs and port operations. Capturing scale and operational flow without site interference."
         actions={
           <>
             <CtaButton href="/contact" arrow className="w-full sm:w-fit">

@@ -48,7 +48,7 @@ export const services: Service[] = [
   {
     slug: "progression-timelapse",
     href: "/services/progression-timelapse",
-    title: "Progression & Timelapse Documentation",
+    title: "Construction Progress & Timelapse Capture",
     icon: "timelapse",
     summary:
       "Automated interval camera setups tracking multi-year site changes.",

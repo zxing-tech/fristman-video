@@ -106,11 +106,11 @@ export default function SyndelAsiaPage() {
           <>
             Syndel Asia&nbsp;—{" "}
             <span className="text-primary">
-              Industrial visual documentation reference
+              Industrial video documentation reference
             </span>
           </>
         }
-        lede="A comprehensive visual documentation project for Syndel Asia, focused on capturing the operational scale and safety protocols of their industrial hub. This cinematic reference serves as the primary visual foundation for their stakeholder reporting and site-awareness training modules."
+        lede="A comprehensive video documentation project for Syndel Asia, focused on capturing the operational scale and safety protocols of their industrial hub. This cinematic reference serves as the primary visual foundation for their stakeholder reporting and site-awareness training modules."
         actions={
           <>
             <CtaButton href="/contact" arrow className="w-full sm:w-fit">
@@ -243,11 +243,11 @@ export default function SyndelAsiaPage() {
       <ServiceCta
         eyebrow="Confidential Asset Portal"
         title="Restricted access only"
-        lede="The full high-fidelity visual documentation library for Syndel Asia contains sensitive site-aware assets. Access is restricted to authorized personnel and verified project stakeholders."
+        lede="The full high-fidelity video documentation library for Syndel Asia contains sensitive site-aware assets. Access is restricted to authorized personnel and verified project stakeholders."
         actions={
           <>
             <RequestAccessTrigger
-              defaultVideo="Syndel Asia — Industrial Visual Documentation Reference"
+              defaultVideo="Syndel Asia — Industrial Video Documentation Reference"
               className={ctaClasses({ className: "w-full sm:w-fit" })}
             >
               <MaterialIcon name="key" className="text-lg!" />

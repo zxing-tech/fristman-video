@@ -16,7 +16,7 @@ import {
 export const metadata = pageMeta({
   title: "Petrofac Kemaman Supply Base Video Case Study",
   description:
-    "Petrofac Kemaman Supply Base case study: safety induction and visual documentation at an Oil & Gas site in Malaysia. Gated video, access requires clearance.",
+    "Petrofac Kemaman Supply Base case study: safety induction and video documentation at an Oil & Gas site in Malaysia. Gated video, access requires clearance.",
   path: "/our-work/petrofac-kemaman",
   ogImage: "/images/stitch/920da913d9.jpg",
   ogType: "article",

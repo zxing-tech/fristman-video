@@ -72,7 +72,7 @@ const deliverables = [
   },
   {
     icon: "photo_library",
-    title: "Drone Aerial Photographs And Maintenance The Explanation",
+    title: "Drone Aerial Photographs",
     description:
       "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
   },
@@ -89,7 +89,7 @@ const timelinePhases = [
     phase: "Phase 01",
     title: "Site Establishment",
     description:
-      "Initial visual documentation capturing bare ground, initial grading, and perimeter setup before structural work commences.",
+      "Initial video documentation capturing bare ground, initial grading, and perimeter setup before structural work commences.",
     image: "/images/pexels/progress-phase-01-site.jpg",
     alt: "Aerial view of a single excavator on bare, graded earth, with no structures yet in place",
     reversed: false,
@@ -131,7 +131,7 @@ export default function ProgressionTimelapsePage() {
       <ServiceHero
         breadcrumb="Progression & Timelapse"
         chip="Long-Term Documentation"
-        lede="Visual documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones."
+        lede="Video documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones."
         readout="INTERVAL CAPTURE // MULTI-YEAR"
         title={
           <>
@@ -203,7 +203,7 @@ export default function ProgressionTimelapsePage() {
           <div>
             <p className="font-body leading-relaxed text-industrial-grey">
               Methodical, site-aware planning for chronicling long-term project
-              lifecycles. We prioritize safe, unobtrusive visual documentation
+              lifecycles. We prioritize safe, unobtrusive video documentation
               that aligns with industrial operations.
             </p>
             <ul className="mt-8 space-y-4">

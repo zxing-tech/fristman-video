@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
           <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-industrial-grey">
             Real projects. Real results. Explore how Firstman Videos supports
             oil &amp; gas and heavy industry teams with industrial
-            cinematography, visual documentation and stakeholder-ready media.
+            cinematography, video documentation and stakeholder-ready media.
           </p>
         </div>
       </header>
@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
 
       <ServiceCta
         title="Need a similar project documented?"
-        lede="Connect with our team to discuss your operational requirements, safety protocols, and visual documentation objectives."
+        lede="Connect with our team to discuss your operational requirements, safety protocols, and video documentation objectives."
         action="Request a Similar Project"
       />
     </main>

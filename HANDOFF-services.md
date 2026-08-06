@@ -20,7 +20,7 @@ Dua judul deliverable jelas kacau susunannya dan perlu ditulis ulang oleh
 pemilik, bukan ditebak:
 
 - "Milestone Reels To Reports"
-- "Drone Aerial Photographs And Maintenance The Explanation"
+- "Drone Aerial Photographs "
 
 ## 3. Navbar pecah di sekitar 834px
 

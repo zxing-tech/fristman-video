@@ -72,7 +72,7 @@ const workflowSteps = [
     number: "02",
     title: "Site Planning",
     description:
-      "Reviewing site access, evaluating safety constraints, and scheduling industrial visual documentation.",
+      "Reviewing site access, evaluating safety constraints, and scheduling industrial video documentation.",
   },
   {
     number: "03",

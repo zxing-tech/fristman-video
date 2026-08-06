@@ -107,7 +107,7 @@ export default function EcoBalanceCaseStudyPage() {
             reference
           </>
         }
-        lede="This project serves as a definitive reference for drone-enabled cinematography within high-stakes corporate communication environments. Our approach prioritized site-aware planning and precision visual documentation to capture the scale of EcoBalance's industrial operations without disrupting established safety protocols or operational workflows."
+        lede="This project serves as a definitive reference for drone-enabled cinematography within high-stakes corporate communication environments. Our approach prioritized site-aware planning and precision video documentation to capture the scale of EcoBalance's industrial operations without disrupting established safety protocols or operational workflows."
         actions={
           <>
             <CtaButton href="/contact" arrow className="w-full sm:w-fit">

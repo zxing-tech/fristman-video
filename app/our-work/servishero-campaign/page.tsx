@@ -149,7 +149,7 @@ export default function ServisHeroCampaignPage() {
         band="panel"
         eyebrow="Approach"
         title="Visual storytelling approach"
-        lede="Leveraging drone-enabled cinematic strategy for precise industrial visual documentation."
+        lede="Leveraging drone-enabled cinematic strategy for precise industrial video documentation."
       >
         {/* Two photographs and two statements, alternating. The bento this
             replaced ran two `h-80` photo panels the width of two thirds of the
@@ -260,7 +260,7 @@ export default function ServisHeroCampaignPage() {
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="space-y-6">
             <p className="max-w-[62ch] font-body leading-relaxed text-industrial-grey">
-              All industrial visual documentation for the ServisHero campaign
+              All industrial video documentation for the ServisHero campaign
               followed rigorous safety standards. Our crews are trained for
               high-risk site environments, ensuring zero interference with
               active operations.

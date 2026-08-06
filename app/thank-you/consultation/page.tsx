@@ -56,7 +56,7 @@ export default function ThankYouConsultationPage() {
             REQUEST RECEIVED
           </h1>
           <p className="mx-auto max-w-2xl text-lg leading-relaxed font-light text-white/70">
-            Your enquiry for industrial visual documentation has been
+            Your enquiry for industrial video documentation has been
             successfully logged into our production pipeline.
           </p>
         </div>

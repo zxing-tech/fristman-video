@@ -172,7 +172,7 @@ export default function ThankYouCaseStudyAccessPage() {
             Confidentiality Notice: Access is subject to manual review due to
             the restricted nature of certain industrial footage involving
             sensitive assets. Firstman Videos maintains strict drone-enabled
-            visual documentation protocols to protect client intellectual
+            video documentation protocols to protect client intellectual
             property and site security.
           </p>
         </div>
