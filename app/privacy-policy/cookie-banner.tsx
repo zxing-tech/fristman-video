@@ -11,37 +11,38 @@ export function CookieBanner() {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-40 p-4 pointer-events-none">
-      <div className="max-w-4xl mx-auto glass-panel rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-2xl pointer-events-auto border-t border-primary/30">
+    <div className="pointer-events-none fixed bottom-0 left-0 z-40 w-full p-4">
+      <div className="glass-panel pointer-events-auto mx-auto flex max-w-4xl flex-col items-center gap-6 rounded-2xl border-t border-primary/30 p-6 shadow-2xl md:flex-row">
         <div className="flex-grow">
-          <h4 className="text-surface font-bold uppercase text-sm mb-1 flex items-center gap-2">
-            <MaterialIcon name="cookie" className="text-primary text-[18px]" />
+          <h4 className="mb-1 flex items-center gap-2 text-sm font-bold text-surface uppercase">
+            <MaterialIcon name="cookie" className="text-[18px] text-primary" />
             Telemetry &amp; Tracking
           </h4>
-          <p className="text-xs text-industrial-grey leading-relaxed">
-            This platform utilizes operational cookies to ensure interface stability and anonymized
-            telemetry to optimize delivery of high-resolution industrial media. Please authorize
-            non-essential tracking.
+          <p className="text-xs leading-relaxed text-industrial-grey">
+            This platform utilizes operational cookies to ensure interface
+            stability and anonymized telemetry to optimize delivery of
+            high-resolution industrial media. Please authorize non-essential
+            tracking.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
+        <div className="flex min-w-fit flex-col gap-3 sm:flex-row">
           <Link
             href="/privacy-policy"
-            className="px-5 py-2 rounded-full border border-surface/20 text-industrial-grey text-xs font-bold uppercase tracking-widest hover:text-surface transition-colors text-center"
+            className="rounded-full border border-surface/20 px-5 py-2 text-center text-xs font-bold tracking-widest text-industrial-grey uppercase transition-colors hover:text-surface"
           >
             Manage
           </Link>
           <button
             type="button"
             onClick={() => setVisible(false)}
-            className="px-5 py-2 rounded-full border border-surface/20 text-surface text-xs font-bold uppercase tracking-widest hover:bg-surface/10 transition-colors"
+            className="rounded-full border border-surface/20 px-5 py-2 text-xs font-bold tracking-widest text-surface uppercase transition-colors hover:bg-surface/10"
           >
             Necessary
           </button>
           <button
             type="button"
             onClick={() => setVisible(false)}
-            className="px-5 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-background border border-transparent hover:border-primary transition-all"
+            className="rounded-full border border-transparent bg-primary px-5 py-2 text-xs font-bold tracking-widest text-white uppercase transition-all hover:border-primary hover:bg-background"
           >
             Accept All
           </button>

@@ -34,51 +34,54 @@ const steps = [
 
 export default function ThankYouConsultationPage() {
   return (
-    <main className="relative min-h-screen pt-32 pb-20 flex flex-col items-center justify-center">
+    <main className="relative flex min-h-screen flex-col items-center justify-center pt-32 pb-20">
       {/* Cinematic Background Image — dark in both themes so white copy stays readable */}
       <div className="absolute inset-0 z-0 bg-black">
         <div
           aria-hidden="true"
-          className="w-full h-full bg-cover bg-center opacity-40 grayscale"
+          className="h-full w-full bg-cover bg-center opacity-40 grayscale"
           style={{ backgroundImage: "url('/images/stitch/163ca894fb.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black" />
       </div>
-      <div className="container max-w-5xl px-6 relative z-10 text-center mx-auto">
+      <div className="relative z-10 container mx-auto max-w-5xl px-6 text-center">
         {/* Header */}
         <div className="mb-12">
-          <span className="inline-block px-4 py-1 border border-primary/30 rounded-full text-primary text-[10px] tracking-[0.3em] font-bold mb-6 bg-primary/5 uppercase">
+          <span className="mb-6 inline-block rounded-full border border-primary/30 bg-primary/5 px-4 py-1 text-[10px] font-bold tracking-[0.3em] text-primary uppercase">
             Request Logged
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-wide md:tracking-widest uppercase mb-6 leading-tight text-white">
-            THANK YOU — <span className="text-primary">CONSULTATION</span> REQUEST RECEIVED
+          <h1 className="mb-6 text-3xl leading-tight font-black tracking-wide text-white uppercase font-stretch-semi-condensed sm:text-4xl md:text-6xl md:tracking-widest">
+            THANK YOU — <span className="text-primary">CONSULTATION</span>{" "}
+            REQUEST RECEIVED
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-            Your enquiry for industrial visual documentation has been successfully logged into our
-            production pipeline.
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed font-light text-white/70">
+            Your enquiry for industrial video documentation has been
+            successfully logged into our production pipeline.
           </p>
         </div>
         {/* Enquiry Summary Card */}
-        <div className="glass-panel rounded-2xl p-8 mb-16 text-left max-w-3xl mx-auto relative overflow-hidden group shadow-[0_0_40px_-10px_rgba(209,32,39,0.2)]">
-          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
+        <div className="glass-panel group relative mx-auto mb-16 max-w-3xl overflow-hidden rounded-2xl p-8 text-left shadow-[0_0_40px_-10px_rgba(209,32,39,0.2)]">
+          <div className="absolute top-0 right-0 p-4 opacity-20 transition-opacity group-hover:opacity-40">
             <MaterialIcon name="verified" className="text-6xl text-primary" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
+              <p className="mb-1 text-[10px] tracking-widest text-white/50 uppercase">
                 Project Scope
               </p>
-              <p className="font-semibold text-white">Site-Aware Documentation</p>
+              <p className="font-semibold text-white">
+                Site-Aware Documentation
+              </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
+              <p className="mb-1 text-[10px] tracking-widest text-white/50 uppercase">
                 Region
               </p>
               <p className="font-semibold text-white">Industrial Corridor</p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
+              <p className="mb-1 text-[10px] tracking-widest text-white/50 uppercase">
                 Contact Reference
               </p>
               <p className="font-semibold text-white">Pending Assignment</p>
@@ -87,54 +90,59 @@ export default function ThankYouConsultationPage() {
         </div>
         {/* Next Steps Grid */}
         <div className="mb-16">
-          <h2 className="text-xs tracking-[0.4em] uppercase text-white/70 font-bold mb-10">
+          <h2 className="mb-10 text-xs font-bold tracking-[0.4em] text-white/70 uppercase">
             Standard Protocol Following Submission
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div className="grid grid-cols-1 gap-8 text-left md:grid-cols-3">
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="relative p-6 glass-panel rounded-xl hover:bg-surface/5 transition-colors group"
+                className="glass-panel group relative rounded-xl p-6 transition-colors hover:bg-surface/5"
               >
                 <div
-                  className="text-5xl font-black absolute -top-4 left-4 opacity-50 select-none"
-                  style={{ WebkitTextStroke: "1px rgba(209, 32, 39, 0.5)", color: "transparent" }}
+                  className="absolute -top-4 left-4 text-5xl font-black opacity-50 select-none"
+                  style={{
+                    WebkitTextStroke: "1px rgba(209, 32, 39, 0.5)",
+                    color: "transparent",
+                  }}
                 >
                   {step.number}
                 </div>
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 mt-4 flex items-center gap-2 text-white">
+                <h3 className="mt-4 mb-3 flex items-center gap-2 text-sm font-bold tracking-wider text-white uppercase">
                   {step.title}
                   {step.pulse && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
                   )}
                 </h3>
-                <p className="text-sm text-white/70 leading-relaxed">{step.body}</p>
+                <p className="text-sm leading-relaxed text-white/70">
+                  {step.body}
+                </p>
               </div>
             ))}
           </div>
         </div>
         {/* Confirmation Note */}
-        <div className="max-w-xl mx-auto mb-12">
-          <p className="text-xs text-white/70 font-light italic flex items-center justify-center gap-2">
-            <MaterialIcon name="mail" className="text-sm" />
-            A confirmation of this request has been dispatched to your provided email and our
+        <div className="mx-auto mb-12 max-w-xl">
+          <p className="flex items-center justify-center gap-2 text-xs font-light text-white/70 italic">
+            <MaterialIcon name="mail" className="text-sm" />A confirmation of
+            this request has been dispatched to your provided email and our
             Business Development team.
           </p>
         </div>
         {/* Actions */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
           <Link
-            className="w-full md:w-auto bg-primary hover:bg-[#b01b21] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 group"
-            href="/services"
+            className="group flex w-full items-center justify-center gap-2 rounded-full bg-primary px-10 py-4 text-xs font-bold tracking-widest text-white uppercase transition-all hover:bg-[#b01b21] md:w-auto"
+            href="/#services"
           >
             View Services
             <MaterialIcon
               name="arrow_forward"
-              className="text-sm group-hover:translate-x-1 transition-transform"
+              className="text-sm transition-transform group-hover:translate-x-1"
             />
           </Link>
           <Link
-            className="w-full md:w-auto border border-white/20 hover:bg-white/10 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/20 px-10 py-4 text-xs font-bold tracking-widest text-white uppercase transition-all hover:bg-white/10 md:w-auto"
             href="/"
           >
             Back to Home

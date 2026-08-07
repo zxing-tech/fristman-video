@@ -1,8 +1,11 @@
-import Link from "next/link"
-
+import { CtaButton } from "@/components/site/cta-button"
 import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceHero } from "@/components/site/service-hero"
+import { ServiceSection } from "@/components/site/service-section"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
+import { cn } from "@/lib/utils"
 
 export const metadata = pageMeta({
   title: "Progression & Timelapse Documentation",
@@ -14,15 +17,17 @@ export const metadata = pageMeta({
 const structuredData = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Progression & Timelapse", path: "/services/progression-timelapse" },
+    {
+      name: "Progression & Timelapse",
+      path: "/services/progression-timelapse",
+    },
   ]),
   serviceSchema({
     name: "Progression & Timelapse",
     description:
       "Scheduled drone photo and video documentation of long-term industrial builds, tracking site progress from establishment through structural completion.",
     path: "/services/progression-timelapse",
-  }),
+  })
 )
 
 const stakeholderCards = [
@@ -30,19 +35,19 @@ const stakeholderCards = [
     icon: "timeline",
     title: "Project Managers",
     description:
-      "Visual timeline tracking to observe progress phases, site establishment, and long-term structural milestones across the project lifecycle.",
+      "Video timeline tracking to observe progress phases, site establishment, and long-term structural milestones across the project lifecycle.",
   },
   {
     icon: "campaign",
     title: "Corporate Comms",
     description:
-      "High-quality cinematic assets ready for internal reporting, public relations, and stakeholder presentations detailing infrastructure development.",
+      "High-quality video assets ready for internal reporting, public relations, and stakeholder presentations detailing infrastructure development.",
   },
   {
     icon: "visibility",
     title: "Client Updates",
     description:
-      "Clear project visibility providing off-site stakeholders with accurate, methodical visual records of development intervals.",
+      "Clear project visibility providing off-site stakeholders with accurate, methodical video records of development intervals.",
   },
 ]
 
@@ -55,23 +60,27 @@ const captureApproachPoints = [
 const deliverables = [
   {
     icon: "movie",
-    title: "Monthly Update Films",
-    description: "Edited sequences detailing chronological progression over 30-day intervals.",
+    title: "Adhoc Project Status",
+    description:
+      "Edited sequences detailing chronological progression over 30-day intervals.",
   },
   {
     icon: "video_library",
-    title: "Milestone Reels",
-    description: "Focused compilation videos highlighting significant structural achievements.",
+    title: "Milestone Reports",
+    description:
+      "Focused compilation videos highlighting significant structural achievements.",
   },
   {
     icon: "photo_library",
-    title: "Still Image Packs",
-    description: "High-resolution photographic documentation for reporting and presentations.",
+    title: "Drone Aerial Photographs",
+    description:
+      "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
   },
   {
     icon: "rate_review",
     title: "Review Versions",
-    description: "Low-bandwidth drafts provided for internal stakeholder review and approval.",
+    description:
+      "Low-bandwidth drafts provided for internal stakeholder review and approval.",
   },
 ]
 
@@ -80,9 +89,9 @@ const timelinePhases = [
     phase: "Phase 01",
     title: "Site Establishment",
     description:
-      "Initial visual documentation capturing bare ground, initial grading, and perimeter setup before structural work commences.",
-    image: "/images/stitch/837e716c98.jpg",
-    alt: "Empty graded dirt lot at dawn prepared for industrial construction",
+      "Initial video documentation capturing bare ground, initial grading, and perimeter setup before structural work commences.",
+    image: "/images/pexels/progress-phase-01-site.jpg",
+    alt: "Aerial view of a single excavator on bare, graded earth, with no structures yet in place",
     reversed: false,
   },
   {
@@ -90,8 +99,8 @@ const timelinePhases = [
     title: "Foundation Phase",
     description:
       "Documenting concrete pours, rebar installation, and critical subterranean infrastructure milestones.",
-    image: "/images/stitch/78b2c9bd8f.jpg",
-    alt: "Steel rebar network in a deep trench before a concrete pour",
+    image: "/images/pexels/progress-phase-02-foundation.jpg",
+    alt: "A poured concrete foundation slab with protruding rebar starter bars and loose formwork panels",
     reversed: true,
   },
   {
@@ -99,286 +108,254 @@ const timelinePhases = [
     title: "Structural Erection",
     description:
       "Capturing the vertical progression of steel frameworks, heavy lifting operations, and major structural assemblies.",
-    image: "/images/stitch/f83d048d08.jpg",
-    alt: "Steel I-beams rising against a black sky beside a crane hook",
+    image: "/images/pexels/progress-phase-03-structure.jpg",
+    alt: "A steel structural frame under construction, with a tower crane lifting a beam into place",
     reversed: false,
   },
-]
-
-const checklistItems = [
   {
-    icon: "gpp_good",
-    title: "Site Access Requirements",
-    description: "Clearance protocols and restricted zone definitions.",
-  },
-  {
-    icon: "schedule",
-    title: "Safety Induction Schedules",
-    description: "Coordination for necessary site-specific safety briefings.",
-  },
-  {
-    icon: "map",
-    title: "Site-Aware Flight Planning",
-    description: "Mapping documentation routes to avoid operational interference.",
-  },
-  {
-    icon: "badge",
-    title: "Credentials Available",
-    description: "Documentation of personnel training and equipment specifics upon request.",
+    phase: "Phase 04",
+    title: "Load-Out & Transport Prep",
+    description:
+      "Final-state documentation of completed modules in the yard before barge loading, sea fastening and departure to site.",
+    image: "/images/pexels/progress-phase-04-loadout.jpg",
+    alt: "A harbour at twilight, a floating crane barge in the foreground and gantry cranes across the water",
+    reversed: true,
   },
 ]
 
 export default function ProgressionTimelapsePage() {
   return (
-    <div>
+    <main>
       <JsonLd data={structuredData} />
-      {/* Hero Section */}
-      <header className="relative bg-black min-h-[819px] flex items-center justify-center pt-24 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#000000] z-10" />
-          <div
-            aria-label="Industrial construction site at night illuminated by floodlights"
-            className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0"
-            role="img"
-            style={{ backgroundImage: "url('/images/stitch/9b76d8b2fc.jpg')" }}
-          />
-        </div>
-        <div className="relative z-20 container mx-auto px-6 lg:px-12 max-w-7xl text-center">
-          <div className="inline-flex items-center space-x-2 bg-graphite/60 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.2em] text-white/70 font-bold">
-              Service Detail
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight mb-6 text-white leading-tight">
-            Progression & <br />
-            <span className="text-primary">Timelapse</span> Documentation
-          </h1>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
-            Visual documentation for construction, fabrication, site upgrades, shutdowns,
-            fit-outs and industrial project milestones.
-          </p>
-          <a
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-primary transition-all duration-300"
-            href="#approach"
-          >
-            <MaterialIcon name="arrow_downward" />
-          </a>
-        </div>
-      </header>
 
-      {/* Section 1: Value for Stakeholders */}
-      <section className="py-24 bg-background relative">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
-              Value for Stakeholders
-            </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stakeholderCards.map((card) => (
-              <div
-                className="glass-panel p-8 rounded-2xl group transition-all duration-300 hover:-translate-y-2 hover:border-primary/30"
-                key={card.title}
-              >
-                <div className="w-14 h-14 rounded-full bg-graphite flex items-center justify-center mb-6 border border-surface/10 group-hover:border-primary/50 transition-colors">
+      <ServiceHero
+        breadcrumb="Progression & Timelapse"
+        chip="Long-Term Documentation"
+        lede="Video documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones."
+        title={
+          <>
+            Construction Progress &amp;
+            <br />
+            <span className="text-white/60">Timelapse Capture</span>
+          </>
+        }
+        actions={
+          <>
+            <CtaButton href="/contact" arrow className="w-full sm:w-fit">
+              Discuss Your Programme
+            </CtaButton>
+            <CtaButton
+              href="/our-work"
+              variant="secondary"
+              className="w-full sm:w-fit"
+            >
+              View Our Work
+            </CtaButton>
+          </>
+        }
+      />
+
+      <ServiceSection eyebrow="Who It Serves" title="Value for Stakeholders">
+        {/* Three across waits for `lg`. At 768px a third of this column is
+            218px, and after 32px of card padding each side that leaves 154px
+            of text — about 22 characters a line, where "Corporate Comms" breaks
+            in two and the body runs to nine lines. Two across in the tablet
+            band gives 276px and the last card sits alone, which is the honest
+            trade: a ragged row reads as a list of three, a 154px card reads as
+            a mistake. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {stakeholderCards.map((card) => (
+            <div
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
+              key={card.title}
+            >
+              {/* Marker beside the title below `md`, above it from `md` — the
+                  same inline rule the homepage cards follow, and 44px inline
+                  for the same reason: next to a 28px line box, 48px stops
+                  reading as a marker. */}
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
                   <MaterialIcon
                     name={card.icon}
-                    className="text-3xl text-surface transition-all duration-300 group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
                   />
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-3">
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
                   {card.title}
                 </h3>
-                <p className="text-industrial-grey text-sm leading-relaxed">{card.description}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Capture Approach */}
-      <section className="py-24 bg-dark-ui relative overflow-hidden" id="approach">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-6">
-                Capture Approach
-              </h2>
-              <p className="text-industrial-grey text-base leading-relaxed mb-6">
-                Methodical, site-aware planning for chronicling long-term project lifecycles. We
-                prioritize safe, unobtrusive visual documentation that aligns with industrial
-                operations.
+              <p className="font-body text-sm leading-relaxed text-industrial-grey">
+                {card.description}
               </p>
-              <ul className="space-y-4 mb-8">
-                {captureApproachPoints.map((point) => (
-                  <li className="flex items-start" key={point}>
-                    <MaterialIcon name="check_circle" className="text-primary mr-3 mt-0.5" />
-                    <span className="text-surface text-sm font-medium">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-video border border-surface/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <div className="absolute inset-0 bg-black/20 z-10" />
-              <div className="absolute inset-0 border-2 border-primary/20 z-20 pointer-events-none rounded-2xl m-2" />
-              {/* Reticle corners */}
-              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-primary z-20" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-primary z-20" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-primary z-20" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-primary z-20" />
-              <div
-                aria-label="Symmetrical view down an industrial pipeline under construction"
-                className="w-full h-full bg-cover bg-center"
-                role="img"
-                style={{ backgroundImage: "url('/images/stitch/16bb4dd413.jpg')" }}
-              />
+          ))}
+        </div>
+      </ServiceSection>
+
+      <ServiceSection
+        band="panel"
+        eyebrow="Method"
+        title="Capture Approach"
+        id="approach"
+      >
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p className="font-body leading-relaxed text-industrial-grey">
+              Methodical, site-aware planning for chronicling long-term project
+              lifecycles. We prioritize safe, unobtrusive video documentation
+              that aligns with industrial operations.
+            </p>
+            <ul className="mt-8 space-y-4">
+              {captureApproachPoints.map((point) => (
+                <li className="flex items-start gap-3" key={point}>
+                  <MaterialIcon
+                    name="check_circle"
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
+                  <span className="font-body text-sm font-medium text-surface">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Viewfinder framing on the reference frame. The 2px ring that used
+              to sit inside these corners has gone: the brackets are the mark,
+              the ring was a frame the system does not own. */}
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-surface/10 bg-black">
+            <div
+              aria-label="A dim corridor in strong one-point perspective, lined with shutters and an overhead pipe run"
+              className="h-full w-full bg-cover bg-center opacity-95"
+              role="img"
+              style={{
+                backgroundImage:
+                  "url('/images/pexels/progress-capture-approach.jpg')",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-4"
+            >
+              <span className="absolute top-0 left-0 h-4 w-4 border-t-2 border-l-2 border-primary/50" />
+              <span className="absolute top-0 right-0 h-4 w-4 border-t-2 border-r-2 border-primary/50" />
+              <span className="absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-primary/50" />
+              <span className="absolute right-0 bottom-0 h-4 w-4 border-r-2 border-b-2 border-primary/50" />
             </div>
           </div>
         </div>
-      </section>
+      </ServiceSection>
 
-      {/* Section 3: Deliverables */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1280px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
-              Deliverables
-            </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {deliverables.map((item) => (
-              <div
-                className="glass-panel p-6 rounded-xl border border-surface/10 hover:border-primary/50 transition-colors group"
-                key={item.title}
-              >
+      <ServiceSection eyebrow="Output" title="Deliverables">
+        {/* Two at `md`, not `sm`. Every card grid on the site now leaves one
+            column at the same breakpoint, which is what lets the inline-marker
+            rule below be one rule instead of a per-grid judgement: the marker
+            sits beside the title exactly while the card is the full width of
+            the column. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {deliverables.map((item) => (
+            <div
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
+              key={item.title}
+            >
+              {/* Glyph markers go inline on phone too, so the two card
+                  patterns on this page behave the same way at the same width.
+                  `shrink-0` matters here in a way it does not when stacked:
+                  a bare glyph in a flex row will otherwise compress against a
+                  long title like "Drone Aerial Photographs And Maintenance". */}
+              <div className="mb-3 flex items-center gap-4 md:mb-0 md:block">
                 <MaterialIcon
                   name={item.icon}
-                  className="text-2xl text-industrial-grey group-hover:text-primary transition-colors mb-4 block"
+                  className="block shrink-0 text-3xl! text-surface/60 transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1] md:mb-6"
                 />
-                <h4 className="text-surface font-bold uppercase text-sm tracking-wider mb-2">
+                <h3 className="font-headline text-base font-bold text-surface md:mb-2">
                   {item.title}
-                </h4>
-                <p className="text-industrial-grey text-xs">{item.description}</p>
+                </h3>
               </div>
-            ))}
-          </div>
+              <p className="font-body text-xs leading-relaxed text-industrial-grey">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+      </ServiceSection>
 
-      {/* Section 4: Sample Timeline Module */}
-      <section className="py-24 bg-dark-ui">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1000px]">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-surface mb-4">
-              Sample Progression
-            </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
-          </div>
-          <div className="relative py-8">
-            {/* Center Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-graphite-light md:-translate-x-1/2" />
-            {timelinePhases.map((item, index) => (
-              <div
-                className={`relative flex flex-col ${
-                  item.reversed ? "md:flex-row-reverse" : "md:flex-row"
-                } items-center w-full ${index < timelinePhases.length - 1 ? "mb-24" : ""}`}
+      <ServiceSection
+        band="graphite"
+        eyebrow="Worked Example"
+        title="Sample Progression"
+      >
+        {/* The timeline keeps a narrower measure than the section column: an
+            alternating two-column layout stretched to 1280px puts the two
+            halves too far apart to read as one sequence. */}
+        {/* The alternating two-column form waits for `lg`, not `md`.
+            Halving a 704px tablet column and taking 48px of inner gutter off
+            each side leaves 304px a side, so the phase description ran seven
+            lines against a 304x171 frame and the eye had to cross the spine on
+            every step to keep the pair together. Below `lg` the same content is
+            already a proper timeline — one spine down the left, marker, label,
+            frame — which is the form that actually suits a narrow column. */}
+        <div className="relative mx-auto max-w-[64rem]">
+          <div
+            aria-hidden="true"
+            className="absolute top-0 bottom-0 left-6 w-px bg-surface/15 lg:left-1/2 lg:-translate-x-1/2"
+          />
+          <ol className="space-y-16 lg:space-y-24">
+            {timelinePhases.map((item) => (
+              <li
+                // items-start, not items-center: centring each half made the
+                // shorter one drift down the row, so the marker on the spine
+                // no longer lined up with the phase label it belongs to.
+                className={cn(
+                  "relative flex w-full flex-col items-start lg:flex-row",
+                  item.reversed && "lg:flex-row-reverse"
+                )}
                 key={item.phase}
               >
-                <div className="absolute left-6 md:left-1/2 top-0 w-4 h-4 rounded-full bg-background border-2 border-primary -translate-x-1/2 z-10" />
+                <span
+                  aria-hidden="true"
+                  className="absolute top-1 left-6 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-primary bg-background lg:left-1/2"
+                />
                 <div
-                  className={`w-full md:w-1/2 pl-12 mb-6 md:mb-0 ${
-                    item.reversed ? "md:pl-12" : "md:pl-0 md:pr-12 md:text-right"
-                  }`}
+                  className={cn(
+                    "mb-6 w-full pl-14 lg:mb-0 lg:w-1/2 lg:pl-0",
+                    item.reversed ? "lg:pl-12" : "lg:pr-12 lg:text-right"
+                  )}
                 >
-                  <h3 className="text-xl font-bold uppercase tracking-wider text-surface mb-2">
+                  <span className="font-mono text-[10px] font-medium tracking-[0.15em] text-primary uppercase">
                     {item.phase}
+                  </span>
+                  <h3 className="mt-3 font-headline text-xl font-bold text-surface">
+                    {item.title}
                   </h3>
-                  <h4 className="text-primary font-bold text-lg mb-3">{item.title}</h4>
-                  <p className="text-industrial-grey text-sm">{item.description}</p>
+                  <p className="mt-3 font-body text-sm leading-relaxed text-industrial-grey">
+                    {item.description}
+                  </p>
                 </div>
                 <div
-                  className={`w-full md:w-1/2 pl-12 ${
-                    item.reversed ? "md:pr-12 flex md:justify-end" : "md:pl-12"
-                  }`}
+                  className={cn(
+                    "w-full pl-14 lg:w-1/2 lg:pl-0",
+                    item.reversed ? "lg:pr-12" : "lg:pl-12"
+                  )}
                 >
-                  <div className="rounded-lg overflow-hidden border border-surface/10 shadow-lg aspect-video w-full max-w-sm">
+                  <div className="aspect-video w-full overflow-hidden rounded-2xl border border-surface/10 bg-black">
                     <div
                       aria-label={item.alt}
-                      className="w-full h-full bg-cover bg-center"
+                      className="h-full w-full bg-cover bg-center opacity-95"
                       role="img"
                       style={{ backgroundImage: `url('${item.image}')` }}
                     />
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
-      </section>
+      </ServiceSection>
 
-      {/* Section 5: Project Checklist */}
-      <section className="py-24 bg-background border-t border-surface/5">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[800px]">
-          <div className="glass-panel rounded-2xl p-8 md:p-12 border-l-4 border-l-primary">
-            <div className="flex items-center mb-8">
-              <MaterialIcon name="checklist" className="text-3xl text-primary mr-4" />
-              <h2 className="text-2xl font-bold uppercase tracking-wide text-surface">
-                Pre-Deployment Checklist
-              </h2>
-            </div>
-            <p className="text-industrial-grey mb-8 text-sm">
-              Prior to initiating visual documentation, we require alignment on site protocols to
-              ensure safe and compliant operation.
-            </p>
-            <ul className="space-y-4">
-              {checklistItems.map((item) => (
-                <li
-                  className="flex items-start bg-graphite-light/30 p-4 rounded-lg border border-surface/5"
-                  key={item.title}
-                >
-                  <MaterialIcon name={item.icon} className="text-surface mr-4 mt-0.5 opacity-50" />
-                  <div>
-                    <h4 className="text-surface text-sm font-bold uppercase tracking-wider mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-industrial-grey text-xs">{item.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-32 bg-dark-ui relative overflow-hidden text-center">
-        <div
-          className="absolute inset-0 z-0 opacity-20"
-          style={{
-            backgroundImage: "radial-gradient(#d12027 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-6 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-surface mb-10">
-            Document the next milestone clearly
-          </h2>
-          <Link
-            className="bg-primary hover:bg-[#9a161b] text-white font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(209,32,39,0.3)] hover:shadow-[0_0_40px_rgba(209,32,39,0.5)] inline-flex items-center justify-center mx-auto group"
-            href="/contact"
-          >
-            Request Consultation
-            <MaterialIcon
-              name="arrow_forward"
-              className="ml-3 group-hover:translate-x-1 transition-transform"
-            />
-          </Link>
-        </div>
-      </section>
-    </div>
+      <ServiceCta
+        title="Document the next milestone clearly"
+        action="Request Consultation"
+      />
+    </main>
   )
 }

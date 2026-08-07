@@ -1,3 +1,9 @@
+/**
+ * The six live services. Single source of truth for `app/sitemap.ts`, the
+ * navbar Services dropdown, and the "Our Core Services" grid on the homepage —
+ * the three used to drift apart, so titles and icons are only correct here.
+ * `title` must match the service page's own `pageMeta` title.
+ */
 export type Service = {
   slug: string
   href: string
@@ -21,7 +27,7 @@ export const services: Service[] = [
     title: "Facility Overview Films",
     icon: "domain",
     summary:
-      "Comprehensive aerial and ground coverage of extensive industrial complexes, refineries, and fabrication yards.",
+      "Aerial and ground coverage of industrial complexes, refineries, and fabrication yards.",
   },
   {
     slug: "ai-generated-video",
@@ -37,22 +43,21 @@ export const services: Service[] = [
     title: "Industrial Photography",
     icon: "photo_camera",
     summary:
-      "High-resolution stills for corporate reports, marketing collateral, and documentation of industrial operations.",
+      "Documenting critical structural phases, heavy lifts, and compliance checks.",
   },
   {
     slug: "progression-timelapse",
     href: "/services/progression-timelapse",
-    title: "Progression & Timelapse Documentation",
+    title: "Construction Progress & Timelapse Capture",
     icon: "timelapse",
     summary:
-      "Long-term visual documentation of construction and engineering projects to track progress and milestones.",
+      "Automated interval camera setups tracking multi-year site changes.",
   },
   {
-    slug: "visual-documentation",
-    href: "/services/visual-documentation",
-    title: "Visual Documentation",
-    icon: "inventory_2",
-    summary:
-      "Systematic photographic and video recording of critical infrastructure assets for maintenance and archival purposes.",
+    slug: "safety-induction-videos",
+    href: "/services/safety-induction-videos",
+    title: "Safety and Induction Videos",
+    icon: "health_and_safety",
+    summary: "Onsite protocol tutorials covering PPE rules and hazard zones.",
   },
 ]

@@ -6,5 +6,10 @@ export function JsonLd({ data }: { data: object }) {
   // Data is our own (SITE constants + static content), but we still escape `<`
   // so a stray "</script>" in any string can never break out of the tag.
   const json = JSON.stringify(data).replace(/</g, "\\u003c")
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: json }}
+    />
+  )
 }

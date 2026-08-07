@@ -1,9 +1,12 @@
-import Link from "next/link"
-
+import { CtaButton } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
-import { SectionLabel } from "@/components/site/section-label"
+import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceHero } from "@/components/site/service-hero"
+import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
+import { cn } from "@/lib/utils"
 
 export const metadata = pageMeta({
   title: "Corporate Videos",
@@ -15,7 +18,6 @@ export const metadata = pageMeta({
 const schema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "Corporate Videos", path: "/services/corporate-videos" },
   ]),
   serviceSchema({
@@ -30,12 +32,12 @@ const audiences = [
   {
     icon: "engineering",
     title: "Project Managers",
-    body: "Document critical milestones, verify structural integrity, and provide high-fidelity visual reports for engineering review.",
+    body: "Document critical milestones, verify structural integrity, and provide high-fidelity Video reports for engineering review.",
   },
   {
     icon: "campaign",
     title: "Corporate Comms",
-    body: "Elevate brand perception with premium visual assets that communicate scale, safety, and operational excellence to the market.",
+    body: "Elevate brand perception with premium Video assets that communicate scale, safety, and operational excellence to the market.",
   },
   {
     icon: "groups",
@@ -45,169 +47,225 @@ const audiences = [
   {
     icon: "handshake",
     title: "JV Stakeholders",
-    body: "Provide transparent, high-impact visual updates on joint venture progress and capital expenditure utilization.",
+    body: "Provide transparent, high-impact Video updates on joint venture progress and capital expenditure utilization.",
   },
 ]
 
-const useCases = [
+const deliverables = [
+  { icon: "movie", label: "Hero Cinematic Film" },
+  { icon: "dynamic_feed", label: "Short Social Cutdowns" },
+  { icon: "image", label: "High-Res Still Frames" },
+  { icon: "lock", label: "Private Review Link" },
+  { icon: "groups", label: "Stakeholder Version" },
+]
+
+// No step is flagged "active": nothing on this page is live, and Signal Red
+// means active, critical or clickable. The connecting line and the numbers
+// carry the sequence on their own.
+const workflowSteps = [
   {
-    image: "/images/stitch/9ef2719993.jpg",
-    title: "Fabrication Yard Overview",
-    body: "Comprehensive documentation of yard capabilities and layout.",
+    number: "01",
+    title: "Brief & Objectives",
+    description:
+      "Aligning on required assets, target audience, and key Video messaging priorities.",
   },
   {
-    image: "/images/stitch/df312360c8.jpg",
-    title: "Offshore Module Lifecycle",
-    body: "From construction phase to final load-out and installation.",
+    number: "02",
+    title: "Site Planning",
+    description:
+      "Reviewing site access, evaluating safety constraints, and scheduling industrial video documentation.",
   },
   {
-    image: "/images/stitch/2c0f0ecbd8.jpg",
-    title: "Refinery Overview",
-    body: "Detailed mapping of operational zones and critical infrastructure.",
+    number: "03",
+    title: "Capture",
+    description:
+      "Execution of drone-enabled capture and ground cinematography with minimal operational footprint.",
   },
+  {
+    number: "04",
+    title: "Edit & Delivery",
+    description:
+      "Post-production formatting, color grading, and secure delivery of finalized assets.",
+  },
+]
+
+// Fine print that belongs to the workflow, not to the page. It used to float
+// right of the whole bento grid, where it read as an orphaned footer.
+const workflowNotes = [
+  { icon: "info", label: "Confirm site permissions" },
+  { icon: "badge", label: "Credentials available upon request" },
 ]
 
 export default function CorporateVideosPage() {
   return (
     <main>
       <JsonLd data={schema} />
-      {/* Breadcrumbs */}
-      <div className="max-w-[1280px] mx-auto px-8 pt-28 flex items-center gap-2 text-xs font-label uppercase tracking-widest text-industrial-grey">
-        <Link className="hover:text-surface transition-colors" href="/">
-          Home
-        </Link>
-        <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <Link className="hover:text-surface transition-colors" href="/services">
-          Services
-        </Link>
-        <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <span className="text-surface font-bold">Corporate Videos</span>
-      </div>
 
-      {/* Hero Section */}
-      <header className="relative w-full min-h-[819px] flex items-center justify-center mt-8 px-4 overflow-hidden bg-black">
-        {/* Background Image with FUI Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-cover bg-center w-full h-full absolute inset-0"
-            style={{ backgroundImage: "url('/images/stitch/57734f86d7.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, rgba(209,32,39,0.05) 1px, transparent 1px), linear-gradient(rgba(209,32,39,0.05) 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 md:px-8 flex flex-col items-start">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/50 bg-black/50 backdrop-blur-sm mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-[10px] uppercase tracking-widest font-bold text-white">
-              Service Protocol Active
-            </span>
-          </div>
-          <h1 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl leading-none tracking-tighter text-white mb-6 max-w-4xl">
-            CORPORATE
-            <br />
-            <span className="text-gradient">VIDEOS</span>
-          </h1>
-          <p className="font-body text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed border-l-2 border-primary pl-6 py-2">
-            Capture the scale, complexity and operational story of large
-            industrial environments with cinematic UAV and ground-based
-            production.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              className="group inline-flex items-center justify-center gap-3 bg-primary text-white font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-full hover:bg-black hover:shadow-[0_0_20px_rgba(209,32,39,0.4)] transition-all duration-300"
-              href="/contact"
-            >
+      <ServiceHero
+        breadcrumb="Corporate Videos"
+        chip="Corporate Production"
+        media={SERVICE_HERO_MEDIA["corporate-videos"]}
+        lede="Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based production."
+        title="Corporate Videos"
+        actions={
+          <>
+            <CtaButton href="/contact" arrow className="w-full sm:w-fit">
               Discuss Your Production
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-[18px] group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-          </div>
-        </div>
-      </header>
+            </CtaButton>
+            <CtaButton
+              href="/our-work"
+              variant="secondary"
+              className="w-full sm:w-fit"
+            >
+              View Our Work
+            </CtaButton>
+          </>
+        }
+      />
 
-      {/* Target Audience Section */}
-      <section className="py-24 px-4 md:px-8 max-w-[1280px] mx-auto">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <h2 className="font-headline font-bold text-3xl md:text-4xl tracking-tight text-surface mb-4">
-              Strategic Applications
-            </h2>
-            <p className="font-body text-industrial-grey max-w-xl">
-              Tailored cinematic assets designed for specific stakeholder
-              requirements and operational objectives.
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <ServiceSection
+        eyebrow="Stakeholders"
+        title="Strategic Applications"
+        lede="Tailored cinematic assets designed for specific stakeholder requirements and operational objectives."
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {audiences.map((audience) => (
             <div
               key={audience.title}
-              className="glass-panel p-8 rounded-2xl group hover:border-primary transition-all duration-300"
+              className="glass-panel group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:p-8"
             >
-              <div className="w-12 h-12 rounded-full bg-background border border-surface/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
-                <MaterialIcon
-                  name={audience.icon}
-                  className="text-surface text-2xl [font-variation-settings:'FILL'_0] group-hover:[font-variation-settings:'FILL'_1] group-hover:text-primary [transition:font-variation-settings_0.3s_ease,color_0.3s_ease]"
-                />
+              <div className="mb-4 flex items-center gap-4 md:mb-0 md:block">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-surface/20 transition-colors group-hover:border-primary md:mb-6 md:h-12 md:w-12">
+                  <MaterialIcon
+                    name={audience.icon}
+                    className="text-2xl text-surface transition-all group-hover:text-primary group-hover:[font-variation-settings:'FILL'_1]"
+                  />
+                </div>
+                <h3 className="font-headline text-xl font-bold text-surface md:mb-3">
+                  {audience.title}
+                </h3>
               </div>
-              <h3 className="font-headline font-bold text-lg text-surface mb-3 tracking-wide">
-                {audience.title}
-              </h3>
-              <p className="font-body text-sm text-industrial-grey leading-relaxed">
+              <p className="font-body text-sm leading-relaxed text-industrial-grey">
                 {audience.body}
               </p>
             </div>
           ))}
         </div>
-      </section>
+      </ServiceSection>
 
-      {/* Use Cases Grid */}
-      <section className="py-24 bg-graphite relative border-y border-surface/5">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <SectionLabel className="mb-2 block">
-              Deployment Scenarios
-            </SectionLabel>
-            <h2 className="font-headline font-bold text-3xl md:text-5xl tracking-tight text-surface">
-              Facility Overviews
-            </h2>
+      <ServiceSection band="panel" eyebrow="Scope" title="Output & Execution">
+        {/* The 1:2 split waits for `lg`. At 768px the narrow panel took a third
+            of the column — 218px, or 138px of content once its own 40px padding
+            was off both sides — and it holds a five-row list of labels like
+            "Hero Cinematic Film", every one of which wrapped. The wide panel
+            beside it was carrying a four-step workflow at 460px. Below `lg`
+            both simply run full width, in the order they are read. */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="glass-panel flex flex-col rounded-3xl p-6 md:p-8 lg:col-span-1 lg:p-10">
+            {/* mb-2, not the mb-8 its neighbour uses. The rows below carry
+                their own vertical padding, so an mb-8 here stacked on top of
+                that and put the heading 69px from the first label against a
+                38px rhythm between the rest. The workflow panel next door
+                keeps mb-8 because its steps have no such padding — matching
+                the number would mismatch the result. */}
+            <h3 className="mb-2 flex items-center gap-3 font-label text-xs font-bold tracking-widest text-primary uppercase">
+              <span aria-hidden="true" className="block h-px w-8 bg-primary" />
+              Deliverables
+            </h3>
+            {/* Equal-height rows, not `justify-between`.
+
+                This card shares a row with a four-step workflow, so the list
+                has to fill the panel. Distributing the slack with
+                `justify-between` put it *between* the items — on top of each
+                item's own padding — so every rule ended up 51px below the
+                label above it and 36px above the label below it, and the last
+                pair went 57/30 because the final item dropped its padding.
+                The rule read as belonging to the item beneath it.
+
+                Giving each row `flex-1` makes the slack part of the rows
+                themselves. Every row is the same height, the label is centred
+                in it, and the rule sits on the boundary — so label-to-rule and
+                rule-to-label are equal by construction rather than by a value
+                anyone has to keep in sync. `py-3` is only a floor, so the rows
+                stay legible if the panel is ever short. */}
+            <ul className="flex flex-1 flex-col">
+              {deliverables.map((item, index) => (
+                <li
+                  className={cn(
+                    "flex flex-1 items-center gap-3 py-3",
+                    index > 0 && "border-t border-surface/10"
+                  )}
+                  key={item.label}
+                >
+                  <MaterialIcon
+                    name={item.icon}
+                    className="shrink-0 text-primary"
+                  />
+                  <span className="font-body text-sm font-medium text-surface">
+                    {item.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((useCase) => (
-              <div
-                key={useCase.title}
-                className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-black border border-white/10"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
-                  style={{ backgroundImage: `url('${useCase.image}')` }}
+
+          <div className="glass-panel group relative overflow-hidden rounded-3xl p-6 md:p-8 lg:col-span-2 lg:p-10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+            />
+            <div className="relative">
+              <h3 className="mb-8 flex items-center gap-3 font-label text-xs font-bold tracking-widest text-primary uppercase">
+                <span
+                  aria-hidden="true"
+                  className="block h-px w-8 bg-primary"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                    <MaterialIcon name="add" className="text-white text-sm" />
-                  </div>
-                  <h3 className="font-headline font-bold text-xl text-white mb-2">
-                    {useCase.title}
-                  </h3>
-                  <p className="font-body text-sm text-white/70 group-hover:text-white/90 transition-colors">
-                    {useCase.body}
-                  </p>
-                </div>
+                Production Workflow
+              </h3>
+              <div className="relative">
+                {/* Connecting line, inset to the centre of the number discs. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute top-4 bottom-4 left-4 hidden w-px bg-surface/15 sm:block"
+                />
+                <ol className="space-y-8">
+                  {workflowSteps.map((step) => (
+                    <li
+                      className="relative flex flex-col gap-3 sm:flex-row sm:gap-6"
+                      key={step.number}
+                    >
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-surface/20 bg-graphite font-mono text-[10px] font-medium tracking-[0.15em] text-surface/60">
+                        {step.number}
+                      </span>
+                      <div>
+                        <h4 className="mb-1 font-headline text-sm font-bold text-surface">
+                          {step.title}
+                        </h4>
+                        <p className="font-body text-sm leading-relaxed text-industrial-grey">
+                          {step.description}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
-            ))}
+              <div className="mt-10 flex flex-col gap-3 border-t border-surface/10 pt-6 sm:flex-row sm:gap-8">
+                {workflowNotes.map((note) => (
+                  <span
+                    className="flex items-center gap-2 font-label text-xs font-bold tracking-widest text-industrial-grey uppercase"
+                    key={note.label}
+                  >
+                    <MaterialIcon name={note.icon} className="text-base!" />
+                    {note.label}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </ServiceSection>
+
+      <ServiceCta title="Tell us about the production." />
     </main>
   )
 }

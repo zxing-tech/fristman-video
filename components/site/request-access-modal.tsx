@@ -17,7 +17,11 @@ type RequestAccessModalProps = {
   defaultVideo?: string
 }
 
-export function RequestAccessModal({ open, onClose, defaultVideo }: RequestAccessModalProps) {
+export function RequestAccessModal({
+  open,
+  onClose,
+  defaultVideo,
+}: RequestAccessModalProps) {
   if (!open) return null
   return <RequestAccessDialog onClose={onClose} defaultVideo={defaultVideo} />
 }
@@ -40,7 +44,11 @@ export function RequestAccessTrigger({
       <button className={className} onClick={() => setOpen(true)} type="button">
         {children}
       </button>
-      <RequestAccessModal defaultVideo={defaultVideo} onClose={() => setOpen(false)} open={open} />
+      <RequestAccessModal
+        defaultVideo={defaultVideo}
+        onClose={() => setOpen(false)}
+        open={open}
+      />
     </>
   )
 }

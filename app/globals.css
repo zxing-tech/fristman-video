@@ -4,13 +4,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* The two conditions under which it is safe to park content behind a hover:
+   the device actually has a hovering pointer, and the visitor has not asked
+   for reduced motion. Used by PhotoCard to collapse its description. Anything
+   that fails either test never gets the collapsed state at all, so on a phone
+   — or for someone with reduced motion on — the copy simply stays visible.
+   Authored as a variant rather than an inline `[@media...]` because the
+   bracketed form needs underscores for every space and silently emits nothing
+   when you get it wrong. */
+@custom-variant hover-reveal (@media (hover: hover) and (prefers-reduced-motion: no-preference));
+
 @theme inline {
+    /* One family (Archivo) for every UI role — hierarchy comes from weight,
+       width, size, case and tracking, not from a second face. These are `inline`
+       so Tailwind resolves them straight to the next/font variable on <html>
+       instead of re-emitting a self-referential custom property. */
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
     --font-headline: var(--font-sans);
     --font-display: var(--font-sans);
     --font-body: var(--font-sans);
     --font-label: var(--font-sans);
+    /* The one exception: IBM Plex Mono, for HUD readouts that are genuine
+       measurement — reference codes, coordinates, statuses. Overrides the
+       Tailwind default stack so the readout is the same face on every OS. */
+    --font-mono: var(--font-mono);
     /* First Man Videos brand tokens — theme-aware (flip light/dark) */
     --color-surface: var(--surface);
     --color-dark-ui: var(--dark-ui);
@@ -116,7 +134,13 @@
     --dark-ui: #080808;
     --graphite: #1a1a1a;
     --graphite-light: #2a2a2a;
-    --industrial-grey: #6f7378;
+    /* Lightened from #6f7378 on 2026-08-04. The light value was always chosen
+       to clear AA on white; the dark one had never been given the same
+       treatment and measured 4.40:1 for 16px body copy on the page and 4.08:1
+       for 14px inside a .glass-panel, both under the 4.5:1 floor. Measured
+       again after the change: 5.29:1 on the page, 4.91:1 on a panel, and
+       4.63:1 for 12px fine print. Still plainly a secondary grey. */
+    --industrial-grey: #7c8087;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
@@ -175,21 +199,38 @@ html {
   html {
     @apply font-sans;
     }
+
+  /* The inherited shadcn default (`outline-ring/50`) draws a 1px auto outline in
+     Signal Red at half alpha — invisible on a red primary button and barely there
+     anywhere else. This replaces it with a two-tone ring: a page-coloured halo in
+     the outline's offset gap, then the red outline. The halo is what keeps the
+     ring legible over a photograph or over the red fill itself. */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--background);
+    }
 }
 
 @layer components {
+  /* Prefixed form FIRST, standard LAST — deliberate, not stylistic. Lightning CSS
+     (Turbopack's minifier) drops the standard `backdrop-filter` when it is authored
+     before its `-webkit-` twin, which silently shipped these panels with no blur at
+     all in Chrome and Firefox. `.marquee` and `.text-gradient` below already use this
+     order and survive the build intact. Verify with:
+     grep -o '\.glass-panel{[^}]*}' .next/static/chunks/*.css */
   .glass-panel {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
 
   .glass-modal {
     background-color: var(--glass-modal-bg);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
   }
 
@@ -211,6 +252,21 @@ html {
   }
 
   /* Atmospheric hero overlay — softens the background image toward the theme colour */
+  /* Joins the bottom of a footage hero to the band below it. Dark-theme only,
+     which is why an over-long ramp here reads as "the hero is too dark in dark
+     mode" and nowhere else.
+
+     The ramp used to open at 45% and reach 0.75 by 82%, so it spent the bottom
+     half of the hero turning the picture off. Measured on the homepage hero at
+     880px tall, sampling the right of the frame where the subject actually is:
+     the 70-88% band came to 0.0084 relative luminance and the bottom 12% to
+     0.0001 — black, on the BRIGHTEST frame of the clip. A quarter of the hero
+     was carrying no image at all.
+
+     It only has to close the seam, so it now stays clear until 70% and does its
+     work in the last third. At 82% that is 0.30 against the old 0.75. It still
+     lands on a full-opacity page colour at 100%, which is the whole point of
+     the layer — the join is unchanged, only the run-up to it. */
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -219,8 +275,8 @@ html {
     background: linear-gradient(
       to bottom,
       rgb(from var(--background) r g b / 0) 0%,
-      rgb(from var(--background) r g b / 0) 45%,
-      rgb(from var(--background) r g b / 0.75) 82%,
+      rgb(from var(--background) r g b / 0) 70%,
+      rgb(from var(--background) r g b / 0.45) 88%,
       rgb(from var(--background) r g b / 1) 100%
     );
   }
@@ -245,6 +301,48 @@ html {
     box-shadow: 0 0 0 1px #d12027;
   }
 
+  /* A select still showing its placeholder option must not read as a chosen
+     value. The option carries a muted class, but a closed <select> paints its
+     text in the SELECT's own colour, so "Select Sector" rendered at the same
+     full-strength foreground as a real answer like "Malaysia" sitting beside
+     it — a filled-in field that is in fact empty.
+
+     `:has()` rather than `:invalid` because only two of the three selects on
+     /contact are `required`; the optional Sector would keep the bug. Text
+     inputs carry this same class and have no <option> children, so they never
+     match. */
+  .form-input-dark:has(option[value=""]:checked) {
+    color: var(--industrial-grey);
+  }
+
+  .lightbox-scrim {
+    animation: lightbox-scrim 240ms ease-out both;
+  }
+
+  /* The 16:9 plate in the film viewer. It fills the width it is given but must
+     never grow taller than the viewport around it, and capping the WIDTH by the
+     available height is what keeps that true: an `aspect-video` box with a
+     `max-height` keeps its width and simply stops being 16:9, which letterboxes
+     the film inside its own frame. `svh` rather than `vh`, so a phone with a
+     retracting URL bar cannot push the close control off screen.
+
+     5rem is the vertical chrome this leaves room for: the root's own padding on
+     both sides, at its widest (40px at `md`). It was 9rem while the close
+     control sat 56px ABOVE the frame and needed clearance; the control moved
+     inside the picture on 2026-08-06, and the frame got that height back.
+
+     The entrance is the one authored moment in this dialog — the frame pulls
+     into focus rather than fading, which is the gesture a projector makes. Blur
+     is the expensive property in that list, so it runs on this single
+     composited element and nothing else in the panel animates. The keyframe
+     lands on `filter: none`, not `blur(0)`, so no compositing layer is left
+     behind once the film is playing. */
+  .lightbox-frame {
+    width: 100%;
+    max-width: min(72rem, calc((100svh - 5rem) * 16 / 9));
+    animation: lightbox-frame 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -262,11 +360,26 @@ html {
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
 
+  /* The gap is the space BETWEEN cells, and the cell now carries its own: since
+     2026-08-06 each logo scrolls inside a fixed 128/160px column with its client
+     name captioned beneath it, so the mark no longer sits flush against the gap.
+     The values came down with it — 4rem to 2.5rem on desktop, 2rem to 1.5rem
+     below `md` — which keeps the pitch per client close to what it was before
+     the captions (208px to 200px on desktop) rather than paying for the column
+     twice. The earlier note still holds: on a 390px viewport this row is the one
+     thing that goes full-bleed, and the gap is what decides how much of the
+     roster a phone visitor reads per glance. */
   .marquee-track {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 1.5rem;
     width: max-content;
+  }
+
+  @media (width >= 48rem) {
+    .marquee-track {
+      gap: 2.5rem;
+    }
   }
 
   .animate-marquee-left {
@@ -275,6 +388,22 @@ html {
 
   .animate-marquee-right {
     animation: marquee-right 55s linear infinite;
+  }
+
+  /* Duration is a proxy for reading speed, not a style: the animation always
+     travels exactly half the track, so a wider track at a fixed duration scrolls
+     faster. The captioned cells took the mobile pitch from 128px to 152px per
+     client (1.19x), and these durations give that back so a phone reads the
+     roster at the same px/s it did before — which is the only speed anyone
+     measured. Desktop is untouched; there the pitch got slightly tighter. */
+  @media (width < 48rem) {
+    .animate-marquee-left {
+      animation-duration: 54s;
+    }
+
+    .animate-marquee-right {
+      animation-duration: 66s;
+    }
   }
 }
 
@@ -300,18 +429,73 @@ html {
   to { transform: translateX(0); }
 }
 
+@keyframes lightbox-scrim {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-frame {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(14px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* The marquee was the only thing this block covered, which left every looping
+   decorative animation on the site running for a visitor who asked for less
+   motion: the pulsing status dot in the ServiceHero chip (all fourteen detail
+   pages), the ping on the /contact header chip, the dots on both thank-you
+   pages, and the two scan lines in the gated-access dialog. None of them
+   communicate anything a still dot does not.
+
+   All of them degrade cleanly rather than freezing mid-cycle — `animate-ping`
+   and `animate-pulse` rest at scale 1 and full opacity, so what remains is
+   simply a solid dot.
+
+   `animate-spin` is deliberately NOT here. It only ever appears on a submit
+   button mid-request, where the motion IS the status message. */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-left,
-  .animate-marquee-right {
+  .animate-marquee-right,
+  .animate-ping,
+  .animate-pulse,
+  .scanning-line,
+  .scanner-line,
+  .lightbox-scrim,
+  .lightbox-frame {
     animation: none;
   }
 }
 
-/* Smooth flip between light and dark */
-@media (prefers-reduced-motion: no-preference) {
-  body * {
-    transition-property: background-color, border-color, color, box-shadow, fill;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
+/* Smooth flip between light and dark.
+
+   The `@layer base` wrapper is load-bearing, not tidiness. Authored bare, this
+   block is *unlayered*, and an unlayered declaration beats anything in
+   Tailwind's `@layer utilities` whatever the specificity — the same cascade
+   trap CLAUDE.md documents for Google's Material Symbols stylesheet. Bare, it
+   silently overrode `transition-property` and `transition-duration` on every
+   element on the site: measured 2026-08-05, an element carrying
+   `transition-[opacity,transform] duration-700` computed to
+   `background-color, border-color, color, box-shadow, fill` at `0.3s`. Every
+   hover lift, scale and fade in the codebase was snapping instantly, and only
+   the five colour properties here ever animated.
+
+   In `base` it still reaches every element that has no transition utility of
+   its own — which is what makes the theme flip smooth — while an explicit
+   utility now wins, which is what anyone writing one expects. */
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    body * {
+      transition-property:
+        background-color, border-color, color, box-shadow, fill;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
+    }
   }
 }

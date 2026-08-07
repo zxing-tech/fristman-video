@@ -6,11 +6,15 @@ type SectionLabelProps = {
   className?: string
 }
 
-export function SectionLabel({ children, withLine, className }: SectionLabelProps) {
+export function SectionLabel({
+  children,
+  withLine,
+  className,
+}: SectionLabelProps) {
   const label = (
     <span
       className={cn(
-        "text-primary font-label uppercase tracking-widest text-xs font-bold",
+        "font-label text-xs font-bold tracking-widest text-primary uppercase",
         !withLine && className
       )}
     >
@@ -22,7 +26,7 @@ export function SectionLabel({ children, withLine, className }: SectionLabelProp
 
   return (
     <div className={cn("flex items-center gap-3", className)}>
-      <span className="w-12 h-px bg-primary block" />
+      <span className="block h-px w-12 bg-primary" />
       {label}
     </div>
   )
