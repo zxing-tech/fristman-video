@@ -170,7 +170,7 @@ export default function AboutPage() {
         align="split"
         eyebrow="Background"
         title="Our story"
-        lede="Founded as First Man Productions, we evolved from video production excellence into specialized industrial cinematography and video documentation designed explicitly for complex, high-risk operational sites. We bridge the gap between creative storytelling and rigorous technical documentation."
+        lede="Founded as Firstman Productions, we evolved from video production excellence into specialized industrial cinematography and video documentation designed explicitly for complex, high-risk operational sites. We bridge the gap between creative storytelling and rigorous technical documentation."
       >
         {/* Mission and the four values were two separate full-width sections —
             two `p-16` panels holding four lines each, then four `p-8` cards
