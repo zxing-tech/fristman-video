@@ -35,3 +35,8 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# delivered camera masters (source-media/) — kept out of public/ so they are not
+# served or deployed, and out of git so 185 MB of them do not enter history.
+# Processed web renditions live in public/videos/ and public/images/.
+/source-media/

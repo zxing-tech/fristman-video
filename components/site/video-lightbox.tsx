@@ -1,17 +1,15 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-
 import { MaterialIcon } from "@/components/site/material-icon"
 import { ModalShell } from "@/components/site/modal-shell"
 
 export type VideoLightboxProps = {
-  src: string
-  poster?: string
+  /** YouTube id. Every film on `/our-work` is published on the company channel. */
+  youtubeId: string
   /**
-   * Names the dialog for assistive technology. The panel renders no text at all
-   * — the film is the entire content — so this is the only accessible name it
-   * has.
+   * Names the dialog for assistive technology, and titles the frame. The panel
+   * renders no text at all — the film is the entire content — so this is the
+   * only accessible name it has.
    */
   label: string
   onClose: () => void
@@ -23,47 +21,50 @@ export type VideoLightboxProps = {
  * visitor just clicked already carried all of that, and repeating it inside the
  * dialog would put reading between them and the one thing they asked to see.
  *
+ * It plays YouTube rather than a local file as of 2026-08-07, because that is
+ * where the work actually lives: seven published films on the company's own
+ * channel, replacing five placeholder cards that all fell back to the same
+ * stock hero clip. Three consequences are deliberate:
+ *
+ *  1. **`youtube-nocookie.com`, not `youtube.com`.** The privacy-enhanced host
+ *     sets no tracking cookie until playback begins. `privacy-policy/`'s cookie
+ *     banner is presentational and gates nothing (it persists no consent and
+ *     blocks no scripts), so the embed has to be the conservative one by
+ *     default rather than by consent.
+ *  2. **The iframe mounts on click, never before.** This component is rendered
+ *     only while a card is playing, so a visitor who opens `/our-work` and
+ *     never presses play makes no request to Google at all. That is worth more
+ *     than any lazy-loading attribute, and it is why the array of cards holds
+ *     ids rather than pre-rendered embeds.
+ *  3. **`rel=0` and `modestbranding=1`.** End screens stay inside the channel
+ *     rather than offering a competitor's showreel on top of the client's film.
+ *
  * Imported directly rather than through `next/dynamic`, unlike the
  * request-access dialog beside it. That split exists to keep a heavy form out
- * of the initial bundle; this component is a `<video>` and one effect, and a
- * lazy chunk would insert a network round-trip *before* the file could even
- * start downloading — the opposite of what a player needs.
+ * of the initial bundle; this component is one iframe, and a lazy chunk would
+ * insert a network round-trip *before* the player could even start loading —
+ * the opposite of what a player needs.
  *
  * The portal, scroll lock, focus trap and Escape handling all live in
  * `ModalShell`; read its header for why each one is shaped the way it is.
  */
 export function VideoLightbox({
-  src,
-  poster,
+  youtubeId,
   label,
   onClose,
 }: VideoLightboxProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  /**
-   * Mount only — an effect that re-ran would restart the film mid-play.
-   *
-   * The `autoPlay` attribute alone is not enough: Chrome refuses an *unmuted*
-   * autoplay until a site has earned a media-engagement score, even directly
-   * after a click, and the panel would open on a frozen first frame. So ask for
-   * sound, fall back to muted if the promise rejects, and leave the native
-   * controls to offer the sound back.
-   */
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    void video.play().catch(() => {
-      video.muted = true
-      void video.play().catch(() => {})
-    })
-  }, [])
+  const src =
+    `https://www.youtube-nocookie.com/embed/${youtubeId}` +
+    `?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white`
 
   return (
     <ModalShell
       className="p-6 md:p-10"
-      // The native player is a real tab stop and it is the whole content here,
-      // so the trap has to be able to reach it.
-      extraFocusable="video[controls]"
+      // The player is a real tab stop and it is the whole content here, so the
+      // trap has to be able to reach it. Was `video[controls]` while this
+      // played a local file; YouTube's controls live inside the frame, so the
+      // frame itself is the stop.
+      extraFocusable="iframe"
       onClose={onClose}
       scrimClassName="lightbox-scrim bg-black/90 backdrop-blur-sm"
     >
@@ -73,8 +74,8 @@ export function VideoLightbox({
         className="lightbox-frame relative z-10"
         role="dialog"
       >
-        {/* Inside the picture, top-right, clear of the native control bar along
-            the bottom edge.
+        {/* Inside the picture, top-right, clear of the player's control bar
+            along the bottom edge.
 
             Sitting in the frame costs this control its background: outside it
             sat on the dialog's 90% black scrim, here it sits on whatever the
@@ -84,7 +85,10 @@ export function VideoLightbox({
             the offset shadow separates it from a bright one.
 
             `z-20` is load-bearing: the picture is a later positioned sibling,
-            so without it the video paints straight over this button.
+            so without it the player paints straight over this button. It also
+            has to clear YouTube's own chrome, which puts a share affordance in
+            the same corner once the pointer moves — hence the solid disc rather
+            than a bare glyph.
 
             Hover goes to solid Signal Red rather than the ghost button's 25%.
             Composited over a 60% black base, 25% reads as "slightly warmer
@@ -100,22 +104,14 @@ export function VideoLightbox({
           <MaterialIcon name="close" className="text-2xl!" />
         </button>
 
-        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
-          <video
-            className="block aspect-video w-full object-contain"
-            controls
-            /* The one clip behind this player runs 7.9 seconds. Ending it would
-               leave a full-screen dialog sitting on a frozen frame within eight
-               seconds of opening, which reads as broken rather than finished.
-               When real client films land here, this attribute comes off. */
-            loop
-            playsInline
-            poster={poster}
-            preload="auto"
-            ref={videoRef}
-          >
-            <source src={src} type="video/mp4" />
-          </video>
+        <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
+            src={src}
+            title={label}
+          />
         </div>
       </div>
     </ModalShell>

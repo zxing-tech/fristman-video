@@ -117,9 +117,21 @@ export default function RootLayout({
       <body className="overflow-x-clip bg-background font-body text-surface antialiased selection:bg-primary selection:text-white">
         {/* Site-wide business identity + website structured data */}
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
+        {/* Light is the default as of 2026-08-07, changed from dark on the
+            owner's instruction. Two things follow from it and are easy to miss:
+
+            `enableSystem` stays false, so this is the theme a first visit gets
+            whatever the visitor's OS is set to — testing means clicking the
+            toggle, not changing OS settings.
+
+            And a returning visitor keeps whatever they last chose: next-themes
+            persists the choice in localStorage, so this value only decides the
+            first render. Anyone who toggled to dark before today still lands in
+            dark, and clearing site data is the only way to see the new default
+            from their browser. */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
         >
           <SiteNavbar />

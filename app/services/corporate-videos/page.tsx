@@ -4,6 +4,7 @@ import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
@@ -103,6 +104,7 @@ export default function CorporateVideosPage() {
       <ServiceHero
         breadcrumb="Corporate Videos"
         chip="Corporate Production"
+        media={SERVICE_HERO_MEDIA["corporate-videos"]}
         lede="Capture the scale, complexity and operational story of large industrial environments with cinematic UAV and ground-based production."
         title="Corporate Videos"
         actions={

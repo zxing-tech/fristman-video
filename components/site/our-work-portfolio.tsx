@@ -6,104 +6,33 @@ import { ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { RequestAccessTrigger } from "@/components/site/request-access-modal"
 import { VideoLightbox } from "@/components/site/video-lightbox"
-import { HERO_POSTER, HERO_VIDEO } from "@/lib/hero-media"
-
-type PortfolioCardData = {
-  /** Stable list key. These cards no longer navigate anywhere — the six detail
-      routes under `/our-work/*` were removed on 2026-08-06 and 308-redirect to
-      this hub — so nothing here is a URL. */
-  id: string
-  client: string
-  title: string
-  summary: string
-  image: string
-  tags: string[]
-  /**
-   * The film this card plays. Every card falls back to the shared hero clip
-   * because that is the only footage in the repo: `public/videos/hero.mp4` is
-   * stock (Pexels 856627), not Firstman's own work — see `lib/hero-media.ts`
-   * and PRODUCT.md `## Evidence on Hand`. Giving a card a real film is a
-   * one-line change here, and that is the point of the field existing.
-   */
-  video?: string
-  poster?: string
-}
+import { FILM_CATEGORIES, films, type PortfolioFilm } from "@/lib/data/our-work"
 
 const cardHoverLift =
   "transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_25px_-5px_rgba(209,32,39,0.2)]"
 
-const publicCards: PortfolioCardData[] = [
-  {
-    id: "mahb-airport-services",
-    client: "MAHB",
-    title: "Airport Services Campaign",
-    summary:
-      "A high-impact promotional campaign documenting critical ground operations and passenger services across key terminals.",
-    image: "/images/stitch/6e63b9435e.jpg",
-    tags: ["Facility Overview", "Public"],
-  },
-  {
-    id: "ecobalance",
-    client: "EcoBalance",
-    title: "Corporate Short Story",
-    summary:
-      "Corporate documentary highlighting environmental compliance and sustainability initiatives within industrial frameworks.",
-    image: "/images/stitch/3d2b58528c.jpg",
-    tags: ["Public"],
-  },
-  {
-    id: "servishero-campaign",
-    client: "ServisHero",
-    title: "Google Adwords Campaign",
-    summary:
-      "Targeted digital video assets created for specific performance marketing channels focusing on service delivery.",
-    image: "/images/stitch/ab775bb3c7.jpg",
-    tags: ["Public"],
-  },
-  {
-    id: "syndel-asia",
-    client: "Syndel Asia",
-    title: "Industrial Documentation",
-    summary:
-      "Detailed Video capture of specialized manufacturing processes for quality assurance and stakeholder reporting.",
-    // Was `stitch/e6ffaa4058.jpg`, which is not a photograph: it is a screen
-    // capture of the Stitch mock, with a "Case Studies / Portfolio" header bar
-    // across the top and an invented camera caption burned into the bottom
-    // ("Sony A6, 24mm f/2.8, f/8.0, 1/250s, ISO 3200"). Rendered inside the
-    // real portfolio grid it showed a picture of a portfolio grid.
-    //
-    // Replaced with the licensed Pexels still already in the repo for
-    // `/services` (public/images/pexels/CREDITS.md). It is stock, so it is not
-    // captioned as Firstman's work anywhere — it matches this project's stated
-    // facility type and is 1800px rather than 512px.
-    image: "/images/pexels/facility-fabrication-yard.jpg",
-    tags: ["Facility Overview", "Photography", "Public"],
-  },
-  {
-    id: "ben-line-agencies",
-    client: "Ben Line Agencies",
-    title: "Logistics / Industrial Media",
-    summary:
-      "Comprehensive coverage of maritime logistics operations, focusing on safety protocols and heavy lift coordination.",
-    image: "/images/stitch/be28ea9edd.jpg",
-    tags: ["Facility Overview", "Photography", "Public"],
-  },
-]
-
-const FEATURED_TAGS = ["Oil & Gas", "Safety Induction"]
-const INLINE_GATED_TAGS = ["Oil & Gas"]
+/**
+ * The gated pair are the only cards left that are not in `films`, and they are
+ * still the fabricated Petrofac panel and "Confidential Client" card PRODUCT.md
+ * `## Evidence on Hand` names. The owner was shown that on 2026-08-07, next to
+ * the seven real films, and chose to leave them standing.
+ *
+ * They carry no category because neither of the owner's two service lines
+ * describes them, so they surface under "All" and nowhere else — a filter that
+ * says "Corporate Video" should return corporate video. Empty arrays are the
+ * honest encoding of that, not an oversight: `matches([])` is true only when
+ * nothing is filtered.
+ */
+const FEATURED_TAGS: string[] = []
+const INLINE_GATED_TAGS: string[] = []
 
 const ALL = "All"
-// Only surface categories that actually have at least one matching case study,
-// so no filter chip ever resolves to an empty grid.
-const categories = [
-  ALL,
-  "Oil & Gas",
-  "Facility Overview",
-  "Safety Induction",
-  "Photography",
-  "Public",
-]
+// The owner's own two service lines, and nothing else. The previous six chips
+// ("Oil & Gas", "Photography", "Public"...) were tags on placeholder cards and
+// went with them. A chip only matches a card carrying the exact string, so this
+// list and `PortfolioFilm["category"]` are the same strings by construction —
+// see lib/data/our-work.ts.
+const categories = [ALL, ...FILM_CATEGORIES]
 
 /**
  * A card that opens the film rather than a page.
@@ -124,7 +53,7 @@ function PortfolioCard({
   summary,
   image,
   onPlay,
-}: Omit<PortfolioCardData, "tags" | "id" | "video" | "poster"> & {
+}: Pick<PortfolioFilm, "client" | "title" | "summary" | "image"> & {
   onPlay: () => void
 }) {
   return (
@@ -203,15 +132,15 @@ function PortfolioCard({
 
 export function CaseStudiesPortfolio() {
   const [selected, setSelected] = useState(ALL)
-  const [playing, setPlaying] = useState<PortfolioCardData | null>(null)
-  // Stable, so the lightbox's mount effect cannot re-run and restart the film
-  // when this component re-renders behind it.
+  const [playing, setPlaying] = useState<PortfolioFilm | null>(null)
+  // Stable, so the lightbox cannot remount and restart the film when this
+  // component re-renders behind it.
   const closePlayer = useCallback(() => setPlaying(null), [])
 
   const matches = (tags: string[]) =>
     selected === ALL || tags.includes(selected)
 
-  const visiblePublic = publicCards.filter((c) => matches(c.tags))
+  const visiblePublic = films.filter((f) => matches([f.category]))
   const showFeatured = matches(FEATURED_TAGS)
   const showInlineGated = matches(INLINE_GATED_TAGS)
   const nothingVisible =
@@ -444,8 +373,7 @@ export function CaseStudiesPortfolio() {
         <VideoLightbox
           label={`${playing.client} — ${playing.title}`}
           onClose={closePlayer}
-          poster={playing.poster ?? HERO_POSTER}
-          src={playing.video ?? HERO_VIDEO}
+          youtubeId={playing.youtubeId}
         />
       )}
     </section>

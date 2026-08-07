@@ -233,6 +233,54 @@ export function serviceSchema({
   }
 }
 
+/**
+ * One published film, for the `/our-work` grid.
+ *
+ * This is the first schema on the site that asserts a client relationship since
+ * `creativeWorkSchema` stopped being called on 2026-08-06 — and the reason it
+ * is allowed to is that the assertion is already public and already the owner's
+ * own: every film is on the company's YouTube channel, so `embedUrl` points a
+ * search engine at the evidence rather than at a claim. Do not add an entry
+ * whose video is not published there.
+ *
+ * `uploadDate` is required by Google for a video result and must be the film's
+ * real publication date — never today's date, never a guess. The dates in
+ * lib/data/our-work.ts were read off the watch pages.
+ *
+ * `about` names the client the way the card does. It is the machine-readable
+ * half of the same statement the visible card makes, so the two have to say the
+ * same thing: change one and change the other.
+ */
+export function videoObjectSchema({
+  name,
+  description,
+  thumbnail,
+  uploadDate,
+  youtubeId,
+  client,
+}: {
+  name: string
+  description: string
+  thumbnail: string
+  uploadDate: string
+  youtubeId: string
+  client?: string
+}) {
+  return {
+    "@type": "VideoObject",
+    name,
+    description,
+    thumbnailUrl: abs(thumbnail),
+    uploadDate,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${youtubeId}`,
+    inLanguage: "en",
+    creator: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    ...(client ? { about: { "@type": "Organization", name: client } } : {}),
+  }
+}
+
 export function creativeWorkSchema({
   name,
   description,

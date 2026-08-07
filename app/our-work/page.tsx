@@ -5,7 +5,8 @@ import { CaseStudiesPortfolio } from "@/components/site/our-work-portfolio"
 import { SectionLabel } from "@/components/site/section-label"
 import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceSection } from "@/components/site/service-section"
-import { breadcrumbSchema, graph, pageMeta } from "@/lib/seo"
+import { films } from "@/lib/data/our-work"
+import { breadcrumbSchema, graph, pageMeta, videoObjectSchema } from "@/lib/seo"
 import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata = pageMeta({
@@ -15,11 +16,27 @@ export const metadata = pageMeta({
   path: "/our-work",
 })
 
+/**
+ * Breadcrumbs plus one `VideoObject` per published film. The films are read
+ * from the same array the grid renders, so the structured data cannot drift
+ * from what is on screen — that shared read is the reason
+ * `lib/data/our-work.ts` exists again.
+ */
 const caseStudiesSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Case Studies", path: "/our-work" },
-  ])
+  ]),
+  ...films.map((film) =>
+    videoObjectSchema({
+      name: `${film.client} — ${film.title}`,
+      description: film.summary,
+      thumbnail: film.image,
+      uploadDate: film.uploadDate,
+      youtubeId: film.youtubeId,
+      client: film.client,
+    })
+  )
 )
 
 /**

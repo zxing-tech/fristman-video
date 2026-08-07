@@ -5,6 +5,7 @@ import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { pageMeta, graph, breadcrumbSchema, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -45,6 +46,7 @@ export default function IndustrialPhotographyPage() {
       <ServiceHero
         breadcrumb="Industrial Photography"
         chip="Capability Specification"
+        media={SERVICE_HERO_MEDIA["industrial-photography"]}
         lede="Documenting critical structural phases, heavy lifts, and compliance checks with high-fidelity, ground-based photography. Precise Video assets captured in demanding environments."
         tagline="For Sites, Teams & Comms"
         title="Industrial Photography"

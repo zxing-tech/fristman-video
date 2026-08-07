@@ -7,6 +7,7 @@ import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { sectors } from "@/lib/data/sectors"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -96,6 +97,7 @@ export default function FacilityOverviewFilmsPage() {
         breadcrumb="Facility Overview Films"
         chip="Capability"
         chipIcon="videocam"
+        media={SERVICE_HERO_MEDIA["facility-overview-films"]}
         lede="Drone-enabled aerial and ground cinematography that helps industrial teams explain scale, layout, access points and project context to stakeholders."
         title={
           <>

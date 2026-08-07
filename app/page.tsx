@@ -10,7 +10,12 @@ import { sectors } from "@/lib/data/sectors"
 import { services } from "@/lib/data/services"
 // Shared with every /services/* hero, so the two can never drift onto
 // different footage.
-import { HERO_POSTER, HERO_TEXT_SHADOW, HERO_VIDEO } from "@/lib/hero-media"
+import {
+  HERO_POSTER,
+  HERO_TEXT_SHADOW,
+  HERO_VIDEO,
+  HERO_VIDEO_SMALL,
+} from "@/lib/hero-media"
 import { pageMeta } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
@@ -73,7 +78,9 @@ const clienteleLogos = [
   // older 28 are unchanged and stay slightly softer; re-mastering them needs
   // source artwork this repo does not have.
   { src: "/images/clients/clientele-17.png", alt: "MMHE" },
-  { src: "/images/clients/clientele-18.png", alt: "Sapura" },
+  // Re-mastered 2026-08-07 from the owner's `Sapura Logo.png`: the roster now
+  // carries the Sapura Energy identity rather than the older Sapura diamond.
+  { src: "/images/clients/clientele-18.png", alt: "Sapura Energy" },
   { src: "/images/clients/clientele-19.png", alt: "Transwater" },
   // Heerema shipped as a portrait lock-up: a solid orange square holding the
   // roundel, with the wordmark on transparency beneath it. Greyscaled, that
@@ -86,8 +93,49 @@ const clienteleLogos = [
   // rather than by value — greyscaled they collapse into one near-uniform
   // ribbon. It was the only logo on this wall that could not say its own name;
   // the caption under every mark now says it for all of them. A lock-up version
-  // with the lettering would still read better. See the note in ATTRIBUTIONS.md.
+  // with the lettering would still read better. The 2026-08-07 drop supplied a
+  // file named "Jabatan Saliran & Pengairan" but the artwork inside it is the
+  // same wordmark-less waves at lower resolution (600px, and opaque), so this
+  // still stands. See the note in ATTRIBUTIONS.md.
   { src: "/images/clients/clientele-21.png", alt: "JPS" },
+  // Added 2026-08-07 from the owner's `new-logo-client-2` drop, through the same
+  // pipeline as the batch above — the recipe is now measured rather than
+  // described: trim to the mark's own box, tone-map so the median ink lands on
+  // 138 (the wall runs 92-164), scale to 316px inside a 360x240 transparent
+  // canvas. That shared canvas ratio is what makes `h-24 w-auto` render every
+  // mark at the same 144px width.
+  //
+  // ONGC needed one extra step. It ships as white artwork reversed out of a
+  // solid red square, which greyscales into a filled block and, under
+  // `dark:invert`, into a glowing one — the same defect recorded for the
+  // Heerema lock-up below. The field is knocked out instead and the white
+  // artwork taken as the ink, so the derrick, the Devanagari and the wordmark
+  // all survive on transparency. Anything else arriving as a reversed lock-up
+  // needs the same treatment; dropping it in raw will look broken.
+  { src: "/images/clients/clientele-22.png", alt: "ONGC" },
+  { src: "/images/clients/clientele-23.png", alt: "Swire Projects" },
+  // The two consumer marks on this wall. They are the agency-era end of a
+  // 25-year roster, not Oil & Gas work — see ATTRIBUTIONS.md on why they are
+  // the highest-exposure names here.
+  { src: "/images/clients/clientele-24.png", alt: "Google" },
+  { src: "/images/clients/clientele-25.png", alt: "PlayStation" },
+  // Heerema Marine Contractors, re-supplied 2026-08-07 and added as its own
+  // entry rather than folded into "Heerema" above — HMC is the marine
+  // contracting company, and the Jerun offshore film on `/our-work` carries its
+  // mark on screen. If the two are meant to be one relationship, this entry
+  // should replace `clientele-20.png`, which would also retire the wordmark
+  // crop ATTRIBUTIONS.md flags as an alteration.
+  //
+  // Built the same way ONGC was, with one extra rule. The mark is a white disc
+  // on a red field with the H reversed out of the disc, over a wordmark on
+  // transparency. Knocking the field out with a single rule would take the
+  // wordmark with it, so the field's own bounding box splits the two: inside
+  // it only the disc is ink, which leaves the H as a hole where the red used to
+  // show through; below it the wordmark's own alpha is the shape.
+  {
+    src: "/images/clients/clientele-26.png",
+    alt: "Heerema Marine Contractors",
+  },
 ]
 
 // The three track-record figures. Owner-confirmed 2026-08-04 and cleared to
@@ -260,7 +308,7 @@ export default function HomePage() {
             className="h-full w-full bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url('${HERO_POSTER}')` }}
           />
-          <HeroVideo src={HERO_VIDEO} />
+          <HeroVideo src={HERO_VIDEO} srcSmall={HERO_VIDEO_SMALL} />
 
           {/* Even grade — insurance against a blown-out highlight under white text
               if this slot is ever swapped for brighter footage. Barely registers
@@ -607,49 +655,58 @@ export default function HomePage() {
                 card gave up its aside glyph and takes the marker position the
                 other three use.
 
-                The four photographs are licensed Unsplash stock, replacing the
-                512px Google Stitch AI renders that backed these cards — see
-                PRODUCT.md `## Evidence on Hand` for why an AI render must not
-                sit where project documentation is implied. They are stock, and
-                the alt text on each describes only what is in the frame.
+                The four photographs replaced the Unsplash set on 2026-08-07.
+                Each one now shows a drone crew working an industrial site,
+                which is what these four claims are actually about, where the
+                old set showed the sites alone. They are still stock: none of
+                these is a Firstman crew, a Firstman client or a Firstman
+                project, so the alt text describes only what is in the frame
+                and the copy stays about how the company works — PRODUCT.md
+                `## Evidence on Hand` is the fence this sits behind, and a
+                photograph of people in PPE leans on it harder than a
+                photograph of a refinery did.
 
-                PhotoCard's scrim stops were tuned against a different set, so
-                white-on-photo contrast was re-measured for these rather than
-                inherited: brightest pixel under each text rect, resting and
-                hovered. Everything clears its floor, the tightest at 1.35x on
-                the hovered title over `why-site-awareness.jpg` — much the
-                brightest of the four. Figures and method are in
-                public/images/unsplash/CREDITS.md; swap that image for anything
-                brighter and the measurement has to be run again. */}
+                Two of the four ship with a highlight rolloff baked into the
+                JPEG, and that is an accessibility fix rather than a look.
+                Measured against the real render — caption text set to
+                transparent, brightest pixel sampled inside each text rect —
+                the untoned crew photograph put its hovered title at 2.19:1,
+                under the 3.0 floor large text gets, because a blue sky and
+                three white hard hats sit exactly where that title lands. After
+                the rolloff the worst figure anywhere on the bento is 4.41:1,
+                1.47x its floor. Re-export any of these from the source files
+                and the failure comes back: the crop windows, the tone recipe,
+                the figures and the method are all in
+                public/images/why/README.md. */}
             <PhotoCard
-              alt="An oil refinery at dusk, distillation columns and a lit flare stack silhouetted above a river"
+              alt="Three workers in hi-vis jackets and hard hats around a quadcopter one of them holds up, a wind turbine tower behind them"
               body="Every drone operation begins with a documented risk assessment, coordinated with your HSE team and cleared through full Permit to Work (PTW) approval. We arrive prepared for the site — so capture stays safe and your operations keep running."
               className="md:col-span-2"
               icon="shield"
-              image="/images/unsplash/why-safety-permit.jpg"
+              image="/images/why/safety-permit.jpg"
               size="lg"
               title="Safety-First Workflow & Compliance"
             />
             <PhotoCard
-              alt="Top-down aerial view of pipework, ducting and cooling fans on an industrial plant roof"
+              alt="Aerial view of a gas processing plant at dusk, distillation columns and a lit flare stack above a wider industrial estate"
               body="We know the logistics, the safety gates, and the operational realities of heavy industry from the moment we mobilise."
               icon="factory"
-              image="/images/unsplash/why-site-awareness.jpg"
+              image="/images/why/site-awareness.jpg"
               title="Deep Industrial Site Awareness"
             />
             <PhotoCard
-              alt="A quadcopter drone in flight, silhouetted against an orange dusk sky above distant cranes"
+              alt="A worker in an orange hi-vis vest flying a small quadcopter by handheld controller in front of a piling rig"
               body="Multi-angle coverage combining aerial perspectives with detailed ground-level cinematography."
               icon="photo_camera"
-              image="/images/unsplash/why-uav-ground.jpg"
+              image="/images/why/uav-ground.jpg"
               title="Integrated UAV + Ground Production"
             />
             <PhotoCard
-              alt="Four large cylindrical storage tanks on a coastal terminal, seen across open water"
+              alt="A drone pilot in a yellow hi-vis jacket watching a quadcopter over a tank farm under a dusk sky"
               body="A major fabrication yard or a short-notice site visit — large-scale or ad-hoc, we mobilise across the region to cover it."
               className="md:col-span-2"
               icon="public"
-              image="/images/unsplash/why-regional-deployment.jpg"
+              image="/images/why/regional-deployment.jpg"
               title="Rapid Regional Deployment"
             />
           </div>
