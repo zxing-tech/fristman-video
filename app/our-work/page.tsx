@@ -17,26 +17,33 @@ export const metadata = pageMeta({
 })
 
 /**
- * Breadcrumbs plus one `VideoObject` per published film. The films are read
- * from the same array the grid renders, so the structured data cannot drift
- * from what is on screen — that shared read is the reason
- * `lib/data/our-work.ts` exists again.
+ * Breadcrumbs plus one `VideoObject` per public film. The films are read from
+ * the same array the grid renders, so the structured data cannot drift from
+ * what is on screen — that shared read is the reason `lib/data/our-work.ts`
+ * exists again. Private films are filtered out here rather than upstream:
+ * they have no publicly embeddable video to describe, so a `VideoObject`
+ * claiming one would be false. A private film's short preview clip, once the
+ * owner supplies one, is a real public asset and belongs in this list too —
+ * that filter can change the day `previewYoutubeId` starts landing on real
+ * entries, not before.
  */
 const caseStudiesSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Case Studies", path: "/our-work" },
   ]),
-  ...films.map((film) =>
-    videoObjectSchema({
-      name: `${film.client} — ${film.title}`,
-      description: film.summary,
-      thumbnail: film.image,
-      uploadDate: film.uploadDate,
-      youtubeId: film.youtubeId,
-      client: film.client,
-    })
-  )
+  ...films
+    .filter((film) => film.access === "public")
+    .map((film) =>
+      videoObjectSchema({
+        name: `${film.client} — ${film.title}`,
+        description: film.summary,
+        thumbnail: film.image,
+        uploadDate: film.uploadDate,
+        youtubeId: film.youtubeId,
+        client: film.client,
+      })
+    )
 )
 
 /**

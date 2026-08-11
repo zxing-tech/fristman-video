@@ -93,29 +93,44 @@ replaced and does not carry over.
 
 ### Published films on `/our-work`
 
-The seven cards on `/our-work` play films from the company's own YouTube channel
-(`@firstmanvideos`), owner-supplied on 2026-08-07 and verified public through
-the oEmbed endpoint. **No third-party attribution is owed** — the channel is
-Firstman's and the films are Firstman's work. Two things about them are still
-worth recording:
+Six of the nine entries on `/our-work` play real films from the company's own
+YouTube channel (`@firstmanvideos`), owner-supplied on 2026-08-07 and verified
+public through the oEmbed endpoint. **No third-party attribution is owed** —
+the channel is Firstman's and the films are Firstman's work. Several things
+about them are still worth recording:
 
 - **They name real clients, and that is now a public claim in machine-readable
   form.** `videoObjectSchema` in `lib/seo.ts` emits `about: Organization` per
-  film, so a search engine reads "Firstman made this for Transwater / MAHB /
-  Sapura / Sarawak Shell / MMHE / Hess / Petronas / JPS / Jerun". The films are
-  already published under those names on the channel, so the claim is not new —
-  but the site is now repeating it, and client consent to a YouTube upload is
-  not automatically consent to a portfolio page.
+  public film, so a search engine reads "Firstman made this for Transwater /
+  MAHB / Sapura / MMHE / Hess / Petronas / JPS / Jerun". The films are already
+  published under those names on the channel, so the claim is not new — but the
+  site is now repeating it, and client consent to a YouTube upload is not
+  automatically consent to a portfolio page.
 - **`Vho5NjMFcYE` (MMHE / Hess / Petronas, Full EPCIC) is a watermarked draft.**
   "evaluation copy for client review" is burned into the picture and into the
   thumbnail. The owner was shown this on 2026-08-07 and chose to publish it.
   Replace the id with a final master when one exists.
+- **`shell-sarawak-f6vlap` went private 2026-08-11**, at the owner's request.
+  Its real client, title and summary stay on the page — the card now shows a
+  locked plate and a Request Access CTA instead of playing the film, and its
+  `VideoObject` entry was removed rather than left pointing at a video the site
+  no longer links to. The published YouTube id is not carried anywhere in the
+  codebase as a "preview" — going private means this site stops linking to the
+  full film, not that the id becomes semi-public under a different name.
+- **Two entries never had a real film to begin with.** `petrofac-kemaman` and
+  `confidential-oag` are the placeholder copy PRODUCT.md `## Evidence on Hand`
+  already named as invented; they moved from a bespoke featured panel and an
+  inline card into the same locked-grid-card component `shell-sarawak-f6vlap`
+  now uses, but nothing about what they claim changed. See
+  `lib/data/our-work.ts` for the per-entry provenance notes.
 
 Playback uses `youtube-nocookie.com` and the iframe is mounted only after a
 click, so a visitor who never presses play makes no request to Google. That is a
 technical default, not consent: `app/privacy-policy/cookie-banner.tsx` persists
 nothing and gates nothing, so if a real consent gate ever lands, the embed is
-what it has to gate.
+what it has to gate. The same will apply to private-film preview clips once the
+owner supplies them (`PrivateFilm.previewYoutubeId`, unset on every entry as of
+2026-08-11) — a preview plays through the identical lightbox and iframe.
 
 ### Homepage bento photographs
 

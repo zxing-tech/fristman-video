@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-04T11:14:38Z",
+  "generatedAt": "2026-08-11T07:14:17Z",
   "title": "Design System: Firstman Videos",
   "extensions": {
     "colorMeta": {
@@ -97,16 +97,16 @@
       "dark-industrial-grey": {
         "role": "neutral",
         "displayName": "Industrial Grey (dark)",
-        "canonical": "#6f7378",
+        "canonical": "#7c8087",
         "tonalRamp": [
-          "oklch(0.15 0.008 236)",
-          "oklch(0.26 0.008 236)",
-          "oklch(0.37 0.008 236)",
-          "oklch(0.49 0.008 236)",
-          "oklch(0.60 0.008 236)",
-          "oklch(0.72 0.008 236)",
-          "oklch(0.84 0.008 236)",
-          "oklch(0.95 0.008 236)"
+          "oklch(0.15 0.012 261.8)",
+          "oklch(0.26 0.012 261.8)",
+          "oklch(0.37 0.012 261.8)",
+          "oklch(0.48 0.012 261.8)",
+          "oklch(0.60 0.012 261.8)",
+          "oklch(0.72 0.012 261.8)",
+          "oklch(0.84 0.012 261.8)",
+          "oklch(0.95 0.012 261.8)"
         ]
       },
       "light-background": {
@@ -224,6 +224,10 @@
       "readout": {
         "displayName": "Readout",
         "purpose": "IBM Plex Mono 500, 10–12px, uppercase, 0.15em. Reference codes, coordinates and statuses only — the one role Archivo does not cover."
+      },
+      "icon": {
+        "displayName": "Icon",
+        "purpose": "Material Symbols Outlined, loaded as a stylesheet rather than through next/font so font-variation-settings FILL stays animatable on hover. Unlayered CSS pins font-size to 24px, so icon size cannot be set with a bare Tailwind utility — only the important modifier (text-3xl!) lands, and only getComputedStyle proves it."
       }
     },
     "shadows": [
@@ -411,6 +415,11 @@
       {
         "name": "The Wide Label Rule",
         "body": "Small text earns authority by going uppercase, 700, and tracked to `0.1em` — never by getting bigger. A 12px tracked label outranks a 14px sentence-case one.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scarce Capitals Rule",
+        "body": "That only works while capitals are rare, so uppercase belongs to the Label role and to nothing else. Every heading — the page `h1` included — is sentence case. This was measured, not assumed: on 2026-08-04 the six service pages ran 20 of 20 headings in capitals against the homepage's one, and the eyebrow above a heading in the same case had no signal left to spend. Setting a heading in capitals does not make it louder; it makes the label beneath it quieter.",
         "section": "typography"
       },
       {
