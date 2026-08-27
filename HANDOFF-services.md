@@ -5,22 +5,22 @@ homepage ke `PhotoCard` selesai. Semua yang sudah dikerjakan ada di riwayat git;
 file ini hanya memuat hal yang **menunggu keputusan pemilik**, bukan pekerjaan
 teknis yang tertunda. Hapus begitu daftarnya habis.
 
-## 1. Gerbang "Request Access" tanpa isi
+## 1. ~~Gerbang "Request Access" tanpa isi~~ — ✅ selesai 2026-08-27
 
-`/services/facility-overview-films` punya tombol "Request Access to Portfolio"
-yang membuka form, tapi tidak ada file apa pun di baliknya — lihat `PRODUCT.md`
-→ *Evidence on Hand*. Sudah diturunkan jadi aksi sekunder dengan `/contact`
-sebagai yang utama, tapi gerbangnya sendiri masih buntu.
+`/services/facility-overview-films` sudah tidak ada, dan gerbangnya tidak lagi
+buntu: 11 film ter-gate di `lib/data/our-work.ts` adalah film asli yang memang
+tidak boleh tayang publik (ditandai `(LOCKED)` oleh pemilik). Tombol Request
+Access sekarang menunjuk ke sesuatu yang benar-benar ada di baliknya, yang juga
+menutup Prinsip 5 di `PRODUCT.md`.
 
-Sama halnya dengan `/our-work/petrofac-kemaman`.
+`petrofac-kemaman` termasuk di dalamnya — filmnya `kIaq3sz3_Nk`.
 
-## 2. Copy rusak di Progression & Timelapse
+## 2. ~~Copy rusak di Progression & Timelapse~~ — ✅ ditulis ulang 2026-08-27
 
-Dua judul deliverable jelas kacau susunannya dan perlu ditulis ulang oleh
-pemilik, bukan ditebak:
-
-- "Milestone Reports"
-- "Drone Aerial Photographs "
+Halamannya sekarang `/services/long-term-timelapse`. Tiga judul deliverable
+ditulis ulang jadi nama barang yang diterima klien: "Interval Cutdowns",
+"Milestone Films", "Aerial Stills". Kalau pemilik punya istilah sendiri,
+ini tempat menggantinya.
 
 ## 3. Navbar pecah di sekitar 834px
 
@@ -44,9 +44,18 @@ dengan jelas, jadi ini soal selera bukan cacat. Tidak didesaturasi karena
 homepage menampilkan fotonya berwarna penuh — kalau mau diseragamkan,
 keputusannya sebaiknya berlaku untuk seluruh situs, bukan `/services` saja.
 
-## 6. Aset yang masih ditunggu
+## 6. ~~Aset yang masih ditunggu~~ — ✅ datang 2026-08-27
 
-`/our-work/*` dan `/about` masih memakai render AI Google Stitch sepenuhnya.
-Sebagian render itu punya teks HUD palsu ter-bake di pikselnya — periksa dulu
-sebelum memakainya di area terang. Daftar tagihan asetnya ada di
+Pengiriman `xxx_Website 2026 Assets/` menutup ini: delapan film jadi (satu per
+hero, termasuk `/about`) dan 30 tautan film asli. Render Stitch terakhir di
+`/our-work` ikut hilang bersama dua entri placeholder-nya. Yang tersisa dari
+daftar itu bukan lagi aset, melainkan **izin klien** — lihat
 `PENDING-CLIENT-ASSETS.md`.
+
+## 7. Nada foto Pexels yang kini menganggur
+
+`facility-fabrication-yard.jpg`, `facility-offshore-module.jpg`,
+`facility-refinery.jpg` dan `photo-structural-phase.jpg` kehilangan pemanggilnya
+saat dua layanan dihapus 2026-08-27. Filenya masih di repo dan masih ikut
+ter-deploy. Menghapusnya menutup satu baris di `ATTRIBUTIONS.md`; keputusan
+pemilik, bukan blocker.

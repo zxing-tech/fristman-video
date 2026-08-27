@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 
 import { ctaClasses } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
+import { services } from "@/lib/data/services"
 import { Readout } from "@/components/site/readout"
 
 /**
@@ -368,33 +369,25 @@ export function ConsultationForm() {
                   >
                     Select Service
                   </option>
-                  <option className={optionClass} value="Corporate Videos">
-                    Corporate Videos
-                  </option>
-                  <option className={optionClass} value="Facility Overviews">
-                    Facility Overviews
-                  </option>
-                  <option
-                    className={optionClass}
-                    value="Progression & Timelapses"
-                  >
-                    Progression &amp; Timelapses
-                  </option>
-                  <option
-                    className={optionClass}
-                    value="Safety and Induction Videos"
-                  >
-                    Safety and Induction Videos
-                  </option>
-                  <option className={optionClass} value="AI-Generated Video">
-                    AI-Generated Video
-                  </option>
-                  <option
-                    className={optionClass}
-                    value="Industrial Photography"
-                  >
-                    Industrial Photography
-                  </option>
+                  {/* Straight from lib/data/services.ts, the same array the
+                      navbar dropdown and the homepage grid read. This list was
+                      hand-maintained and had drifted twice: on 2026-08-27 it
+                      was still offering "Facility Overviews", "Progression &
+                      Timelapses" and "Industrial Photography", two of which
+                      were no longer services and none of which matched a
+                      service title character for character — so an enquiry
+                      arrived at Web3Forms naming something the site does not
+                      sell. Mapping the array is what makes a rename land here
+                      too. */}
+                  {services.map((service) => (
+                    <option
+                      className={optionClass}
+                      key={service.slug}
+                      value={service.title}
+                    >
+                      {service.title}
+                    </option>
+                  ))}
                   <option className={optionClass} value="General Enquiry">
                     General Enquiry
                   </option>

@@ -1,9 +1,11 @@
 import { CtaButton } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceFilms } from "@/components/site/service-films"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
@@ -76,20 +78,21 @@ export default function SafetyInductionVideosPage() {
         breadcrumb="Safety and Induction Videos"
         chip="Safety & Induction Media"
         chipIcon="health_and_safety"
+        media={SERVICE_HERO_MEDIA["safety-induction-videos"]}
         lede="A well-produced safety and induction video does more than fulfil compliance requirements—it sets the standard for your workplace culture. Firstman Productions creates engaging, professional safety and induction videos that clearly communicate site rules, hazards, emergency procedures and operational expectations."
         tagline="Safety Starts Before the First Step"
-        title="Safety & Induction Videos"
+        title="Safety and Induction Videos"
         actions={
           <>
             <CtaButton href="/contact" arrow className="w-full sm:w-fit">
               Discuss Project Scope
             </CtaButton>
             <CtaButton
-              href="/our-work"
+              href="#films"
               variant="secondary"
               className="w-full sm:w-fit"
             >
-              View Sample Deliverables
+              See Induction Films
             </CtaButton>
           </>
         }
@@ -167,6 +170,16 @@ export default function SafetyInductionVideosPage() {
             </p>
           </div>
         </div>
+      </ServiceSection>
+
+      <ServiceSection
+        band="graphite"
+        eyebrow="Evidence"
+        id="films"
+        lede="Induction and procedure films Firstman has produced, from offshore fields to office floors, in English and Bahasa Malaysia. Site-specific material is released under NDA."
+        title="Induction films"
+      >
+        <ServiceFilms category="Safety and Induction Videos" />
       </ServiceSection>
 
       <ServiceCta

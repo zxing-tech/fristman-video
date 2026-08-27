@@ -1,6 +1,21 @@
 # Pending: Aset Klien untuk `/our-work`
 
-**Status:** ⏸️ Redesign `/our-work` **ditunda** menunggu klien menyediakan video asli.
+**Status:** ✅ **Selesai 2026-08-27.** Aset yang ditunggu dokumen ini sudah datang.
+Pemilik mengirim `xxx_Website 2026 Assets/` — delapan film jadi, wordmark, dan
+`YouTube Source Files.rtf` berisi 30 film asli di kanal sendiri. `/our-work`
+sekarang memuat **28 film nyata** (16 publik, 12 ter-gate) dan tiap halaman
+`/services/*` menampilkan film milik lini layanannya sendiri lewat `ServiceFilms`.
+Keluhan verbatim di §1 — "not enough actual work highlighted" — sudah terjawab
+oleh aset, bukan oleh prosa tambahan.
+
+Yang **belum** selesai dan sekarang jadi item terbesar: izin klien untuk
+menayangkan nama mereka di portofolio. Publikasi di YouTube bukan izin untuk
+halaman portofolio, dan film publik naik dari 6 jadi 16. Rinciannya
+di `ATTRIBUTIONS.md` → *Owner-supplied delivery (2026-08-27)*.
+
+Dokumen ini dipertahankan sebagai catatan audit 2026-08-04; isinya di bawah ini
+menggambarkan situs sebelum aset datang, bukan situs hari ini.
+
 **Tanggal dicatat:** 2026-08-04
 **Sumber:** feedback klien + audit menyeluruh codebase (semua temuan di bawah sudah diverifikasi langsung di repo).
 

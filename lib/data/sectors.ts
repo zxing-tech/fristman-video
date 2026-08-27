@@ -1,8 +1,10 @@
 /**
  * The four sectors the site used to have detail pages for under /industries.
  * Those routes were removed; the taxonomy now lives on the homepage section at
- * /#industries and in the "Designed For" list on the facility-overview-films
- * service page. There are no sector routes any more, so this array is
+ * /#industries and in the Sector select on the contact form. Its second reader,
+ * the "Designed For" list on /services/facility-overview-films, went with that
+ * service on 2026-08-27 — so the homepage is the only page rendering this now.
+ * There are no sector routes any more, so this array is
  * deliberately absent from `app/sitemap.ts` — do not add hrefs back to it
  * without creating the pages first.
  */

@@ -11,6 +11,34 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // The service line-up was re-cut on 2026-08-27 from the owner's own
+        // marked-up navbar (`02_Amendments.png`). Facility Overview Films and
+        // Industrial Photography came off, and the two things the company is
+        // actually hired for in Oil & Gas replaced them.
+        //
+        // Facility Overviews were aerial and ground coverage of a whole
+        // industrial site; a topside load-out is the closest live service and
+        // the one that took its slot in the owner's list.
+        source: "/services/facility-overview-films",
+        destination: "/services/og-topside-loadout",
+        permanent: true,
+      },
+      {
+        // Industrial Photography had no successor service. The homepage grid
+        // is the honest landing spot: it shows what the six services are now,
+        // rather than dropping the visitor on a page about something else.
+        source: "/services/industrial-photography",
+        destination: "/#services",
+        permanent: true,
+      },
+      {
+        // "Construction Progress & Timelapse Capture" was renamed to
+        // "Long-Term Timelapse". Same service, same page, shorter name.
+        source: "/services/progression-timelapse",
+        destination: "/services/long-term-timelapse",
+        permanent: true,
+      },
+      {
         // The /services hub was removed in favour of the navbar dropdown; the
         // homepage grid at #services is now the equivalent landing spot.
         source: "/services",

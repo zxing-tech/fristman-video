@@ -18,12 +18,37 @@ const cardHoverLift =
   "transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_25px_-5px_rgba(209,32,39,0.2)]"
 
 /**
- * Set once the owner supplies the asset (requested 2026-08-11, to sit over a
- * private film's short preview clip). Until then this stays `null` and
- * `GatedFilmCard` renders no watermark at all — never point this at a path
- * that doesn't exist, or a broken-image icon ships on every preview.
+ * The watermark over a private film's preview clip, requested 2026-08-11 and
+ * filled 2026-08-27 when the owner delivered the wordmark.
+ *
+ * It is the light-ink variant unconditionally, not a theme pair: this sits on
+ * a still inside a card that stays dark in both themes (DESIGN.md's photo
+ * exception), so a mark that flipped with the theme would go black-on-black
+ * in light mode. Nothing renders it today — every private film is still
+ * waiting on its preview clip — but the moment one lands, the watermark
+ * appears with it.
  */
-const FIRSTMAN_LOGO_SRC: string | null = null
+const FIRSTMAN_LOGO_SRC: string | null = "/images/brand/logo-dark.png"
+
+/**
+ * The only chip a card carries, and it only appears on the exception: a film
+ * that is gated, or a gated film showing a preview instead of the full cut.
+ *
+ * There used to be a "Public" chip on the other sixteen cards. It came off on
+ * 2026-08-27 at the owner's request, and it was the right call twice over —
+ * a label repeated on the majority is furniture, not information, and the play
+ * glyph in the middle of the frame already says the card plays. Mark the
+ * exception; let the default be silent.
+ *
+ * Construction is `ServiceHero`'s over-photo chip, not DESIGN.md's panel chip:
+ * a near-black plate with a Signal Red hairline, red glyph, white label. The
+ * panel chip's 10% red fill needs a dark surface underneath to hold its red
+ * text, and as of the same change there is a full-brightness photograph there
+ * instead. Red survives as the border and the glyph, which are shapes rather
+ * than 12px type.
+ */
+const photoChipClass =
+  "absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-primary/60 bg-black/70 px-3 py-1 font-label text-xs font-bold tracking-widest text-white uppercase backdrop-blur"
 
 const ALL = "All"
 // The owner's own two service lines, and nothing else. A chip only matches a
@@ -89,9 +114,6 @@ function PortfolioCard({
             />
           </span>
         </div>
-        <span className="absolute top-4 right-4 rounded-full border border-white/20 bg-black/80 px-3 py-1 font-label text-xs font-bold tracking-widest text-white uppercase backdrop-blur">
-          Public
-        </span>
       </div>
       <div className="flex flex-grow flex-col p-6">
         <div className="font-label text-xs font-bold tracking-widest text-primary uppercase">
@@ -224,17 +246,24 @@ function FeaturedFilm({
  * A private film's grid card. Renders one of two states depending on whether
  * `film.previewYoutubeId` is set:
  *
- *  - **No preview (every entry today):** the original locked-plate treatment
- *    — a dimmed still, a neutral lock disc that does not respond to hover
- *    (the disc is a state here, not the click target), a "Gated" chip, and a
- *    Request Access link. Nothing in the image area is clickable.
- *  - **Preview set (once the owner supplies a clip):** the still plays instead
- *    of sitting dimmed behind a lock — full brightness, a Play button scoped
- *    to just the image area (its own stretched button, not the whole card,
- *    because the card also has to hold a separate Request Access control
- *    below it), a "Preview" chip, and the Firstman watermark in the corner if
- *    `FIRSTMAN_LOGO_SRC` is set. The Request Access link stays either way —
- *    watching a 5–10s preview is not the same as having the film.
+ *  - **No preview (every entry today):** the still at full brightness, a
+ *    neutral lock disc that does not respond to hover (the disc is a state
+ *    here, not the click target), a "Gated" chip, and a Request Access link.
+ *    Nothing in the image area is clickable.
+ *  - **Preview set (once the owner supplies a clip):** the same still, now
+ *    playable — a Play button scoped to just the image area (its own stretched
+ *    button, not the whole card, because the card also has to hold a separate
+ *    Request Access control below it), a "Preview" chip, and the Firstman
+ *    watermark in the corner if `FIRSTMAN_LOGO_SRC` is set. The Request Access
+ *    link stays either way — watching a 5–10s preview is not the same as
+ *    having the film.
+ *
+ * Both states show the picture at the same brightness as a public card, which
+ * is the 2026-08-27 change: the gated still used to sit at 60% under a 50%
+ * black wash and a 2px blur, and the difference between the two card kinds is
+ * now carried entirely by the affordance — lock or play, chip or no chip,
+ * "Request Access" or "Watch film". Dimming the work is not a state worth
+ * spending the work to show.
  */
 function GatedFilmCard({
   film,
@@ -252,7 +281,14 @@ function GatedFilmCard({
       <div className="relative h-56 overflow-hidden bg-black">
         <div
           aria-hidden="true"
-          className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 ${hasPreview ? "opacity-90" : "opacity-60"}`}
+          // Full brightness in both states. The locked plate used to dim this
+          // to 60% and lay a 50% black wash with a 2px blur over it, which hid
+          // the one thing the card exists to show: on a page whose whole
+          // argument is "here is the actual work", a gated film was the only
+          // kind a visitor could not see. The lock is now carried entirely by
+          // the disc, the chip and the action line — three signals, none of
+          // which cost the photograph.
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
           style={{ backgroundImage: `url('${film.image}')` }}
         />
         {hasPreview ? (
@@ -282,8 +318,11 @@ function GatedFilmCard({
                 src={FIRSTMAN_LOGO_SRC}
               />
             )}
-            <span className="absolute top-4 right-4 flex items-center gap-1 rounded-full border border-primary/50 bg-primary/20 px-3 py-1 font-label text-xs font-bold tracking-widest text-primary uppercase backdrop-blur">
-              <MaterialIcon name="play_circle" className="text-xs!" />
+            <span className={photoChipClass}>
+              <MaterialIcon
+                name="play_circle"
+                className="text-xs! text-primary"
+              />
               Preview
             </span>
             <button
@@ -295,12 +334,13 @@ function GatedFilmCard({
           </>
         ) : (
           <>
-            {/* The same 64px disc the public cards put a play glyph in, so a
-                row that mixes the two reads as one sentence: those play, this
-                one is closed. It stays neutral and does not respond to hover —
-                the disc is a state here, not the click target, which lives on
-                the action below. */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-[2px]">
+            {/* The same 64px disc the public cards put a play glyph in, over
+                the same 25% wash, so a row that mixes the two reads as one
+                sentence: those play, this one is closed. Only the glyph
+                changes. It stays neutral and does not respond to hover — the
+                disc is a state here, not the click target, which lives on the
+                action below. */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/25">
               <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/40 backdrop-blur-sm">
                 <MaterialIcon
                   name="lock"
@@ -309,8 +349,8 @@ function GatedFilmCard({
                 />
               </span>
             </div>
-            <span className="absolute top-4 right-4 flex items-center gap-1 rounded-full border border-primary/50 bg-primary/20 px-3 py-1 font-label text-xs font-bold tracking-widest text-primary uppercase backdrop-blur">
-              <MaterialIcon name="lock" className="text-xs!" />
+            <span className={photoChipClass}>
+              <MaterialIcon name="lock" className="text-xs! text-primary" />
               Gated
             </span>
           </>

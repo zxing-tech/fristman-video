@@ -6,6 +6,7 @@ import { MaterialIcon } from "@/components/site/material-icon"
 import { Readout } from "@/components/site/readout"
 import {
   DEFAULT_HERO_MEDIA,
+  HERO_GRADES,
   HERO_TEXT_SHADOW,
   type HeroMedia,
 } from "@/lib/hero-media"
@@ -34,35 +35,6 @@ import { cn } from "@/lib/utils"
  * a literal black, every scrim is literal black, and the copy is literal white.
  * Nothing here uses a flipping token.
  */
-
-/**
- * The three scrim layers that carry white copy over moving footage, at the two
- * strengths the site's clips need. Full class strings, not interpolated values:
- * Tailwind reads source text, so a computed `bg-black/${n}` produces no CSS.
- *
- * `standard` is the original set, measured against a clip that ran mostly dark.
- * `deep` exists because the client footage delivered on 2026-08-07 is daylight
- * aerial and factory-floor material that sits 2–3 stops brighter. Measured at
- * each clip's brightest frame with the hero copy set to transparent, the lede
- * came in at 3.93–4.43:1 against a 4.5 floor on `standard`; `deep` clears it on
- * all three without flattening the picture into a black band. It is opt-in per
- * clip rather than the new default so the pages still on the shared clip render
- * exactly as they did.
- */
-const GRADES = {
-  standard: {
-    even: "bg-black/15",
-    phone: "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
-    ellipse:
-      "bg-[radial-gradient(115%_95%_at_16%_52%,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.4)_32%,rgba(0,0,0,0.26)_56%,rgba(0,0,0,0.08)_76%,transparent_90%)]",
-  },
-  deep: {
-    even: "bg-black/22",
-    phone: "bg-gradient-to-t from-black/85 via-black/50 to-transparent",
-    ellipse:
-      "bg-[radial-gradient(115%_95%_at_16%_52%,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0.5)_32%,rgba(0,0,0,0.34)_56%,rgba(0,0,0,0.12)_76%,transparent_90%)]",
-  },
-}
 
 type ServiceHeroProps = {
   /** Current page, shown last. Matches the BreadcrumbList JSON-LD. */
@@ -108,7 +80,7 @@ export function ServiceHero({
   note,
   media = DEFAULT_HERO_MEDIA,
 }: ServiceHeroProps) {
-  const grade = GRADES[media.grade ?? "standard"]
+  const grade = HERO_GRADES[media.grade ?? "standard"]
 
   // The poster is this page's LCP element, but it arrives as a CSS background,
   // so the browser cannot discover it until stylesheets have parsed. Rendering

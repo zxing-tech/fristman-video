@@ -57,12 +57,29 @@ export function SiteNavbar() {
   return (
     <nav className="fixed inset-x-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-[1280px]">
       <div className="flex w-full items-center justify-between rounded-full border border-surface/10 bg-background/70 px-6 py-3 shadow-[0_0_15px_rgba(209,32,39,0.1)] shadow-xl backdrop-blur-md md:px-8">
-        <Link
-          href="/"
-          className="text-xl font-black tracking-tighter text-surface"
-          onClick={() => setMenuOpen(false)}
-        >
-          Firstman Videos
+        <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
+          {/* The owner's wordmark, delivered 2026-08-27, replacing the Archivo
+              text lock-up that stood in for it. It is a background image on an
+              empty span rather than two <img> tags because the two theme
+              variants are class-switched, not media-switched: a hidden <img>
+              is still fetched, a background on a rule that did not match is
+              not. So exactly one file crosses the wire.
+
+              Both variants are generated from one delivery (see
+              public/images/brand/), which is why the ink flips and the dot
+              does not — the mark's own red was #cc0000 and is normalised to
+              Signal Red here, because the pill also holds a #d12027 CTA and
+              two reds a hair apart read as a mistake rather than as two
+              colours.
+
+              Explicit width, not `w-auto`: a background has no intrinsic size
+              to lay out from, and the values are the mark's own 643:240 at
+              each height. */}
+          <span
+            aria-hidden="true"
+            className="block h-8 w-[86px] bg-[url('/images/brand/logo.png')] bg-contain bg-left bg-no-repeat md:h-10 md:w-[107px] dark:bg-[url('/images/brand/logo-dark.png')]"
+          />
+          <span className="sr-only">Firstman Videos — home</span>
         </Link>
         {/* The full row waits for `lg`, not `md`. Five nav items, a dropdown
             trigger, the brand, the theme toggle and the CTA do not fit a 768px

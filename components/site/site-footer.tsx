@@ -8,9 +8,13 @@ export function SiteFooter() {
     <footer className="mt-24 w-full border-t border-surface/10 bg-background py-12">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-12 px-8 md:flex-row">
         <div className="space-y-4">
-          <div className="text-lg font-bold tracking-tighter text-surface">
-            Firstman Videos
-          </div>
+          {/* Same mark and the same one-file-crosses-the-wire reasoning as
+              the navbar — see the note there. */}
+          <span
+            aria-hidden="true"
+            className="block h-10 w-[107px] bg-[url('/images/brand/logo.png')] bg-contain bg-left bg-no-repeat dark:bg-[url('/images/brand/logo-dark.png')]"
+          />
+          <span className="sr-only">Firstman Videos</span>
           <p className="max-w-xs font-body text-sm text-industrial-grey">
             Industrial Cinematography for Oil &amp; Gas and Heavy Industry.
           </p>

@@ -40,3 +40,9 @@ next-env.d.ts
 # served or deployed, and out of git so 185 MB of them do not enter history.
 # Processed web renditions live in public/videos/ and public/images/.
 /source-media/
+
+# the owner's raw 2026-08-27 delivery folder, as it arrived (480 MB). Its
+# masters are copied into source-media/2026-delivery/ and its web renditions
+# into public/videos/; the annotated screenshots and the YouTube source list
+# it also carries are transcribed in ATTRIBUTIONS.md.
+/xxx_Website 2026 Assets/

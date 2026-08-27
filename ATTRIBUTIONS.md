@@ -55,7 +55,11 @@ so no clip is cut.
 
 ### Service hero clips
 
-`public/videos/services/` holds three clips, each on the `/services/*` page it
+> **Superseded by the 2026-08-27 delivery** — see that section below. Two of the
+> three clips below are still on the site under different names, and the third
+> is unchanged. Kept as a record of where each one first landed.
+
+`public/videos/services/` held three clips, each on the `/services/*` page it
 was named for. They are the delivered masters re-encoded for the web — same in
 and out points, audio dropped, 1080p plus a 720p phone rendition. Details and the
 encode recipe are in `lib/hero-media.ts`.
@@ -63,8 +67,8 @@ encode recipe are in `lib/hero-media.ts`.
 | Page | Clip | What it shows |
 |---|---|---|
 | `/services/corporate-videos` | `corporate-videos.mp4` | A corporate video produced **for Transwater**: their signage, their premises, valve product shots, technicians, closing on a wall of their clients' logos |
-| `/services/facility-overview-films` | `facility-overview-films.mp4` | Aerial of a coastal petrochemical terminal — jetty, tank farm, LNG spheres — with the client's motion-graphic squares burned in |
-| `/services/industrial-photography` | `industrial-photography.mp4` | A montage of industrial portraits and offshore work |
+| `/services/facility-overview-films` *(retired)* | `facility-overview-films.mp4` | Aerial of a coastal petrochemical terminal — jetty, tank farm, LNG spheres — with the client's motion-graphic squares burned in |
+| `/services/industrial-photography` *(retired)* | `industrial-photography.mp4` | A montage of industrial portraits and offshore work |
 
 **The Corporate Videos clip needs a decision before launch.** It is the strongest
 piece of real evidence on the site — an actual Firstman production — and it is
@@ -91,7 +95,19 @@ would make it the first real footage on the site. **Nothing confirms that.** The
 Pexels 856627 licence recorded further up this file belonged to the clip it
 replaced and does not carry over.
 
+> **Answered 2026-08-27.** `source-media/hero-master.mp4` is byte-for-byte
+> identical (md5 `80aef6d7…`) to the file the owner delivered that day as
+> `02b - Services - O&G Topside Loadout.mp4`. It is Firstman's own load-out
+> footage, and it is now on `/services/og-topside-loadout`, the page it is
+> about. The homepage runs a different clip — see below.
+
 ### Published films on `/our-work`
+
+> **Superseded by the 2026-08-27 delivery below**, which took the roster from
+> nine entries to twenty-eight (sixteen public, twelve gated) and gated three
+> of the six films this section
+> describes as public. Everything below still holds for the entries it names;
+> the counts do not.
 
 Six of the nine entries on `/our-work` play real films from the company's own
 YouTube channel (`@firstmanvideos`), owner-supplied on 2026-08-07 and verified
@@ -109,7 +125,10 @@ about them are still worth recording:
 - **`Vho5NjMFcYE` (MMHE / Hess / Petronas, Full EPCIC) is a watermarked draft.**
   "evaluation copy for client review" is burned into the picture and into the
   thumbnail. The owner was shown this on 2026-08-07 and chose to publish it.
-  Replace the id with a final master when one exists.
+  Replace the id with a final master when one exists. **Two later changes make
+  the thumbnail the whole exposure and make it more visible, not less:** the
+  film was gated on 2026-08-27, so the still is all this site shows of it, and
+  gated stills stopped being dimmed on the same day at the owner's request.
 - **`shell-sarawak-f6vlap` went private 2026-08-11**, at the owner's request.
   Its real client, title and summary stay on the page — the card now shows a
   locked plate and a Request Access CTA instead of playing the film, and its
@@ -131,6 +150,76 @@ nothing and gates nothing, so if a real consent gate ever lands, the embed is
 what it has to gate. The same will apply to private-film preview clips once the
 owner supplies them (`PrivateFilm.previewYoutubeId`, unset on every entry as of
 2026-08-11) — a preview plays through the identical lightbox and iframe.
+
+## Owner-supplied delivery (2026-08-27)
+
+`xxx_Website 2026 Assets/` — eight finished films, the company wordmark, a
+document of YouTube source links, and three annotated screenshots of the live
+site. **No licence or receipt accompanied it**, the same as every earlier drop.
+The masters are copied to `source-media/2026-delivery/`; everything under
+`public/videos/` is a re-encode at the same in and out points, audio dropped.
+
+### Films
+
+Four of the eight are new. **Four are files the site already had, re-labelled**
+— verified by md5, not by filename — which is worth recording because the
+descriptions written for them in 2026-08-07 still apply under the new names:
+
+| Now on | Clip | Provenance |
+|---|---|---|
+| `/` (homepage) | `hero.mp4` | **New.** 36s, replaces the load-out clip that held the slot |
+| `/services/corporate-videos` | `corporate-videos.mp4` | Unchanged (md5 `809fa0a4…`). Still the Transwater film — **the client-wall warning above still stands** |
+| `/services/og-topside-loadout` | `og-topside-loadout.mp4` | The former homepage hero (md5 `80aef6d7…`), now on the page it depicts |
+| `/services/og-offshore-installation` | `og-offshore-installation.mp4` | **New.** 26s |
+| `/services/ai-generated-video` | `ai-generated-video.mp4` | **New.** 30s. AI-generated material by definition — do not caption it as filmed footage |
+| `/services/long-term-timelapse` | `long-term-timelapse.mp4` | **New.** 50s, the longest clip on the site |
+| `/services/safety-induction-videos` | `safety-induction-videos.mp4` | The former Facility Overview clip (md5 `8ba9ebe6…`): the coastal petrochemical terminal aerial with the client's motion graphics burned in |
+| `/about` | `about.mp4` | The former Photography clip (md5 `a899fd05…`): industrial portraits and offshore work. Still fades up from black, so its poster is taken from the first lit frame |
+
+### Wordmark
+
+`FMP Logo transparent2.png` (1140×606 RGBA, file dated 2021) is the source for
+`public/images/brand/logo.png` and `logo-dark.png`. Both are derived: cropped to
+the ink, the alpha ramp scaled off its 224 ceiling so the letters render at full
+strength, ink set black or white per theme, and the mark's own `#cc0000` dot
+mapped to Signal Red `#d12027`. **That last one is an alteration of the
+company's own mark** and was made so the logo does not clash with the `#d12027`
+CTA sitting beside it in the navbar pill. It is the owner's mark, so no
+third-party permission is involved, but the change should be confirmed.
+
+### `YouTube Source Files.rtf`
+
+Thirty film links across five service lines, on the company's own channel. This
+is the source for the twenty-eight-entry roster in `lib/data/our-work.ts`. **No
+third-party attribution is owed** — the channel and the films are Firstman's.
+Three things about it are load-bearing:
+
+- **`(LOCKED)` means confidential.** Thirteen of the thirty carry it. The owner
+  confirmed on 2026-08-27 that these must not play publicly, which gated three
+  films that had been live and public since 2026-08-07: Jerun Phase 01, Sapura's
+  ONGC KG-DWN-98/2, and the MMHE/Hess/Petronas EPCIC. Their `VideoObject` entries
+  went with them, and their YouTube ids are not carried anywhere in the codebase.
+- **The client-consent question from 2026-08-07 is now larger, not smaller.**
+  `videoObjectSchema` emits `about: Organization` per public film, and the public
+  roster went from six films to sixteen, naming eight clients: Transwater, JPS,
+  MAHB, Google, CITC, Swire Projects, Dyakin and SVP. Publication on the channel
+  is not consent to a portfolio page, and **Google is the highest-exposure name
+  on that list** — four of the sixteen public films are Google work. This is the
+  single biggest open item on the site.
+- **Two entries from the list are deliberately not on the site**: "4-day Forum
+  Highlights" (`Jslk1wQMSp8`) names no client and every card is read
+  client-first; "OFFSHORE WEST DESARU" (`mHEAFOjrIrg`) returns 403 from both
+  oEmbed and the thumbnail CDN, so it is private on YouTube's side.
+
+All twenty-eight thumbnails under `public/images/our-work/` are local copies of
+each film's own YouTube thumbnail, normalised to 1000×563.
+
+### Annotated screenshots
+
+`01_Amendments.png`, `02_Amendments.png` and `03_Amendments.png` are the owner's
+instructions, all three actioned: drop the client names under the homepage logo
+marquee; re-cut the six services; remove the "View Our Work" link from the
+AI-Generated Videos hero ("I dont have any AI Generated samples for now").
 
 ### Homepage bento photographs
 

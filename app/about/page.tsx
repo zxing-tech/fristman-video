@@ -4,6 +4,7 @@ import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
+import { ABOUT_HERO_MEDIA } from "@/lib/hero-media"
 import {
   OFFICE_READOUT,
   REGISTRATION,
@@ -130,6 +131,7 @@ export default function AboutPage() {
         breadcrumb="About Us"
         chip="Verified Operator"
         chipIcon="verified_user"
+        media={ABOUT_HERO_MEDIA}
         lede="We are an industrial cinematography and video documentation team built for oil & gas operators, heavy industry projects and large-scale stakeholder communication across Southeast Asia."
         readout={OFFICE_READOUT}
         title="About Firstman Videos"

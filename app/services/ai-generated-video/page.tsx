@@ -5,10 +5,11 @@ import { PhotoCard } from "@/components/site/photo-card"
 import { ServiceCta } from "@/components/site/service-cta"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 
 export const metadata = pageMeta({
-  title: "AI-Generated Video Production",
+  title: "AI-Generated Videos",
   description:
     "AI-generated video recreations of hazardous scenes for Oil & Gas sites in Malaysia and Southeast Asia, built for safety training and stakeholder communications.",
   path: "/services/ai-generated-video",
@@ -17,12 +18,12 @@ export const metadata = pageMeta({
 const pageSchema = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "AI-Generated Video", path: "/services/ai-generated-video" },
+    { name: "AI-Generated Videos", path: "/services/ai-generated-video" },
   ]),
   serviceSchema({
-    name: "AI-Generated Video",
+    name: "AI-Generated Videos",
     description:
-      "AI-generated recreations of hazardous or inaccessible industrial scenes for safety training, concept Videoization, and corporate communications.",
+      "AI-generated recreations of hazardous or inaccessible industrial scenes for safety training, concept visualisation, and corporate communications.",
     path: "/services/ai-generated-video",
   })
 )
@@ -32,11 +33,11 @@ const supportingCards = [
     icon: "health_and_safety",
     title: "Safety & HSE Training",
     description:
-      "Videoise worst-case scenarios (blowouts, gas releases, evacuations) so crews train against realistic footage without any real-world risk.",
+      "Visualise worst-case scenarios (blowouts, gas releases, evacuations) so crews train against realistic footage without any real-world risk.",
   },
   {
     icon: "lightbulb",
-    title: "Concept & Pitch Videoization",
+    title: "Concept & Pitch Visualisation",
     description:
       "Render proposed facilities, future project phases, or planned events before they exist, giving investors and stakeholders a cinematic preview.",
   },
@@ -48,32 +49,29 @@ export default function AiGeneratedVideoPage() {
       <JsonLd data={pageSchema} />
 
       <ServiceHero
-        breadcrumb="AI-Generated Video"
+        breadcrumb="AI-Generated Videos"
         chip="Impossible-to-Film Scenes"
         chipIcon="auto_awesome"
+        media={SERVICE_HERO_MEDIA["ai-generated-video"]}
         lede="AI-generated recreations of scenes too hazardous or impossible to film live — from an offshore rig explosion to a full crew evacuation. We render these moments with cinematic realism, backed by copywriting that frames each sequence for training and communications."
         title={
           <>
-            AI-Generated Video
+            AI-Generated Videos
             <br />
             <span className="text-white/60">
               for Scenes You Can&apos;t Re-Shoot
             </span>
           </>
         }
+        // One control, not two. The owner asked for the "View Our Work"
+        // link to come off on 2026-08-27 (`03_Amendments.png`): there are no
+        // AI-generated samples published yet, so it pointed at a portfolio
+        // that could not answer the question the button raised. This is the
+        // one service page with no film strip for the same reason.
         actions={
-          <>
-            <CtaButton href="/contact" arrow className="w-full sm:w-fit">
-              Discuss Your Scene
-            </CtaButton>
-            <CtaButton
-              href="/our-work"
-              variant="secondary"
-              className="w-full sm:w-fit"
-            >
-              View Our Work
-            </CtaButton>
-          </>
+          <CtaButton href="/contact" arrow className="w-full sm:w-fit">
+            Discuss Your Scene
+          </CtaButton>
         }
       />
 

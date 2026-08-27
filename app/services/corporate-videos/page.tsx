@@ -1,6 +1,7 @@
 import { CtaButton } from "@/components/site/cta-button"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceFilms } from "@/components/site/service-films"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
 import { JsonLd } from "@/components/seo/json-ld"
@@ -32,12 +33,12 @@ const audiences = [
   {
     icon: "engineering",
     title: "Project Managers",
-    body: "Document critical milestones, verify structural integrity, and provide high-fidelity Video reports for engineering review.",
+    body: "Document critical milestones, verify structural integrity, and provide high-fidelity visual reports for engineering review.",
   },
   {
     icon: "campaign",
     title: "Corporate Comms",
-    body: "Elevate brand perception with premium Video assets that communicate scale, safety, and operational excellence to the market.",
+    body: "Elevate brand perception with premium visual assets that communicate scale, safety, and operational excellence to the market.",
   },
   {
     icon: "groups",
@@ -47,7 +48,7 @@ const audiences = [
   {
     icon: "handshake",
     title: "JV Stakeholders",
-    body: "Provide transparent, high-impact Video updates on joint venture progress and capital expenditure utilization.",
+    body: "Provide transparent, high-impact visual updates on joint venture progress and capital expenditure utilization.",
   },
 ]
 
@@ -67,13 +68,13 @@ const workflowSteps = [
     number: "01",
     title: "Brief & Objectives",
     description:
-      "Aligning on required assets, target audience, and key Video messaging priorities.",
+      "Aligning on required assets, target audience, and key messaging priorities.",
   },
   {
     number: "02",
     title: "Site Planning",
     description:
-      "Reviewing site access, evaluating safety constraints, and scheduling industrial video documentation.",
+      "Reviewing site access, evaluating safety constraints, and scheduling the shoot around live operations.",
   },
   {
     number: "03",
@@ -112,12 +113,14 @@ export default function CorporateVideosPage() {
             <CtaButton href="/contact" arrow className="w-full sm:w-fit">
               Discuss Your Production
             </CtaButton>
+            {/* This page's own films are a scroll away; the hub is one more
+                click past them. */}
             <CtaButton
-              href="/our-work"
+              href="#films"
               variant="secondary"
               className="w-full sm:w-fit"
             >
-              View Our Work
+              Watch the films
             </CtaButton>
           </>
         }
@@ -263,6 +266,16 @@ export default function CorporateVideosPage() {
             </div>
           </div>
         </div>
+      </ServiceSection>
+
+      <ServiceSection
+        band="graphite"
+        eyebrow="Evidence"
+        id="films"
+        lede="Corporate work Firstman has produced, on the company's own channel. Operators, airports, agencies and Google."
+        title="Corporate films"
+      >
+        <ServiceFilms category="Corporate Videos" limit={6} />
       </ServiceSection>
 
       <ServiceCta title="Tell us about the production." />

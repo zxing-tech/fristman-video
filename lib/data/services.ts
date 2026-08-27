@@ -3,6 +3,20 @@
  * navbar Services dropdown, and the "Our Core Services" grid on the homepage —
  * the three used to drift apart, so titles and icons are only correct here.
  * `title` must match the service page's own `pageMeta` title.
+ *
+ * The list was re-cut on 2026-08-27 from the owner's marked-up navbar
+ * (`02_Amendments.png`). Two service lines that had no work behind them —
+ * Facility Overview Films and Industrial Photography — came off, and the two
+ * things the company is actually hired for in Oil & Gas went on in their
+ * place: **topside loadout** (fabrication yard to barge) and **offshore
+ * installation** (the same structure going in at sea). The order below is the
+ * owner's own, and it now reads as a project timeline: brand work, then the
+ * yard, then offshore, then the two lines that stand outside that sequence.
+ *
+ * Five of the six match a category in `lib/data/our-work.ts`, which is what
+ * lets each detail page show its own real films. AI-Generated Videos is the
+ * exception on purpose — the owner has no samples to show yet
+ * (`03_Amendments.png`).
  */
 export type Service = {
   slug: string
@@ -19,45 +33,46 @@ export const services: Service[] = [
     title: "Corporate Videos",
     icon: "movie",
     summary:
-      "High-end cinematic production for corporate communications, marketing, and investor relations within heavy industry.",
+      "Brand films, investor relations and campaign work for operators, contractors and the agencies that serve them.",
   },
   {
-    slug: "facility-overview-films",
-    href: "/services/facility-overview-films",
-    title: "Facility Overview Films",
-    icon: "domain",
+    slug: "og-topside-loadout",
+    href: "/services/og-topside-loadout",
+    title: "O&G Topside Loadout",
+    icon: "precision_manufacturing",
     summary:
-      "Aerial and ground coverage of industrial complexes, refineries, and fabrication yards.",
+      "Fabrication yard to barge — SPMT walks, skidding, sea-fastening and sail-away, covered as one continuous operation.",
+  },
+  {
+    slug: "og-offshore-installation",
+    href: "/services/og-offshore-installation",
+    title: "O&G Offshore Installation",
+    icon: "anchor",
+    summary:
+      "Jacket launch, upending, piling and topside mating, filmed offshore from the vessel and from the air.",
   },
   {
     slug: "ai-generated-video",
     href: "/services/ai-generated-video",
-    title: "AI-Generated Video",
+    title: "AI-Generated Videos",
     icon: "auto_awesome",
     summary:
-      "AI-generated recreations of scenes too hazardous or impossible to film live — from offshore incident simulations to emergency evacuation sequences — rendered with cinematic realism.",
+      "Recreations of scenes too hazardous or impossible to film live, from incident reconstruction to evacuation sequences.",
   },
   {
-    slug: "industrial-photography",
-    href: "/services/industrial-photography",
-    title: "Industrial Photography",
-    icon: "photo_camera",
-    summary:
-      "Documenting critical structural phases, heavy lifts, and compliance checks.",
-  },
-  {
-    slug: "progression-timelapse",
-    href: "/services/progression-timelapse",
-    title: "Construction Progress & Timelapse Capture",
+    slug: "long-term-timelapse",
+    href: "/services/long-term-timelapse",
+    title: "Long-Term Timelapse",
     icon: "timelapse",
     summary:
-      "Automated interval camera setups tracking multi-year site changes.",
+      "Fixed-interval cameras left on site for months, cut down to the few minutes that show the build actually happening.",
   },
   {
     slug: "safety-induction-videos",
     href: "/services/safety-induction-videos",
     title: "Safety and Induction Videos",
     icon: "health_and_safety",
-    summary: "Onsite protocol tutorials covering PPE rules and hazard zones.",
+    summary:
+      "Site-specific induction films covering PPE, hazard zones and emergency procedure, shot at the facility crews will work in.",
   },
 ]

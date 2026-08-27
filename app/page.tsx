@@ -11,6 +11,8 @@ import { services } from "@/lib/data/services"
 // Shared with every /services/* hero, so the two can never drift onto
 // different footage.
 import {
+  DEFAULT_HERO_MEDIA,
+  HERO_GRADES,
   HERO_POSTER,
   HERO_TEXT_SHADOW,
   HERO_VIDEO,
@@ -159,12 +161,16 @@ const regionalCoverage = [
 // stays a plain <img> (next/image would fight the duplicated loop track). Explicit
 // intrinsic dimensions keep the row from collapsing before the logos decode.
 //
-// Every mark is captioned with its client's name. Greyscaling is what forces it:
-// JPS is a wordmark-less roundel whose five waves separate by hue and collapse
-// into one grey ribbon, arc and BTL are initials, and Sapura, MMHE and Heerema
-// are names a visitor outside Oil & Gas cannot read off a monochrome lock-up. A
-// roster only counts as evidence if the reader can name who is on it, and the
-// primary buyer in PRODUCT.md is scanning for names they recognise, not shapes.
+// The marks run uncaptioned. They carried their client's name underneath until
+// 2026-08-27, when the owner asked for the names to come off and "just the logo
+// to exist" (`01_Amendments.png`) — the row is a wall of marks now, not a
+// labelled index of one.
+//
+// The name did not simply disappear with the caption: it moved back onto the
+// image's `alt`, where it was before the caption existed. A greyscaled,
+// wordmark-less roundel is unreadable to a screen reader and to image search
+// alike, and dropping the caption is a Video decision, not a reason to ship a
+// roster of twenty-eight unnamed rectangles.
 function LogoRow({
   label,
   logos,
@@ -174,29 +180,25 @@ function LogoRow({
   logos: { src: string; alt: string }[]
   direction: "left" | "right"
 }) {
-  // The cell is what the track now scrolls, not the bare image: a fixed-width
-  // column holding the mark above its name. Fixed width because the logos all
-  // share one canvas ratio and so render at one width (96px at h-16, 144px at
-  // h-24) — the name is the only thing with a variable measure, and a column
-  // that resizes per client would make the row read as debris. 128/160px holds
-  // the longest single word on the roster ("COMMUNICATIONS", ~112px at 12px)
-  // without hyphenating it.
+  // The cell is what the track scrolls, not the bare image: a fixed-width slot
+  // holding one mark. The logos all share a canvas ratio and so render at one
+  // width (96px at h-16, 144px at h-24), and a fixed slot keeps the gap between
+  // marks even whatever each one's transparent margins do.
   //
-  // `self-start` overrides the track's `align-items: center`. Without it a
-  // two-line caption re-centres its whole cell and drops that logo a few pixels
-  // below its neighbours; top-aligned, the marks stay on one line whatever the
-  // captions below them do.
+  // It stayed a column-width slot after the captions came off rather than
+  // collapsing to the image: the row's rhythm is the thing a wall of logos is
+  // read by, and letting each mark set its own gap makes an evenly-spaced row
+  // look accidental.
+  //
+  // The slot and the mark both grew a step when the captions went. A caption
+  // was 32px of the cell's height and part of what made a 96px logo look
+  // deliberate; without it the row read as small marks in a lot of air. At
+  // h-28 the widest lock-up renders 168px, so the slot has to clear that.
   const cellClass =
-    "group flex w-32 shrink-0 flex-col items-center gap-3 self-start md:w-40 md:gap-4"
+    "group flex w-36 shrink-0 items-center justify-center md:w-48"
 
   const logoClass =
-    "h-16 md:h-24 w-auto object-contain opacity-90 group-hover:opacity-100 dark:invert dark:opacity-75 dark:group-hover:opacity-100 transition-opacity duration-300"
-
-  // Label role at its documented 12px. Tracking drops to 0.05em rather than the
-  // role's 0.1em for the same reason button text does: these hold up to three
-  // words, and 0.1em pushes "Toastmasters International" onto a third line.
-  const nameClass =
-    "text-center font-label text-xs leading-tight font-bold tracking-wider text-balance text-industrial-grey uppercase transition-colors duration-300 group-hover:text-surface"
+    "h-20 md:h-28 w-auto object-contain opacity-90 group-hover:opacity-100 dark:invert dark:opacity-75 dark:group-hover:opacity-100 transition-opacity duration-300"
 
   return (
     // The category chip stacks above the row on narrow screens. Inline, it ate
@@ -240,26 +242,34 @@ function LogoRow({
           )}
         >
           {logos.map((logo) => (
-            <figure key={logo.src} className={cellClass}>
-              {/* The caption is the accessible name now, so the mark itself is
-                  decorative — alt text here would announce every client twice. */}
+            <div key={logo.src} className={cellClass}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.src}
-                alt=""
+                alt={logo.alt}
                 width={180}
                 height={120}
-                loading="lazy"
+                // eager, not lazy — and this is the marquee's own problem, not
+                // a general preference. The track is 4000px wide and moves by
+                // `transform`, so a lazily-loaded mark is still off-screen when
+                // the animation carries it into view and it pops in blank.
+                // Measured 2026-08-27 at 390px: 40 of 76 <img> elements had
+                // loaded two seconds in, and both rows rendered essentially
+                // empty on the section PRODUCT.md calls the site's only
+                // complete piece of proof. All 38 files together are 354 KB and
+                // the duplicate track reuses the same URLs, so eager costs one
+                // fetch each; `fetchPriority="low"` keeps them behind the hero.
+                loading="eager"
+                fetchPriority="low"
                 decoding="async"
                 className={logoClass}
               />
-              <figcaption className={nameClass}>{logo.alt}</figcaption>
-            </figure>
+            </div>
           ))}
           {/* Second pass exists only so the track can loop seamlessly at -50%.
               Hidden from assistive tech so the roster is not read out twice. */}
           {logos.map((logo) => (
-            <figure
+            <div
               key={`${logo.src}-loop`}
               aria-hidden="true"
               className={cellClass}
@@ -270,12 +280,12 @@ function LogoRow({
                 alt=""
                 width={180}
                 height={120}
-                loading="lazy"
+                loading="eager"
+                fetchPriority="low"
                 decoding="async"
                 className={logoClass}
               />
-              <figcaption className={nameClass}>{logo.alt}</figcaption>
-            </figure>
+            </div>
           ))}
         </div>
       </div>
@@ -289,6 +299,11 @@ export default function HomePage() {
   // <link rel="preload"> in the tree emits the hint twice (React hoists a copy
   // and leaves the original); this emits exactly one.
   ReactDOM.preload(HERO_POSTER, { as: "image", fetchPriority: "high" })
+
+  // The homepage builds its own hero rather than using `ServiceHero`, so it has
+  // to select the grade itself. Reading it off `DEFAULT_HERO_MEDIA` is what
+  // makes swapping the clip a one-line change in lib/hero-media.ts again.
+  const heroGrade = HERO_GRADES[DEFAULT_HERO_MEDIA.grade ?? "standard"]
 
   return (
     <>
@@ -310,30 +325,36 @@ export default function HomePage() {
           />
           <HeroVideo src={HERO_VIDEO} srcSmall={HERO_VIDEO_SMALL} />
 
-          {/* Even grade — insurance against a blown-out highlight under white text
-              if this slot is ever swapped for brighter footage. Barely registers
-              on the current clip.
+          {/* The three scrim layers now come from `HERO_GRADES`, the same two
+              objects every `/services/*` hero reads, selected by the clip's own
+              declared grade. They were hand-copied here at `standard` strength
+              and could not follow a change to `DEFAULT_HERO_MEDIA` — which is
+              how the homepage ended up carrying scrims measured against the
+              Pexels night-plant clip while daylight aerial footage played
+              behind them. See the note on `HERO_GRADES` for the measurements.
 
-              Tried at 8% on 2026-08-05 to give the picture back some light, and
-              put back: this flat layer is what holds the eyebrow's backdrop
+              Even grade: this flat layer is what holds the eyebrow's backdrop
               down. Signal Red at 12px tops out at 3.95:1 on pure black, so it
               never clears AA here and the only lever is keeping what sits
-              behind it dark. Measured on the clip's brightest frame, the
-              eyebrow reads 2.55:1 at 15% and drops to 2.42:1 at 8% — already
-              short, and 8% made it shorter. The light was won back in the
-              `.hero-overlay` ramp instead, which is transparent across the top
-              70% of the hero and so cannot touch any of this copy. */}
-          <div className="absolute inset-0 bg-black/15" />
+              behind it dark. Tried at 8% on 2026-08-05 and put back — the
+              eyebrow read 2.55:1 at 15% and 2.42:1 at 8%. The light was won
+              back in the `.hero-overlay` ramp instead, which is transparent
+              across the top 70% of the hero and so cannot touch this copy. */}
+          <div className={cn("absolute inset-0", heroGrade.even)} />
 
           {/* Mobile: the copy runs the full width, so protection is a bottom band. */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:hidden" />
+          <div className={cn("absolute inset-0 md:hidden", heroGrade.phone)} />
 
           {/* Desktop: an ellipse over the copy block alone. The right side of the
               frame — where this clip's subject actually is — and the corners above
               and below the text stay clear. Kept as light as the measured contrast
-              allows: every extra percent here is picture the visitor cannot see,
-              and this clip spends most of its loop dark without any help. */}
-          <div className="absolute inset-0 hidden bg-[radial-gradient(115%_95%_at_16%_52%,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.4)_32%,rgba(0,0,0,0.26)_56%,rgba(0,0,0,0.08)_76%,transparent_90%)] md:block" />
+              allows: every extra percent here is picture the visitor cannot see. */}
+          <div
+            className={cn(
+              "absolute inset-0 hidden md:block",
+              heroGrade.ellipse
+            )}
+          />
 
           {/* Vignette for the floating navbar. Run long enough to also reach the
               eyebrow below it: Signal Red at 12px cannot clear AA on any dark

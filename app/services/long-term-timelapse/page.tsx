@@ -2,31 +2,30 @@ import { CtaButton } from "@/components/site/cta-button"
 import { JsonLd } from "@/components/seo/json-ld"
 import { MaterialIcon } from "@/components/site/material-icon"
 import { ServiceCta } from "@/components/site/service-cta"
+import { ServiceFilms } from "@/components/site/service-films"
 import { ServiceHero } from "@/components/site/service-hero"
 import { ServiceSection } from "@/components/site/service-section"
+import { SERVICE_HERO_MEDIA } from "@/lib/hero-media"
 import { breadcrumbSchema, graph, pageMeta, serviceSchema } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
 export const metadata = pageMeta({
-  title: "Progression & Timelapse Documentation",
+  title: "Long-Term Timelapse",
   description:
-    "Drone progression and timelapse video documentation for construction, fabrication and shutdowns across Malaysia and Southeast Asia's Oil & Gas sites.",
-  path: "/services/progression-timelapse",
+    "Long-term timelapse programmes for construction, fabrication and shutdown projects across Malaysia and Southeast Asia, from fixed cameras left on site for months.",
+  path: "/services/long-term-timelapse",
 })
 
 const structuredData = graph(
   breadcrumbSchema([
     { name: "Home", path: "/" },
-    {
-      name: "Progression & Timelapse",
-      path: "/services/progression-timelapse",
-    },
+    { name: "Long-Term Timelapse", path: "/services/long-term-timelapse" },
   ]),
   serviceSchema({
-    name: "Progression & Timelapse",
+    name: "Long-Term Timelapse",
     description:
-      "Scheduled drone photo and video documentation of long-term industrial builds, tracking site progress from establishment through structural completion.",
-    path: "/services/progression-timelapse",
+      "Fixed-interval and scheduled documentation of long-term industrial builds, tracking site progress from establishment through structural completion.",
+    path: "/services/long-term-timelapse",
   })
 )
 
@@ -60,21 +59,21 @@ const captureApproachPoints = [
 const deliverables = [
   {
     icon: "movie",
-    title: "Adhoc Project Status",
+    title: "Interval Cutdowns",
     description:
-      "Edited sequences detailing chronological progression over 30-day intervals.",
+      "Edited sequences covering a fixed reporting period, usually 30 days, in chronological order.",
   },
   {
     icon: "video_library",
-    title: "Milestone Reports",
+    title: "Milestone Films",
     description:
-      "Focused compilation videos highlighting significant structural achievements.",
+      "Short compilations built around one structural event: a lift, a pour, a load-out.",
   },
   {
     icon: "photo_library",
-    title: "Drone Aerial Photographs",
+    title: "Aerial Stills",
     description:
-      "High-resolution aerial stills explaining maintenance work, for reporting and presentations.",
+      "High-resolution frames from the same vantage each visit, for reports and presentations.",
   },
   {
     icon: "rate_review",
@@ -123,20 +122,24 @@ const timelinePhases = [
   },
 ]
 
-export default function ProgressionTimelapsePage() {
+export default function LongTermTimelapsePage() {
   return (
     <main>
       <JsonLd data={structuredData} />
 
       <ServiceHero
-        breadcrumb="Progression & Timelapse"
+        breadcrumb="Long-Term Timelapse"
         chip="Long-Term Documentation"
-        lede="Video documentation for construction, fabrication, site upgrades, shutdowns, fit-outs and industrial project milestones."
+        chipIcon="timelapse"
+        media={SERVICE_HERO_MEDIA["long-term-timelapse"]}
+        lede="Cameras left on site for months, cut down to the few minutes that show the build actually happening. For construction, fabrication, site upgrades, shutdowns, fit-outs and every milestone in between."
         title={
           <>
-            Construction Progress &amp;
+            Long-Term Timelapse
             <br />
-            <span className="text-white/60">Timelapse Capture</span>
+            <span className="text-white/60">
+              for builds that outlast a site visit
+            </span>
           </>
         }
         actions={
@@ -145,11 +148,11 @@ export default function ProgressionTimelapsePage() {
               Discuss Your Programme
             </CtaButton>
             <CtaButton
-              href="/our-work"
+              href="#films"
               variant="secondary"
               className="w-full sm:w-fit"
             >
-              View Our Work
+              Watch a finished timelapse
             </CtaButton>
           </>
         }
@@ -281,8 +284,8 @@ export default function ProgressionTimelapsePage() {
 
       <ServiceSection
         band="graphite"
-        eyebrow="Worked Example"
-        title="Sample Progression"
+        eyebrow="Programme Shape"
+        title="Phases a programme covers"
       >
         {/* The timeline keeps a narrower measure than the section column: an
             alternating two-column layout stretched to 1280px puts the two
@@ -350,6 +353,16 @@ export default function ProgressionTimelapsePage() {
             ))}
           </ol>
         </div>
+      </ServiceSection>
+
+      <ServiceSection
+        band="panel"
+        eyebrow="Evidence"
+        id="films"
+        lede="Finished timelapse programmes, start to end. Both run months of fixed-interval capture down to a few minutes."
+        title="Timelapse films"
+      >
+        <ServiceFilms category="Long-Term Timelapse" />
       </ServiceSection>
 
       <ServiceCta
